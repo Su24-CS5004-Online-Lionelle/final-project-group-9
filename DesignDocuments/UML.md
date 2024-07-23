@@ -69,12 +69,10 @@ classDiagram
  }
  
     %% Model Package
-    
     %% Model interface
     class IModel {
         <<interface>>
         String DATABASE = "data/nbarecords.json"
-        
         + getPlayer(String playerName) : Player
         + getUserRoster() : Set~Player~
         + getLeagueRoster() : Set~Player~
