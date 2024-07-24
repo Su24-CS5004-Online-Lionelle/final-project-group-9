@@ -5,17 +5,18 @@
 title : NBA Player Stats Application
 ---
 classDiagram
-    direction TD
+    direction TB
     NBAStatDriver --> Controller : Uses
     NBAStatDriver --> IView : Uses
     NBAStatDriver --> IModel : Uses
     View ..|> IView : Implements
+
     Model ..|> IModel : Implements
     Model --> Player : Uses
     Model --> NetUtils : Uses
     Model --> DataFormatter : Uses 
     DataFormatter --> Formats : Uses
-
+    
     %% Driver for application
     class NBAStatDriver {
         - NBAStatDriver()
