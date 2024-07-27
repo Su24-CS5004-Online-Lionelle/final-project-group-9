@@ -82,10 +82,6 @@ public class JFrameView extends JFrame implements IView {
         buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 
         // Add the buttons
-//        searchButton = new JButton("Search");
-//        searchButton.setActionCommand("search");
-//        buttonPanel.add(searchButton);
-
         showListButton = new JButton("Show Current List");
         showListButton.setActionCommand("showList");
         buttonPanel.add(showListButton);
@@ -129,27 +125,32 @@ public class JFrameView extends JFrame implements IView {
 
     @Override
     public void display(String text) {
-
+        lowerTextArea.append(text + "\n");
     }
 
     @Override
     public void setListeners(ActionListener clicks) {
-
+        this.searchButton.addActionListener(clicks);
+        this.showListButton.addActionListener(clicks);
+        this.loadButton.addActionListener(clicks);
+        this.exportButton.addActionListener(clicks);
+        this.clearButton.addActionListener(clicks);
+        this.exitButton.addActionListener(clicks);
     }
 
     @Override
     public String getInputString() {
-        return "";
+        return input.getText();
     }
 
     @Override
     public void clearInputField() {
-
+        input.setText("");
     }
 
     @Override
     public void clearDisplay() {
-
+        lowerTextArea.setText("");
     }
 
     @Override
