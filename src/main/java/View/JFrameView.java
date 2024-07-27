@@ -7,10 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JFrameView extends JFrame implements IView {
-    private JLabel search;
+    private JLabel prompt;
     private JTextField input;
-    private JComboBox<String> dropDown;
-    private List<String> items;
+    private JComboBox<String> dropDown, sortChoice;
+    private List<String> items, sortOrder;
+    private JButton searchButton, showListButton, loadButton, exportButton, clearButton, exitButton;
+    private JTextArea lowerTextArea;
 
 
     public JFrameView(String caption) {
@@ -24,12 +26,12 @@ public class JFrameView extends JFrame implements IView {
         this.setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 
         // adding text prompt to enter search criteria
-        search = new JLabel("Enter search criteria:");
-        search.setAlignmentX((JComponent.CENTER_ALIGNMENT));
-        search.setFont(new Font("Arial", Font.PLAIN, 18));
-        this.add(search);
+        prompt = new JLabel("Enter search criteria:");
+        prompt.setAlignmentX((JComponent.CENTER_ALIGNMENT));
+        prompt.setFont(new Font("Arial", Font.PLAIN, 18));
+        this.add(prompt);
 
-        // panel to hold JTextField and JComboBox
+        // sub-panel to hold JTextField and JComboBox
         JPanel searchPanel = new JPanel();
 
         // adding input text field
@@ -53,14 +55,75 @@ public class JFrameView extends JFrame implements IView {
         items.add("Field goal percentage");
         items.add("3 point percentage");
 
+        // setting sort order list
+        sortOrder = new ArrayList<>();
+        sortOrder.add("Ascending");
+        sortOrder.add("Descending");
+
         dropDown = new JComboBox<>(items.toArray(new String[0]));
 
         dropDown.setMaximumSize(dropDown.getPreferredSize());
         searchPanel.add(dropDown);
 
+        sortChoice = new JComboBox<>(sortOrder.toArray(new String[0]));
+        searchPanel.add(sortChoice);
+
+        // Add search button
+        searchButton = new JButton("Search");
+        searchButton.setActionCommand("search");
+        searchPanel.add(searchButton);
+
         // Add searchPanel to the main JFrame
         searchPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.add(searchPanel);
+
+        // Create sub-panel for buttons
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+
+        // Add the buttons
+//        searchButton = new JButton("Search");
+//        searchButton.setActionCommand("search");
+//        buttonPanel.add(searchButton);
+
+        showListButton = new JButton("Show Current List");
+        showListButton.setActionCommand("showList");
+        buttonPanel.add(showListButton);
+
+        loadButton = new JButton("Load List");
+        loadButton.setActionCommand("load");
+        buttonPanel.add(loadButton);
+
+        exportButton = new JButton("Export Current List");
+        exportButton.setActionCommand("export");
+        buttonPanel.add(exportButton);
+
+        clearButton = new JButton("Clear Display");
+        clearButton.setActionCommand("clear");
+        buttonPanel.add(clearButton);
+
+        exitButton = new JButton("Exit Program");
+        exitButton.setActionCommand("exit");
+        buttonPanel.add(exitButton);
+
+        // Add buttonPanel to the main JFrame
+        buttonPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        this.add(buttonPanel);
+
+        // Create lower display panel
+        JPanel lowerPanel = new JPanel();
+        lowerPanel.setBackground(Color.LIGHT_GRAY);
+        lowerPanel.setLayout(new BorderLayout());
+
+        // Initialize JTextArea
+        lowerTextArea = new JTextArea();
+        lowerTextArea.setEditable(false);
+
+        // Add scroll bar to lower panel
+        lowerPanel.add(new JScrollPane(lowerTextArea), BorderLayout.CENTER);
+
+        // Add lower panel to the frame
+        this.add(lowerPanel);
 
     }
 
