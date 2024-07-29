@@ -46,6 +46,7 @@ public class JFrameView extends JFrame implements IView {
         items.add("Player Name");
         items.add("Age");
         items.add("Position");
+        items.add("Jersey number");
         items.add("Height");
         items.add("Draft year");
         items.add("Draft round");
