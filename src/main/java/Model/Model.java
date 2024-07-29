@@ -7,6 +7,8 @@ import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +64,28 @@ public class Model implements IModel {
      */
     @Override
     public Player getPlayer(String playerName) {
-        return null;
+        try {
+            Player player = null;
+            boolean found = false;
+            for (Player exisitingPlayer : roster) {
+                if (exisitingPlayer.name().equalsIgnoreCase(playerName)) {
+                    found = true;
+                    player = exisitingPlayer;
+                    return player;
+                }
+            }
+            // if player record doesn't exist, need to get info and build the record, then return it.
+            if (found = false) {
+                player = createPlayer(playerName);
+                roster.add(player);
+                write(roster, Formats.XML, new FileOutputStream(DATABASE)); // need to implement and import write from dataformatter
+            }
+            return player;
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
@@ -72,7 +95,7 @@ public class Model implements IModel {
      */
     @Override
     public String getFilePath() {
-        return "";
+        return this.filePath;
     }
 
     /**
@@ -82,11 +105,11 @@ public class Model implements IModel {
      */
     @Override
     public void setFilePath(String filePath) {
-
+        this.filePath = filePath;
     }
 
     /**
-     * Returns a string containing the player record passed in, in the format passed in.
+     * Returns a string containing the player record passed in.
      *
      * @param player
      * @param format
@@ -94,7 +117,31 @@ public class Model implements IModel {
      */
     @Override
     public String toString(Player player, Formats format) {
-        return "";
+        return String.format(
+                """
+                Name: %s\n
+                Age: %d\n
+                Position: %s\n 
+                Height: %s\n 
+                Draft Year: %d\n 
+                Draft Round: %d\n 
+                Draft Pick: %d\n
+                Team: %s\n
+                Conference: %s\n 
+                Points per game: %.3f\n 
+                Rebounds per game: %.3f\n 
+                Assists per game: %.3f\n 
+                Blocks per game: %.3f\n 
+                Steals per game: %.3f\n 
+                Turnovers per game: %.3f\n 
+                Minutes per game: %.3f\n 
+                Field goal percentage per game: %.3f\n 
+                Free throw percentage per game: %.3f\n 
+                Three point percentage per game: %.3f""",
+                player.getName(), player.getAge(), player.getPosition(), player.getHeight(), player.getDraftYear(),
+                player.getDraftRound(), player.getDraftPick(), player.getTeam(), player.getConference(),
+                player.getPpg(), player.getRpg(), player.getApg(), player.getBpg(), player.getSpg(),
+                player.getTpg(), player.getMpg(), player.getFgp(), player.getFtp(), player.getFg3p());
     }
 
     /**
@@ -105,6 +152,6 @@ public class Model implements IModel {
      */
     @Override
     public Player createPlayer(String playerName) {
-        return null;
+        return null; // NEED NETUTILS FIRST.
     }
 }
