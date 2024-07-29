@@ -89,83 +89,162 @@ public class PlayerBean {
     /** Three point field goal percentage of player. */
     private double fg3p;
 
+    /**
+     * Gets player's name.
+     * @return String
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Gets player's age.
+     * @return int
+     */
     public int getAge() {
         return age;
     }
 
+    /**
+     * Gets player's position.
+     * @return String
+     */
     public String getPosition() {
         return position;
     }
 
+    /**
+     * Gets player's height.
+     * @return String
+     */
     public String getHeight() {
         return height;
     }
 
+    /**
+     * Gets player's draft year.
+     * @return int
+     */
     public int getDraftYear() {
         return draftYear;
     }
 
+    /**
+     * Gets player's draft round.
+     * @return int
+     */
     public int getDraftRound() {
         return draftRound;
     }
 
+    /**
+     * Gets player's draft pick.
+     * @return
+     */
     public int getDraftPick() {
         return draftPick;
     }
 
+    /**
+     * Gets player's team.
+     * @return String
+     */
     public String getTeam() {
         return team;
     }
 
+    /**
+     * Gets player's team's conference.
+     * @return
+     */
     public String getConference() {
         return conference;
     }
 
+    /**
+     * Gets player's points per game.
+     * @return double
+     */
     public double getPpg() {
         return ppg;
     }
 
-
+    /**
+     * Gets player's rebounds per game.
+     * @return double
+     */
     public double getRpg() {
         return rpg;
     }
 
+    /**
+     * Gets player's assists per game.
+     * @return double
+     */
     public double getApg() {
         return apg;
     }
 
+    /**
+     * Gets player's blocks per game.
+     * @return double
+     */
     public double getBpg() {
         return bpg;
     }
 
+    /**
+     * Gets player's steals per game.
+     * @return double
+     */
     public double getSpg() {
         return spg;
     }
 
+    /**
+     * Gets player's turnovers per game.
+     * @return double
+     */
     public double getTpg() {
         return tpg;
     }
 
+    /**
+     * Gets player's minutes per game.
+     * @return double
+     */
     public double getMpg() {
         return mpg;
     }
 
+    /**
+     * Gets player's field goal percentage.
+     * @return double
+     */
     public double getFgp() {
         return fgp;
     }
 
+    /**
+     * Gets player's free throw percentage.
+     * @return double
+     */
     public double getFtp() {
         return ftp;
     }
 
+    /**
+     * Gets player's three point shooting percentage.
+     * @return double
+     */
     public double getFg3p() {
         return fg3p;
     }
 
+    /**
+     * Returns a string containing all the PlayerBean attributes.
+     * @return String.
+     */
     public String toString() {
         return String.format(
                 """
