@@ -9,16 +9,16 @@ import java.util.List;
 public class JFrameView extends JFrame implements IView {
     private JLabel prompt;
     private JTextField input;
-    private JComboBox<String> dropDown, sortChoice;
+    private JComboBox<String> filterChoice, sortChoice;
     private List<String> items, sortOrder;
-    private JButton searchButton, showListButton, loadButton, exportButton, clearButton, exitButton;
+    private JButton searchButton, showListButton, loadButton, exportButton, clearButton, exitButton, addButton, removeButton;
     private JTextArea lowerTextArea;
 
 
     public JFrameView(String caption) {
         super(caption);
 
-        setSize(700, 700);
+        setSize(800, 800);
         // centers window
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,6 +45,11 @@ public class JFrameView extends JFrame implements IView {
         items = new ArrayList<>();
         items.add("Player Name");
         items.add("Age");
+        items.add("Position");
+        items.add("Height");
+        items.add("Draft year");
+        items.add("Draft round");
+        items.add("Draft pick");
         items.add("Team");
         items.add("Conference");
         items.add("Points per game");
@@ -52,7 +57,10 @@ public class JFrameView extends JFrame implements IView {
         items.add("Assists per game");
         items.add("Blocks per game");
         items.add("Steals per game");
+        items.add("Turnovers per game");
+        items.add("Minutes per game");
         items.add("Field goal percentage");
+        items.add("Free throw percentage");
         items.add("3 point percentage");
 
         // setting sort order list
@@ -60,10 +68,10 @@ public class JFrameView extends JFrame implements IView {
         sortOrder.add("Ascending");
         sortOrder.add("Descending");
 
-        dropDown = new JComboBox<>(items.toArray(new String[0]));
+        filterChoice = new JComboBox<>(items.toArray(new String[0]));
 
-        dropDown.setMaximumSize(dropDown.getPreferredSize());
-        searchPanel.add(dropDown);
+        filterChoice.setMaximumSize(filterChoice.getPreferredSize());
+        searchPanel.add(filterChoice);
 
         sortChoice = new JComboBox<>(sortOrder.toArray(new String[0]));
         searchPanel.add(sortChoice);
@@ -72,6 +80,15 @@ public class JFrameView extends JFrame implements IView {
         searchButton = new JButton("Search");
         searchButton.setActionCommand("search");
         searchPanel.add(searchButton);
+
+        // Add "add" and "remove" buttons
+        addButton = new JButton("Add");
+        addButton.setActionCommand("add");
+        searchPanel.add(addButton);
+
+        removeButton = new JButton("Remove");
+        removeButton.setActionCommand("remove");
+        searchPanel.add(removeButton);
 
         // Add searchPanel to the main JFrame
         searchPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -86,13 +103,13 @@ public class JFrameView extends JFrame implements IView {
         showListButton.setActionCommand("showList");
         buttonPanel.add(showListButton);
 
-        loadButton = new JButton("Load List");
-        loadButton.setActionCommand("load");
-        buttonPanel.add(loadButton);
-
         exportButton = new JButton("Export Current List");
         exportButton.setActionCommand("export");
         buttonPanel.add(exportButton);
+
+        loadButton = new JButton("Load List");
+        loadButton.setActionCommand("load");
+        buttonPanel.add(loadButton);
 
         clearButton = new JButton("Clear Display");
         clearButton.setActionCommand("clear");
