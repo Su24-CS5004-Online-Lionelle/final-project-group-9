@@ -16,7 +16,7 @@ public class Model implements IModel {
     String filePath;
 
     /** List containing player record objects. */
-    List<Player> roster = new ArrayList<>();
+    List<Player> roster = new ArrayList<Player>();
 
     /** Constructor with default filepath. */
     public Model() {
