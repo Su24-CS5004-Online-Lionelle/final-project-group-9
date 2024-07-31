@@ -42,9 +42,9 @@ public final class Filters {
         case DRAFTPICK:
           return convertInt(player.getDraftPick(), op, val);
       case TEAM:
-    return filterString(player.getTeam(), op, val);
+        return filterString(player.getTeam(), op, val);
       case CONFERENCE:
-      return filterString(player.getConference(), op, val);
+        return filterString(player.getConference(), op, val);
       case PPG:
         return convertDouble(player.getPpg(), op, val);
       case RPG:
