@@ -55,8 +55,6 @@ public final class Filters {
         return convertDouble(player.getBpg(), op, val);
       case SPG:
         return convertDouble(player.getSpg(), op, val);
-      case TPG:
-        return convertDouble(player.getTpg(), op, val);
       case MPG:
         return convertDouble(player.getMpg(), op, val);
       case FGP:

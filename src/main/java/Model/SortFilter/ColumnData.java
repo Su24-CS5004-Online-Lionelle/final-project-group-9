@@ -20,7 +20,7 @@ public enum ColumnData {
   POSITION("position"), HEIGHT("height"), DRAFTYEAR("draftYear"),
   DRAFTROUND("draftRound"), DRAFTPICK("draftpick"), TEAM("team"), CONFERENCE("conference"),
   PPG("ppg"), RPG("rpg"), APG("apg"),
-  BPG("bpg"), SPG("spg"), TPG("tpg"), MPG("mpg"), FGP("fgp"),
+  BPG("bpg"), SPG("spg"), MPG("mpg"), FGP("fgp"),
   FTP("ftp"), FP3P("fg3p");
 
   /** stores the original csv name in the enum. */

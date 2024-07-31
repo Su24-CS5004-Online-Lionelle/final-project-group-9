@@ -50,8 +50,6 @@ public class PlayerSortStrategy {
           return direction ? new BpgAscending() : new BpgDescending();
         case SPG:
           return direction ? new SpgAscending() : new SpgDescending();
-        case TPG:
-          return direction ? new TpgAscending() : new TpgDescending();
         case MPG:
           return direction ? new MpgAscending() : new MpgDescending();
         case FGP:
@@ -425,32 +423,6 @@ public class PlayerSortStrategy {
     @Override
     public int compare(PlayerBean o1, PlayerBean o2) {
       return (int) (o2.getSpg() - (o1.getSpg()));
-    }
-  }
-
-  public static class TpgAscending implements Comparator<PlayerBean> {
-
-    /**
-     * Compares its two arguments for order.  Returns a negative integer,
-     * zero, or a positive integer as the first argument is less than, equal
-     * to, or greater than the second.<p>
-     */
-    @Override
-    public int compare(PlayerBean o1, PlayerBean o2) {
-      return (int) (o1.getTpg() - (o2.getTpg()));
-    }
-  }
-
-  public static class TpgDescending implements Comparator<PlayerBean> {
-
-    /**
-     * Compares its two arguments for order.  Returns a negative integer,
-     * zero, or a positive integer as the first argument is less than, equal
-     * to, or greater than the second.<p>
-     */
-    @Override
-    public int compare(PlayerBean o1, PlayerBean o2) {
-      return (int) (o2.getTpg() - (o1.getTpg()));
     }
   }
 
