@@ -32,6 +32,7 @@ public class Model implements IModel {
     public Model() {
         this.filePath = DATABASE;
         this.roster = new HashSet<Player>();
+        this.NBAROSTER = getAllPlayers();
     }
 
     /**
@@ -40,6 +41,7 @@ public class Model implements IModel {
     public Model(String filePath) {
         this.filePath = filePath;
         this.roster = new HashSet<Player>();
+        this.NBAROSTER = getAllPlayers();
     }
 
     /**
@@ -181,5 +183,5 @@ public class Model implements IModel {
         return s;
     }
     // MIGHT need enum for player attributes.
-    // public Set<Player> makeRoster()
+    // public Set<Player> makeRoster(ColumnData stat, )
 }
