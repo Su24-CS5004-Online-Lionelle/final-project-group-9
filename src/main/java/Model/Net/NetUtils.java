@@ -58,9 +58,6 @@ public final class NetUtils {
     return getUrlContents(urlStr, null);
   }
 
-
-
-
   /**
    * Gets the contents of a URL as a String with optional API key.
    *
