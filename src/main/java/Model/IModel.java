@@ -39,10 +39,9 @@ public interface IModel {
     /**
      * Returns a string containing the player record passed in, in the format passed in.
      * @param player
-     * @param format
      * @return
      */
-    String toString(Player player, Formats format);
+    String toString(Player player);
 
     /**
      * Creates a new record Player object.

@@ -1,4 +1,5 @@
 package Model;
+import Model.Format.Format;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -78,7 +79,7 @@ public class Model implements IModel {
             if (found = false) {
                 player = createPlayer(playerName);
                 roster.add(player);
-                write(roster, Formats.XML, new FileOutputStream(DATABASE)); // need to implement and import write from dataformatter
+                write(roster, Format.XML, new FileOutputStream(filePath)); // need to implement and import write from dataformatter
             }
             return player;
         } catch (FileNotFoundException e) {
@@ -112,11 +113,10 @@ public class Model implements IModel {
      * Returns a string containing the player record passed in.
      *
      * @param player
-     * @param format
      * @return
      */
     @Override
-    public String toString(Player player, Formats format) {
+    public String toString(Player player) {
         return String.format(
                 """
                 Name: %s\n
