@@ -149,15 +149,14 @@ public class Model implements IModel {
                         Assists per game: %.3f\n 
                         Blocks per game: %.3f\n 
                         Steals per game: %.3f\n 
-                        Turnovers per game: %.3f\n 
                         Minutes per game: %.3f\n 
                         Field goal percentage per game: %.3f\n 
                         Free throw percentage per game: %.3f\n 
                         Three point percentage per game: %.3f""",
                 player.getName(), player.getAge(), player.getPosition(), player.getHeight(), player.getDraftYear(),
                 player.getDraftRound(), player.getDraftPick(), player.getTeam(), player.getConference(),
-                player.getPpg(), player.getRpg(), player.getApg(), player.getBpg(), player.getSpg(),
-                player.getTpg(), player.getMpg(), player.getFgp(), player.getFtp(), player.getFg3p());
+                player.getPpg(), player.getRpg(), player.getApg(), player.getBpg(), player.getSpg(), player.getMpg(),
+                player.getFgp(), player.getFtp(), player.getFg3p());
     }
 
     /**
@@ -177,7 +176,7 @@ public class Model implements IModel {
             Player player = new Player(bean.getName(), bean.getAge(), bean.getPosition(), bean.getHeight(),
                     bean.getDraftYear(), bean.getDraftRound(), bean.getDraftPick(), bean.getTeam(),
                     bean.getConference(), bean.getPpg(), bean.getRpg(), bean.getApg(), bean.getBpg(),
-                    bean.getSpg(), bean.getTpg(), bean.getMpg(), bean.getFgp(), bean.getFtp(), bean.getFg3p());
+                    bean.getSpg(), bean.getMpg(), bean.getFgp(), bean.getFtp(), bean.getFg3p());
             s.add(player);
         }
         return s;
