@@ -85,7 +85,7 @@ public class Model implements IModel {
             Player player = null;
             boolean found = false;
             for (Player exisitingPlayer : roster) {
-                if (exisitingPlayer.name().equalsIgnoreCase(playerName)) {
+                if (exisitingPlayer.getName().equalsIgnoreCase(playerName)) {
                     found = true;
                     player = exisitingPlayer;
                     return player;
