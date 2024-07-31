@@ -17,7 +17,9 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
+import static Model.SortFilter.Filters.getFilter;
 import static Model.SortFilter.PlayerSort.sortPlayers;
 
 public class Model implements IModel {
@@ -295,6 +297,9 @@ public class Model implements IModel {
         // remove spaces.
         filter = filter.replace(" ", "");
 
+        // initialize a set to hold the results.
+        Set<Player> result = new LinkedHashSet<Player>();
+
         // when user passes in empty string as filter.
         if (filter == "") {
             NBAROSTER = sortPlayers(NBAROSTER, sortOn, ascending); // follow up with yana on this method.
@@ -313,9 +318,11 @@ public class Model implements IModel {
             String[] singleFilter = separatedFilters[i].split(delimiter);
 
             // define the value that is used for filtering.
-            String valueFilter = singleFilter[1];
+            String value = singleFilter[1];
 
-            // STOPPED HERE.
+            // use filter methods to collect and save to result. STOPPED HERE.
+            NBAROSTER.stream().getFilter(
+                    Player -> getFilter(Player, sortOn, operator, value)).collect(Collectors.toSet());
         }
     }
 }
