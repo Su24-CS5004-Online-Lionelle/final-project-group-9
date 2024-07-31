@@ -14,33 +14,14 @@ public enum ColumnData {
   /**
    * Enums matching CODE(jsonname) pattern.
    *
-   * name and id are used for game uniqueness.
+   * names are used for game uniqueness.
    */
   NAME("name"), AGE("age"),
-  /** Enums that are based on double values in the csv file. */
-  POSITION("position");
-
-  // Insert all attribute headings
-//  String name
-//  int age
-//  String position
-//  String height
-//  int draftYear
-//  int draftRound
-//  int draftPick
-//  String team
-//  String conference
-//  double ppg
-//  double rpg
-//  double apg
-//  double bpg
-//  double spg
-//  double tpg
-//  double mpg
-//  double fgp
-//  double ftp
-//  double fg3p
-
+  POSITION("position"), HEIGHT("height"), DRAFTYEAR("draftYear"),
+  DRAFTROUND("draftRound"), DRAFTPICK("draftpick"), TEAM("team"), CONFERENCE("conference"),
+  PPG("ppg"), RPG("rpg"), APG("apg"),
+  BPG("bpg"), SPG("spg"), TPG("tpg"), MPG("mpg"), FGP("fgp"),
+  FTP("ftp"), FP3P("fg3p");
 
   /** stores the original csv name in the enum. */
   private final String columnName;
@@ -95,5 +76,4 @@ public enum ColumnData {
     }
     throw new IllegalArgumentException("fromString: No column with name " + name);
   }
-  
 }
