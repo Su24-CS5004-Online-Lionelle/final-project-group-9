@@ -47,7 +47,7 @@ public class Model implements IModel {
                 Player player = new Player(bean.getName(), bean.getAge(), bean.getPosition(), bean.getHeight(),
                         bean.getDraftYear(), bean.getDraftRound(), bean.getDraftPick(), bean.getTeam(),
                         bean.getConference(), bean.getPpg(), bean.getRpg(), bean.getApg(), bean.getBpg(),
-                        bean.getSpg(), bean.getTpg(), bean.getMpg(), bean.getFgp(), bean.getFtp(), bean.getFg3p());
+                        bean.getSpg(), bean.getMpg(), bean.getFgp(), bean.getFtp(), bean.getFg3p());
                 roster.add(player);
             }
         } catch (IOException e) {
@@ -69,7 +69,7 @@ public class Model implements IModel {
             Player player = null;
             boolean found = false;
             for (Player exisitingPlayer : roster) {
-                if (exisitingPlayer.name().equalsIgnoreCase(playerName)) {
+                if (exisitingPlayer.getName().equalsIgnoreCase(playerName)) {
                     found = true;
                     player = exisitingPlayer;
                     return player;
