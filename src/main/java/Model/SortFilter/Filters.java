@@ -1,6 +1,6 @@
 package Model.SortFilter;
 
-import Model.PlayerBean;
+import Model.Player;
 
 /**
  * Filters class that filters board player data based on operations passed
@@ -22,7 +22,8 @@ public final class Filters {
    * @param val
    * @return
    */
-  public static boolean getFilter(PlayerBean player, ColumnData type, Operations op, String val) {
+  public static boolean getFilter(Player player, ColumnData type, Operations op,
+                                  String val) {
     // Trim extra white space in value
     val = val.trim();
     
