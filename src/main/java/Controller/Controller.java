@@ -1,5 +1,6 @@
 package Controller;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Set;
@@ -8,7 +9,7 @@ import Model.IModel;
 import Model.PlayerBean;
 import View.IView;
 
-public class Controller implements ActionListener {
+public class Controller extends Component implements ActionListener {
   private IView view;
   private IModel model;
   private String playerName = "all";
@@ -16,42 +17,50 @@ public class Controller implements ActionListener {
   public Controller(IView view, IModel model) {
     this.view = view;
     this.model = model;
-    this.view.setListeners(this); // Sets this controller as listener for the view
+    view.setListeners(this); // Sets this controller as listener for the view
   }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+      switch (e.getActionCommand()) {
+        case "search":
+          view.display("Search button clicked");
+          break;
 
-  @Override
-  public void actionPerformed(ActionEvent e) {
-    String command = e.getActionCommand();
-    view.display(processCommands(command));
-  }
+        case "add":
+          view.display("Add button clicked");
+          break;
 
-  public String processCommands(String command) {
-    switch(command) {
-      case "search":
-        // do something
-      case "add":
-        // do something
-      case "remove":
-        // do something
-      case "showList":
-        // do something
-      case "export":
-        // do something
-      case "load":
-        // do something
-      case "clear":
-        // do something
-      case "exit":
-        System.exit(0);
-      default:
-        return "The command given was invalid.";
+        case "remove":
+          view.display("Remove button clicked");
+          break;
+
+        case "showList":
+          view.display("Show list button clicked");
+          break;
+
+        case "export":
+          view.display("Export button clicked");
+          break;
+
+        case "load":
+          view.display("Load button clicked");
+          break;
+
+        case "clear":
+          view.display("Clear button clicked");
+          view.clearDisplay();
+          break;
+
+        case "exit":
+          System.exit(0);
+          break;
+      }
     }
-  }
 
   /**
    * Provide a help menu to guide user on how to use the program.
-   * 
+   *
    * @return a string containing instructions on what the program does/how to use it
    */
   public String getHelp() {
@@ -60,9 +69,9 @@ public class Controller implements ActionListener {
 
   public void addPlayer(String playerName) {
     Player player = model.getPlayer(playerName);
-    if (player != null) {
-      model.getUserRoster().add(player);
-    }
+//    if (player != null) {
+//      model.getUserRoster().add(player);
+//    }
   }
 
   public Player getPlayer(String playerName, boolean add) {
@@ -78,7 +87,7 @@ public class Controller implements ActionListener {
   }
 
   public String generateRoster() {
-    Set<Player> userRoster = getUserRoster();
+    Set<Player> userRoster = model.getRoster();
     StringBuilder result = new StringBuilder("Generated Roster:\n");
     for (Player player : userRoster) {
       result.append(player.toString()).append("\n");
