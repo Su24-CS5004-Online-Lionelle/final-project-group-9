@@ -1,59 +1,75 @@
 package Model;
 import Model.Format.Format;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Model implements IModel {
-    /** String containing the file path to read from. */
-    String filePath;
+    /**
+     * String containing the file path to read from.
+     */
+    private String filePath;
 
-    /** List containing player record objects. */
-    List<Player> roster = new ArrayList<Player>();
+    /**
+     * Set containing player objects picked by the user.
+     */
+    private Set<Player> roster;
 
-    /** Constructor with default filepath. */
+    /**
+     * Set containing ALL player objects in the 2023-2024 NBA season.
+     */
+    private Set<Player> NBAROSTER = new HashSet<Player>();
+
+    /**
+     * Constructor with default filepath.
+     */
     public Model() {
         this.filePath = DATABASE;
-    }
-
-    /** Overloaded constructor with different filepath. */
-    public Model(String filePath) {
-        this.filePath = filePath;
+        this.roster = new HashSet<Player>();
+        this.NBAROSTER = getAllPlayers();
     }
 
     /**
-     * Gets the players as a list.
+     * Overloaded constructor with different filepath.
+     */
+    public Model(String filePath) {
+        this.filePath = filePath;
+        this.roster = new HashSet<Player>();
+        this.NBAROSTER = getAllPlayers();
+    }
+
+    /**
+     * Gets a set of Player objects.
      *
      * @return the list of players.
      */
     @Override
-    public List<Player> getPlayers() {
+    public Set<Player> getRoster() {
+        return roster;
+    }
+
+    /**
+     * Gets the set containing all current NBA players.
+     *
+     * @return Set containing Player objects.
+     */
+    @Override
+    public Set<Player> getAllPlayers() {
         ObjectMapper mapper = new XmlMapper();
         try {
-            List<PlayerBean> beanList = mapper.readValue(new File(filePath), new TypeReference<List<PlayerBean>>() {
-            });
-            // System.out.println(beanList.size());
-            for (PlayerBean bean : beanList) {
-                Player player = new Player(bean.getName(), bean.getAge(), bean.getPosition(), bean.getHeight(),
-                        bean.getDraftYear(), bean.getDraftRound(), bean.getDraftPick(), bean.getTeam(),
-                        bean.getConference(), bean.getPpg(), bean.getRpg(), bean.getApg(), bean.getBpg(),
-                        bean.getSpg(), bean.getMpg(), bean.getFgp(), bean.getFtp(), bean.getFg3p());
-                roster.add(player);
-            }
-        } catch (IOException e) {
+            List<PlayerBean> beanList = mapper.readValue(new File(DATABASE), new TypeReference<List<PlayerBean>>() { });
+            NBAROSTER = beanToPlayer(beanList);
+        }
+        catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return roster;
+        return NBAROSTER;
     }
 
     /**
@@ -119,33 +135,32 @@ public class Model implements IModel {
     public String toString(Player player) {
         return String.format(
                 """
-                Name: %s\n
-                Age: %d\n
-                Position: %s\n 
-                Height: %s\n 
-                Draft Year: %d\n 
-                Draft Round: %d\n 
-                Draft Pick: %d\n
-                Team: %s\n
-                Conference: %s\n 
-                Points per game: %.3f\n 
-                Rebounds per game: %.3f\n 
-                Assists per game: %.3f\n 
-                Blocks per game: %.3f\n 
-                Steals per game: %.3f\n 
-                Turnovers per game: %.3f\n 
-                Minutes per game: %.3f\n 
-                Field goal percentage per game: %.3f\n 
-                Free throw percentage per game: %.3f\n 
-                Three point percentage per game: %.3f""",
+                        Name: %s\n
+                        Age: %d\n
+                        Position: %s\n 
+                        Height: %s\n 
+                        Draft Year: %d\n 
+                        Draft Round: %d\n 
+                        Draft Pick: %d\n
+                        Team: %s\n
+                        Conference: %s\n 
+                        Points per game: %.3f\n 
+                        Rebounds per game: %.3f\n 
+                        Assists per game: %.3f\n 
+                        Blocks per game: %.3f\n 
+                        Steals per game: %.3f\n 
+                        Minutes per game: %.3f\n 
+                        Field goal percentage per game: %.3f\n 
+                        Free throw percentage per game: %.3f\n 
+                        Three point percentage per game: %.3f""",
                 player.getName(), player.getAge(), player.getPosition(), player.getHeight(), player.getDraftYear(),
                 player.getDraftRound(), player.getDraftPick(), player.getTeam(), player.getConference(),
-                player.getPpg(), player.getRpg(), player.getApg(), player.getBpg(), player.getSpg(),
-                player.getTpg(), player.getMpg(), player.getFgp(), player.getFtp(), player.getFg3p());
+                player.getPpg(), player.getRpg(), player.getApg(), player.getBpg(), player.getSpg(), player.getMpg(),
+                player.getFgp(), player.getFtp(), player.getFg3p());
     }
 
     /**
-     * Creates a new record Player object.
+     * Creates a new record Player object, and adds it to roster.
      *
      * @param playerName
      * @return player
@@ -154,4 +169,18 @@ public class Model implements IModel {
     public Player createPlayer(String playerName) {
         return null; // NEED NETUTILS FIRST.
     }
+
+    public Set<Player> beanToPlayer(List<PlayerBean> beanList) {
+        Set<Player> s = new HashSet<Player>();
+        for (PlayerBean bean : beanList) {
+            Player player = new Player(bean.getName(), bean.getAge(), bean.getPosition(), bean.getHeight(),
+                    bean.getDraftYear(), bean.getDraftRound(), bean.getDraftPick(), bean.getTeam(),
+                    bean.getConference(), bean.getPpg(), bean.getRpg(), bean.getApg(), bean.getBpg(),
+                    bean.getSpg(), bean.getMpg(), bean.getFgp(), bean.getFtp(), bean.getFg3p());
+            s.add(player);
+        }
+        return s;
+    }
+    // MIGHT need enum for player attributes.
+    // public Set<Player> makeRoster(ColumnData stat, )
 }

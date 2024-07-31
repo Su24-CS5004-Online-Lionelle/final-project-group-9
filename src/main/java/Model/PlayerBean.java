@@ -20,7 +20,6 @@ public class PlayerBean {
      * @param apg
      * @param bpg
      * @param spg
-     * @param tpg
      * @param mpg
      * @param fgp
      * @param ftp
@@ -28,7 +27,7 @@ public class PlayerBean {
      */
     public PlayerBean(String name, int age, String position, String height, int draftYear, int draftRound,
                       int draftPick, String team, String conference, double ppg, double rpg, double apg, double
-                      bpg, double spg, double tpg, double mpg, double fgp, double ftp, double fg3p) {
+                      bpg, double spg, double mpg, double fgp, double ftp, double fg3p) {
         this.name = name;
         this.age = age;
         this.position = position;
@@ -43,7 +42,6 @@ public class PlayerBean {
         this.apg = apg;
         this.bpg = bpg;
         this.spg = spg;
-        this.tpg = tpg;
         this.mpg = mpg;
         this.fgp = fgp;
         this.ftp = ftp;
@@ -78,8 +76,6 @@ public class PlayerBean {
     private double bpg;
     /** Steals per game of player. */
     private double spg;
-    /** Turnovers per game of player. */
-    private double tpg;
     /** Minutes per game of player. */
     private double mpg;
     /** Field goal percentage of player. */
@@ -202,14 +198,6 @@ public class PlayerBean {
     }
 
     /**
-     * Gets player's turnovers per game.
-     * @return double
-     */
-    public double getTpg() {
-        return tpg;
-    }
-
-    /**
      * Gets player's minutes per game.
      * @return double
      */
@@ -262,13 +250,12 @@ public class PlayerBean {
                 Assists per game: %.3f\n 
                 Blocks per game: %.3f\n 
                 Steals per game: %.3f\n 
-                Turnovers per game: %.3f\n 
                 Minutes per game: %.3f\n 
                 Field goal percentage per game: %.3f\n 
                 Free throw percentage per game: %.3f\n 
                 Three point percentage per game: %.3f""",
                 getName(), getAge(), getPosition(), getHeight(), getDraftYear(), getDraftRound(), getDraftPick(),
-                getTeam(), getConference(), getPpg(), getRpg(), getApg(), getBpg(), getSpg(), getTpg(), getMpg(),
+                getTeam(), getConference(), getPpg(), getRpg(), getApg(), getBpg(), getSpg(), getMpg(),
                 getFgp(), getFtp(), getFg3p());
     }
 }

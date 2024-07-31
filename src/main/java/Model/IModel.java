@@ -4,17 +4,23 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
-import java.util.List;
-
 public interface IModel {
     /** Default database file. */
     String DATABASE = ""; // need to figure out what to do about default file to read.
 
     /**
      * Gets the players as a list.
+     *
      * @return the list of players.
      */
-    List<Player> getPlayers();
+    Set<Player> getRoster();
+
+    /**
+     * Gets the set containing ALL current NBA players.
+     *
+     * @return Set containing Player objects.
+     */
+    Set<Player> getAllPlayers();
 
     /**
      * Looks up to see if player is in database. If player in database, return player object.
