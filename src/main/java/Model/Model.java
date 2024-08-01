@@ -204,6 +204,12 @@ public class Model implements IModel {
         return null; // NEED NETUTILS FIRST.
     }
 
+    /**
+     * Takes a list of PlayerBean objects and converts it into a set of Player objects.
+     * @param beanList
+     * @return
+     */
+    @Override
     public Set<Player> beanToPlayer(List<PlayerBean> beanList) {
         Set<Player> s = new LinkedHashSet<Player>();
         for (PlayerBean bean : beanList) {
@@ -222,6 +228,7 @@ public class Model implements IModel {
      * @return A set of players that match the filter.
      * @see #filterSortNBARoster(String, ColumnData, boolean)
      */
+    @Override
     public Set<Player> filterSortNBARoster(String filter) {
         return filterSortNBARoster(filter, ColumnData.NAME);
     }
@@ -234,6 +241,7 @@ public class Model implements IModel {
      * @return A set of players that match the filter.
      * @see #filterSortNBARoster(String, ColumnData, boolean)
      */
+    @Override
     public Set<Player> filterSortNBARoster(String filter, ColumnData sortOn) {
         return filterSortNBARoster(filter, sortOn, true);
     }
@@ -300,6 +308,7 @@ public class Model implements IModel {
      * @param ascending Whether to sort the results in ascending or descending order.
      * @return A set of players that match the filter.
      */
+    @Override
     public Set<Player> filterSortNBARoster(String filter, ColumnData sortOn, boolean ascending) {
         // remove spaces.
         filter = filter.replace(" ", "");
@@ -357,6 +366,7 @@ public class Model implements IModel {
      * @param filterSortedSet the filtered and sorted set that contains all players that fit the mold.
      * @param nameOrRange the name of the player, or the index number/range.
      */
+    @Override
     public void buildRoster(Set<Player> filterSortedSet, String nameOrRange) {
         // start by checking for keyword all.
         if (nameOrRange.equalsIgnoreCase("all")) {
@@ -414,6 +424,7 @@ public class Model implements IModel {
      * NOTE: if keyword "all" is given, roster will be emptied.
      * @param nameOrRange
      */
+    @Override
     public void removeFromRoster(String nameOrRange) {
         // start by checking for keyword "all"
         if (nameOrRange.equalsIgnoreCase("all")) {

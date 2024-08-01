@@ -1,9 +1,11 @@
 package Model;
 
+import Model.SortFilter.ColumnData;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
+import java.util.List;
 import java.util.Set;
 
 public interface IModel {
@@ -57,6 +59,119 @@ public interface IModel {
      * @return player
      */
     Player createPlayer(String playerName);
+
+    /**
+     * Takes a list of PlayerBean objects and converts it into a set of Player objects.
+     * @param beanList
+     * @return
+     */
+    Set<Player> beanToPlayer(List<PlayerBean> beanList);
+
+    /**
+     * Assumes results are sorted in ascending order, and by player name.
+     * @param filter The filter to apply on the set of all players.
+     * @return A set of players that match the filter.
+     * @see #filterSortNBARoster(String, ColumnData, boolean)
+     */
+    Set<Player> filterSortNBARoster(String filter);
+
+    /**
+     * Filters players by the passed in text filter. Assumes results are sorted in ascending order.
+     *
+     * @param filter The filter to apply on the set of all players.
+     * @param sortOn The charateristics/statistics of the players to sort on.
+     * @return A set of players that match the filter.
+     * @see #filterSortNBARoster(String, ColumnData, boolean)
+     */
+    Set<Player> filterSortNBARoster(String filter, ColumnData sortOn);
+
+
+    /**
+     * Builds a set by filtering/sorting the set that contains all current NBA players.
+     *
+     * A String filter can be the following options:
+     *
+     * > : greater than
+     *
+     * < : less than
+     *
+     * >= : greater than or equal to
+     *
+     * <= : less than or equal to
+     *
+     * == : equal to
+     *
+     * != : not equal to
+     *
+     * ~= : contains the text
+     *
+     * The left side of the filter describes the column to filter on.
+     *
+     * The right side of the filter describes the value to filter on.
+     *
+     * For example:
+     *
+     * >16.9
+     *
+     * would filter the Players to only players that average greater than 16.9 on the selected ColumnData in GUI.
+     *
+     *
+     * it is possible to filter on the same data multiple times. For example:
+     *
+     * >2.1,<=11.6
+     *
+     * This would filter the players to those only who average greater than 2.1, and less than or equal to 11.6.
+     *
+     * Spaces are ignored, can be added for readability. For example:
+     *
+     * < 12
+     *
+     * is the same as
+     *
+     * <12
+     *
+     * If filtering on a player name, filter is case-insensitive, and accounts spaces. For example:
+     *
+     * ~= jayson tatum OR ~= JAYSON TATUM
+     *
+     * would filter the set to only players with jayson tatum in their name.
+     *
+     * NOTE: id/player_id is a special column that is not used for filtering or sorting.
+     *
+     * If the filter is empty (an empty string), then the set returned will contain ALL players currently
+     * in the NBA in the defined direction, sorted based on the sortOn column.
+     *
+     *
+     *
+     * @param filter    The filter to apply on the players/teams.
+     * @param sortOn    The statistic/characteristic to sort the results on.
+     * @param ascending Whether to sort the results in ascending or descending order.
+     * @return A set of players that match the filter.
+     */
+    Set<Player> filterSortNBARoster(String filter, ColumnData sortOn, boolean ascending);
+
+
+    /**
+     * Method takes in the filtered/sorted set and a name/index/index range and add to roster.
+     *
+     * Format for number range goes from smallest index to largest index. For example:
+     *
+     * 1-5
+     *
+     * NOTE: if string passed in is "all", all players will be added to the user's roster.
+     *
+     * @param filterSortedSet the filtered and sorted set that contains all players that fit the mold.
+     * @param nameOrRange the name of the player, or the index number/range.
+     */
+    void buildRoster(Set<Player> filterSortedSet, String nameOrRange);
+
+    /**
+     * Removes players from user's roster. Built to handle names, indexes/index ranges, and keyword "all".
+     *
+     * NOTE: if keyword "all" is given, roster will be emptied.
+     * @param nameOrRange
+     */
+     void removeFromRoster(String nameOrRange);
 
     /**
      * Record to pass season averages to objects. Immutable, and uses Json annotations to serialize data.
