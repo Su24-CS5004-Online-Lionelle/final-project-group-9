@@ -154,6 +154,8 @@ public class JFrameView extends JFrame implements IView {
         this.exportButton.addActionListener(clicks);
         this.clearButton.addActionListener(clicks);
         this.exitButton.addActionListener(clicks);
+        this.addButton.addActionListener(clicks);
+        this.removeButton.addActionListener(clicks);
     }
 
     @Override
