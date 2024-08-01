@@ -98,28 +98,35 @@ public class Model implements IModel {
 
     /**
      * Looks up to see if player is in database. If player in database, return player object.
-     * If player is not in the roster, serialize player info via BALLDONTLIE api, add to roster, and return new player.
+     * If player is not in the list, serialize player info via BALLDONTLIE api, add to list, and return new player.
      *
      * @param playerName
      * @return player
      */
     @Override
     public Player getPlayer(String playerName) {
-        Player player = null;
-        boolean found = false;
-        for (Player exisitingPlayer : roster) {
-            if (exisitingPlayer.getName().equalsIgnoreCase(playerName)) {
-                found = true;
-                player = exisitingPlayer;
-                return player;
+        try {
+            Player player = null;
+            boolean found = false;
+            for (Player exisitingPlayer : roster) {
+                if (exisitingPlayer.getName().equalsIgnoreCase(playerName)) {
+                    found = true;
+                    player = exisitingPlayer;
+                    return player;
+                }
             }
+            // if player record doesn't exist, need to get info and build the record, then return it.
+            if (found = false) {
+                player = createPlayer(playerName);
+                roster.add(player);
+                write(roster, Format.XML, new FileOutputStream(filePath)); // need to implement and import write from dataformatter
+            }
+            return player;
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-        // if player record doesn't exist, need to get info and build the record, then return it.
-        if (found = false) {
-            player = createPlayer(playerName);
-            roster.add(player);
-        }
-        return player;
     }
 
     /**
@@ -367,7 +374,7 @@ public class Model implements IModel {
         Optional<Player> playerName = filterSortedSet.stream().filter(
                 player -> player.getName().equalsIgnoreCase(nameOrRange)).findFirst();
 
-        // if player name is present, add to set and end there.
+        // if player name is present, add to list and end there.
         if (playerName.isPresent()) {
             roster.add(playerName.get());
             return;
@@ -406,65 +413,5 @@ public class Model implements IModel {
                 throw new IllegalArgumentException("Invalid index input");
             }
         }
-    }
-
-    /**
-     * Removes players from user's roster. Built to handle names, indexes/index ranges, and keyword "all".
-     *
-     * NOTE: if keyword "all" is given, roster will be emptied.
-     * @param nameOrRange
-     */
-    public void removeFromRoster(String nameOrRange) {
-        // start by checking for keyword "all"
-        if (nameOrRange.equalsIgnoreCase("all")) {
-            setRoster(new LinkedHashSet<Player>()); // emptying the roster
-            return; // end method.
-        }
-        // check if the string is the name of a player.
-        Optional<Player> playerName = roster.stream().filter(
-                player -> player.getName().equalsIgnoreCase(nameOrRange)).findFirst();
-
-        // if player name is present, remove player and end there.
-        if (playerName.isPresent()) {
-            roster.remove(playerName.get());
-            return;
-        }
-        // checking if string is a range or a singular number by parsing.
-        String[] range = nameOrRange.split("-");
-
-        // if range's length is 2, then we know it's a range.
-        if (range.length == 2) {
-            try {
-                int start = Integer.parseInt(range[0]) - 1; // -1 because index starts at 0.
-                int end = Integer.parseInt(range[1]);
-
-                // check to make sure format is correct.
-                if (start <= 0 || end > roster.size() || start > end) {
-                    throw new IndexOutOfBoundsException("Index range out of bounds");
-                }
-
-                // remove the desired range of players into the roster.
-                roster.removeAll(roster.stream().toList().subList(start, end));
-            } catch (NumberFormatException e) {
-                throw new IllegalArgumentException("Invalid index range input");
-            }
-            // we have now eliminated every possibility except a singular number.
-        } else {
-            try {
-                int index = Integer.parseInt(nameOrRange) - 1;
-
-                // protect logic by ensuring index is within range.
-                if (index >= 0 && index < roster.size()) {
-                    roster.remove(roster.stream().toList().get(index));
-                } else {
-                    throw new IndexOutOfBoundsException("Index out of bounds");
-                }
-            } catch (NumberFormatException e) {
-                throw new IllegalArgumentException("Invalid index input");
-            }
-        }
-
-
-
     }
 }

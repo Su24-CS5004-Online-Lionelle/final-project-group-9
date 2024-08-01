@@ -7,6 +7,7 @@ import java.util.Set;
 
 import Model.IModel;
 import Model.PlayerBean;
+import Model.Player;
 import View.IView;
 
 public class Controller extends Component implements ActionListener {
@@ -24,7 +25,20 @@ public class Controller extends Component implements ActionListener {
     public void actionPerformed(ActionEvent e) {
       switch (e.getActionCommand()) {
         case "search":
-          view.display("Search button clicked");
+          // get input string
+          String inputString = view.getInputString();
+
+          // Get filter criteria
+
+          // get sort criteria
+
+          // Clear input field
+          view.clearInputField();
+
+          // Clear display field
+          view.clearDisplay();
+
+          //
           break;
 
         case "add":
