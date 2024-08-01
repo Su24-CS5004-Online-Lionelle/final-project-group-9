@@ -98,35 +98,28 @@ public class Model implements IModel {
 
     /**
      * Looks up to see if player is in database. If player in database, return player object.
-     * If player is not in the list, serialize player info via BALLDONTLIE api, add to list, and return new player.
+     * If player is not in the roster, serialize player info via BALLDONTLIE api, add to roster, and return new player.
      *
      * @param playerName
      * @return player
      */
     @Override
     public Player getPlayer(String playerName) {
-        try {
-            Player player = null;
-            boolean found = false;
-            for (Player exisitingPlayer : roster) {
-                if (exisitingPlayer.getName().equalsIgnoreCase(playerName)) {
-                    found = true;
-                    player = exisitingPlayer;
-                    return player;
-                }
+        Player player = null;
+        boolean found = false;
+        for (Player exisitingPlayer : roster) {
+            if (exisitingPlayer.getName().equalsIgnoreCase(playerName)) {
+                found = true;
+                player = exisitingPlayer;
+                return player;
             }
-            // if player record doesn't exist, need to get info and build the record, then return it.
-            if (found = false) {
-                player = createPlayer(playerName);
-                roster.add(player);
-                write(roster, Format.XML, new FileOutputStream(filePath)); // need to implement and import write from dataformatter
-            }
-            return player;
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
+        // if player record doesn't exist, need to get info and build the record, then return it.
+        if (found = false) {
+            player = createPlayer(playerName);
+            roster.add(player);
+        }
+        return player;
     }
 
     /**
