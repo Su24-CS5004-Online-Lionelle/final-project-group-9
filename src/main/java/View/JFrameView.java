@@ -102,15 +102,15 @@ public class JFrameView extends JFrame implements IView {
         buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 
         // Add the buttons
-        showListButton = new JButton("Show Current List");
-        showListButton.setActionCommand("showList");
+        showListButton = new JButton("Show Current Roster");
+        showListButton.setActionCommand("showRoster");
         buttonPanel.add(showListButton);
 
-        exportButton = new JButton("Export Current List");
+        exportButton = new JButton("Export Current Roster");
         exportButton.setActionCommand("export");
         buttonPanel.add(exportButton);
 
-        loadButton = new JButton("Load List");
+        loadButton = new JButton("Load Roster");
         loadButton.setActionCommand("load");
         buttonPanel.add(loadButton);
 
