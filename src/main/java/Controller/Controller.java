@@ -8,6 +8,7 @@ import java.util.Set;
 import Model.IModel;
 import Model.PlayerBean;
 import Model.Player;
+import Model.SortFilter.ColumnData;
 import View.IView;
 
 public class Controller extends Component implements ActionListener {
@@ -29,8 +30,10 @@ public class Controller extends Component implements ActionListener {
           String inputString = view.getInputString();
 
           // Get filter criteria
+          ColumnData selectedFilter = view.getFilterChoice();
 
           // get sort criteria
+          boolean selectedSort = view.getSortChoice();
 
           // Clear input field
           view.clearInputField();
@@ -38,7 +41,8 @@ public class Controller extends Component implements ActionListener {
           // Clear display field
           view.clearDisplay();
 
-          //
+          // Get filter/sorted list of players
+          Set<Player> filteredPlayers = model.
           break;
 
         case "add":
