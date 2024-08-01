@@ -1,5 +1,7 @@
 package View;
 
+import Model.SortFilter.ColumnData;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -58,7 +60,6 @@ public class JFrameView extends JFrame implements IView {
         items.add("Assists per game");
         items.add("Blocks per game");
         items.add("Steals per game");
-        items.add("Turnovers per game");
         items.add("Minutes per game");
         items.add("Field goal percentage");
         items.add("Free throw percentage");
@@ -161,6 +162,16 @@ public class JFrameView extends JFrame implements IView {
     @Override
     public String getInputString() {
         return input.getText();
+    }
+
+    @Override
+    public ColumnData getFilterChoice() {
+
+    }
+
+    @Override
+    public boolean getSortChoice() {
+
     }
 
     @Override
