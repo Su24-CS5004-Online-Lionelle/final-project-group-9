@@ -16,12 +16,12 @@ public enum ColumnData {
    *
    * names are used for game uniqueness.
    */
-  NAME("name"), AGE("age"),
-  POSITION("position"), HEIGHT("height"), DRAFTYEAR("draftYear"),
-  DRAFTROUND("draftRound"), DRAFTPICK("draftpick"), TEAM("team"), CONFERENCE("conference"),
-  PPG("ppg"), RPG("rpg"), APG("apg"),
-  BPG("bpg"), SPG("spg"), MPG("mpg"), FGP("fgp"),
-  FTP("ftp"), FP3P("fg3p");
+  NAME("Player name"), AGE("Age"),
+  POSITION("Position"), HEIGHT("Height"), DRAFTYEAR("Draft year"),
+  DRAFTROUND("Draft round"), DRAFTPICK("Draft pick"), TEAM("Team"), CONFERENCE("Conference"),
+  PPG("Points per game"), RPG("Rebounds per game"), APG("Assists per game"),
+  BPG("Blocks per game"), SPG("Steals per game"), MPG("Minutes per game"), FGP("Field goal percentage"),
+  FTP("Free throw percentage"), FP3P("3 point percentage");
 
   /** stores the original csv name in the enum. */
   private final String columnName;
