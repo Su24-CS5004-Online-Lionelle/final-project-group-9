@@ -1,16 +1,23 @@
 package Model;
 import Model.Format.Format;
+import Model.SortFilter.ColumnData;
+import Model.SortFilter.Operations;
+import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import Model.SortFilter.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
+
+import static Model.SortFilter.Filters.getFilter;
+import static Model.SortFilter.PlayerSort.sortPlayers;
 
 public class Model implements IModel {
     /**
@@ -26,24 +33,39 @@ public class Model implements IModel {
     /**
      * Set containing ALL player objects in the 2023-2024 NBA season.
      */
-    private Set<Player> NBAROSTER = new HashSet<Player>();
+    private Set<Player> NBAROSTER = new LinkedHashSet<Player>();
 
     /**
      * Constructor with default filepath.
+     * Means that user didn't have a previously built roster, so make a new HashSet.
      */
     public Model() {
         this.filePath = DATABASE;
-        this.roster = new HashSet<Player>();
+        this.roster = new LinkedHashSet<Player>();
         this.NBAROSTER = getAllPlayers();
     }
 
     /**
      * Overloaded constructor with different filepath.
+     * Means that the user passed in a file containing a roster of players they want to start with.
      */
     public Model(String filePath) {
         this.filePath = filePath;
-        this.roster = new HashSet<Player>();
         this.NBAROSTER = getAllPlayers();
+
+        // set roster to a set of players found in the data file passed in by user.
+        // start by creating xml mapper to serialize data into roster.
+        ObjectMapper mapper = new XmlMapper();
+        try {
+            List<PlayerBean>  beanList = mapper.readValue(new File(filePath), new TypeReference<List<PlayerBean>>() { });
+            this.roster = new LinkedHashSet<Player>(beanToPlayer(beanList));
+        } catch (StreamReadException e) {
+            throw new RuntimeException(e);
+        } catch (DatabindException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
@@ -137,23 +159,40 @@ public class Model implements IModel {
     public String toString(Player player) {
         return String.format(
                 """
-                        Name: %s\n
-                        Age: %d\n
-                        Position: %s\n 
-                        Height: %s\n 
-                        Draft Year: %d\n 
-                        Draft Round: %d\n 
-                        Draft Pick: %d\n
-                        Team: %s\n
-                        Conference: %s\n 
-                        Points per game: %.3f\n 
-                        Rebounds per game: %.3f\n 
-                        Assists per game: %.3f\n 
-                        Blocks per game: %.3f\n 
-                        Steals per game: %.3f\n 
-                        Minutes per game: %.3f\n 
-                        Field goal percentage per game: %.3f\n 
-                        Free throw percentage per game: %.3f\n 
+                        Name: %s
+                        
+                        Age: %d
+                        
+                        Position: %s
+                         
+                        Height: %s
+                         
+                        Draft Year: %d
+                         
+                        Draft Round: %d
+                         
+                        Draft Pick: %d
+                        
+                        Team: %s
+                        
+                        Conference: %s
+                         
+                        Points per game: %.3f
+                         
+                        Rebounds per game: %.3f
+                         
+                        Assists per game: %.3f
+                         
+                        Blocks per game: %.3f
+                         
+                        Steals per game: %.3f
+                         
+                        Minutes per game: %.3f
+                         
+                        Field goal percentage per game: %.3f
+                         
+                        Free throw percentage per game: %.3f
+                         
                         Three point percentage per game: %.3f""",
                 player.getName(), player.getAge(), player.getPosition(), player.getHeight(), player.getDraftYear(),
                 player.getDraftRound(), player.getDraftPick(), player.getTeam(), player.getConference(),
@@ -173,7 +212,7 @@ public class Model implements IModel {
     }
 
     public Set<Player> beanToPlayer(List<PlayerBean> beanList) {
-        Set<Player> s = new HashSet<Player>();
+        Set<Player> s = new LinkedHashSet<Player>();
         for (PlayerBean bean : beanList) {
             Player player = new Player(bean.getName(), bean.getAge(), bean.getPosition(), bean.getHeight(),
                     bean.getDraftYear(), bean.getDraftRound(), bean.getDraftPick(), bean.getTeam(),
@@ -183,6 +222,196 @@ public class Model implements IModel {
         }
         return s;
     }
-    // MIGHT need enum for player attributes.
-    // public Set<Player> makeRoster(ColumnData stat, )
+
+    /**
+     * Assumes results are sorted in ascending order, and by player name.
+     * @param filter The filter to apply on the set of all players.
+     * @return A set of players that match the filter.
+     * @see #filterSortNBARoster(String, ColumnData, boolean)
+     */
+    public Set<Player> filterSortNBARoster(String filter) {
+        return filterSortNBARoster(filter, ColumnData.NAME);
+    }
+
+    /**
+     * Filters players by the passed in text filter. Assumes results are sorted in ascending order.
+     *
+     * @param filter The filter to apply on the set of all players.
+     * @param sortOn The charateristics/statistics of the players to sort on.
+     * @return A set of players that match the filter.
+     * @see #filterSortNBARoster(String, ColumnData, boolean)
+     */
+    public Set<Player> filterSortNBARoster(String filter, ColumnData sortOn) {
+        return filterSortNBARoster(filter, sortOn, true);
+    }
+
+    /**
+     * Builds a set by filtering/sorting the set that contains all current NBA players.
+     *
+     * A String filter can be the following options:
+     *
+     * > : greater than
+     *
+     * < : less than
+     *
+     * >= : greater than or equal to
+     *
+     * <= : less than or equal to
+     *
+     * == : equal to
+     *
+     * != : not equal to
+     *
+     * ~= : contains the text
+     *
+     * The left side of the filter describes the column to filter on.
+     *
+     * The right side of the filter describes the value to filter on.
+     *
+     * For example:
+     *
+     * >16.9
+     *
+     * would filter the Players to only players that average greater than 16.9 on the selected ColumnData in GUI.
+     *
+     *
+     * it is possible to filter on the same data multiple times. For example:
+     *
+     * >2.1,<=11.6
+     *
+     * This would filter the players to those only who average greater than 2.1, and less than or equal to 11.6.
+     *
+     * Spaces are ignored, can be added for readability. For example:
+     *
+     * < 12
+     *
+     * is the same as
+     *
+     * <12
+     *
+     * If filtering on a player name, filter is case-insensitive, and accounts spaces. For example:
+     *
+     * ~= jayson tatum OR ~= JAYSON TATUM
+     *
+     * would filter the set to only players with jayson tatum in their name.
+     *
+     * NOTE: id/player_id is a special column that is not used for filtering or sorting.
+     *
+     * If the filter is empty (an empty string), then the set returned will contain ALL players currently
+     * in the NBA in the defined direction, sorted based on the sortOn column.
+     *
+     *
+     *
+     * @param filter    The filter to apply on the players/teams.
+     * @param sortOn    The statistic/characteristic to sort the results on.
+     * @param ascending Whether to sort the results in ascending or descending order.
+     * @return A set of players that match the filter.
+     */
+    public Set<Player> filterSortNBARoster(String filter, ColumnData sortOn, boolean ascending) {
+        // remove spaces.
+        filter = filter.replace(" ", "");
+
+        // initialize a set to hold the results.
+        Set<Player> result = new LinkedHashSet<Player>();
+
+        // when user passes in empty string as filter.
+        if (filter == "") {
+            result = sortPlayers(NBAROSTER, sortOn.toString(), ascending);
+            return result;
+        }
+
+        // break down the filter String
+        String[] separatedFilters = filter.split(",");
+
+        // iterate through the elements of the string array, each element is one filter.
+        for (int i = 0; i < separatedFilters.length; i++) {
+            Operations operator = Operations.getOperatorFromStr(separatedFilters[i]);
+
+            // save a string version of operator to split string
+            String delimiter = operator.getOperator();
+            String[] singleFilter = separatedFilters[i].split(delimiter);
+
+            // define the value that is used for filtering.
+            String value = singleFilter[1];
+
+            // use filter methods to collect and save to result.
+            result = NBAROSTER.stream().filter(
+                    Player -> Filters.getFilter(Player, sortOn, operator, value)).collect(Collectors.toSet());
+
+            // after filtering, sort the set based on user's input, then return the roster.
+            result = sortPlayers(result, sortOn.toString(), ascending);
+        }
+        return result;
+    }
+
+    /**
+     * Sets the user roster.
+     * @param roster a set of players.
+     */
+    public void setRoster(Set<Player> roster) {
+        this.roster = roster;
+    }
+
+    /**
+     * Method takes in the filtered/sorted set and a name/index/index range and add to roster.
+     *
+     * Format for number range goes from smallest index to largest index. For example:
+     *
+     * 1-5
+     *
+     * NOTE: if string passed in is "all", all players will be added to the user's roster.
+     *
+     * @param filterSortedSet the filtered and sorted set that contains all players that fit the mold.
+     * @param nameOrRange the name of the player, or the index number/range.
+     */
+    public void buildRoster(Set<Player> filterSortedSet, String nameOrRange) {
+        // start by checking for keyword all.
+        if (nameOrRange.equalsIgnoreCase("all")) {
+            setRoster(filterSortedSet);
+            return; // end method.
+        }
+        // check if the string is the name of a player.
+        Optional<Player> playerName = filterSortedSet.stream().filter(
+                player -> player.getName().equalsIgnoreCase(nameOrRange)).findFirst();
+
+        // if player name is present, add to list and end there.
+        if (playerName.isPresent()) {
+            roster.add(playerName.get());
+            return;
+        }
+        // checking if string is a range or a singular number by parsing.
+        String[] range = nameOrRange.split("-");
+
+        // if range's length is 2, then we know it's a range.
+        if (range.length == 2) {
+            try {
+                int start = Integer.parseInt(range[0]) - 1; // -1 because index starts at 0.
+                int end = Integer.parseInt(range[1]);
+
+                // check to make sure format is correct.
+                if (start <= 0 || end > filterSortedSet.size() || start > end) {
+                    throw new IndexOutOfBoundsException("Index range out of bounds");
+                }
+
+                // add the desired range of players into the roster.
+                roster.addAll(filterSortedSet.stream().toList().subList(start, end));
+            } catch (NumberFormatException e) {
+                throw new IllegalArgumentException("Invalid index range input");
+            }
+            // we have now eliminated every possibility except a singular number.
+        } else {
+            try {
+                int index = Integer.parseInt(nameOrRange) - 1;
+
+                // protect logic by ensuring index is within range.
+                if (index >= 0 && index < filterSortedSet.size()) {
+                    roster.add(filterSortedSet.stream().toList().get(index));
+                } else {
+                    throw new IndexOutOfBoundsException("Index out of bounds");
+                }
+            } catch (NumberFormatException e) {
+                throw new IllegalArgumentException("Invalid index input");
+            }
+        }
+    }
 }
