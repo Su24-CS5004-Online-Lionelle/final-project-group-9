@@ -1,10 +1,13 @@
 package View;
 
+import Model.SortFilter.ColumnData;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class JFrameView extends JFrame implements IView {
     private JLabel prompt;
@@ -43,7 +46,7 @@ public class JFrameView extends JFrame implements IView {
         // JComboBox setup
         // setting drop down items
         items = new ArrayList<>();
-        items.add("Player Name");
+        items.add("Player name");
         items.add("Age");
         items.add("Position");
         items.add("Jersey number");
@@ -58,7 +61,6 @@ public class JFrameView extends JFrame implements IView {
         items.add("Assists per game");
         items.add("Blocks per game");
         items.add("Steals per game");
-        items.add("Turnovers per game");
         items.add("Minutes per game");
         items.add("Field goal percentage");
         items.add("Free throw percentage");
@@ -154,11 +156,28 @@ public class JFrameView extends JFrame implements IView {
         this.exportButton.addActionListener(clicks);
         this.clearButton.addActionListener(clicks);
         this.exitButton.addActionListener(clicks);
+        this.addButton.addActionListener(clicks);
+        this.removeButton.addActionListener(clicks);
     }
 
     @Override
     public String getInputString() {
         return input.getText();
+    }
+
+    @Override
+    public ColumnData getFilterChoice() {
+        // casting Object to string to pass into method
+        return ColumnData.fromColumnName((String) filterChoice.getSelectedItem());
+    }
+
+    @Override
+    public boolean getSortChoice() {
+        if (sortChoice.getSelectedItem() == "Ascending") {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override

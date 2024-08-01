@@ -1,5 +1,7 @@
 package View;
 
+import Model.SortFilter.ColumnData;
+
 import java.awt.event.ActionListener;
 
 /**
@@ -11,6 +13,10 @@ public interface IView {
     void setListeners(ActionListener clicks);
 
     String getInputString();
+
+    ColumnData getFilterChoice();
+
+    boolean getSortChoice();
 
     void clearInputField();
 
