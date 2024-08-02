@@ -27,8 +27,6 @@ public class PlayerSortStrategy {
           return direction ? new FirstNameAscending() : new FirstNameDescending();
       case LAST_NAME:
         return direction ? new LastNameAscending() : new LastNameDescending();
-          case AGE:
-            return direction ? new AgeAscending() : new AgeDescending();
         case POSITION:
           return new PositionAscending();
         case HEIGHT:
@@ -115,32 +113,6 @@ public class PlayerSortStrategy {
     @Override
     public int compare(Player o1, Player o2) {
       return o2.getLastName().compareToIgnoreCase(o1.getLastName());
-    }
-  }
-  
-  public static class AgeAscending implements Comparator<Player> {
-
-    /**
-     * Compares its two arguments for order.  Returns a negative integer,
-     * zero, or a positive integer as the first argument is less than, equal
-     * to, or greater than the second.<p>
-     */
-    @Override
-    public int compare(Player o1, Player o2) {
-      return o1.getAge() - (o2.getAge());
-    }
-  }
-
-  public static class AgeDescending implements Comparator<Player> {
-
-    /**
-     * Compares its two arguments for order.  Returns a negative integer,
-     * zero, or a positive integer as the first argument is less than, equal
-     * to, or greater than the second.<p>
-     */
-    @Override
-    public int compare(Player o1, Player o2) {
-      return o2.getAge() - (o1.getAge());
     }
   }
 

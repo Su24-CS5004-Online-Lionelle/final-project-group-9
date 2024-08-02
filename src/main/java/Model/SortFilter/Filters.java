@@ -32,8 +32,6 @@ public final class Filters {
         return filterString(player.getFirstName(), op, val);
       case LAST_NAME:
         return filterString(player.getLastName(), op, val);
-      case AGE:
-        return convertInt(player.getAge(), op, val);
       case POSITION:
         return filterString(player.getPosition(), op, val);
       case HEIGHT:
