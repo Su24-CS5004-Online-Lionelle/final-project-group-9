@@ -46,8 +46,8 @@ public class JFrameView extends JFrame implements IView {
         // JComboBox setup
         // setting drop down items
         items = new ArrayList<>();
-        items.add("First Name");
-        items.add("Last Name");
+        items.add("First name");
+        items.add("Last name");
         items.add("Position");
         items.add("Height");
         items.add("Draft year");
