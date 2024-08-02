@@ -27,14 +27,6 @@ public interface IModel {
     Set<Player> getAllPlayers();
 
     /**
-     * Looks up to see if player is in database. If player in database, return player object.
-     * If player is not in the list, serialize player info via BALLDONTLIE api, add to list, and return new player.
-     * @param playerName
-     * @return player
-     */
-    Player getPlayer(String playerName);
-
-    /**
      * Gets file path in string.
      * @return String
      */
@@ -54,11 +46,9 @@ public interface IModel {
     String toString(Player player);
 
     /**
-     * Creates a new record Player object.
-     * @param playerName
-     * @return player
+     * Creates the master dates for all filtering, sorting, adding, and removing.
      */
-    Player createPlayer(String playerName);
+    void createNBARoster();
 
     /**
      * Takes a list of PlayerBean objects and converts it into a set of Player objects.
