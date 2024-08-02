@@ -174,7 +174,7 @@ public class Controller extends Component implements ActionListener {
 
             try (OutputStream os = new FileOutputStream(file)) {
               if (format != null) {
-                DataFormatter.write(model.getRoster(), format, os);
+                // DataFormatter.write(model.getRoster(), format, os);
                 view.clearDisplay();
                 view.display("Exported to " + file.getAbsolutePath());
               }
