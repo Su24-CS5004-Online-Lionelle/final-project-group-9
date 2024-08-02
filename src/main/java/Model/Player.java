@@ -5,7 +5,8 @@ import Model.Net.PlayerRecord;
 
 public class Player {
 
-  private String name;
+  private String first_name;
+  private String last_name;
   private int age;
   private String position;
   private String height;
@@ -26,9 +27,10 @@ public class Player {
 
   public Player() {}
 
-  public Player(String name, int age, String position, String height, int draftYear, int draftRound, int draftPick,
+  public Player(String first_name, String last_name, int age, String position, String height, int draftYear, int draftRound, int draftPick,
                 String team, String conference, double ppg, double rpg, double apg, double bpg, double spg, double mpg, double fgp, double ftp, double fg3p) {
-    this.name = name;
+    this.first_name = first_name;
+    this.last_name = last_name;
     this.age = age;
     this.position = position;
     this.height = height;
@@ -48,12 +50,20 @@ public class Player {
     this.fg3p = fg3p;
   }
 
-  public String getName() {
-    return name;
+  public String getFirst_name() {
+    return first_name;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setFirst_name(String first_name) {
+    this.first_name = first_name;
+  }
+
+  public String getLast_name() {
+    return last_name;
+  }
+
+  public void setLast_name(String last_name) {
+    this.last_name = last_name;
   }
 
   public int getAge() {
@@ -196,10 +206,12 @@ public class Player {
   @Override
   public String toString() {
     return String.format(
-            "Name: %s\nAge: %d\nPosition: %s\nHeight: %s\nDraft Year: %d\nDraft Round: %d\nDraft Pick: %d\n" +
+            "First_Name: %s\nLast_Name: %s\nAge: %d\nPosition: %s\nHeight: %s\nDraft Year: %d\nDraft Round: %d\nDraft Pick: %d\n" +
                     "Team: %s\nConference: %s\nPoints per game: %.2f\nRebounds per game: %.2f\nAssists per game: %.2f\n" +
                     "Blocks per game: %.2f\nSteals per game: %.2f\nMinutes per game: %.2f\n" +
                     "Field goal percentage: %.2f\nFree throw percentage: %.2f\nThree-point percentage: %.2f",
-            name, age, position, height, draftYear, draftRound, draftPick, team, conference, ppg, rpg, apg, bpg, spg, mpg, fgp, ftp, fg3p);
+            first_name, last_name, age, position, height, draftYear, draftRound, draftPick, team, conference, ppg, rpg, apg, bpg, spg, mpg, fgp, ftp, fg3p);
   }
+
+
 }
