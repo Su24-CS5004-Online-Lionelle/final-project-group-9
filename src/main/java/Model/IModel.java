@@ -186,6 +186,8 @@ public interface IModel {
     record PlayerAverages(double pts, double ast, double turnover, double pf, double reb, double stl, double blk,
                   double fg_pct, double fg3_pct, double ft_pct, double min, double games_played, int player_id) {
     }
+    record Team(int id, String conference, String division, String city, String name, String full_name,
+                String abbreviation) {}
 
     /**
      * Record to pass player background to objects. Immutable, and uses Json annotations to serialize data.
@@ -206,7 +208,7 @@ public interface IModel {
             "draft_year", "draft_number", "team"})
     record PlayerBackground(int id, String first_name, String last_name, String position, String height,
                             String weight, int jersey_number, int draft_year, int draft_round, int draft_number,
-                            String team) {
+                            Team team) {
 
     }
 }
