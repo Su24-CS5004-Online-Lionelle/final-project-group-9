@@ -44,7 +44,10 @@ public class Model implements IModel {
     public Model() {
         this.filePath = DATABASE;
         this.roster = new LinkedHashSet<Player>();
-        this.NBAROSTER = getAllPlayers();
+
+        // intialize NBAROSTER with createNBARoster.
+        this.NBAROSTER = NBAROSTER;
+        createNBARoster();
     }
 
     /**
@@ -53,7 +56,8 @@ public class Model implements IModel {
      */
     public Model(String filePath) {
         this.filePath = filePath;
-        this.NBAROSTER = getAllPlayers();
+        this.NBAROSTER = NBAROSTER;
+        createNBARoster();
 
         // set roster to a set of players found in the data file passed in by user.
         // start by creating xml mapper to serialize data into roster.
@@ -183,7 +187,13 @@ public class Model implements IModel {
             for (PlayerBackground bg : playerData) {
                 for (PlayerAverages averages : playerAverages) {
                     if (bg.id() == averages.player_id()) {
-                        Player newPlayer = new Player(bg.first_name(), bg.last_name(), )
+                        Player newPlayer = new Player(bg.first_name(), bg.last_name(), bg.position(), bg.height(),
+                                bg.draft_year(), bg.draft_round(), bg.draft_number(), bg.team().full_name(),
+                                bg.team().conference(), averages.pts(), averages.reb(), averages.ast(), averages.blk(),
+                                averages.stl(), averages.min(), averages.fg_pct(), averages.ft_pct(),
+                                averages.fg3_pct());
+                        // add player object to master database.
+                        NBAROSTER.add(newPlayer);
                     }
                 }
             }
