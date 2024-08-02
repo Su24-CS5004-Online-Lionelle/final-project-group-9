@@ -6,7 +6,8 @@ public class PlayerBean {
 
     /**
      * Overloaded PlayerBean constructor containing all data for the Player objects.
-     * @param name
+     * @param firstName
+     * @param lastName
      * @param age
      * @param position
      * @param height
@@ -25,10 +26,11 @@ public class PlayerBean {
      * @param ftp
      * @param fg3p
      */
-    public PlayerBean(String name, int age, String position, String height, int draftYear, int draftRound,
+    public PlayerBean(String firstName, String lastName, int age, String position, String height, int draftYear, int draftRound,
                       int draftPick, String team, String conference, double ppg, double rpg, double apg, double
                       bpg, double spg, double mpg, double fgp, double ftp, double fg3p) {
-        this.name = name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.age = age;
         this.position = position;
         this.height = height;
@@ -48,8 +50,10 @@ public class PlayerBean {
         this.fg3p = fg3p;
     }
 
-    /** Name of player. */
-    private String name;
+    /** First name of player. */
+    private String firstName;
+    /** Last name of player. */
+    private String lastName;
     /** Age of player. */
     private int age;
     /** Position of player. */
@@ -86,11 +90,11 @@ public class PlayerBean {
     private double fg3p;
 
     /**
-     * Gets player's name.
+     * Gets player's first name.
      * @return String
      */
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
     /**
@@ -236,7 +240,8 @@ public class PlayerBean {
     public String toString() {
         return String.format(
                 """
-                Name: %s\n
+                First name: %s\n
+                Last name: %s\n
                 Age: %d\n
                 Position: %s\n 
                 Height: %s\n 
@@ -254,8 +259,16 @@ public class PlayerBean {
                 Field goal percentage per game: %.3f\n 
                 Free throw percentage per game: %.3f\n 
                 Three point percentage per game: %.3f""",
-                getName(), getAge(), getPosition(), getHeight(), getDraftYear(), getDraftRound(), getDraftPick(),
+                getFirstName(), getLastName(), getAge(), getPosition(), getHeight(), getDraftYear(), getDraftRound(), getDraftPick(),
                 getTeam(), getConference(), getPpg(), getRpg(), getApg(), getBpg(), getSpg(), getMpg(),
                 getFgp(), getFtp(), getFg3p());
+    }
+
+    /**
+     * Gets player's last name.
+     * @return String player's last name.
+     */
+    public String getLastName() {
+        return lastName;
     }
 }
