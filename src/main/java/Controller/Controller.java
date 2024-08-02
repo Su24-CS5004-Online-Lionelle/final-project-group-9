@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Set;
 
+import Model.Format.Format;
 import Model.IModel;
 import Model.Model;
 import Model.PlayerBean;
@@ -155,19 +156,19 @@ public class Controller extends Component implements ActionListener {
               file = new File(filePath);
             }
 
-            Formats format = null;
+            Format format = null;
             switch (selectedFileFilter.getExtensions()[0]) {
               case "xml":
-                format = Formats.XML;
+                format = Format.XML;
                 break;
               case "json":
-                format = Formats.JSON;
+                format = Format.JSON;
                 break;
               case "csv":
-                format = Formats.CSV;
+                format = Format.CSV;
                 break;
               case "txt":
-                format = Formats.PRETTY;
+                format = Format.PRETTY;
                 break;
             }
 
