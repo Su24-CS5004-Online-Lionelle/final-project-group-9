@@ -1,5 +1,6 @@
 package Model.Net;
 
+import Model.IModel;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import Model.Net.PlayerRecord;
@@ -35,7 +36,7 @@ public class NetUtils {
     }
   }
 
-  public static List<PlayerRecord> fetchPlayers() throws IOException {
+  public static List<IModel.PlayerBackground> fetchPlayers() throws IOException {
     String endpoint = "/players";
     HttpURLConnection connection = UrlConnection(endpoint);
 
@@ -49,7 +50,7 @@ public class NetUtils {
     }
   }
 
-  public static List<PlayerAverages> fetchSeasonAverages() throws IOException {
+  public static List<IModel.PlayerAverages> fetchSeasonAverages() throws IOException {
     String endpoint = "/season_averages";
     HttpURLConnection connection = UrlConnection(endpoint);
 

@@ -27,14 +27,6 @@ public interface IModel {
     Set<Player> getAllPlayers();
 
     /**
-     * Looks up to see if player is in database. If player in database, return player object.
-     * If player is not in the list, serialize player info via BALLDONTLIE api, add to list, and return new player.
-     * @param playerName
-     * @return player
-     */
-    Player getPlayer(String playerName);
-
-    /**
      * Gets file path in string.
      * @return String
      */
@@ -54,11 +46,9 @@ public interface IModel {
     String toString(Player player);
 
     /**
-     * Creates a new record Player object.
-     * @param playerName
-     * @return player
+     * Creates the master dates for all filtering, sorting, adding, and removing.
      */
-    Player createPlayer(String playerName);
+    void createNBARoster();
 
     /**
      * Takes a list of PlayerBean objects and converts it into a set of Player objects.
@@ -196,6 +186,8 @@ public interface IModel {
     record PlayerAverages(double pts, double ast, double turnover, double pf, double reb, double stl, double blk,
                   double fg_pct, double fg3_pct, double ft_pct, double min, double games_played, int player_id) {
     }
+    record Team(int id, String conference, String division, String city, String name, String full_name,
+                String abbreviation) {}
 
     /**
      * Record to pass player background to objects. Immutable, and uses Json annotations to serialize data.
@@ -216,7 +208,7 @@ public interface IModel {
             "draft_year", "draft_number", "team"})
     record PlayerBackground(int id, String first_name, String last_name, String position, String height,
                             String weight, int jersey_number, int draft_year, int draft_round, int draft_number,
-                            String team) {
+                            Team team) {
 
     }
 }

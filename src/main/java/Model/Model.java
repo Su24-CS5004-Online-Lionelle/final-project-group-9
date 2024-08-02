@@ -16,6 +16,8 @@ import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static Model.Net.NetUtils.fetchPlayers;
+import static Model.Net.NetUtils.fetchSeasonAverages;
 import static Model.SortFilter.Filters.getFilter;
 import static Model.SortFilter.PlayerSort.sortPlayers;
 
@@ -42,7 +44,10 @@ public class Model implements IModel {
     public Model() {
         this.filePath = DATABASE;
         this.roster = new LinkedHashSet<Player>();
-        this.NBAROSTER = getAllPlayers();
+
+        // intialize NBAROSTER with createNBARoster.
+        this.NBAROSTER = NBAROSTER;
+        createNBARoster();
     }
 
     /**
@@ -51,7 +56,8 @@ public class Model implements IModel {
      */
     public Model(String filePath) {
         this.filePath = filePath;
-        this.NBAROSTER = getAllPlayers();
+        this.NBAROSTER = NBAROSTER;
+        createNBARoster();
 
         // set roster to a set of players found in the data file passed in by user.
         // start by creating xml mapper to serialize data into roster.
@@ -97,32 +103,6 @@ public class Model implements IModel {
     }
 
     /**
-     * Looks up to see if player is in database. If player in database, return player object.
-     * If player is not in the roster, serialize player info via BALLDONTLIE api, add to roster, and return new player.
-     *
-     * @param playerName
-     * @return player
-     */
-    @Override
-    public Player getPlayer(String playerName) {
-        Player player = null;
-        boolean found = false;
-        for (Player exisitingPlayer : roster) {
-            if (exisitingPlayer.getName().equalsIgnoreCase(playerName)) {
-                found = true;
-                player = exisitingPlayer;
-                return player;
-            }
-        }
-        // if player record doesn't exist, need to get info and build the record, then return it.
-        if (found = false) {
-            player = createPlayer(playerName);
-            roster.add(player);
-        }
-        return player;
-    }
-
-    /**
      * Gets file path in string.
      *
      * @return String
@@ -152,9 +132,9 @@ public class Model implements IModel {
     public String toString(Player player) {
         return String.format(
                 """
-                        Name: %s
+                        First Name: %s
                         
-                        Age: %d
+                        Last Name: %s
                         
                         Position: %s
                          
@@ -187,21 +167,40 @@ public class Model implements IModel {
                         Free throw percentage per game: %.3f
                          
                         Three point percentage per game: %.3f""",
-                player.getName(), player.getAge(), player.getPosition(), player.getHeight(), player.getDraftYear(),
+                player.getFirstName(), player.getLastName(), player.getPosition(), player.getHeight(), player.getDraftYear(),
                 player.getDraftRound(), player.getDraftPick(), player.getTeam(), player.getConference(),
                 player.getPpg(), player.getRpg(), player.getApg(), player.getBpg(), player.getSpg(), player.getMpg(),
                 player.getFgp(), player.getFtp(), player.getFg3p());
     }
 
     /**
-     * Creates a new record Player object, and adds it to roster.
-     *
-     * @param playerName
-     * @return player
+     * Creates the master database for all filtering, sorting, adding, and removing.
      */
     @Override
-    public Player createPlayer(String playerName) {
-        return null; // NEED NETUTILS FIRST.
+    public void createNBARoster() {
+        try {
+            // initialize list to contain records for player data and season averages.
+            List<PlayerBackground> playerData = fetchPlayers();
+            List<PlayerAverages> playerAverages = fetchSeasonAverages();
+
+            // use nested for loop to iterate through lists to find matching id's to construct the player object.
+            for (PlayerBackground bg : playerData) {
+                for (PlayerAverages averages : playerAverages) {
+                    if (bg.id() == averages.player_id()) {
+                        Player newPlayer = new Player(bg.first_name(), bg.last_name(), bg.position(), bg.height(),
+                                bg.draft_year(), bg.draft_round(), bg.draft_number(), bg.team().full_name(),
+                                bg.team().conference(), averages.pts(), averages.reb(), averages.ast(), averages.blk(),
+                                averages.stl(), averages.min(), averages.fg_pct(), averages.ft_pct(),
+                                averages.fg3_pct());
+                        // add player object to master database.
+                        NBAROSTER.add(newPlayer);
+                    }
+                }
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
@@ -213,7 +212,7 @@ public class Model implements IModel {
     public Set<Player> beanToPlayer(List<PlayerBean> beanList) {
         Set<Player> s = new LinkedHashSet<Player>();
         for (PlayerBean bean : beanList) {
-            Player player = new Player(bean.getFirstName(), bean.getLastName(), bean.getAge(), bean.getPosition(), bean.getHeight(),
+            Player player = new Player(bean.getFirstName(), bean.getLastName(), bean.getPosition(), bean.getHeight(),
                     bean.getDraftYear(), bean.getDraftRound(), bean.getDraftPick(), bean.getTeam(),
                     bean.getConference(), bean.getPpg(), bean.getRpg(), bean.getApg(), bean.getBpg(),
                     bean.getSpg(), bean.getMpg(), bean.getFgp(), bean.getFtp(), bean.getFg3p());
@@ -223,14 +222,14 @@ public class Model implements IModel {
     }
 
     /**
-     * Assumes results are sorted in ascending order, and by player name.
+     * Assumes results are sorted in ascending order, and by player first name.
      * @param filter The filter to apply on the set of all players.
      * @return A set of players that match the filter.
      * @see #filterSortNBARoster(String, ColumnData, boolean)
      */
     @Override
     public Set<Player> filterSortNBARoster(String filter) {
-        return filterSortNBARoster(filter, ColumnData.NAME);
+        return filterSortNBARoster(filter, ColumnData.FIRST_NAME);
     }
 
     /**
@@ -290,11 +289,15 @@ public class Model implements IModel {
      *
      * <12
      *
-     * If filtering on a player name, filter is case-insensitive, and accounts spaces. For example:
+     * If filtering on a player first or last name, filter is case-insensitive, and ignores spaces. For example:
      *
-     * ~= jayson tatum OR ~= JAYSON TATUM
+     * ~= jayson OR ~= JAYSON
      *
-     * would filter the set to only players with jayson tatum in their name.
+     * would filter the set to only players with jayson in their first name if user searches by first name.
+     *
+     * == tatum OR == TATUM
+     *
+     * would filter the set to only players with tatum in their last name if user searches by last name.
      *
      * NOTE: id/player_id is a special column that is not used for filtering or sorting.
      *
@@ -373,16 +376,7 @@ public class Model implements IModel {
             setRoster(filterSortedSet);
             return; // end method.
         }
-        // check if the string is the name of a player.
-        Optional<Player> playerName = filterSortedSet.stream().filter(
-                player -> player.getName().equalsIgnoreCase(nameOrRange)).findFirst();
-
-        // if player name is present, add to set and end there.
-        if (playerName.isPresent()) {
-            roster.add(playerName.get());
-            return;
-        }
-        // checking if string is a range or a singular number by parsing.
+        // checking if string is a range, full name, or singular index by parsing.
         String[] range = nameOrRange.split("-");
 
         // if range's length is 2, then we know it's a range.
@@ -404,19 +398,34 @@ public class Model implements IModel {
             // we have now eliminated every possibility except a singular number.
         } else {
             try {
-                int index = Integer.parseInt(nameOrRange) - 1;
+                // split string by space to check if user passed in a full name.
+                range = nameOrRange.split(" ");
+                if (range.length == 2) { // meaning user passed in a full name.
+                    String firstName = range[0];
+                    String lastName = range[1];
+                    // iterate through filterSortedSet to find the player object.
+                    for (Player player : filterSortedSet) {
+                        if (player.getFirstName().equalsIgnoreCase(firstName) &&
+                                player.getLastName().equalsIgnoreCase(lastName)) {
+                            roster.add(player);
+                            return; // end method here.
+                        }
+                    }
+                } else { // meaning the string passed in must be a singular index.
+                    int index = Integer.parseInt(nameOrRange) - 1;
 
-                // protect logic by ensuring index is within range.
-                if (index >= 0 && index < filterSortedSet.size()) {
-                    roster.add(filterSortedSet.stream().toList().get(index));
-                } else {
-                    throw new IndexOutOfBoundsException("Index out of bounds");
+                    // protect logic by ensuring index is within range.
+                    if (index >= 0 && index < filterSortedSet.size()) {
+                        roster.add(filterSortedSet.stream().toList().get(index));
+                    } else {
+                        throw new IndexOutOfBoundsException("Index out of bounds");
+                    }
                 }
-            } catch (NumberFormatException e) {
-                throw new IllegalArgumentException("Invalid index input");
+            } catch(NumberFormatException e){
+                    throw new IllegalArgumentException("Invalid index input");
+                }
             }
         }
-    }
 
     /**
      * Removes players from user's roster. Built to handle names, indexes/index ranges, and keyword "all".
@@ -431,16 +440,7 @@ public class Model implements IModel {
             setRoster(new LinkedHashSet<Player>()); // emptying the roster
             return; // end method.
         }
-        // check if the string is the name of a player.
-        Optional<Player> playerName = roster.stream().filter(
-                player -> player.getName().equalsIgnoreCase(nameOrRange)).findFirst();
-
-        // if player name is present, remove player and end there.
-        if (playerName.isPresent()) {
-            roster.remove(playerName.get());
-            return;
-        }
-        // checking if string is a range or a singular number by parsing.
+        // checking if string is a range, name, or singular number by parsing.
         String[] range = nameOrRange.split("-");
 
         // if range's length is 2, then we know it's a range.
@@ -462,20 +462,32 @@ public class Model implements IModel {
             // we have now eliminated every possibility except a singular number.
         } else {
             try {
-                int index = Integer.parseInt(nameOrRange) - 1;
+                range = nameOrRange.split(" ");
+                if (range.length == 2) { // meaning user passed in a full name.
+                    String firstName = range[0];
+                    String lastName = range[1];
 
-                // protect logic by ensuring index is within range.
-                if (index >= 0 && index < roster.size()) {
-                    roster.remove(roster.stream().toList().get(index));
-                } else {
-                    throw new IndexOutOfBoundsException("Index out of bounds");
+                    // iterate through roster to find corresponding name
+                    for (Player player : roster) {
+                        if (player.getFirstName().equalsIgnoreCase(firstName) &&
+                                player.getLastName().equalsIgnoreCase(lastName)) {
+                            roster.remove(player);
+                            return; // end method.
+                        }
+                    }
+                } else { // meaning it must be a singular index.
+                    int index = Integer.parseInt(nameOrRange) - 1;
+
+                    // protect logic by ensuring index is within range.
+                    if (index >= 0 && index < roster.size()) {
+                        roster.remove(roster.stream().toList().get(index));
+                    } else {
+                        throw new IndexOutOfBoundsException("Index out of bounds");
+                    }
                 }
             } catch (NumberFormatException e) {
                 throw new IllegalArgumentException("Invalid index input");
             }
         }
-
-
-
     }
 }
