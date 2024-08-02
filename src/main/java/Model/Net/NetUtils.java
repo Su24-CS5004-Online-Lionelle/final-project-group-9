@@ -1,89 +1,66 @@
 package Model.Net;
 
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.InetAddress;
-import java.net.URL;
-import java.net.UnknownHostException;
-import Model.Format.Format;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import Model.Net.PlayerRecord;
+import Model.Net.PlayerAverages;
+
 import java.io.BufferedReader;
-import java.io.InputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.InetAddress;
 import java.net.URL;
-import java.net.UnknownHostException;
+import java.util.List;
 import java.util.stream.Collectors;
 
-import Model.Format.Format;
-public final class NetUtils {
-
-  private static final String SEASON_AVERAGES_URL = "https://api.balldontlie.io/v1/season_averages";
-  private static final String PLAYERS_URL = "https://api.balldontlie.io/v1/players";
+public class NetUtils {
+  private static final String API_URL = "https://api.balldontlie.io/v1";
   private static final String API_KEY = "d8754d2a-af6d-42ab-a674-d3ab4d504ad9";
 
-
-  private NetUtils() {
-    // Prevent instantiation
+  private static HttpURLConnection UrlConnection(String endpoint) throws IOException {
+    URL url = new URL(API_URL + endpoint);
+    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+    connection.setRequestMethod("GET");
+    connection.setRequestProperty("Authorization", "Bearer " + API_KEY);
+    connection.setRequestProperty("Accept", "application/json");
+    return connection;
   }
 
-  /**
-   * Fetches the season averages data from the API.
-   *
-   * @return the response data as a String
-   * @throws Exception if there is an error during the request
-   */
-  public static String fetchSeasonAverages() throws Exception {
-    return getUrlContents(SEASON_AVERAGES_URL);
-  }
-
-  /**
-   * Fetches the players data from the API.
-   *
-   * @return the response data as a String
-   * @throws Exception if there is an error during the request
-   */
-  public static String fetchPlayers() throws Exception {
-    return getUrlContents(PLAYERS_URL, API_KEY);
-  }
-
-  /**
-   * Gets the contents of a URL as a String.
-   *
-   * @param urlStr the URL to get the contents of
-   * @return the contents of the URL as a String
-   * @throws Exception if there is an error during the request
-   */
-  private static String getUrlContents(String urlStr) throws Exception {
-    return getUrlContents(urlStr, null);
-  }
-
-  /**
-   * Gets the contents of a URL as a String with optional API key.
-   *
-   * @param urlStr the URL to get the contents of
-   * @param apiKey the API key to include in the request header (can be null)
-   * @return the contents of the URL as a String
-   * @throws Exception if there is an error during the request
-   */
-  private static String getUrlContents(String urlStr, String apiKey) throws Exception {
-    URL url = new URL(urlStr);
-    HttpURLConnection con = (HttpURLConnection) url.openConnection();
-    con.setRequestMethod("GET");
-    if (apiKey != null) {
-      con.setRequestProperty("Authorization", "Bearer " + apiKey);
+  private static String getUrlContents(HttpURLConnection connection) throws IOException {
+    if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
+      throw new IOException("HTTP error");
     }
-    con.setConnectTimeout(5000);
-    con.setReadTimeout(5000);
-    con.setRequestProperty("User-Agent", "Mozilla/5.0");
+    try (BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
+      return reader.lines().collect(Collectors.joining("\n"));
+    }
+  }
 
-    int status = con.getResponseCode();
-    if (status == 200) {
-      try (BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()))) {
-        return in.lines().collect(Collectors.joining());
-      }
-    } else {
-      throw new Exception("Request failed with response code: " + status);
+  public static List<PlayerRecord> fetchPlayers() throws IOException {
+    String endpoint = "/players";
+    HttpURLConnection connection = UrlConnection(endpoint);
+
+    try {
+      String jsonResponse = getUrlContents(connection);
+      ObjectMapper mapper = new ObjectMapper();
+
+      return mapper.readValue(jsonResponse, mapper.getTypeFactory().constructCollectionType(List.class, PlayerRecord.class));
+    } finally {
+      connection.disconnect();
+    }
+  }
+
+  public static List<PlayerAverages> fetchSeasonAverages() throws IOException {
+    String endpoint = "/season_averages";
+    HttpURLConnection connection = UrlConnection(endpoint);
+
+    try {
+      String jsonResponse = getUrlContents(connection);
+      ObjectMapper mapper = new ObjectMapper();
+
+      return mapper.readValue(jsonResponse, mapper.getTypeFactory().constructCollectionType(List.class, PlayerAverages.class));
+    } finally {
+      connection.disconnect();
     }
   }
 }
+
