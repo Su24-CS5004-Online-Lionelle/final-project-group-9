@@ -213,7 +213,7 @@ public class Model implements IModel {
     public Set<Player> beanToPlayer(List<PlayerBean> beanList) {
         Set<Player> s = new LinkedHashSet<Player>();
         for (PlayerBean bean : beanList) {
-            Player player = new Player(bean.getName(), bean.getAge(), bean.getPosition(), bean.getHeight(),
+            Player player = new Player(bean.getFirstName(), bean.getLastName(), bean.getAge(), bean.getPosition(), bean.getHeight(),
                     bean.getDraftYear(), bean.getDraftRound(), bean.getDraftPick(), bean.getTeam(),
                     bean.getConference(), bean.getPpg(), bean.getRpg(), bean.getApg(), bean.getBpg(),
                     bean.getSpg(), bean.getMpg(), bean.getFgp(), bean.getFtp(), bean.getFg3p());
