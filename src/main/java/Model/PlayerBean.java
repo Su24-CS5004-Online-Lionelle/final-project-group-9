@@ -8,7 +8,6 @@ public class PlayerBean {
      * Overloaded PlayerBean constructor containing all data for the Player objects.
      * @param firstName
      * @param lastName
-     * @param age
      * @param position
      * @param height
      * @param draftYear
@@ -26,12 +25,11 @@ public class PlayerBean {
      * @param ftp
      * @param fg3p
      */
-    public PlayerBean(String firstName, String lastName, int age, String position, String height, int draftYear, int draftRound,
+    public PlayerBean(String firstName, String lastName, String position, String height, int draftYear, int draftRound,
                       int draftPick, String team, String conference, double ppg, double rpg, double apg, double
                       bpg, double spg, double mpg, double fgp, double ftp, double fg3p) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.age = age;
         this.position = position;
         this.height = height;
         this.draftYear = draftYear;
@@ -54,8 +52,6 @@ public class PlayerBean {
     private String firstName;
     /** Last name of player. */
     private String lastName;
-    /** Age of player. */
-    private int age;
     /** Position of player. */
     private String position;
     /** Height of player. */
@@ -95,14 +91,6 @@ public class PlayerBean {
      */
     public String getFirstName() {
         return firstName;
-    }
-
-    /**
-     * Gets player's age.
-     * @return int
-     */
-    public int getAge() {
-        return age;
     }
 
     /**
@@ -242,7 +230,6 @@ public class PlayerBean {
                 """
                 First name: %s\n
                 Last name: %s\n
-                Age: %d\n
                 Position: %s\n 
                 Height: %s\n 
                 Draft Year: %d\n 
@@ -259,7 +246,7 @@ public class PlayerBean {
                 Field goal percentage per game: %.3f\n 
                 Free throw percentage per game: %.3f\n 
                 Three point percentage per game: %.3f""",
-                getFirstName(), getLastName(), getAge(), getPosition(), getHeight(), getDraftYear(), getDraftRound(), getDraftPick(),
+                getFirstName(), getLastName(), getPosition(), getHeight(), getDraftYear(), getDraftRound(), getDraftPick(),
                 getTeam(), getConference(), getPpg(), getRpg(), getApg(), getBpg(), getSpg(), getMpg(),
                 getFgp(), getFtp(), getFg3p());
     }
