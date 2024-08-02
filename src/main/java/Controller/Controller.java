@@ -60,9 +60,6 @@ public class Controller extends Component implements ActionListener {
               case FIRST_NAME:
                 players = players + player.getFirstName() + player.getLastName();
                 break;
-              case AGE:
-                players = players + player.getFirstName() + player.getLastName() + player.getAge();
-                break;
               case POSITION:
                 players = players + player.getFirstName() + player.getLastName() + player.getPosition();
                 break;
