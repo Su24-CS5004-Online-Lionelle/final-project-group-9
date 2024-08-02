@@ -56,56 +56,56 @@ public class Controller extends Component implements ActionListener {
 
           for (Player player : filteredPlayers) {
             switch (selectedFilter) {
-              case NAME:
-                players = players + player.getName();
+              case FIRST_NAME:
+                players = players + player.getFirstName() + player.getLastName();
                 break;
               case AGE:
-                players = players + player.getName() + player.getAge();
+                players = players + player.getFirstName() + player.getLastName() + player.getAge();
                 break;
               case POSITION:
-                players = players + player.getName() + player.getPosition();
+                players = players + player.getFirstName() + player.getLastName() + player.getPosition();
                 break;
               case HEIGHT:
-                players = players + player.getName() + player.getHeight();
+                players = players + player.getFirstName() + player.getLastName() + player.getHeight();
                 break;
               case DRAFTYEAR:
-                players = players + player.getName() + player.getDraftYear();
+                players = players + player.getFirstName() + player.getLastName() + player.getDraftYear();
                 break;
               case DRAFTROUND:
-                players = players + player.getName() + player.getDraftRound();
+                players = players + player.getFirstName() + player.getLastName() + player.getDraftRound();
                 break;
               case DRAFTPICK:
-                players = players + player.getName() + player.getDraftPick();
+                players = players + player.getFirstName() + player.getLastName() + player.getDraftPick();
                 break;
               case TEAM:
-                players = players + player.getName() + player.getTeam();
+                players = players + player.getFirstName() + player.getLastName() + player.getTeam();
                 break;
               case CONFERENCE:
-                players = players + player.getName() + player.getConference();
+                players = players + player.getFirstName() + player.getLastName() + player.getConference();
                 break;
               case PPG:
-                players = players + player.getName() + player.getPpg();
+                players = players + player.getFirstName() + player.getLastName() + player.getPpg();
                 break;
               case RPG:
-                players = players + player.getName() + player.getRpg();
+                players = players + player.getFirstName() + player.getLastName() + player.getRpg();
                 break;
               case APG:
-                players = players + player.getName() + player.getApg();
+                players = players + player.getFirstName() + player.getLastName() + player.getApg();
                 break;
               case BPG:
-                players = players + player.getName() + player.getBpg();
+                players = players + player.getFirstName() + player.getLastName() + player.getBpg();
                 break;
               case SPG:
-                players = players + player.getName() + player.getSpg();
+                players = players + player.getFirstName() + player.getLastName() + player.getSpg();
                 break;
               case MPG:
-                players = players + player.getName() + player.getMpg();
+                players = players + player.getFirstName() + player.getLastName() + player.getMpg();
                 break;
               case FTP:
-                players = players + player.getName() + player.getFtp();
+                players = players + player.getFirstName() + player.getLastName() + player.getFtp();
                 break;
               case FP3P:
-                players = players + player.getName() + player.getFg3p();
+                players = players + player.getFirstName() + player.getLastName() + player.getFg3p();
                 break;
             }
         }
@@ -122,7 +122,7 @@ public class Controller extends Component implements ActionListener {
 
         case "showRoster":
           for (Player player : model.getRoster()) {
-            players = players + player.getName();
+            players = players + player.getFirstName() + player.getLastName();
           }
           view.display(players);
           break;
