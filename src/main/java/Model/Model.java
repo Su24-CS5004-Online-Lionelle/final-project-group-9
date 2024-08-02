@@ -223,14 +223,14 @@ public class Model implements IModel {
     }
 
     /**
-     * Assumes results are sorted in ascending order, and by player name.
+     * Assumes results are sorted in ascending order, and by player first name.
      * @param filter The filter to apply on the set of all players.
      * @return A set of players that match the filter.
      * @see #filterSortNBARoster(String, ColumnData, boolean)
      */
     @Override
     public Set<Player> filterSortNBARoster(String filter) {
-        return filterSortNBARoster(filter, ColumnData.NAME);
+        return filterSortNBARoster(filter, ColumnData.FIRST_NAME);
     }
 
     /**
@@ -290,11 +290,15 @@ public class Model implements IModel {
      *
      * <12
      *
-     * If filtering on a player name, filter is case-insensitive, and accounts spaces. For example:
+     * If filtering on a player first or last name, filter is case-insensitive, and ignores spaces. For example:
      *
-     * ~= jayson tatum OR ~= JAYSON TATUM
+     * ~= jayson OR ~= JAYSON
      *
-     * would filter the set to only players with jayson tatum in their name.
+     * would filter the set to only players with jayson in their first name if user searches by first name.
+     *
+     * == tatum OR == TATUM
+     *
+     * would filter the set to only players with tatum in their last name if user searches by last name.
      *
      * NOTE: id/player_id is a special column that is not used for filtering or sorting.
      *
