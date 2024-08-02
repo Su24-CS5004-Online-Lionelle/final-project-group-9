@@ -23,8 +23,10 @@ public class PlayerSortStrategy {
   public static Comparator<Player> getSort(ColumnData sortType,
                                            boolean direction) {
     switch (sortType) {
-        case NAME:
-          return direction ? new NameAscending() : new NameDescending();
+      case FIRST_NAME:
+          return direction ? new FirstNameAscending() : new FirstNameDescending();
+      case LAST_NAME:
+        return direction ? new LastNameAscending() : new LastNameDescending();
           case AGE:
             return direction ? new AgeAscending() : new AgeDescending();
         case POSITION:
@@ -64,7 +66,7 @@ public class PlayerSortStrategy {
       }
 }
 
-  public static class NameAscending implements Comparator<Player> {
+  public static class FirstNameAscending implements Comparator<Player> {
 
       /**
        * Compares its two arguments for order.  Returns a negative integer,
@@ -73,11 +75,11 @@ public class PlayerSortStrategy {
        */
       @Override
       public int compare(Player o1, Player o2) {
-        return o1.getName().compareToIgnoreCase(o2.getName());
+        return o1.getFirstName().compareToIgnoreCase(o2.getFirstName());
       }
     }
 
-  public static class NameDescending implements Comparator<Player> {
+  public static class FirstNameDescending implements Comparator<Player> {
 
       /**
        * Compares its two arguments for order.  Returns a negative integer,
@@ -86,10 +88,36 @@ public class PlayerSortStrategy {
        */
       @Override
       public int compare(Player o1, Player o2) {
-        return o2.getName().compareToIgnoreCase(o1.getName());
+        return o2.getFirstName().compareToIgnoreCase(o1.getFirstName());
       }
     }
 
+  public static class LastNameAscending implements Comparator<Player> {
+
+    /**
+     * Compares its two arguments for order.  Returns a negative integer,
+     * zero, or a positive integer as the first argument is less than, equal
+     * to, or greater than the second.<p>
+     */
+    @Override
+    public int compare(Player o1, Player o2) {
+      return o1.getLastName().compareToIgnoreCase(o2.getLastName());
+    }
+  }
+
+  public static class LastNameDescending implements Comparator<Player> {
+
+    /**
+     * Compares its two arguments for order.  Returns a negative integer,
+     * zero, or a positive integer as the first argument is less than, equal
+     * to, or greater than the second.<p>
+     */
+    @Override
+    public int compare(Player o1, Player o2) {
+      return o2.getLastName().compareToIgnoreCase(o1.getLastName());
+    }
+  }
+  
   public static class AgeAscending implements Comparator<Player> {
 
     /**

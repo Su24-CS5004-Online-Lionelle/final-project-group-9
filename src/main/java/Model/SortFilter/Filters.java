@@ -28,8 +28,10 @@ public final class Filters {
     val = val.trim();
     
     switch(type) {
-      case NAME:
-        return filterString(player.getName(), op, val);
+      case FIRST_NAME:
+        return filterString(player.getFirstName(), op, val);
+      case LAST_NAME:
+        return filterString(player.getLastName(), op, val);
       case AGE:
         return convertInt(player.getAge(), op, val);
       case POSITION:

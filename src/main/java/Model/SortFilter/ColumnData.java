@@ -16,7 +16,7 @@ public enum ColumnData {
    *
    * names are used for game uniqueness.
    */
-  NAME("Player name"), AGE("Age"),
+  FIRST_NAME("First Name"), LAST_NAME("Last Name"), AGE("Age"),
   POSITION("Position"), HEIGHT("Height"), DRAFTYEAR("Draft year"),
   DRAFTROUND("Draft round"), DRAFTPICK("Draft pick"), TEAM("Team"), CONFERENCE("Conference"),
   PPG("Points per game"), RPG("Rebounds per game"), APG("Assists per game"),
