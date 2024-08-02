@@ -50,19 +50,19 @@ public class Player {
     this.fg3p = fg3p;
   }
 
-  public String getFirst_Name() {
+  public String getFirstName() {
     return first_name;
   }
 
-  public void setFirst_Name(String first_name) {
+  public void setFirstName(String first_name) {
     this.first_name = first_name;
   }
 
-  public String getLast_Name() {
+  public String getLastName() {
     return last_name;
   }
 
-  public void setLast_Name(String last_name) {
+  public void setLastName(String last_name) {
     this.last_name = last_name;
   }
 
