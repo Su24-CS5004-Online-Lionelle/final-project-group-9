@@ -48,7 +48,6 @@ public class JFrameView extends JFrame implements IView {
         items = new ArrayList<>();
         items.add("First Name");
         items.add("Last Name");
-        items.add("Age");
         items.add("Position");
         items.add("Height");
         items.add("Draft year");
