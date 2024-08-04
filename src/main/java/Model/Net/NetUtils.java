@@ -16,6 +16,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
@@ -56,6 +57,43 @@ public class NetUtils {
     }
   }
 
+//  /**
+//   * Gets a player info data.
+//   */
+//  public static IModel.PlayerBackground getAPlayer(String endpoint) throws IOException {
+//    // endpoint searches for player using first and or last name
+//
+//    // returns background data for a player
+//    return null;
+//  }
+
+  /**
+   * Gets a player averages info data.
+   */
+  public static IModel.PlayerAverages getAPlayerAverage(String endpoint) throws IOException {
+    // endpoint searches for player using id
+
+    // returns background data for a player
+    return null;
+  }
+
+  /**
+   * Gets a player info data.
+   */
+  public static IModel.PlayerBackground getAPlayer(String endpoint) throws IOException {
+    // endpoint searches for player using first and or last name
+
+    // returns background data for a player
+    return null;
+  }
+
+  /**
+   * Get all player data string.
+   * @param endpoint
+   * @return
+   * @throws IOException
+   */
+
   public static String getPlayerDataString(String endpoint) throws IOException {
     // Get URL connection using endpoint
     HttpURLConnection connection = UrlConnection(endpoint);
@@ -77,9 +115,9 @@ public class NetUtils {
     List<IModel.PlayerBackground> masterPlayerList = new ArrayList<>();
 
     // Get JSON String containing 100 player
-    String endpoint = "/players?per_page=100";
+    String endpoint = "/players?per_page=100&?seasons[]=2022&seasons[]=2023";
     ObjectMapper mapper = new ObjectMapper();
-    int cursorLimit = 2; // Sets to 2 pages worth aka 200 players
+    int cursorLimit = 25; // Sets to 2 pages worth aka 200 players
 
     while (endpoint != null) {
 
@@ -111,11 +149,57 @@ public class NetUtils {
     }
 
     // Write to database file
-    File file = new File("data/playerbackground.json");
+    File file = new File("data/playerbackground2023.json");
     DataFormatter.write(masterPlayerList, Format.JSON, new FileOutputStream(file));
 
     return masterPlayerList;
   }
+
+  /***
+  public static List<IModel.PlayerBackground> fetchMorePlayers() throws IOException {
+    // Initialize mega player list
+    List<IModel.PlayerBackground> masterPlayerList = new ArrayList<>();
+
+    // Get JSON String containing 100 player
+    String endpoint = "/players?cursor=2600&per_page=100";
+    ObjectMapper mapper = new ObjectMapper();
+    int cursorLimit = 25; // Sets to 2 pages worth aka 200 players
+
+    while (endpoint != null) {
+
+      // Call endpoints
+      String jsonResponse = getPlayerDataString(endpoint);
+      JsonNode rootNode = mapper.readTree(jsonResponse);
+      JsonNode metaNode = rootNode.path("meta");
+      JsonNode dataNode = rootNode.path("data");
+
+      // Map string to object
+      List<IModel.PlayerBackground> currentPagePlayers =
+          mapper.convertValue(dataNode,
+              new TypeReference<List<IModel.PlayerBackground>>() {
+              });
+
+      // Add current page of players to master list
+      masterPlayerList.addAll(currentPagePlayers);
+      System.out.println("\n\n ------ going to next page \n\n");
+
+      // Go to next page
+      JsonNode nextCursor = metaNode.path("next_cursor");
+      if (nextCursor.isMissingNode() || nextCursor.isNull() || cursorLimit == 0) {
+        endpoint = null;
+      } else {
+        endpoint = "/players?cursor=" + nextCursor.asText() + "&per_page=100";
+        cursorLimit--;
+      }
+    }
+
+    // Write to database file
+    File file = new File("data/playerbackground2.json");
+    DataFormatter.write(masterPlayerList, Format.JSON, new FileOutputStream(file));
+
+    return masterPlayerList;
+  }
+ **/
 
   public static List<IModel.PlayerAverages> fetchSeasonAverages() throws IOException {
     String endpoint = "/season_averages";

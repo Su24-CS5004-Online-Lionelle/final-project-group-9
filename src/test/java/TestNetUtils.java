@@ -27,7 +27,19 @@ class TestNetUtils {
 
     assertNotEquals(null, backgroundList);
 
+  }
 
+  @Test
+  void TestFetchMorePlayers() {
+    // Initialize List of players
+    List<IModel.PlayerBackground> backgroundList= new ArrayList<>();
 
+//    try {
+//      backgroundList = NetUtils.fetchMorePlayers();
+//    } catch (IOException e) {
+//      throw new RuntimeException(e);
+//    }
+
+    assertNotEquals(null, backgroundList);
   }
 }

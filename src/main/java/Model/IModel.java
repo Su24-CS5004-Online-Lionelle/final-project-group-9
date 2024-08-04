@@ -206,9 +206,9 @@ public interface IModel {
     @JsonRootName("data")
 //    @JacksonXmlRootElement(localName = "data")
     @JsonPropertyOrder({"id", "first_name", "last_name", "position", "height", "weight", "jersey_number",
-            "draft_year", "draft_number"})
+            "draft_year", "draft_number", "team"})
     record PlayerBackground(int id, String first_name, String last_name, String position, String height,
-                            String weight, String jersey_number, int draft_year, int draft_number) {
+                            String weight, String jersey_number, int draft_year, int draft_number, Team team) {
 
     }
 }
