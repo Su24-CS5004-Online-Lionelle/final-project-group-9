@@ -79,8 +79,10 @@ public class NetUtils {
     // Get JSON String containing 100 player
     String endpoint = "/players?per_page=100";
     ObjectMapper mapper = new ObjectMapper();
+    int cursorLimit = 2; // Sets to 2 pages worth aka 200 players
 
     while (endpoint != null) {
+
       // Call endpoints
       String jsonResponse = getPlayerDataString(endpoint);
       JsonNode rootNode = mapper.readTree(jsonResponse);
@@ -100,10 +102,11 @@ public class NetUtils {
 
       // Go to next page
       JsonNode nextCursor = metaNode.path("next_cursor");
-      if (nextCursor.isMissingNode() || nextCursor.isNull()) {
+      if (nextCursor.isMissingNode() || nextCursor.isNull() || cursorLimit == 0) {
         endpoint = null;
       } else {
         endpoint = "/players?cursor=" + nextCursor.asText() + "&per_page=100";
+        cursorLimit--;
       }
     }
 
