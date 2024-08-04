@@ -1,0 +1,3001 @@
+[ {
+  "id" : 1,
+  "first_name" : "Alex",
+  "last_name" : "Abrines",
+  "position" : "G",
+  "height" : "6-6",
+  "weight" : "190",
+  "jersey_number" : "8",
+  "draft_year" : 2013,
+  "draft_number" : 32
+}, {
+  "id" : 2,
+  "first_name" : "Jaylen",
+  "last_name" : "Adams",
+  "position" : "G",
+  "height" : "6-0",
+  "weight" : "225",
+  "jersey_number" : "10",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 3,
+  "first_name" : "Steven",
+  "last_name" : "Adams",
+  "position" : "C",
+  "height" : "6-11",
+  "weight" : "265",
+  "jersey_number" : "12",
+  "draft_year" : 2013,
+  "draft_number" : 12
+}, {
+  "id" : 4,
+  "first_name" : "Bam",
+  "last_name" : "Adebayo",
+  "position" : "C-F",
+  "height" : "6-9",
+  "weight" : "255",
+  "jersey_number" : "13",
+  "draft_year" : 2017,
+  "draft_number" : 14
+}, {
+  "id" : 5,
+  "first_name" : "DeVaughn",
+  "last_name" : "Akoon-Purcell",
+  "position" : "G-F",
+  "height" : "6-5",
+  "weight" : "201",
+  "jersey_number" : "44",
+  "draft_year" : 2016,
+  "draft_number" : 0
+}, {
+  "id" : 6,
+  "first_name" : "LaMarcus",
+  "last_name" : "Aldridge",
+  "position" : "F",
+  "height" : "6-11",
+  "weight" : "250",
+  "jersey_number" : "21",
+  "draft_year" : 2006,
+  "draft_number" : 2
+}, {
+  "id" : 7,
+  "first_name" : "Rawle",
+  "last_name" : "Alkins",
+  "position" : "G",
+  "height" : "6-5",
+  "weight" : "225",
+  "jersey_number" : "20",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 8,
+  "first_name" : "Grayson",
+  "last_name" : "Allen",
+  "position" : "G",
+  "height" : "6-4",
+  "weight" : "198",
+  "jersey_number" : "8",
+  "draft_year" : 2018,
+  "draft_number" : 21
+}, {
+  "id" : 9,
+  "first_name" : "Jarrett",
+  "last_name" : "Allen",
+  "position" : "C",
+  "height" : "6-9",
+  "weight" : "243",
+  "jersey_number" : "31",
+  "draft_year" : 2017,
+  "draft_number" : 22
+}, {
+  "id" : 10,
+  "first_name" : "Al-Farouq",
+  "last_name" : "Aminu",
+  "position" : "F",
+  "height" : "6-8",
+  "weight" : "220",
+  "jersey_number" : "5",
+  "draft_year" : 2010,
+  "draft_number" : 8
+}, {
+  "id" : 11,
+  "first_name" : "Justin",
+  "last_name" : "Anderson",
+  "position" : "G-F",
+  "height" : "6-5",
+  "weight" : "231",
+  "jersey_number" : "10",
+  "draft_year" : 2015,
+  "draft_number" : 21
+}, {
+  "id" : 12,
+  "first_name" : "Kyle",
+  "last_name" : "Anderson",
+  "position" : "F",
+  "height" : "6-9",
+  "weight" : "230",
+  "jersey_number" : "1",
+  "draft_year" : 2014,
+  "draft_number" : 30
+}, {
+  "id" : 13,
+  "first_name" : "Ryan",
+  "last_name" : "Anderson",
+  "position" : "F",
+  "height" : "6-10",
+  "weight" : "240",
+  "jersey_number" : "31",
+  "draft_year" : 2008,
+  "draft_number" : 21
+}, {
+  "id" : 14,
+  "first_name" : "Ike",
+  "last_name" : "Anigbogu",
+  "position" : "C",
+  "height" : "6-10",
+  "weight" : "262",
+  "jersey_number" : "13",
+  "draft_year" : 2017,
+  "draft_number" : 47
+}, {
+  "id" : 15,
+  "first_name" : "Giannis",
+  "last_name" : "Antetokounmpo",
+  "position" : "F",
+  "height" : "6-11",
+  "weight" : "243",
+  "jersey_number" : "34",
+  "draft_year" : 2013,
+  "draft_number" : 15
+}, {
+  "id" : 16,
+  "first_name" : "Kostas",
+  "last_name" : "Antetokounmpo",
+  "position" : "F",
+  "height" : "6-10",
+  "weight" : "200",
+  "jersey_number" : "37",
+  "draft_year" : 2018,
+  "draft_number" : 60
+}, {
+  "id" : 17,
+  "first_name" : "Carmelo",
+  "last_name" : "Anthony",
+  "position" : "F",
+  "height" : "6-7",
+  "weight" : "238",
+  "jersey_number" : "7",
+  "draft_year" : 2003,
+  "draft_number" : 3
+}, {
+  "id" : 18,
+  "first_name" : "OG",
+  "last_name" : "Anunoby",
+  "position" : "F",
+  "height" : "6-7",
+  "weight" : "240",
+  "jersey_number" : "8",
+  "draft_year" : 2017,
+  "draft_number" : 23
+}, {
+  "id" : 19,
+  "first_name" : "Ryan",
+  "last_name" : "Arcidiacono",
+  "position" : "G",
+  "height" : "6-3",
+  "weight" : "195",
+  "jersey_number" : "51",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 20,
+  "first_name" : "Trevor",
+  "last_name" : "Ariza",
+  "position" : "F",
+  "height" : "6-8",
+  "weight" : "215",
+  "jersey_number" : "8",
+  "draft_year" : 2004,
+  "draft_number" : 43
+}, {
+  "id" : 21,
+  "first_name" : "D.J.",
+  "last_name" : "Augustin",
+  "position" : "G",
+  "height" : "5-11",
+  "weight" : "183",
+  "jersey_number" : "4",
+  "draft_year" : 2008,
+  "draft_number" : 9
+}, {
+  "id" : 22,
+  "first_name" : "Deandre",
+  "last_name" : "Ayton",
+  "position" : "C",
+  "height" : "7-0",
+  "weight" : "247",
+  "jersey_number" : "2",
+  "draft_year" : 2018,
+  "draft_number" : 1
+}, {
+  "id" : 23,
+  "first_name" : "Dwayne",
+  "last_name" : "Bacon",
+  "position" : "G-F",
+  "height" : "6-6",
+  "weight" : "221",
+  "jersey_number" : "8",
+  "draft_year" : 2017,
+  "draft_number" : 40
+}, {
+  "id" : 24,
+  "first_name" : "Marvin",
+  "last_name" : "Bagley III",
+  "position" : "F",
+  "height" : "6-10",
+  "weight" : "235",
+  "jersey_number" : "35",
+  "draft_year" : 2018,
+  "draft_number" : 2
+}, {
+  "id" : 25,
+  "first_name" : "Ron",
+  "last_name" : "Baker",
+  "position" : "G",
+  "height" : "6-4",
+  "weight" : "220",
+  "jersey_number" : "31",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 26,
+  "first_name" : "Wade",
+  "last_name" : "Baldwin IV",
+  "position" : "G",
+  "height" : "6-4",
+  "weight" : "202",
+  "jersey_number" : "2",
+  "draft_year" : 2016,
+  "draft_number" : 17
+}, {
+  "id" : 27,
+  "first_name" : "Lonzo",
+  "last_name" : "Ball",
+  "position" : "G",
+  "height" : "6-6",
+  "weight" : "190",
+  "jersey_number" : "2",
+  "draft_year" : 2017,
+  "draft_number" : 2
+}, {
+  "id" : 28,
+  "first_name" : "Mo",
+  "last_name" : "Bamba",
+  "position" : "C",
+  "height" : "7-0",
+  "weight" : "231",
+  "jersey_number" : "5",
+  "draft_year" : 2018,
+  "draft_number" : 6
+}, {
+  "id" : 29,
+  "first_name" : "J.J.",
+  "last_name" : "Barea",
+  "position" : "G",
+  "height" : "5-10",
+  "weight" : "180",
+  "jersey_number" : "5",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 30,
+  "first_name" : "Harrison",
+  "last_name" : "Barnes",
+  "position" : "F",
+  "height" : "6-8",
+  "weight" : "225",
+  "jersey_number" : "40",
+  "draft_year" : 2012,
+  "draft_number" : 7
+}, {
+  "id" : 31,
+  "first_name" : "Will",
+  "last_name" : "Barton",
+  "position" : "G",
+  "height" : "6-5",
+  "weight" : "181",
+  "jersey_number" : "1",
+  "draft_year" : 2012,
+  "draft_number" : 40
+}, {
+  "id" : 32,
+  "first_name" : "Keita",
+  "last_name" : "Bates-Diop",
+  "position" : "F",
+  "height" : "6-8",
+  "weight" : "229",
+  "jersey_number" : "13",
+  "draft_year" : 2018,
+  "draft_number" : 48
+}, {
+  "id" : 33,
+  "first_name" : "Nicolas",
+  "last_name" : "Batum",
+  "position" : "F-G",
+  "height" : "6-8",
+  "weight" : "230",
+  "jersey_number" : "40",
+  "draft_year" : 2008,
+  "draft_number" : 25
+}, {
+  "id" : 34,
+  "first_name" : "Jerryd",
+  "last_name" : "Bayless",
+  "position" : "G",
+  "height" : "6-3",
+  "weight" : "200",
+  "jersey_number" : "8",
+  "draft_year" : 2008,
+  "draft_number" : 11
+}, {
+  "id" : 35,
+  "first_name" : "Aron",
+  "last_name" : "Baynes",
+  "position" : "C-F",
+  "height" : "6-10",
+  "weight" : "260",
+  "jersey_number" : "46",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 36,
+  "first_name" : "Kent",
+  "last_name" : "Bazemore",
+  "position" : "G",
+  "height" : "6-4",
+  "weight" : "195",
+  "jersey_number" : "9",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 37,
+  "first_name" : "Bradley",
+  "last_name" : "Beal",
+  "position" : "G",
+  "height" : "6-4",
+  "weight" : "207",
+  "jersey_number" : "3",
+  "draft_year" : 2012,
+  "draft_number" : 3
+}, {
+  "id" : 38,
+  "first_name" : "Malik",
+  "last_name" : "Beasley",
+  "position" : "G",
+  "height" : "6-4",
+  "weight" : "187",
+  "jersey_number" : "5",
+  "draft_year" : 2016,
+  "draft_number" : 19
+}, {
+  "id" : 39,
+  "first_name" : "Michael",
+  "last_name" : "Beasley",
+  "position" : "F",
+  "height" : "6-9",
+  "weight" : "235",
+  "jersey_number" : "8",
+  "draft_year" : 2008,
+  "draft_number" : 2
+}, {
+  "id" : 40,
+  "first_name" : "Marco",
+  "last_name" : "Belinelli",
+  "position" : "G-F",
+  "height" : "6-5",
+  "weight" : "220",
+  "jersey_number" : "18",
+  "draft_year" : 2007,
+  "draft_number" : 18
+}, {
+  "id" : 41,
+  "first_name" : "Jordan",
+  "last_name" : "Bell",
+  "position" : "F",
+  "height" : "6-8",
+  "weight" : "216",
+  "jersey_number" : "7",
+  "draft_year" : 2017,
+  "draft_number" : 38
+}, {
+  "id" : 42,
+  "first_name" : "DeAndre'",
+  "last_name" : "Bembry",
+  "position" : "F",
+  "height" : "6-5",
+  "weight" : "210",
+  "jersey_number" : "95",
+  "draft_year" : 2016,
+  "draft_number" : 21
+}, {
+  "id" : 43,
+  "first_name" : "Dragan",
+  "last_name" : "Bender",
+  "position" : "F",
+  "height" : "7-1",
+  "weight" : "225",
+  "jersey_number" : "35",
+  "draft_year" : 2016,
+  "draft_number" : 4
+}, {
+  "id" : 44,
+  "first_name" : "Davis",
+  "last_name" : "Bertans",
+  "position" : "F",
+  "height" : "6-10",
+  "weight" : "225",
+  "jersey_number" : "9",
+  "draft_year" : 2011,
+  "draft_number" : 42
+}, {
+  "id" : 45,
+  "first_name" : "Patrick",
+  "last_name" : "Beverley",
+  "position" : "G",
+  "height" : "6-2",
+  "weight" : "180",
+  "jersey_number" : "21",
+  "draft_year" : 2009,
+  "draft_number" : 42
+}, {
+  "id" : 46,
+  "first_name" : "Khem",
+  "last_name" : "Birch",
+  "position" : "C",
+  "height" : "6-8",
+  "weight" : "233",
+  "jersey_number" : "24",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 47,
+  "first_name" : "Jabari",
+  "last_name" : "Bird",
+  "position" : "G",
+  "height" : "6-6",
+  "weight" : "198",
+  "jersey_number" : "26",
+  "draft_year" : 2017,
+  "draft_number" : 56
+}, {
+  "id" : 48,
+  "first_name" : "Bismack",
+  "last_name" : "Biyombo",
+  "position" : "C",
+  "height" : "6-8",
+  "weight" : "255",
+  "jersey_number" : "15",
+  "draft_year" : 2011,
+  "draft_number" : 7
+}, {
+  "id" : 49,
+  "first_name" : "Nemanja",
+  "last_name" : "Bjelica",
+  "position" : "F",
+  "height" : "6-9",
+  "weight" : "234",
+  "jersey_number" : "8",
+  "draft_year" : 2010,
+  "draft_number" : 35
+}, {
+  "id" : 50,
+  "first_name" : "Antonio",
+  "last_name" : "Blakeney",
+  "position" : "G",
+  "height" : "6-4",
+  "weight" : "192",
+  "jersey_number" : "9",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 51,
+  "first_name" : "Eric",
+  "last_name" : "Bledsoe",
+  "position" : "G",
+  "height" : "6-1",
+  "weight" : "214",
+  "jersey_number" : "5",
+  "draft_year" : 2010,
+  "draft_number" : 18
+}, {
+  "id" : 52,
+  "first_name" : "Trevon",
+  "last_name" : "Bluiett",
+  "position" : "G-F",
+  "height" : "6-6",
+  "weight" : "198",
+  "jersey_number" : "5",
+  "draft_year" : 2018,
+  "draft_number" : 0
+}, {
+  "id" : 53,
+  "first_name" : "Bogdan",
+  "last_name" : "Bogdanovic",
+  "position" : "G",
+  "height" : "6-5",
+  "weight" : "225",
+  "jersey_number" : "13",
+  "draft_year" : 2014,
+  "draft_number" : 27
+}, {
+  "id" : 54,
+  "first_name" : "Bojan",
+  "last_name" : "Bogdanovic",
+  "position" : "F",
+  "height" : "6-7",
+  "weight" : "226",
+  "jersey_number" : "44",
+  "draft_year" : 2011,
+  "draft_number" : 31
+}, {
+  "id" : 55,
+  "first_name" : "Jonah",
+  "last_name" : "Bolden",
+  "position" : "F",
+  "height" : "6-10",
+  "weight" : "220",
+  "jersey_number" : "43",
+  "draft_year" : 2017,
+  "draft_number" : 36
+}, {
+  "id" : 56,
+  "first_name" : "Isaac",
+  "last_name" : "Bonga",
+  "position" : "G",
+  "height" : "6-8",
+  "weight" : "180",
+  "jersey_number" : "17",
+  "draft_year" : 2018,
+  "draft_number" : 39
+}, {
+  "id" : 57,
+  "first_name" : "Devin",
+  "last_name" : "Booker",
+  "position" : "G",
+  "height" : "6-6",
+  "weight" : "206",
+  "jersey_number" : "1",
+  "draft_year" : 2015,
+  "draft_number" : 13
+}, {
+  "id" : 58,
+  "first_name" : "Chris",
+  "last_name" : "Boucher",
+  "position" : "F",
+  "height" : "6-9",
+  "weight" : "200",
+  "jersey_number" : "25",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 59,
+  "first_name" : "Avery",
+  "last_name" : "Bradley",
+  "position" : "G",
+  "height" : "6-3",
+  "weight" : "180",
+  "jersey_number" : "20",
+  "draft_year" : 2010,
+  "draft_number" : 19
+}, {
+  "id" : 60,
+  "first_name" : "Tony",
+  "last_name" : "Bradley",
+  "position" : "C",
+  "height" : "6-10",
+  "weight" : "248",
+  "jersey_number" : "13",
+  "draft_year" : 2017,
+  "draft_number" : 28
+}, {
+  "id" : 61,
+  "first_name" : "Mikal",
+  "last_name" : "Bridges",
+  "position" : "F",
+  "height" : "6-6",
+  "weight" : "209",
+  "jersey_number" : "1",
+  "draft_year" : 2018,
+  "draft_number" : 10
+}, {
+  "id" : 62,
+  "first_name" : "Miles",
+  "last_name" : "Bridges",
+  "position" : "F",
+  "height" : "6-7",
+  "weight" : "225",
+  "jersey_number" : "0",
+  "draft_year" : 2018,
+  "draft_number" : 12
+}, {
+  "id" : 63,
+  "first_name" : "Isaiah",
+  "last_name" : "Briscoe",
+  "position" : "G",
+  "height" : "6-3",
+  "weight" : "215",
+  "jersey_number" : "13",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 64,
+  "first_name" : "Ryan",
+  "last_name" : "Broekhoff",
+  "position" : "G-F",
+  "height" : "6-6",
+  "weight" : "215",
+  "jersey_number" : "45",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 65,
+  "first_name" : "Malcolm",
+  "last_name" : "Brogdon",
+  "position" : "G",
+  "height" : "6-4",
+  "weight" : "229",
+  "jersey_number" : "11",
+  "draft_year" : 2016,
+  "draft_number" : 36
+}, {
+  "id" : 66,
+  "first_name" : "Dillon",
+  "last_name" : "Brooks",
+  "position" : "G-F",
+  "height" : "6-6",
+  "weight" : "225",
+  "jersey_number" : "9",
+  "draft_year" : 2017,
+  "draft_number" : 45
+}, {
+  "id" : 67,
+  "first_name" : "MarShon",
+  "last_name" : "Brooks",
+  "position" : "G",
+  "height" : "6-5",
+  "weight" : "200",
+  "jersey_number" : "8",
+  "draft_year" : 2011,
+  "draft_number" : 25
+}, {
+  "id" : 68,
+  "first_name" : "Troy",
+  "last_name" : "Brown Jr.",
+  "position" : "F",
+  "height" : "6-7",
+  "weight" : "215",
+  "jersey_number" : "7",
+  "draft_year" : 2018,
+  "draft_number" : 15
+}, {
+  "id" : 69,
+  "first_name" : "Bruce",
+  "last_name" : "Brown",
+  "position" : "G",
+  "height" : "6-4",
+  "weight" : "202",
+  "jersey_number" : "11",
+  "draft_year" : 2018,
+  "draft_number" : 42
+}, {
+  "id" : 70,
+  "first_name" : "Jaylen",
+  "last_name" : "Brown",
+  "position" : "G",
+  "height" : "6-6",
+  "weight" : "223",
+  "jersey_number" : "7",
+  "draft_year" : 2016,
+  "draft_number" : 3
+}, {
+  "id" : 71,
+  "first_name" : "Lorenzo",
+  "last_name" : "Brown",
+  "position" : "G",
+  "height" : "6-5",
+  "weight" : "189",
+  "jersey_number" : "4",
+  "draft_year" : 2013,
+  "draft_number" : 52
+}, {
+  "id" : 72,
+  "first_name" : "Sterling",
+  "last_name" : "Brown",
+  "position" : "G",
+  "height" : "6-5",
+  "weight" : "219",
+  "jersey_number" : "0",
+  "draft_year" : 2017,
+  "draft_number" : 46
+}, {
+  "id" : 73,
+  "first_name" : "Jalen",
+  "last_name" : "Brunson",
+  "position" : "G",
+  "height" : "6-2",
+  "weight" : "190",
+  "jersey_number" : "11",
+  "draft_year" : 2018,
+  "draft_number" : 33
+}, {
+  "id" : 74,
+  "first_name" : "Thomas",
+  "last_name" : "Bryant",
+  "position" : "C",
+  "height" : "6-10",
+  "weight" : "248",
+  "jersey_number" : "31",
+  "draft_year" : 2017,
+  "draft_number" : 42
+}, {
+  "id" : 75,
+  "first_name" : "Reggie",
+  "last_name" : "Bullock",
+  "position" : "G-F",
+  "height" : "6-6",
+  "weight" : "205",
+  "jersey_number" : "25",
+  "draft_year" : 2013,
+  "draft_number" : 25
+}, {
+  "id" : 76,
+  "first_name" : "Trey",
+  "last_name" : "Burke",
+  "position" : "G",
+  "height" : "6-0",
+  "weight" : "185",
+  "jersey_number" : "3",
+  "draft_year" : 2013,
+  "draft_number" : 9
+}, {
+  "id" : 77,
+  "first_name" : "Alec",
+  "last_name" : "Burks",
+  "position" : "G",
+  "height" : "6-5",
+  "weight" : "214",
+  "jersey_number" : "18",
+  "draft_year" : 2011,
+  "draft_number" : 12
+}, {
+  "id" : 78,
+  "first_name" : "Deonte",
+  "last_name" : "Burton",
+  "position" : "G",
+  "height" : "6-4",
+  "weight" : "240",
+  "jersey_number" : "30",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 79,
+  "first_name" : "Jimmy",
+  "last_name" : "Butler",
+  "position" : "G-F",
+  "height" : "6-7",
+  "weight" : "230",
+  "jersey_number" : "22",
+  "draft_year" : 2011,
+  "draft_number" : 30
+}, {
+  "id" : 80,
+  "first_name" : "Jose",
+  "last_name" : "Calderon",
+  "position" : "G",
+  "height" : "6-3",
+  "weight" : "200",
+  "jersey_number" : "81",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 81,
+  "first_name" : "Kentavious",
+  "last_name" : "Caldwell-Pope",
+  "position" : "G",
+  "height" : "6-5",
+  "weight" : "204",
+  "jersey_number" : "5",
+  "draft_year" : 2013,
+  "draft_number" : 8
+}, {
+  "id" : 82,
+  "first_name" : "Isaiah",
+  "last_name" : "Canaan",
+  "position" : "G",
+  "height" : "6-0",
+  "weight" : "201",
+  "jersey_number" : "0",
+  "draft_year" : 2013,
+  "draft_number" : 34
+}, {
+  "id" : 83,
+  "first_name" : "Clint",
+  "last_name" : "Capela",
+  "position" : "C",
+  "height" : "6-10",
+  "weight" : "256",
+  "jersey_number" : "15",
+  "draft_year" : 2014,
+  "draft_number" : 25
+}, {
+  "id" : 84,
+  "first_name" : "DeMarre",
+  "last_name" : "Carroll",
+  "position" : "F",
+  "height" : "6-6",
+  "weight" : "215",
+  "jersey_number" : "9",
+  "draft_year" : 2009,
+  "draft_number" : 27
+}, {
+  "id" : 85,
+  "first_name" : "Wendell",
+  "last_name" : "Carter Jr.",
+  "position" : "F",
+  "height" : "6-10",
+  "weight" : "270",
+  "jersey_number" : "34",
+  "draft_year" : 2018,
+  "draft_number" : 7
+}, {
+  "id" : 86,
+  "first_name" : "Michael",
+  "last_name" : "Carter-Williams",
+  "position" : "G",
+  "height" : "6-5",
+  "weight" : "190",
+  "jersey_number" : "11",
+  "draft_year" : 2013,
+  "draft_number" : 11
+}, {
+  "id" : 87,
+  "first_name" : "Jevon",
+  "last_name" : "Carter",
+  "position" : "G",
+  "height" : "6-1",
+  "weight" : "200",
+  "jersey_number" : "5",
+  "draft_year" : 2018,
+  "draft_number" : 32
+}, {
+  "id" : 88,
+  "first_name" : "Vince",
+  "last_name" : "Carter",
+  "position" : "F-G",
+  "height" : "6-6",
+  "weight" : "220",
+  "jersey_number" : "15",
+  "draft_year" : 1998,
+  "draft_number" : 5
+}, {
+  "id" : 89,
+  "first_name" : "Alex",
+  "last_name" : "Caruso",
+  "position" : "G",
+  "height" : "6-5",
+  "weight" : "186",
+  "jersey_number" : "6",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 90,
+  "first_name" : "Omri",
+  "last_name" : "Casspi",
+  "position" : "F",
+  "height" : "6-9",
+  "weight" : "225",
+  "jersey_number" : "18",
+  "draft_year" : 2009,
+  "draft_number" : 23
+}, {
+  "id" : 91,
+  "first_name" : "Willie",
+  "last_name" : "Cauley-Stein",
+  "position" : "C",
+  "height" : "7-0",
+  "weight" : "240",
+  "jersey_number" : "00",
+  "draft_year" : 2015,
+  "draft_number" : 6
+}, {
+  "id" : 92,
+  "first_name" : "Troy",
+  "last_name" : "Caupain",
+  "position" : "G",
+  "height" : "6-4",
+  "weight" : "210",
+  "jersey_number" : "3",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 93,
+  "first_name" : "Tyler",
+  "last_name" : "Cavanaugh",
+  "position" : "F",
+  "height" : "6-9",
+  "weight" : "238",
+  "jersey_number" : "34",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 94,
+  "first_name" : "Tyson",
+  "last_name" : "Chandler",
+  "position" : "C",
+  "height" : "7-0",
+  "weight" : "235",
+  "jersey_number" : "6",
+  "draft_year" : 2001,
+  "draft_number" : 2
+}, {
+  "id" : 95,
+  "first_name" : "Wilson",
+  "last_name" : "Chandler",
+  "position" : "F",
+  "height" : "6-8",
+  "weight" : "235",
+  "jersey_number" : "21",
+  "draft_year" : 2007,
+  "draft_number" : 23
+}, {
+  "id" : 96,
+  "first_name" : "Joe",
+  "last_name" : "Chealey",
+  "position" : "G",
+  "height" : "6-3",
+  "weight" : "190",
+  "jersey_number" : "31",
+  "draft_year" : 2018,
+  "draft_number" : 0
+}, {
+  "id" : 97,
+  "first_name" : "Marquese",
+  "last_name" : "Chriss",
+  "position" : "F",
+  "height" : "6-9",
+  "weight" : "240",
+  "jersey_number" : "35",
+  "draft_year" : 2016,
+  "draft_number" : 8
+}, {
+  "id" : 98,
+  "first_name" : "Gary",
+  "last_name" : "Clark",
+  "position" : "F",
+  "height" : "6-6",
+  "weight" : "225",
+  "jersey_number" : "12",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 99,
+  "first_name" : "Ian",
+  "last_name" : "Clark",
+  "position" : "G",
+  "height" : "6-3",
+  "weight" : "175",
+  "jersey_number" : "2",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 100,
+  "first_name" : "Jordan",
+  "last_name" : "Clarkson",
+  "position" : "G",
+  "height" : "6-3",
+  "weight" : "194",
+  "jersey_number" : "00",
+  "draft_year" : 2014,
+  "draft_number" : 46
+}, {
+  "id" : 101,
+  "first_name" : "John",
+  "last_name" : "Collins",
+  "position" : "F-C",
+  "height" : "6-9",
+  "weight" : "226",
+  "jersey_number" : "20",
+  "draft_year" : 2017,
+  "draft_number" : 19
+}, {
+  "id" : 102,
+  "first_name" : "Zach",
+  "last_name" : "Collins",
+  "position" : "F-C",
+  "height" : "6-11",
+  "weight" : "250",
+  "jersey_number" : "23",
+  "draft_year" : 2017,
+  "draft_number" : 10
+}, {
+  "id" : 103,
+  "first_name" : "Darren",
+  "last_name" : "Collison",
+  "position" : "G",
+  "height" : "6-0",
+  "weight" : "175",
+  "jersey_number" : "2",
+  "draft_year" : 2009,
+  "draft_number" : 21
+}, {
+  "id" : 104,
+  "first_name" : "Mike",
+  "last_name" : "Conley",
+  "position" : "G",
+  "height" : "6-0",
+  "weight" : "175",
+  "jersey_number" : "10",
+  "draft_year" : 2007,
+  "draft_number" : 4
+}, {
+  "id" : 105,
+  "first_name" : "Pat",
+  "last_name" : "Connaughton",
+  "position" : "G",
+  "height" : "6-5",
+  "weight" : "209",
+  "jersey_number" : "24",
+  "draft_year" : 2015,
+  "draft_number" : 41
+}, {
+  "id" : 106,
+  "first_name" : "Quinn",
+  "last_name" : "Cook",
+  "position" : "G",
+  "height" : "6-1",
+  "weight" : "180",
+  "jersey_number" : "28",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 107,
+  "first_name" : "DeMarcus",
+  "last_name" : "Cousins",
+  "position" : "C",
+  "height" : "6-10",
+  "weight" : "270",
+  "jersey_number" : "4",
+  "draft_year" : 2010,
+  "draft_number" : 5
+}, {
+  "id" : 108,
+  "first_name" : "Robert",
+  "last_name" : "Covington",
+  "position" : "F",
+  "height" : "6-7",
+  "weight" : "209",
+  "jersey_number" : "33",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 109,
+  "first_name" : "Allen",
+  "last_name" : "Crabbe",
+  "position" : "G-F",
+  "height" : "6-6",
+  "weight" : "212",
+  "jersey_number" : "33",
+  "draft_year" : 2013,
+  "draft_number" : 31
+}, {
+  "id" : 110,
+  "first_name" : "Torrey",
+  "last_name" : "Craig",
+  "position" : "F",
+  "height" : "6-5",
+  "weight" : "221",
+  "jersey_number" : "13",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 111,
+  "first_name" : "Jamal",
+  "last_name" : "Crawford",
+  "position" : "G",
+  "height" : "6-5",
+  "weight" : "200",
+  "jersey_number" : "1",
+  "draft_year" : 2000,
+  "draft_number" : 8
+}, {
+  "id" : 112,
+  "first_name" : "Jae",
+  "last_name" : "Crowder",
+  "position" : "F",
+  "height" : "6-6",
+  "weight" : "235",
+  "jersey_number" : "99",
+  "draft_year" : 2012,
+  "draft_number" : 34
+}, {
+  "id" : 113,
+  "first_name" : "Dante",
+  "last_name" : "Cunningham",
+  "position" : "F",
+  "height" : "6-8",
+  "weight" : "230",
+  "jersey_number" : "33",
+  "draft_year" : 2009,
+  "draft_number" : 33
+}, {
+  "id" : 114,
+  "first_name" : "Seth",
+  "last_name" : "Curry",
+  "position" : "G",
+  "height" : "6-1",
+  "weight" : "185",
+  "jersey_number" : "30",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 115,
+  "first_name" : "Stephen",
+  "last_name" : "Curry",
+  "position" : "G",
+  "height" : "6-2",
+  "weight" : "185",
+  "jersey_number" : "30",
+  "draft_year" : 2009,
+  "draft_number" : 7
+}, {
+  "id" : 116,
+  "first_name" : "Troy",
+  "last_name" : "Daniels",
+  "position" : "G",
+  "height" : "6-4",
+  "weight" : "200",
+  "jersey_number" : "30",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 117,
+  "first_name" : "Anthony",
+  "last_name" : "Davis",
+  "position" : "F-C",
+  "height" : "6-10",
+  "weight" : "253",
+  "jersey_number" : "3",
+  "draft_year" : 2012,
+  "draft_number" : 1
+}, {
+  "id" : 118,
+  "first_name" : "Ed",
+  "last_name" : "Davis",
+  "position" : "C",
+  "height" : "6-9",
+  "weight" : "218",
+  "jersey_number" : "21",
+  "draft_year" : 2010,
+  "draft_number" : 13
+}, {
+  "id" : 119,
+  "first_name" : "Tyler",
+  "last_name" : "Davis",
+  "position" : "C",
+  "height" : "6-10",
+  "weight" : "266",
+  "jersey_number" : "34",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 120,
+  "first_name" : "Dewayne",
+  "last_name" : "Dedmon",
+  "position" : "C",
+  "height" : "6-10",
+  "weight" : "245",
+  "jersey_number" : "14",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 121,
+  "first_name" : "Sam",
+  "last_name" : "Dekker",
+  "position" : "F",
+  "height" : "6-9",
+  "weight" : "230",
+  "jersey_number" : "8",
+  "draft_year" : 2015,
+  "draft_number" : 18
+}, {
+  "id" : 122,
+  "first_name" : "Angel",
+  "last_name" : "Delgado",
+  "position" : "C",
+  "height" : "6-10",
+  "weight" : "245",
+  "jersey_number" : "31",
+  "draft_year" : 2018,
+  "draft_number" : 0
+}, {
+  "id" : 123,
+  "first_name" : "Matthew",
+  "last_name" : "Dellavedova",
+  "position" : "G",
+  "height" : "6-3",
+  "weight" : "200",
+  "jersey_number" : "8",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 124,
+  "first_name" : "Luol",
+  "last_name" : "Deng",
+  "position" : "F",
+  "height" : "6-9",
+  "weight" : "237",
+  "jersey_number" : "9",
+  "draft_year" : 2004,
+  "draft_number" : 7
+}, {
+  "id" : 125,
+  "first_name" : "DeMar",
+  "last_name" : "DeRozan",
+  "position" : "G",
+  "height" : "6-6",
+  "weight" : "220",
+  "jersey_number" : "11",
+  "draft_year" : 2009,
+  "draft_number" : 9
+}, {
+  "id" : 126,
+  "first_name" : "Marcus",
+  "last_name" : "Derrickson",
+  "position" : "F",
+  "height" : "6-7",
+  "weight" : "249",
+  "jersey_number" : "32",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 127,
+  "first_name" : "Cheick",
+  "last_name" : "Diallo",
+  "position" : "F",
+  "height" : "6-8",
+  "weight" : "219",
+  "jersey_number" : "14",
+  "draft_year" : 2016,
+  "draft_number" : 33
+}, {
+  "id" : 128,
+  "first_name" : "Hamidou",
+  "last_name" : "Diallo",
+  "position" : "G",
+  "height" : "6-5",
+  "weight" : "202",
+  "jersey_number" : "6",
+  "draft_year" : 2018,
+  "draft_number" : 45
+}, {
+  "id" : 129,
+  "first_name" : "Gorgui",
+  "last_name" : "Dieng",
+  "position" : "C",
+  "height" : "6-10",
+  "weight" : "248",
+  "jersey_number" : "41",
+  "draft_year" : 2013,
+  "draft_number" : 21
+}, {
+  "id" : 130,
+  "first_name" : "Spencer",
+  "last_name" : "Dinwiddie",
+  "position" : "G",
+  "height" : "6-5",
+  "weight" : "215",
+  "jersey_number" : "26",
+  "draft_year" : 2014,
+  "draft_number" : 38
+}, {
+  "id" : 131,
+  "first_name" : "Donte",
+  "last_name" : "DiVincenzo",
+  "position" : "G",
+  "height" : "6-4",
+  "weight" : "203",
+  "jersey_number" : "0",
+  "draft_year" : 2018,
+  "draft_number" : 17
+}, {
+  "id" : 132,
+  "first_name" : "Luka",
+  "last_name" : "Doncic",
+  "position" : "F-G",
+  "height" : "6-7",
+  "weight" : "230",
+  "jersey_number" : "77",
+  "draft_year" : 2018,
+  "draft_number" : 3
+}, {
+  "id" : 133,
+  "first_name" : "Tyler",
+  "last_name" : "Dorsey",
+  "position" : "G",
+  "height" : "6-5",
+  "weight" : "183",
+  "jersey_number" : "22",
+  "draft_year" : 2017,
+  "draft_number" : 41
+}, {
+  "id" : 134,
+  "first_name" : "Damyean",
+  "last_name" : "Dotson",
+  "position" : "G",
+  "height" : "6-5",
+  "weight" : "210",
+  "jersey_number" : "21",
+  "draft_year" : 2017,
+  "draft_number" : 44
+}, {
+  "id" : 135,
+  "first_name" : "PJ",
+  "last_name" : "Dozier",
+  "position" : "G-F",
+  "height" : "6-6",
+  "weight" : "205",
+  "jersey_number" : "35",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 136,
+  "first_name" : "Goran",
+  "last_name" : "Dragic",
+  "position" : "G",
+  "height" : "6-4",
+  "weight" : "190",
+  "jersey_number" : "31",
+  "draft_year" : 2008,
+  "draft_number" : 45
+}, {
+  "id" : 137,
+  "first_name" : "Andre",
+  "last_name" : "Drummond",
+  "position" : "C",
+  "height" : "6-11",
+  "weight" : "279",
+  "jersey_number" : "3",
+  "draft_year" : 2012,
+  "draft_number" : 9
+}, {
+  "id" : 138,
+  "first_name" : "Jared",
+  "last_name" : "Dudley",
+  "position" : "F",
+  "height" : "6-6",
+  "weight" : "237",
+  "jersey_number" : "10",
+  "draft_year" : 2007,
+  "draft_number" : 22
+}, {
+  "id" : 139,
+  "first_name" : "Kris",
+  "last_name" : "Dunn",
+  "position" : "G",
+  "height" : "6-3",
+  "weight" : "205",
+  "jersey_number" : "11",
+  "draft_year" : 2016,
+  "draft_number" : 5
+}, {
+  "id" : 140,
+  "first_name" : "Kevin",
+  "last_name" : "Durant",
+  "position" : "F",
+  "height" : "6-11",
+  "weight" : "240",
+  "jersey_number" : "35",
+  "draft_year" : 2007,
+  "draft_number" : 2
+}, {
+  "id" : 141,
+  "first_name" : "Trevon",
+  "last_name" : "Duval",
+  "position" : "G",
+  "height" : "6-2",
+  "weight" : "189",
+  "jersey_number" : "0",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 142,
+  "first_name" : "Vincent",
+  "last_name" : "Edwards",
+  "position" : "F",
+  "height" : "6-8",
+  "weight" : "225",
+  "jersey_number" : "12",
+  "draft_year" : 2018,
+  "draft_number" : 52
+}, {
+  "id" : 143,
+  "first_name" : "Henry",
+  "last_name" : "Ellenson",
+  "position" : "F",
+  "height" : "6-11",
+  "weight" : "245",
+  "jersey_number" : "13",
+  "draft_year" : 2016,
+  "draft_number" : 18
+}, {
+  "id" : 144,
+  "first_name" : "Wayne",
+  "last_name" : "Ellington",
+  "position" : "G",
+  "height" : "6-4",
+  "weight" : "207",
+  "jersey_number" : "2",
+  "draft_year" : 2009,
+  "draft_number" : 28
+}, {
+  "id" : 145,
+  "first_name" : "Joel",
+  "last_name" : "Embiid",
+  "position" : "F-C",
+  "height" : "7-0",
+  "weight" : "280",
+  "jersey_number" : "21",
+  "draft_year" : 2014,
+  "draft_number" : 3
+}, {
+  "id" : 146,
+  "first_name" : "James",
+  "last_name" : "Ennis III",
+  "position" : "F",
+  "height" : "6-6",
+  "weight" : "215",
+  "jersey_number" : "11",
+  "draft_year" : 2013,
+  "draft_number" : 50
+}, {
+  "id" : 147,
+  "first_name" : "Drew",
+  "last_name" : "Eubanks",
+  "position" : "F",
+  "height" : "6-10",
+  "weight" : "245",
+  "jersey_number" : "14",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 148,
+  "first_name" : "Jacob",
+  "last_name" : "Evans",
+  "position" : "G",
+  "height" : "6-4",
+  "weight" : "210",
+  "jersey_number" : "12",
+  "draft_year" : 2018,
+  "draft_number" : 28
+}, {
+  "id" : 149,
+  "first_name" : "Keenan",
+  "last_name" : "Evans",
+  "position" : "G",
+  "height" : null,
+  "weight" : null,
+  "jersey_number" : null,
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 150,
+  "first_name" : "Tyreke",
+  "last_name" : "Evans",
+  "position" : "G",
+  "height" : "6-6",
+  "weight" : "220",
+  "jersey_number" : "12",
+  "draft_year" : 2009,
+  "draft_number" : 4
+}, {
+  "id" : 151,
+  "first_name" : "Dante",
+  "last_name" : "Exum",
+  "position" : "G",
+  "height" : "6-5",
+  "weight" : "214",
+  "jersey_number" : "0",
+  "draft_year" : 2014,
+  "draft_number" : 5
+}, {
+  "id" : 152,
+  "first_name" : "Kenneth",
+  "last_name" : "Faried",
+  "position" : "F-C",
+  "height" : "6-8",
+  "weight" : "220",
+  "jersey_number" : "35",
+  "draft_year" : 2011,
+  "draft_number" : 22
+}, {
+  "id" : 153,
+  "first_name" : "Derrick",
+  "last_name" : "Favors",
+  "position" : "F-C",
+  "height" : "6-9",
+  "weight" : "265",
+  "jersey_number" : "15",
+  "draft_year" : 2010,
+  "draft_number" : 3
+}, {
+  "id" : 154,
+  "first_name" : "Cristiano",
+  "last_name" : "Felicio",
+  "position" : "F-C",
+  "height" : "6-11",
+  "weight" : "270",
+  "jersey_number" : "6",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 155,
+  "first_name" : "Raymond",
+  "last_name" : "Felton",
+  "position" : "G",
+  "height" : "6-1",
+  "weight" : "205",
+  "jersey_number" : "2",
+  "draft_year" : 2005,
+  "draft_number" : 5
+}, {
+  "id" : 156,
+  "first_name" : "Terrance",
+  "last_name" : "Ferguson",
+  "position" : "G",
+  "height" : "6-6",
+  "weight" : "190",
+  "jersey_number" : "23",
+  "draft_year" : 2017,
+  "draft_number" : 21
+}, {
+  "id" : 157,
+  "first_name" : "Yogi",
+  "last_name" : "Ferrell",
+  "position" : "G",
+  "height" : "6-0",
+  "weight" : "178",
+  "jersey_number" : "11",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 158,
+  "first_name" : "Dorian",
+  "last_name" : "Finney-Smith",
+  "position" : "F",
+  "height" : "6-7",
+  "weight" : "220",
+  "jersey_number" : "28",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 159,
+  "first_name" : "Bryn",
+  "last_name" : "Forbes",
+  "position" : "G",
+  "height" : "6-2",
+  "weight" : "205",
+  "jersey_number" : "6",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 160,
+  "first_name" : "Evan",
+  "last_name" : "Fournier",
+  "position" : "G-F",
+  "height" : "6-6",
+  "weight" : "205",
+  "jersey_number" : "31",
+  "draft_year" : 2012,
+  "draft_number" : 20
+}, {
+  "id" : 161,
+  "first_name" : "De'Aaron",
+  "last_name" : "Fox",
+  "position" : "G",
+  "height" : "6-3",
+  "weight" : "185",
+  "jersey_number" : "5",
+  "draft_year" : 2017,
+  "draft_number" : 5
+}, {
+  "id" : 162,
+  "first_name" : "Melvin",
+  "last_name" : "Frazier Jr.",
+  "position" : "G-F",
+  "height" : "6-5",
+  "weight" : "215",
+  "jersey_number" : "6",
+  "draft_year" : 2018,
+  "draft_number" : 35
+}, {
+  "id" : 163,
+  "first_name" : "Tim",
+  "last_name" : "Frazier",
+  "position" : "G",
+  "height" : "6-0",
+  "weight" : "170",
+  "jersey_number" : "10",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 164,
+  "first_name" : "Channing",
+  "last_name" : "Frye",
+  "position" : "F-C",
+  "height" : "7-0",
+  "weight" : "255",
+  "jersey_number" : "9",
+  "draft_year" : 2005,
+  "draft_number" : 8
+}, {
+  "id" : 165,
+  "first_name" : "Markelle",
+  "last_name" : "Fultz",
+  "position" : "G",
+  "height" : "6-4",
+  "weight" : "209",
+  "jersey_number" : "20",
+  "draft_year" : 2017,
+  "draft_number" : 1
+}, {
+  "id" : 166,
+  "first_name" : "Wenyen",
+  "last_name" : "Gabriel",
+  "position" : "F",
+  "height" : "6-9",
+  "weight" : "205",
+  "jersey_number" : "35",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 167,
+  "first_name" : "Danilo",
+  "last_name" : "Gallinari",
+  "position" : "F",
+  "height" : "6-10",
+  "weight" : "236",
+  "jersey_number" : "12",
+  "draft_year" : 2008,
+  "draft_number" : 6
+}, {
+  "id" : 168,
+  "first_name" : "Langston",
+  "last_name" : "Galloway",
+  "position" : "G",
+  "height" : "6-1",
+  "weight" : "200",
+  "jersey_number" : "2",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 169,
+  "first_name" : "Marc",
+  "last_name" : "Gasol",
+  "position" : "C",
+  "height" : "6-11",
+  "weight" : "255",
+  "jersey_number" : "14",
+  "draft_year" : 2007,
+  "draft_number" : 48
+}, {
+  "id" : 170,
+  "first_name" : "Pau",
+  "last_name" : "Gasol",
+  "position" : "C-F",
+  "height" : "7-0",
+  "weight" : "250",
+  "jersey_number" : "16",
+  "draft_year" : 2001,
+  "draft_number" : 3
+}, {
+  "id" : 171,
+  "first_name" : "Rudy",
+  "last_name" : "Gay",
+  "position" : "F",
+  "height" : "6-8",
+  "weight" : "250",
+  "jersey_number" : "22",
+  "draft_year" : 2006,
+  "draft_number" : 8
+}, {
+  "id" : 172,
+  "first_name" : "Paul",
+  "last_name" : "George",
+  "position" : "F",
+  "height" : "6-8",
+  "weight" : "220",
+  "jersey_number" : "13",
+  "draft_year" : 2010,
+  "draft_number" : 10
+}, {
+  "id" : 173,
+  "first_name" : "Taj",
+  "last_name" : "Gibson",
+  "position" : "F",
+  "height" : "6-9",
+  "weight" : "232",
+  "jersey_number" : "67",
+  "draft_year" : 2009,
+  "draft_number" : 26
+}, {
+  "id" : 174,
+  "first_name" : "Harry",
+  "last_name" : "Giles III",
+  "position" : "F-C",
+  "height" : "6-10",
+  "weight" : "240",
+  "jersey_number" : "20",
+  "draft_year" : 2017,
+  "draft_number" : 20
+}, {
+  "id" : 175,
+  "first_name" : "Shai",
+  "last_name" : "Gilgeous-Alexander",
+  "position" : "G",
+  "height" : "6-6",
+  "weight" : "195",
+  "jersey_number" : "2",
+  "draft_year" : 2018,
+  "draft_number" : 11
+}, {
+  "id" : 176,
+  "first_name" : "Rudy",
+  "last_name" : "Gobert",
+  "position" : "C",
+  "height" : "7-1",
+  "weight" : "258",
+  "jersey_number" : "27",
+  "draft_year" : 2013,
+  "draft_number" : 27
+}, {
+  "id" : 177,
+  "first_name" : "Aaron",
+  "last_name" : "Gordon",
+  "position" : "F",
+  "height" : "6-8",
+  "weight" : "235",
+  "jersey_number" : "50",
+  "draft_year" : 2014,
+  "draft_number" : 4
+}, {
+  "id" : 178,
+  "first_name" : "Eric",
+  "last_name" : "Gordon",
+  "position" : "G",
+  "height" : "6-3",
+  "weight" : "215",
+  "jersey_number" : "23",
+  "draft_year" : 2008,
+  "draft_number" : 7
+}, {
+  "id" : 179,
+  "first_name" : "Marcin",
+  "last_name" : "Gortat",
+  "position" : "C",
+  "height" : "6-11",
+  "weight" : "240",
+  "jersey_number" : "13",
+  "draft_year" : 2005,
+  "draft_number" : 57
+}, {
+  "id" : 180,
+  "first_name" : "Devonte'",
+  "last_name" : "Graham",
+  "position" : "G",
+  "height" : "6-1",
+  "weight" : "195",
+  "jersey_number" : "4",
+  "draft_year" : 2018,
+  "draft_number" : 34
+}, {
+  "id" : 181,
+  "first_name" : "Treveon",
+  "last_name" : "Graham",
+  "position" : "F",
+  "height" : "6-5",
+  "weight" : "219",
+  "jersey_number" : "2",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 182,
+  "first_name" : "Jerami",
+  "last_name" : "Grant",
+  "position" : "F",
+  "height" : "6-7",
+  "weight" : "210",
+  "jersey_number" : "9",
+  "draft_year" : 2014,
+  "draft_number" : 39
+}, {
+  "id" : 183,
+  "first_name" : "Jerian",
+  "last_name" : "Grant",
+  "position" : "G",
+  "height" : "6-4",
+  "weight" : "198",
+  "jersey_number" : "22",
+  "draft_year" : 2015,
+  "draft_number" : 19
+}, {
+  "id" : 184,
+  "first_name" : "Danny",
+  "last_name" : "Green",
+  "position" : "G-F",
+  "height" : "6-6",
+  "weight" : "215",
+  "jersey_number" : "14",
+  "draft_year" : 2009,
+  "draft_number" : 46
+}, {
+  "id" : 185,
+  "first_name" : "Draymond",
+  "last_name" : "Green",
+  "position" : "F",
+  "height" : "6-6",
+  "weight" : "230",
+  "jersey_number" : "23",
+  "draft_year" : 2012,
+  "draft_number" : 35
+}, {
+  "id" : 186,
+  "first_name" : "Gerald",
+  "last_name" : "Green",
+  "position" : "G-F",
+  "height" : "6-7",
+  "weight" : "205",
+  "jersey_number" : "14",
+  "draft_year" : 2005,
+  "draft_number" : 18
+}, {
+  "id" : 187,
+  "first_name" : "JaMychal",
+  "last_name" : "Green",
+  "position" : "F",
+  "height" : "6-9",
+  "weight" : "227",
+  "jersey_number" : "1",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 188,
+  "first_name" : "Jeff",
+  "last_name" : "Green",
+  "position" : "F",
+  "height" : "6-8",
+  "weight" : "235",
+  "jersey_number" : "32",
+  "draft_year" : 2007,
+  "draft_number" : 5
+}, {
+  "id" : 189,
+  "first_name" : "Blake",
+  "last_name" : "Griffin",
+  "position" : "F",
+  "height" : "6-9",
+  "weight" : "250",
+  "jersey_number" : "91",
+  "draft_year" : 2009,
+  "draft_number" : 1
+}, {
+  "id" : 190,
+  "first_name" : "Daniel",
+  "last_name" : "Hamilton",
+  "position" : "G-F",
+  "height" : "6-7",
+  "weight" : "195",
+  "jersey_number" : "25",
+  "draft_year" : 2016,
+  "draft_number" : 56
+}, {
+  "id" : 191,
+  "first_name" : "Tim",
+  "last_name" : "Hardaway Jr.",
+  "position" : "G",
+  "height" : "6-5",
+  "weight" : "205",
+  "jersey_number" : "10",
+  "draft_year" : 2013,
+  "draft_number" : 24
+}, {
+  "id" : 192,
+  "first_name" : "James",
+  "last_name" : "Harden",
+  "position" : "G",
+  "height" : "6-5",
+  "weight" : "220",
+  "jersey_number" : "1",
+  "draft_year" : 2009,
+  "draft_number" : 3
+}, {
+  "id" : 193,
+  "first_name" : "Maurice",
+  "last_name" : "Harkless",
+  "position" : "F",
+  "height" : "6-7",
+  "weight" : "220",
+  "jersey_number" : "8",
+  "draft_year" : 2012,
+  "draft_number" : 15
+}, {
+  "id" : 194,
+  "first_name" : "Montrezl",
+  "last_name" : "Harrell",
+  "position" : "F-C",
+  "height" : "6-7",
+  "weight" : "240",
+  "jersey_number" : "5",
+  "draft_year" : 2015,
+  "draft_number" : 32
+}, {
+  "id" : 195,
+  "first_name" : "Devin",
+  "last_name" : "Harris",
+  "position" : "G",
+  "height" : "6-3",
+  "weight" : "185",
+  "jersey_number" : "34",
+  "draft_year" : 2004,
+  "draft_number" : 5
+}, {
+  "id" : 196,
+  "first_name" : "Gary",
+  "last_name" : "Harris",
+  "position" : "G",
+  "height" : "6-4",
+  "weight" : "210",
+  "jersey_number" : "14",
+  "draft_year" : 2014,
+  "draft_number" : 19
+}, {
+  "id" : 197,
+  "first_name" : "Joe",
+  "last_name" : "Harris",
+  "position" : "F-G",
+  "height" : "6-6",
+  "weight" : "220",
+  "jersey_number" : "12",
+  "draft_year" : 2014,
+  "draft_number" : 33
+}, {
+  "id" : 198,
+  "first_name" : "Andrew",
+  "last_name" : "Harrison",
+  "position" : "G",
+  "height" : "6-6",
+  "weight" : "213",
+  "jersey_number" : "5",
+  "draft_year" : 2015,
+  "draft_number" : 44
+}, {
+  "id" : 199,
+  "first_name" : "Shaquille",
+  "last_name" : "Harrison",
+  "position" : "G",
+  "height" : "6-4",
+  "weight" : "195",
+  "jersey_number" : "0",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 200,
+  "first_name" : "Tobias",
+  "last_name" : "Harris",
+  "position" : "F",
+  "height" : "6-8",
+  "weight" : "226",
+  "jersey_number" : "12",
+  "draft_year" : 2011,
+  "draft_number" : 19
+}, {
+  "id" : 201,
+  "first_name" : "Isaiah",
+  "last_name" : "Hartenstein",
+  "position" : "F-C",
+  "height" : "7-0",
+  "weight" : "250",
+  "jersey_number" : "55",
+  "draft_year" : 2017,
+  "draft_number" : 43
+}, {
+  "id" : 202,
+  "first_name" : "Josh",
+  "last_name" : "Hart",
+  "position" : "G",
+  "height" : "6-4",
+  "weight" : "215",
+  "jersey_number" : "3",
+  "draft_year" : 2017,
+  "draft_number" : 30
+}, {
+  "id" : 203,
+  "first_name" : "Udonis",
+  "last_name" : "Haslem",
+  "position" : "F",
+  "height" : "6-7",
+  "weight" : "235",
+  "jersey_number" : "40",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 204,
+  "first_name" : "Gordon",
+  "last_name" : "Hayward",
+  "position" : "F",
+  "height" : "6-7",
+  "weight" : "225",
+  "jersey_number" : "33",
+  "draft_year" : 2010,
+  "draft_number" : 9
+}, {
+  "id" : 205,
+  "first_name" : "John",
+  "last_name" : "Henson",
+  "position" : "F",
+  "height" : "6-9",
+  "weight" : "219",
+  "jersey_number" : "31",
+  "draft_year" : 2012,
+  "draft_number" : 14
+}, {
+  "id" : 206,
+  "first_name" : "Juancho",
+  "last_name" : "Hernangomez",
+  "position" : "F",
+  "height" : "6-9",
+  "weight" : "214",
+  "jersey_number" : "41",
+  "draft_year" : 2016,
+  "draft_number" : 15
+}, {
+  "id" : 207,
+  "first_name" : "Willy",
+  "last_name" : "Hernangomez",
+  "position" : "C",
+  "height" : "6-11",
+  "weight" : "250",
+  "jersey_number" : "9",
+  "draft_year" : 2015,
+  "draft_number" : 35
+}, {
+  "id" : 208,
+  "first_name" : "Mario",
+  "last_name" : "Hezonja",
+  "position" : "F",
+  "height" : "6-8",
+  "weight" : "220",
+  "jersey_number" : "44",
+  "draft_year" : 2015,
+  "draft_number" : 5
+}, {
+  "id" : 209,
+  "first_name" : "Isaiah",
+  "last_name" : "Hicks",
+  "position" : "F",
+  "height" : "6-9",
+  "weight" : "230",
+  "jersey_number" : "4",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 210,
+  "first_name" : "Buddy",
+  "last_name" : "Hield",
+  "position" : "G",
+  "height" : "6-4",
+  "weight" : "220",
+  "jersey_number" : "17",
+  "draft_year" : 2016,
+  "draft_number" : 6
+}, {
+  "id" : 211,
+  "first_name" : "George",
+  "last_name" : "Hill",
+  "position" : "G",
+  "height" : "6-4",
+  "weight" : "188",
+  "jersey_number" : "7",
+  "draft_year" : 2008,
+  "draft_number" : 26
+}, {
+  "id" : 212,
+  "first_name" : "Solomon",
+  "last_name" : "Hill",
+  "position" : "F",
+  "height" : "6-6",
+  "weight" : "226",
+  "jersey_number" : "18",
+  "draft_year" : 2013,
+  "draft_number" : 23
+}, {
+  "id" : 213,
+  "first_name" : "Aaron",
+  "last_name" : "Holiday",
+  "position" : "G",
+  "height" : "6-0",
+  "weight" : "185",
+  "jersey_number" : "0",
+  "draft_year" : 2018,
+  "draft_number" : 23
+}, {
+  "id" : 214,
+  "first_name" : "Jrue",
+  "last_name" : "Holiday",
+  "position" : "G",
+  "height" : "6-4",
+  "weight" : "205",
+  "jersey_number" : "4",
+  "draft_year" : 2009,
+  "draft_number" : 17
+}, {
+  "id" : 215,
+  "first_name" : "Justin",
+  "last_name" : "Holiday",
+  "position" : "F-G",
+  "height" : "6-6",
+  "weight" : "180",
+  "jersey_number" : "9",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 216,
+  "first_name" : "Rondae",
+  "last_name" : "Hollis-Jefferson",
+  "position" : "F",
+  "height" : "6-6",
+  "weight" : "217",
+  "jersey_number" : "2",
+  "draft_year" : 2015,
+  "draft_number" : 23
+}, {
+  "id" : 217,
+  "first_name" : "Richaun",
+  "last_name" : "Holmes",
+  "position" : "F-C",
+  "height" : "6-9",
+  "weight" : "235",
+  "jersey_number" : "22",
+  "draft_year" : 2015,
+  "draft_number" : 37
+}, {
+  "id" : 218,
+  "first_name" : "Rodney",
+  "last_name" : "Hood",
+  "position" : "G",
+  "height" : "6-8",
+  "weight" : "208",
+  "jersey_number" : "22",
+  "draft_year" : 2014,
+  "draft_number" : 23
+}, {
+  "id" : 219,
+  "first_name" : "Al",
+  "last_name" : "Horford",
+  "position" : "C-F",
+  "height" : "6-9",
+  "weight" : "240",
+  "jersey_number" : "42",
+  "draft_year" : 2007,
+  "draft_number" : 3
+}, {
+  "id" : 220,
+  "first_name" : "Dwight",
+  "last_name" : "Howard",
+  "position" : "C",
+  "height" : "6-10",
+  "weight" : "265",
+  "jersey_number" : "39",
+  "draft_year" : 2004,
+  "draft_number" : 1
+}, {
+  "id" : 221,
+  "first_name" : "Kevin",
+  "last_name" : "Huerter",
+  "position" : "G",
+  "height" : "6-7",
+  "weight" : "198",
+  "jersey_number" : "9",
+  "draft_year" : 2018,
+  "draft_number" : 19
+}, {
+  "id" : 222,
+  "first_name" : "Chandler",
+  "last_name" : "Hutchison",
+  "position" : "F",
+  "height" : "6-6",
+  "weight" : "210",
+  "jersey_number" : "1",
+  "draft_year" : 2018,
+  "draft_number" : 22
+}, {
+  "id" : 223,
+  "first_name" : "Serge",
+  "last_name" : "Ibaka",
+  "position" : "F-C",
+  "height" : "6-10",
+  "weight" : "235",
+  "jersey_number" : "25",
+  "draft_year" : 2008,
+  "draft_number" : 24
+}, {
+  "id" : 224,
+  "first_name" : "Andre",
+  "last_name" : "Iguodala",
+  "position" : "G-F",
+  "height" : "6-6",
+  "weight" : "215",
+  "jersey_number" : "9",
+  "draft_year" : 2004,
+  "draft_number" : 9
+}, {
+  "id" : 225,
+  "first_name" : "Ersan",
+  "last_name" : "Ilyasova",
+  "position" : "F",
+  "height" : "6-9",
+  "weight" : "235",
+  "jersey_number" : "77",
+  "draft_year" : 2005,
+  "draft_number" : 36
+}, {
+  "id" : 226,
+  "first_name" : "Joe",
+  "last_name" : "Ingles",
+  "position" : "F",
+  "height" : "6-9",
+  "weight" : "220",
+  "jersey_number" : "7",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 227,
+  "first_name" : "Brandon",
+  "last_name" : "Ingram",
+  "position" : "F",
+  "height" : "6-8",
+  "weight" : "190",
+  "jersey_number" : "14",
+  "draft_year" : 2016,
+  "draft_number" : 2
+}, {
+  "id" : 228,
+  "first_name" : "Kyrie",
+  "last_name" : "Irving",
+  "position" : "G",
+  "height" : "6-2",
+  "weight" : "195",
+  "jersey_number" : "11",
+  "draft_year" : 2011,
+  "draft_number" : 1
+}, {
+  "id" : 229,
+  "first_name" : "Jonathan",
+  "last_name" : "Isaac",
+  "position" : "F",
+  "height" : "6-10",
+  "weight" : "230",
+  "jersey_number" : "1",
+  "draft_year" : 2017,
+  "draft_number" : 6
+}, {
+  "id" : 230,
+  "first_name" : "Wes",
+  "last_name" : "Iwundu",
+  "position" : "F",
+  "height" : "6-6",
+  "weight" : "195",
+  "jersey_number" : "4",
+  "draft_year" : 2017,
+  "draft_number" : 33
+}, {
+  "id" : 231,
+  "first_name" : "Jaren",
+  "last_name" : "Jackson Jr.",
+  "position" : "F-C",
+  "height" : "6-10",
+  "weight" : "242",
+  "jersey_number" : "13",
+  "draft_year" : 2018,
+  "draft_number" : 4
+}, {
+  "id" : 232,
+  "first_name" : "Demetrius",
+  "last_name" : "Jackson",
+  "position" : "G",
+  "height" : "6-1",
+  "weight" : "201",
+  "jersey_number" : "11",
+  "draft_year" : 2016,
+  "draft_number" : 45
+}, {
+  "id" : 233,
+  "first_name" : "Frank",
+  "last_name" : "Jackson",
+  "position" : "G",
+  "height" : "6-3",
+  "weight" : "205",
+  "jersey_number" : "5",
+  "draft_year" : 2017,
+  "draft_number" : 31
+}, {
+  "id" : 234,
+  "first_name" : "Josh",
+  "last_name" : "Jackson",
+  "position" : "F",
+  "height" : "6-8",
+  "weight" : "207",
+  "jersey_number" : "55",
+  "draft_year" : 2017,
+  "draft_number" : 4
+}, {
+  "id" : 235,
+  "first_name" : "Justin",
+  "last_name" : "Jackson",
+  "position" : "F",
+  "height" : "6-8",
+  "weight" : "220",
+  "jersey_number" : "44",
+  "draft_year" : 2017,
+  "draft_number" : 15
+}, {
+  "id" : 236,
+  "first_name" : "Reggie",
+  "last_name" : "Jackson",
+  "position" : "G",
+  "height" : "6-2",
+  "weight" : "208",
+  "jersey_number" : "7",
+  "draft_year" : 2011,
+  "draft_number" : 24
+}, {
+  "id" : 237,
+  "first_name" : "LeBron",
+  "last_name" : "James",
+  "position" : "F",
+  "height" : "6-9",
+  "weight" : "250",
+  "jersey_number" : "23",
+  "draft_year" : 2003,
+  "draft_number" : 1
+}, {
+  "id" : 238,
+  "first_name" : "Amile",
+  "last_name" : "Jefferson",
+  "position" : "F",
+  "height" : "6-9",
+  "weight" : "222",
+  "jersey_number" : "11",
+  "draft_year" : 2017,
+  "draft_number" : 0
+}, {
+  "id" : 239,
+  "first_name" : "Jonas",
+  "last_name" : "Jerebko",
+  "position" : "F",
+  "height" : "6-10",
+  "weight" : "231",
+  "jersey_number" : "21",
+  "draft_year" : 2009,
+  "draft_number" : 39
+}, {
+  "id" : 240,
+  "first_name" : "Alize",
+  "last_name" : "Johnson",
+  "position" : "F",
+  "height" : "6-7",
+  "weight" : "212",
+  "jersey_number" : "24",
+  "draft_year" : 2018,
+  "draft_number" : 50
+}, {
+  "id" : 241,
+  "first_name" : "Amir",
+  "last_name" : "Johnson",
+  "position" : "C-F",
+  "height" : "6-9",
+  "weight" : "240",
+  "jersey_number" : "5",
+  "draft_year" : 2005,
+  "draft_number" : 56
+}, {
+  "id" : 242,
+  "first_name" : "James",
+  "last_name" : "Johnson",
+  "position" : "F",
+  "height" : "6-7",
+  "weight" : "240",
+  "jersey_number" : "16",
+  "draft_year" : 2009,
+  "draft_number" : 16
+}, {
+  "id" : 243,
+  "first_name" : "Stanley",
+  "last_name" : "Johnson",
+  "position" : "F",
+  "height" : "6-6",
+  "weight" : "242",
+  "jersey_number" : "14",
+  "draft_year" : 2015,
+  "draft_number" : 8
+}, {
+  "id" : 244,
+  "first_name" : "Tyler",
+  "last_name" : "Johnson",
+  "position" : "G",
+  "height" : "6-3",
+  "weight" : "186",
+  "jersey_number" : "10",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 245,
+  "first_name" : "Wesley",
+  "last_name" : "Johnson",
+  "position" : "F-G",
+  "height" : "6-7",
+  "weight" : "215",
+  "jersey_number" : "4",
+  "draft_year" : 2010,
+  "draft_number" : 4
+}, {
+  "id" : 246,
+  "first_name" : "Nikola",
+  "last_name" : "Jokic",
+  "position" : "C",
+  "height" : "6-11",
+  "weight" : "284",
+  "jersey_number" : "15",
+  "draft_year" : 2014,
+  "draft_number" : 41
+}, {
+  "id" : 247,
+  "first_name" : "Derrick",
+  "last_name" : "Jones Jr.",
+  "position" : "F-G",
+  "height" : "6-6",
+  "weight" : "210",
+  "jersey_number" : "55",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 248,
+  "first_name" : "Damian",
+  "last_name" : "Jones",
+  "position" : "C",
+  "height" : "6-10",
+  "weight" : "245",
+  "jersey_number" : "30",
+  "draft_year" : 2016,
+  "draft_number" : 30
+}, {
+  "id" : 249,
+  "first_name" : "Tyus",
+  "last_name" : "Jones",
+  "position" : "G",
+  "height" : "6-1",
+  "weight" : "196",
+  "jersey_number" : "5",
+  "draft_year" : 2015,
+  "draft_number" : 24
+}, {
+  "id" : 250,
+  "first_name" : "DeAndre",
+  "last_name" : "Jordan",
+  "position" : "C",
+  "height" : "6-11",
+  "weight" : "265",
+  "jersey_number" : "6",
+  "draft_year" : 2008,
+  "draft_number" : 35
+}, {
+  "id" : 251,
+  "first_name" : "Cory",
+  "last_name" : "Joseph",
+  "position" : "G",
+  "height" : "6-2",
+  "weight" : "200",
+  "jersey_number" : "1",
+  "draft_year" : 2011,
+  "draft_number" : 29
+}, {
+  "id" : 252,
+  "first_name" : "Frank",
+  "last_name" : "Kaminsky",
+  "position" : "F-C",
+  "height" : "7-0",
+  "weight" : "240",
+  "jersey_number" : "33",
+  "draft_year" : 2015,
+  "draft_number" : 9
+}, {
+  "id" : 253,
+  "first_name" : "Enes",
+  "last_name" : "Kanter",
+  "position" : "C",
+  "height" : "6-10",
+  "weight" : "250",
+  "jersey_number" : "11",
+  "draft_year" : 2011,
+  "draft_number" : 3
+}, {
+  "id" : 254,
+  "first_name" : "Luke",
+  "last_name" : "Kennard",
+  "position" : "G",
+  "height" : "6-5",
+  "weight" : "206",
+  "jersey_number" : "10",
+  "draft_year" : 2017,
+  "draft_number" : 12
+}, {
+  "id" : 255,
+  "first_name" : "Michael",
+  "last_name" : "Kidd-Gilchrist",
+  "position" : "F",
+  "height" : "6-6",
+  "weight" : "232",
+  "jersey_number" : "9",
+  "draft_year" : 2012,
+  "draft_number" : 2
+}, {
+  "id" : 256,
+  "first_name" : "George",
+  "last_name" : "King",
+  "position" : "F",
+  "height" : "6-6",
+  "weight" : "220",
+  "jersey_number" : "8",
+  "draft_year" : 2018,
+  "draft_number" : 59
+}, {
+  "id" : 257,
+  "first_name" : "Maxi",
+  "last_name" : "Kleber",
+  "position" : "F",
+  "height" : "6-10",
+  "weight" : "240",
+  "jersey_number" : "42",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 258,
+  "first_name" : "Brandon",
+  "last_name" : "Knight",
+  "position" : "G",
+  "height" : "6-2",
+  "weight" : "182",
+  "jersey_number" : "20",
+  "draft_year" : 2011,
+  "draft_number" : 8
+}, {
+  "id" : 259,
+  "first_name" : "Kevin",
+  "last_name" : "Knox",
+  "position" : "F",
+  "height" : "6-7",
+  "weight" : "215",
+  "jersey_number" : "11",
+  "draft_year" : 2018,
+  "draft_number" : 9
+}, {
+  "id" : 260,
+  "first_name" : "Furkan",
+  "last_name" : "Korkmaz",
+  "position" : "G-F",
+  "height" : "6-7",
+  "weight" : "202",
+  "jersey_number" : "30",
+  "draft_year" : 2016,
+  "draft_number" : 26
+}, {
+  "id" : 261,
+  "first_name" : "Luke",
+  "last_name" : "Kornet",
+  "position" : "F-C",
+  "height" : "7-1",
+  "weight" : "250",
+  "jersey_number" : "40",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 262,
+  "first_name" : "Kyle",
+  "last_name" : "Korver",
+  "position" : "G-F",
+  "height" : "6-7",
+  "weight" : "212",
+  "jersey_number" : "26",
+  "draft_year" : 2003,
+  "draft_number" : 51
+}, {
+  "id" : 263,
+  "first_name" : "Kosta",
+  "last_name" : "Koufos",
+  "position" : "C",
+  "height" : "7-0",
+  "weight" : "245",
+  "jersey_number" : "41",
+  "draft_year" : 2008,
+  "draft_number" : 23
+}, {
+  "id" : 264,
+  "first_name" : "Rodions",
+  "last_name" : "Kurucs",
+  "position" : "F",
+  "height" : "6-9",
+  "weight" : "228",
+  "jersey_number" : "00",
+  "draft_year" : 2018,
+  "draft_number" : 40
+}, {
+  "id" : 265,
+  "first_name" : "Kyle",
+  "last_name" : "Kuzma",
+  "position" : "F",
+  "height" : "6-9",
+  "weight" : "221",
+  "jersey_number" : "33",
+  "draft_year" : 2017,
+  "draft_number" : 27
+}, {
+  "id" : 266,
+  "first_name" : "Skal",
+  "last_name" : "Labissiere",
+  "position" : "F",
+  "height" : "6-10",
+  "weight" : "235",
+  "jersey_number" : "7",
+  "draft_year" : 2016,
+  "draft_number" : 28
+}, {
+  "id" : 267,
+  "first_name" : "Jeremy",
+  "last_name" : "Lamb",
+  "position" : "G",
+  "height" : "6-5",
+  "weight" : "180",
+  "jersey_number" : "26",
+  "draft_year" : 2012,
+  "draft_number" : 12
+}, {
+  "id" : 268,
+  "first_name" : "Zach",
+  "last_name" : "LaVine",
+  "position" : "G",
+  "height" : "6-5",
+  "weight" : "200",
+  "jersey_number" : "8",
+  "draft_year" : 2014,
+  "draft_number" : 13
+}, {
+  "id" : 269,
+  "first_name" : "Jake",
+  "last_name" : "Layman",
+  "position" : "F",
+  "height" : "6-8",
+  "weight" : "209",
+  "jersey_number" : "10",
+  "draft_year" : 2016,
+  "draft_number" : 47
+}, {
+  "id" : 270,
+  "first_name" : "TJ",
+  "last_name" : "Leaf",
+  "position" : "F",
+  "height" : "6-10",
+  "weight" : "222",
+  "jersey_number" : "18",
+  "draft_year" : 2017,
+  "draft_number" : 18
+}, {
+  "id" : 271,
+  "first_name" : "Courtney",
+  "last_name" : "Lee",
+  "position" : "G",
+  "height" : "6-5",
+  "weight" : "215",
+  "jersey_number" : "1",
+  "draft_year" : 2008,
+  "draft_number" : 22
+}, {
+  "id" : 272,
+  "first_name" : "Damion",
+  "last_name" : "Lee",
+  "position" : "G",
+  "height" : "6-6",
+  "weight" : "210",
+  "jersey_number" : "10",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 273,
+  "first_name" : "Alex",
+  "last_name" : "Len",
+  "position" : "C",
+  "height" : "7-0",
+  "weight" : "250",
+  "jersey_number" : "25",
+  "draft_year" : 2013,
+  "draft_number" : 5
+}, {
+  "id" : 274,
+  "first_name" : "Kawhi",
+  "last_name" : "Leonard",
+  "position" : "F",
+  "height" : "6-7",
+  "weight" : "225",
+  "jersey_number" : "2",
+  "draft_year" : 2011,
+  "draft_number" : 15
+}, {
+  "id" : 275,
+  "first_name" : "Meyers",
+  "last_name" : "Leonard",
+  "position" : "F-C",
+  "height" : "7-0",
+  "weight" : "260",
+  "jersey_number" : "3",
+  "draft_year" : 2012,
+  "draft_number" : 11
+}, {
+  "id" : 276,
+  "first_name" : "Jon",
+  "last_name" : "Leuer",
+  "position" : "F",
+  "height" : "6-10",
+  "weight" : "228",
+  "jersey_number" : "30",
+  "draft_year" : 2011,
+  "draft_number" : 40
+}, {
+  "id" : 277,
+  "first_name" : "Caris",
+  "last_name" : "LeVert",
+  "position" : "G",
+  "height" : "6-6",
+  "weight" : "205",
+  "jersey_number" : "3",
+  "draft_year" : 2016,
+  "draft_number" : 20
+}, {
+  "id" : 278,
+  "first_name" : "Damian",
+  "last_name" : "Lillard",
+  "position" : "G",
+  "height" : "6-2",
+  "weight" : "195",
+  "jersey_number" : "0",
+  "draft_year" : 2012,
+  "draft_number" : 6
+}, {
+  "id" : 279,
+  "first_name" : "Jeremy",
+  "last_name" : "Lin",
+  "position" : "G",
+  "height" : "6-3",
+  "weight" : "200",
+  "jersey_number" : "17",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 280,
+  "first_name" : "Shaun",
+  "last_name" : "Livingston",
+  "position" : "G",
+  "height" : "6-7",
+  "weight" : "192",
+  "jersey_number" : "34",
+  "draft_year" : 2004,
+  "draft_number" : 4
+}, {
+  "id" : 281,
+  "first_name" : "Zach",
+  "last_name" : "Lofton",
+  "position" : "G",
+  "height" : "6-4",
+  "weight" : "180",
+  "jersey_number" : "18",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 282,
+  "first_name" : "Kevon",
+  "last_name" : "Looney",
+  "position" : "F",
+  "height" : "6-9",
+  "weight" : "222",
+  "jersey_number" : "5",
+  "draft_year" : 2015,
+  "draft_number" : 30
+}, {
+  "id" : 283,
+  "first_name" : "Brook",
+  "last_name" : "Lopez",
+  "position" : "C",
+  "height" : "7-1",
+  "weight" : "282",
+  "jersey_number" : "11",
+  "draft_year" : 2008,
+  "draft_number" : 10
+}, {
+  "id" : 284,
+  "first_name" : "Robin",
+  "last_name" : "Lopez",
+  "position" : "C",
+  "height" : "7-0",
+  "weight" : "281",
+  "jersey_number" : "33",
+  "draft_year" : 2008,
+  "draft_number" : 15
+}, {
+  "id" : 285,
+  "first_name" : "Kevin",
+  "last_name" : "Love",
+  "position" : "F-C",
+  "height" : "6-8",
+  "weight" : "251",
+  "jersey_number" : "42",
+  "draft_year" : 2008,
+  "draft_number" : 5
+}, {
+  "id" : 286,
+  "first_name" : "Kyle",
+  "last_name" : "Lowry",
+  "position" : "G",
+  "height" : "6-0",
+  "weight" : "196",
+  "jersey_number" : "7",
+  "draft_year" : 2006,
+  "draft_number" : 24
+}, {
+  "id" : 287,
+  "first_name" : "Jordan",
+  "last_name" : "Loyd",
+  "position" : "G",
+  "height" : "6-4",
+  "weight" : "210",
+  "jersey_number" : "8",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 288,
+  "first_name" : "Timothe",
+  "last_name" : "Luwawu-Cabarrot",
+  "position" : "G-F",
+  "height" : "6-7",
+  "weight" : "215",
+  "jersey_number" : "7",
+  "draft_year" : 2016,
+  "draft_number" : 24
+}, {
+  "id" : 289,
+  "first_name" : "Tyler",
+  "last_name" : "Lydon",
+  "position" : "F",
+  "height" : "6-10",
+  "weight" : "225",
+  "jersey_number" : "20",
+  "draft_year" : 2017,
+  "draft_number" : 24
+}, {
+  "id" : 290,
+  "first_name" : "Trey",
+  "last_name" : "Lyles",
+  "position" : "F",
+  "height" : "6-9",
+  "weight" : "234",
+  "jersey_number" : "41",
+  "draft_year" : 2015,
+  "draft_number" : 12
+}, {
+  "id" : 291,
+  "first_name" : "Shelvin",
+  "last_name" : "Mack",
+  "position" : "G",
+  "height" : "6-3",
+  "weight" : "203",
+  "jersey_number" : "6",
+  "draft_year" : 2011,
+  "draft_number" : 34
+}, {
+  "id" : 292,
+  "first_name" : "Daryl",
+  "last_name" : "Macon",
+  "position" : "G",
+  "height" : "6-3",
+  "weight" : "185",
+  "jersey_number" : "3",
+  "draft_year" : 2018,
+  "draft_number" : 0
+}, {
+  "id" : 293,
+  "first_name" : "J.P.",
+  "last_name" : "Macura",
+  "position" : "G",
+  "height" : "6-5",
+  "weight" : "205",
+  "jersey_number" : "55",
+  "draft_year" : 2018,
+  "draft_number" : 0
+}, {
+  "id" : 294,
+  "first_name" : "Ian",
+  "last_name" : "Mahinmi",
+  "position" : "C",
+  "height" : "6-11",
+  "weight" : "262",
+  "jersey_number" : "28",
+  "draft_year" : 2005,
+  "draft_number" : 28
+}, {
+  "id" : 295,
+  "first_name" : "Thon",
+  "last_name" : "Maker",
+  "position" : "F",
+  "height" : "7-0",
+  "weight" : "221",
+  "jersey_number" : "7",
+  "draft_year" : 2016,
+  "draft_number" : 10
+}, {
+  "id" : 296,
+  "first_name" : "Boban",
+  "last_name" : "Marjanovic",
+  "position" : "C",
+  "height" : "7-4",
+  "weight" : "290",
+  "jersey_number" : "51",
+  "draft_year" : 0,
+  "draft_number" : 0
+}, {
+  "id" : 297,
+  "first_name" : "Lauri",
+  "last_name" : "Markkanen",
+  "position" : "F",
+  "height" : "7-0",
+  "weight" : "240",
+  "jersey_number" : "23",
+  "draft_year" : 2017,
+  "draft_number" : 7
+}, {
+  "id" : 298,
+  "first_name" : "Jarell",
+  "last_name" : "Martin",
+  "position" : "F",
+  "height" : "6-10",
+  "weight" : "239",
+  "jersey_number" : "2",
+  "draft_year" : 2015,
+  "draft_number" : 25
+}, {
+  "id" : 299,
+  "first_name" : "Frank",
+  "last_name" : "Mason",
+  "position" : "G",
+  "height" : "5-11",
+  "weight" : "190",
+  "jersey_number" : "15",
+  "draft_year" : 2017,
+  "draft_number" : 34
+}, {
+  "id" : 300,
+  "first_name" : "Yante",
+  "last_name" : "Maten",
+  "position" : "F",
+  "height" : "6-8",
+  "weight" : "240",
+  "jersey_number" : "00",
+  "draft_year" : 2018,
+  "draft_number" : 0
+} ]
