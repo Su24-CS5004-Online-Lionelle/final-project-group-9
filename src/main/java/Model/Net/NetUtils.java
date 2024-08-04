@@ -1,7 +1,10 @@
 package Model.Net;
 
+import Model.Format.DataFormatter;
+import Model.Format.Format;
 import Model.IModel;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import Model.Net.PlayerRecord;
@@ -9,10 +12,13 @@ import Model.Net.PlayerAverages;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -50,23 +56,62 @@ public class NetUtils {
     }
   }
 
-  public static List<IModel.PlayerBackground> fetchPlayers() throws IOException {
-    String endpoint = "/players";
+  public static String getPlayerDataString(String endpoint) throws IOException {
+    // Get URL connection using endpoint
     HttpURLConnection connection = UrlConnection(endpoint);
 
-    try {
-      System.out.println("Fetching URL in fetchPlayers" + API_URL + endpoint);
-      String jsonResponse = getUrlContents(connection);
-      System.out.println("API responded in fetchPlayers" + jsonResponse);
-      ObjectMapper mapper = new ObjectMapper();
+    // Convert data to string
+    System.out.println("Fetching URL in fetchPlayers" + API_URL + endpoint);
+    String jsonResponse = getUrlContents(connection);
+    System.out.println("API responded in fetchPlayers" + jsonResponse);
 
-      List<IModel.PlayerBackground> bg = mapper.readValue(jsonResponse, new TypeReference<List<IModel.PlayerBackground>>() { });
-      return bg;
-      // CURRENTLY: Having issues with deserializing next page of players. Getting first 25 records successfully. STOPPED HERE.
-     //  return mapper.readValue(jsonResponse, mapper.getTypeFactory().constructCollectionType(List.class, IModel.PlayerBackground.class));
-    } finally {
-      connection.disconnect();
+    // Disconnect from server
+    connection.disconnect();
+
+    return jsonResponse;
+  }
+
+
+  public static List<IModel.PlayerBackground> fetchPlayers() throws IOException {
+    // Initialize mega player list
+    List<IModel.PlayerBackground> masterPlayerList = new ArrayList<>();
+
+    // Get JSON String containing 100 player
+    String endpoint = "/players?per_page=100";
+    ObjectMapper mapper = new ObjectMapper();
+
+    while (endpoint != null) {
+      // Call endpoints
+      String jsonResponse = getPlayerDataString(endpoint);
+      JsonNode rootNode = mapper.readTree(jsonResponse);
+      JsonNode metaNode = rootNode.path("meta");
+      JsonNode dataNode = rootNode.path("data");
+
+      // Map string to object
+      List<IModel.PlayerBackground> currentPagePlayers =
+          mapper.convertValue(dataNode,
+              new TypeReference<List<IModel.PlayerBackground>>() {
+              });
+
+      // Add current page of players to master list
+      masterPlayerList.addAll(currentPagePlayers);
+
+      System.out.println("\n\n ------ going to next page \n\n");
+
+      // Go to next page
+      JsonNode nextCursor = metaNode.path("next_cursor");
+      if (nextCursor.isMissingNode() || nextCursor.isNull()) {
+        endpoint = null;
+      } else {
+        endpoint = "/players?cursor=" + nextCursor.asText() + "&per_page=100";
+      }
     }
+
+    // Write to database file
+    File file = new File("data/playerbackground.json");
+    DataFormatter.write(masterPlayerList, Format.JSON, new FileOutputStream(file));
+
+    return masterPlayerList;
   }
 
   public static List<IModel.PlayerAverages> fetchSeasonAverages() throws IOException {
