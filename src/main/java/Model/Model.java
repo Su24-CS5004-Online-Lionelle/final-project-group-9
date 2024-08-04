@@ -178,20 +178,20 @@ public class Model implements IModel {
             List<PlayerAverages> playerAverages = fetchSeasonAverages();
             System.out.println("after fetchSeasonAverages");
 
-            // use nested for loop to iterate through lists to find matching id's to construct the player object.
-            for (PlayerBackground bg : playerData) {
-                for (PlayerAverages averages : playerAverages) {
-                    if (bg.id() == averages.player_id()) {
-                        Player newPlayer = new Player(bg.first_name(), bg.last_name(), bg.position(), bg.height(),
-                                bg.draft_year(), bg.draft_round(), bg.draft_number(), bg.team().full_name(),
-                                bg.team().conference(), averages.pts(), averages.reb(), averages.ast(), averages.blk(),
-                                averages.stl(), averages.min(), averages.fg_pct(), averages.ft_pct(),
-                                averages.fg3_pct());
-                        // add player object to master database.
-                        NBAROSTER.add(newPlayer);
-                    }
-                }
-            }
+//            // use nested for loop to iterate through lists to find matching id's to construct the player object.
+//            for (PlayerBackground bg : playerData) {
+//                for (PlayerAverages averages : playerAverages) {
+//                    if (bg.id() == averages.player_id()) {
+//                        Player newPlayer = new Player(bg.first_name(), bg.last_name(), bg.position(), bg.height(),
+//                                bg.draft_year(), bg.draft_round(), bg.draft_number(), bg.team().full_name(),
+//                                bg.team().conference(), averages.pts(), averages.reb(), averages.ast(), averages.blk(),
+//                                averages.stl(), averages.min(), averages.fg_pct(), averages.ft_pct(),
+//                                averages.fg3_pct());
+//                        // add player object to master database.
+//                        NBAROSTER.add(newPlayer);
+//                    }
+//                }
+//            }
 
         } catch (IOException e) {
             throw new RuntimeException(e);
