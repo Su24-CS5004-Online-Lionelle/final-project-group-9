@@ -20,6 +20,13 @@ public class NetUtils {
   private static final String API_URL = "https://api.balldontlie.io/v1";
   private static final String API_KEY = "b339f77f-8c45-4cb4-bfec-bc26b584c358";
 
+  /**
+   * Prevent instantiation.
+   */
+  private NetUtils() {
+    // Prevent instantiation
+  }
+
   private static HttpURLConnection UrlConnection(String endpoint) throws IOException {
     URL url = new URL(API_URL + endpoint);
     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
