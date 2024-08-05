@@ -11,7 +11,7 @@ import java.util.Set;
 
 public interface IModel {
     /** Default database file. */
-    String DATABASE = ""; // need to figure out what to do about default file to read.
+    String DATABASE = "data/database.json"; // need to figure out what to do about default file to read.
 
     /**
      * Gets the players as a list.
@@ -49,7 +49,7 @@ public interface IModel {
     /**
      * Creates the master dates for all filtering, sorting, adding, and removing.
      */
-    void createNBARoster();
+    Set<Player> createNBARoster();
 
     /**
      * Takes a list of PlayerBean objects and converts it into a set of Player objects.
