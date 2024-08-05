@@ -91,14 +91,6 @@ public class Model implements IModel {
      */
     @Override
     public Set<Player> getAllPlayers() {
-        ObjectMapper mapper = new XmlMapper();
-        try {
-            List<PlayerBean> beanList = mapper.readValue(new File(DATABASE), new TypeReference<List<PlayerBean>>() { });
-            NBAROSTER = beanToPlayer(beanList);
-        }
-        catch (IOException e) {
-            throw new RuntimeException(e);
-        }
         return NBAROSTER;
     }
 
@@ -180,8 +172,11 @@ public class Model implements IModel {
     public void createNBARoster() {
         try {
             // initialize list to contain records for player data and season averages.
+            System.out.println("Before fetchPlayers");
             List<PlayerBackground> playerData = fetchPlayers();
+            System.out.println("after fetchplayers, before fetchSeasonAverages");
             List<PlayerAverages> playerAverages = fetchSeasonAverages();
+            System.out.println("after fetchSeasonAverages");
 
             // use nested for loop to iterate through lists to find matching id's to construct the player object.
             for (PlayerBackground bg : playerData) {
