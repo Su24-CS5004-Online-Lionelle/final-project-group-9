@@ -1,19 +1,19 @@
 [ {
-  "id" : 15,
-  "first_name" : "Giannis",
-  "last_name" : "Antetokounmpo",
+  "id" : 12,
+  "first_name" : "Kyle",
+  "last_name" : "Anderson",
   "position" : "F",
-  "height" : "6-11",
-  "draft_year" : 2013,
+  "height" : "6-9",
+  "draft_year" : 2014,
   "draft_round" : 1,
-  "draft_number" : 15,
+  "draft_number" : 30,
   "team" : {
-    "id" : 17,
-    "conference" : "East",
-    "division" : "Central",
-    "city" : "Milwaukee",
-    "name" : "Bucks",
-    "full_name" : "Milwaukee Bucks",
-    "abbreviation" : "MIL"
+    "id" : 18,
+    "conference" : "West",
+    "division" : "Northwest",
+    "city" : "Minnesota",
+    "name" : "Timberwolves",
+    "full_name" : "Minnesota Timberwolves",
+    "abbreviation" : "MIN"
   }
 } ]
