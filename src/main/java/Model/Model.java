@@ -47,6 +47,7 @@ public class Model implements IModel {
         this.roster = new LinkedHashSet<Player>();
 
         // intialize NBAROSTER with createNBARoster.
+        NBAROSTER = createNBARoster();
         this.NBAROSTER = NBAROSTER;
         // createNBARoster();
     }
@@ -57,7 +58,9 @@ public class Model implements IModel {
      */
     public Model(String filePath) {
         this.filePath = filePath;
+        NBAROSTER = createNBARoster();
         this.NBAROSTER = NBAROSTER;
+
         // createNBARoster();
 
         // set roster to a set of players found in the data file passed in by user.
@@ -170,33 +173,18 @@ public class Model implements IModel {
      * Creates the master database for all filtering, sorting, adding, and removing.
      */
     @Override
-    public void createNBARoster() {
-//        try {
-//            // initialize list to contain records for player data and season averages.
-//            System.out.println("Before fetchPlayers");
-//            List<PlayerBackground> playerData = fetchPlayers();
-//            System.out.println("after fetchplayers, before fetchSeasonAverages");
-//            // List<PlayerAverages> playerAverages = fetchSeasonAverages("9");
-//            System.out.println("after fetchSeasonAverages");
-//
-//            // use nested for loop to iterate through lists to find matching id's to construct the player object.
-//            for (PlayerBackground bg : playerData) {
-//                for (PlayerAverages averages : playerAverages) {
-//                    if (bg.id() == averages.player_id()) {
-//                        Player newPlayer = new Player(bg.first_name(), bg.last_name(), bg.position(), bg.height(),
-//                                bg.draft_year(), bg.draft_round(), bg.draft_number(), bg.team().full_name(),
-//                                bg.team().conference(), averages.pts(), averages.reb(), averages.ast(), averages.blk(),
-//                                averages.stl(), averages.min(), averages.fg_pct(), averages.ft_pct(),
-//                                averages.fg3_pct());
-//                        // add player object to master database.
-//                        NBAROSTER.add(newPlayer);
-//                    }
-//                }
-//            }
-//
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
+    public Set<Player> createNBARoster() {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            List<PlayerBean>  beanList = mapper.readValue(new File(filePath), new TypeReference<List<PlayerBean>>() { });
+            return new LinkedHashSet<Player>(beanToPlayer(beanList));
+        } catch (StreamReadException e) {
+            throw new RuntimeException(e);
+        } catch (DatabindException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
