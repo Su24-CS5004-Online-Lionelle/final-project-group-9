@@ -30,16 +30,32 @@ class TestNetUtils {
   }
 
   @Test
-  void TestFetchMorePlayers() {
+  void fetchAPlayers() {
     // Initialize List of players
-    List<IModel.PlayerBackground> backgroundList= new ArrayList<>();
+    IModel.PlayerBackground backgroundList;
 
 //    try {
-//      backgroundList = NetUtils.fetchMorePlayers();
+//      backgroundList = NetUtils.getAPlayer("Stephen", "Curry");
 //    } catch (IOException e) {
 //      throw new RuntimeException(e);
 //    }
 
-    assertNotEquals(null, backgroundList);
+//    assertNotEquals(null, backgroundList);
+
+  }
+
+  @Test
+  void TestFetchAverages() {
+    // Initialize List of players
+    List<IModel.PlayerAverages> averagesList= new ArrayList<>();
+
+    try {
+      averagesList = NetUtils.fetchSeasonAverages("19");
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+
+
+    assertNotEquals(null, averagesList);
   }
 }

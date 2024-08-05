@@ -1,8 +1,5 @@
 package Model;
 
-import Model.Net.PlayerAverages;
-import Model.Net.PlayerRecord;
-
 public class Player {
 
   private String first_name;
