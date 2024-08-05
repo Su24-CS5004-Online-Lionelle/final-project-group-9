@@ -58,27 +58,6 @@ public class NetUtils {
     }
   }
 
-//  /**
-//   * Gets a player info data.
-//   */
-//  public static IModel.PlayerBackground getAPlayer(String endpoint) throws IOException {
-//    // endpoint searches for player using first and or last name
-//
-//    // returns background data for a player
-//    return null;
-//  }
-
-  /**
-   * Gets a player averages info data.
-   */
-  public static IModel.PlayerAverages getAPlayerAverage(String endpoint)
-          throws IOException {
-    // endpoint searches for player using id
-
-    // returns background data for a player
-    return null;
-  }
-
   /**
    * Returns players with either first or last name.
    *
@@ -126,13 +105,6 @@ public class NetUtils {
                       new TypeReference<List<PlayerBackground>>() {
                       });
     }
-
-
-    // Write to database file
-    File file = new File("data/getplayer.json");
-    DataFormatter.write(playerList, Format.JSON,
-            new FileOutputStream(file));
-
     return playerList.get(0);
   }
 
@@ -199,12 +171,6 @@ public class NetUtils {
         cursorLimit--;
       }
     }
-
-    // Write to database file
-    File file = new File("data/playerbackground2023.json");
-    DataFormatter.write(masterPlayerList, Format.JSON,
-            new FileOutputStream(file));
-
     return masterPlayerList;
   }
 
@@ -233,11 +199,6 @@ public class NetUtils {
                       new TypeReference<List<IModel.PlayerAverages>>() {
                       });
     }
-      // Write to database file
-      File file = new File("data/aplayeraverage.json");
-      DataFormatter.write(masterPlayerAverage, Format.JSON,
-              new FileOutputStream(file));
-
       return masterPlayerAverage.get(0);
     }
   }
