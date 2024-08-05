@@ -57,7 +57,7 @@ public final class Filters {
       case SPG:
         return convertDouble(player.getSpg(), op, val);
       case MPG:
-        return convertDouble(player.getMpg(), op, val);
+        return filterString(player.getMpg(), op, val);
       case FGP:
         return convertDouble(player.getFgp(), op, val);
       case FTP:

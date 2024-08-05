@@ -110,7 +110,6 @@ public class NetUtils {
     }
 
     String jsonResponse = getPlayerDataString(endpoint);
-    
     ObjectMapper mapper = new ObjectMapper();
 
     // Call endpoints

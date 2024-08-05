@@ -194,7 +194,7 @@ public interface IModel {
     @JsonPropertyOrder({"pts", "ast", "turnover", "pf", "reb", "stl", "blk", "fg_pct", "fg3_pct",
             "ft_pct", "min", "games_played", "player_id"})
     record PlayerAverages(double pts, double ast, double turnover, double pf, double reb, double stl, double blk,
-                  double fg_pct, double fg3_pct, double ft_pct, double min, double games_played, int player_id) {
+                  double fg_pct, double fg3_pct, double ft_pct, String min, double games_played, int player_id) {
     }
     record Team(int id, String conference, String division, String city, String name, String full_name,
                 String abbreviation) {}

@@ -27,7 +27,7 @@ public class PlayerBean {
      */
     public PlayerBean(String firstName, String lastName, String position, String height, int draftYear, int draftRound,
                       int draftPick, String team, String conference, double ppg, double rpg, double apg, double
-                      bpg, double spg, double mpg, double fgp, double ftp, double fg3p) {
+                      bpg, double spg, String mpg, double fgp, double ftp, double fg3p) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.position = position;
@@ -77,7 +77,7 @@ public class PlayerBean {
     /** Steals per game of player. */
     private double spg;
     /** Minutes per game of player. */
-    private double mpg;
+    private String mpg;
     /** Field goal percentage of player. */
     private double fgp;
     /** Free throw percentage of player. */
@@ -193,7 +193,7 @@ public class PlayerBean {
      * Gets player's minutes per game.
      * @return double
      */
-    public double getMpg() {
+    public String getMpg() {
         return mpg;
     }
 
