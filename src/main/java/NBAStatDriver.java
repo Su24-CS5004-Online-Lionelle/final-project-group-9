@@ -14,7 +14,11 @@ public class NBAStatDriver {
 
     // view.start()
     try {
-      IModel.PlayerAverages avg = NetUtils.fetchSeasonAverages("3");
+      IModel model = new Model();
+      IModel.PlayerAverages avg = NetUtils.fetchSeasonAverages("15");
+      IModel.PlayerBackground bg = NetUtils.getAPlayer("giannis", "antetokounmpo");
+      Player newPlayer = model.createPlayer(bg, avg);
+      System.out.println(newPlayer.toString());
 
 
     } catch (IOException e) {

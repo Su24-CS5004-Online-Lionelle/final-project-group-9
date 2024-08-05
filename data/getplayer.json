@@ -1,19 +1,19 @@
 [ {
-  "id" : 115,
-  "first_name" : "Stephen",
-  "last_name" : "Curry",
-  "position" : "G",
-  "height" : "6-2",
-  "draft_year" : 2009,
+  "id" : 15,
+  "first_name" : "Giannis",
+  "last_name" : "Antetokounmpo",
+  "position" : "F",
+  "height" : "6-11",
+  "draft_year" : 2013,
   "draft_round" : 1,
-  "draft_number" : 7,
+  "draft_number" : 15,
   "team" : {
-    "id" : 10,
-    "conference" : "West",
-    "division" : "Pacific",
-    "city" : "Golden State",
-    "name" : "Warriors",
-    "full_name" : "Golden State Warriors",
-    "abbreviation" : "GSW"
+    "id" : 17,
+    "conference" : "East",
+    "division" : "Central",
+    "city" : "Milwaukee",
+    "name" : "Bucks",
+    "full_name" : "Milwaukee Bucks",
+    "abbreviation" : "MIL"
   }
 } ]

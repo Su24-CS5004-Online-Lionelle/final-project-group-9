@@ -437,7 +437,7 @@ public class PlayerSortStrategy {
      */
     @Override
     public int compare(Player o1, Player o2) {
-      return (int) (o1.getMpg() - (o2.getMpg()));
+      return o1.getMpg().compareToIgnoreCase(o2.getMpg());
     }
   }
 
@@ -450,7 +450,7 @@ public class PlayerSortStrategy {
      */
     @Override
     public int compare(Player o1, Player o2) {
-      return (int) (o2.getMpg() - (o1.getMpg()));
+      return o2.getMpg().compareToIgnoreCase(o1.getMpg());
     }
   }
 

@@ -31,7 +31,7 @@ public class NetUtils {
   }
 
   private static HttpURLConnection UrlConnection(String endpoint)
-      throws IOException {
+          throws IOException {
     URL url = new URL(API_URL + endpoint);
     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
     connection.setRequestMethod("GET");
@@ -41,19 +41,19 @@ public class NetUtils {
   }
 
   private static String getUrlContents(HttpURLConnection connection)
-      throws IOException {
+          throws IOException {
     int responseCode = connection.getResponseCode();
     if (responseCode != HttpURLConnection.HTTP_OK) {
       String error;
       try (BufferedReader reader = new BufferedReader(
-          new InputStreamReader(connection.getErrorStream()))) {
+              new InputStreamReader(connection.getErrorStream()))) {
         error = reader.lines().collect(Collectors.joining("\n"));
       }
       throw new IOException(
-          "HTTP error code: " + responseCode + "\n Error message: " + error);
+              "HTTP error code: " + responseCode + "\n Error message: " + error);
     }
     try (BufferedReader reader = new BufferedReader(
-        new InputStreamReader(connection.getInputStream()))) {
+            new InputStreamReader(connection.getInputStream()))) {
       return reader.lines().collect(Collectors.joining("\n"));
     }
   }
@@ -72,7 +72,7 @@ public class NetUtils {
    * Gets a player averages info data.
    */
   public static IModel.PlayerAverages getAPlayerAverage(String endpoint)
-      throws IOException {
+          throws IOException {
     // endpoint searches for player using id
 
     // returns background data for a player
@@ -81,23 +81,25 @@ public class NetUtils {
 
   /**
    * Returns players with either first or last name.
+   *
    * @param name first or last name
    * @return Player background
    * @throws IOException if file not found
    */
   public static PlayerBackground getAPlayer(String name)
-      throws IOException {
+          throws IOException {
     return getAPlayer(name, "");
   }
 
   /**
    * Gets a player info data using their first and last name.
-   * @param name first or last name
+   *
+   * @param name     first or last name
    * @param lastName first or last name of player
    * @return a player background object
    */
   public static PlayerBackground getAPlayer(String name, String lastName)
-      throws IOException {
+          throws IOException {
     // Initialize mega player list
     List<PlayerBackground> playerList = new ArrayList<>();
     String endpoint;
@@ -110,26 +112,26 @@ public class NetUtils {
     }
 
     String jsonResponse = getPlayerDataString(endpoint);
-    
+
     ObjectMapper mapper = new ObjectMapper();
 
     // Call endpoints
-      JsonNode rootNode = mapper.readTree(jsonResponse);
-      JsonNode dataNode = rootNode.path("data");
+    JsonNode rootNode = mapper.readTree(jsonResponse);
+    JsonNode dataNode = rootNode.path("data");
 
     // If data node is not empty, deserialize
     if (dataNode.isArray() && dataNode.size() > 0) {
       playerList =
-          mapper.convertValue(dataNode,
-              new TypeReference<List<PlayerBackground>>() {
-              });
+              mapper.convertValue(dataNode,
+                      new TypeReference<List<PlayerBackground>>() {
+                      });
     }
-    
+
 
     // Write to database file
     File file = new File("data/getplayer.json");
     DataFormatter.write(playerList, Format.JSON,
-        new FileOutputStream(file));
+            new FileOutputStream(file));
 
     return playerList.get(0);
   }
@@ -159,7 +161,7 @@ public class NetUtils {
 
 
   public static List<PlayerBackground> fetchPlayers()
-      throws IOException {
+          throws IOException {
     // Initialize mega player list
     List<PlayerBackground> masterPlayerList = new ArrayList<>();
 
@@ -178,9 +180,9 @@ public class NetUtils {
 
       // Map string to object
       List<PlayerBackground> currentPagePlayers =
-          mapper.convertValue(dataNode,
-              new TypeReference<List<PlayerBackground>>() {
-              });
+              mapper.convertValue(dataNode,
+                      new TypeReference<List<PlayerBackground>>() {
+                      });
 
       // Add current page of players to master list
       masterPlayerList.addAll(currentPagePlayers);
@@ -190,7 +192,7 @@ public class NetUtils {
       // Go to next page
       JsonNode nextCursor = metaNode.path("next_cursor");
       if (nextCursor.isMissingNode() || nextCursor.isNull() ||
-          cursorLimit == 0) {
+              cursorLimit == 0) {
         endpoint = null;
       } else {
         endpoint = "/players?cursor=" + nextCursor.asText() + "&per_page=100";
@@ -201,7 +203,7 @@ public class NetUtils {
     // Write to database file
     File file = new File("data/playerbackground2023.json");
     DataFormatter.write(masterPlayerList, Format.JSON,
-        new FileOutputStream(file));
+            new FileOutputStream(file));
 
     return masterPlayerList;
   }
@@ -211,7 +213,7 @@ public class NetUtils {
    * @throws IOException
    */
   public static IModel.PlayerAverages fetchSeasonAverages(String id)
-      throws IOException {
+          throws IOException {
     // Initialize mega player list
     List<IModel.PlayerAverages> masterPlayerAverage = new ArrayList<>();
 
@@ -219,24 +221,24 @@ public class NetUtils {
     String endpoint = "/season_averages?season=2023&player_ids[]=" + id;
     ObjectMapper mapper = new ObjectMapper();
 
-      // Call endpoints
-      String jsonResponse = getPlayerDataString(endpoint);
-      JsonNode rootNode = mapper.readTree(jsonResponse);
-      JsonNode dataNode = rootNode.path("data");
+    // Call endpoints
+    String jsonResponse = getPlayerDataString(endpoint);
+    JsonNode rootNode = mapper.readTree(jsonResponse);
+    JsonNode dataNode = rootNode.path("data");
 
-      // Map string to object
-      List<IModel.PlayerAverages> currentPagePlayers =
-          mapper.readValue(jsonResponse, mapper.getTypeFactory().constructCollectionType(List.class, IModel.PlayerAverages.class));
-
-      // Add current page of players to master list
-      masterPlayerAverage.addAll(currentPagePlayers);
-
-
+    // Map string to object
+    if (dataNode.isArray() && dataNode.size() > 0) {
+      masterPlayerAverage =
+              mapper.convertValue(dataNode,
+                      new TypeReference<List<IModel.PlayerAverages>>() {
+                      });
+    }
       // Write to database file
       File file = new File("data/aplayeraverage.json");
       DataFormatter.write(masterPlayerAverage, Format.JSON,
-          new FileOutputStream(file));
+              new FileOutputStream(file));
 
       return masterPlayerAverage.get(0);
     }
-}
+  }
+

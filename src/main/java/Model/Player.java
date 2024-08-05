@@ -16,7 +16,7 @@ public class Player {
   private double apg;
   private double bpg;
   private double spg;
-  private double mpg;
+  private String mpg;
   private double fgp;
   private double ftp;
   private double fg3p;
@@ -24,7 +24,7 @@ public class Player {
   public Player() {}
 
   public Player(String first_name, String last_name, String position, String height, int draftYear, int draftRound, int draftPick,
-                String team, String conference, double ppg, double rpg, double apg, double bpg, double spg, double mpg, double fgp, double ftp, double fg3p) {
+                String team, String conference, double ppg, double rpg, double apg, double bpg, double spg, String mpg, double fgp, double ftp, double fg3p) {
     this.first_name = first_name;
     this.last_name = last_name;
     this.position = position;
@@ -102,7 +102,7 @@ public class Player {
     return spg;
   }
 
-  public double getMpg() {
+  public String getMpg() {
     return mpg;
   }
 
@@ -124,7 +124,7 @@ public class Player {
     return String.format(
             "First_Name: %s\nLast_Name: %s\nPosition: %s\nHeight: %s\nDraft Year: %d\nDraft Round: %d\nDraft Pick: %d\n" +
                     "Team: %s\nConference: %s\nPoints per game: %.2f\nRebounds per game: %.2f\nAssists per game: %.2f\n" +
-                    "Blocks per game: %.2f\nSteals per game: %.2f\nMinutes per game: %.2f\n" +
+                    "Blocks per game: %.2f\nSteals per game: %.2f\nMinutes per game: %s\n" +
                     "Field goal percentage: %.2f\nFree throw percentage: %.2f\nThree-point percentage: %.2f",
             first_name, last_name, position, height, draftYear, draftRound, draftPick, team, conference, ppg, rpg, apg, bpg, spg, mpg, fgp, ftp, fg3p);
   }

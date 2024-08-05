@@ -170,7 +170,7 @@ public interface IModel {
      * @param seasonAverages - the player season averages record.
      * @return Player object.
      */
-     Player createPlayer(PlayerBackground background, PlayerAverages seasonAverages);
+    Player createPlayer(PlayerBackground background, PlayerAverages seasonAverages);
 
 
     /**
@@ -190,11 +190,11 @@ public interface IModel {
      * @param player_id
      */
     @JsonIgnoreProperties(ignoreUnknown = true)
-    @JacksonXmlRootElement(localName = "data")
+    @JsonRootName("data")
     @JsonPropertyOrder({"pts", "ast", "turnover", "pf", "reb", "stl", "blk", "fg_pct", "fg3_pct",
             "ft_pct", "min", "games_played", "player_id"})
     record PlayerAverages(double pts, double ast, double turnover, double pf, double reb, double stl, double blk,
-                  double fg_pct, double fg3_pct, double ft_pct, double min, double games_played, int player_id) {
+                  double fg_pct, double fg3_pct, double ft_pct, String min, double games_played, int player_id) {
     }
     record Team(int id, String conference, String division, String city, String name, String full_name,
                 String abbreviation) {}
@@ -212,7 +212,6 @@ public interface IModel {
      */
     @JsonIgnoreProperties(ignoreUnknown = true)
     @JsonRootName("data")
-//    @JacksonXmlRootElement(localName = "data")
     @JsonPropertyOrder({"id", "first_name", "last_name", "position",
         "height", "draft_year", "draft_round", "draft_number", "team"})
     record PlayerBackground(int id, String first_name, String last_name, String position, String height,
