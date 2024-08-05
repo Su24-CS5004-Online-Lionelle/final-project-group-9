@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
 
 import static Model.Net.NetUtils.fetchPlayers;
 import static Model.Net.NetUtils.fetchSeasonAverages;
+import static Model.Net.NetUtils.getAPlayer;
 import static Model.SortFilter.Filters.getFilter;
 import static Model.SortFilter.PlayerSort.sortPlayers;
 
@@ -46,8 +47,9 @@ public class Model implements IModel {
         this.roster = new LinkedHashSet<Player>();
 
         // intialize NBAROSTER with createNBARoster.
+        NBAROSTER = createNBARoster();
         this.NBAROSTER = NBAROSTER;
-        createNBARoster();
+        // createNBARoster();
     }
 
     /**
@@ -56,8 +58,10 @@ public class Model implements IModel {
      */
     public Model(String filePath) {
         this.filePath = filePath;
+        NBAROSTER = createNBARoster();
         this.NBAROSTER = NBAROSTER;
-        createNBARoster();
+
+        // createNBARoster();
 
         // set roster to a set of players found in the data file passed in by user.
         // start by creating xml mapper to serialize data into roster.
@@ -169,30 +173,15 @@ public class Model implements IModel {
      * Creates the master database for all filtering, sorting, adding, and removing.
      */
     @Override
-    public void createNBARoster() {
+    public Set<Player> createNBARoster() {
+        ObjectMapper mapper = new ObjectMapper();
         try {
-            // initialize list to contain records for player data and season averages.
-            System.out.println("Before fetchPlayers");
-            List<PlayerBackground> playerData = fetchPlayers();
-            System.out.println("after fetchplayers, before fetchSeasonAverages");
-            List<PlayerAverages> playerAverages = fetchSeasonAverages();
-            System.out.println("after fetchSeasonAverages");
-
-            // use nested for loop to iterate through lists to find matching id's to construct the player object.
-            for (PlayerBackground bg : playerData) {
-                for (PlayerAverages averages : playerAverages) {
-                    if (bg.id() == averages.player_id()) {
-                        Player newPlayer = new Player(bg.first_name(), bg.last_name(), bg.position(), bg.height(),
-                                bg.draft_year(), bg.draft_round(), bg.draft_number(), bg.team().full_name(),
-                                bg.team().conference(), averages.pts(), averages.reb(), averages.ast(), averages.blk(),
-                                averages.stl(), averages.min(), averages.fg_pct(), averages.ft_pct(),
-                                averages.fg3_pct());
-                        // add player object to master database.
-                        NBAROSTER.add(newPlayer);
-                    }
-                }
-            }
-
+            List<PlayerBean>  beanList = mapper.readValue(new File(filePath), new TypeReference<List<PlayerBean>>() { });
+            return new LinkedHashSet<Player>(beanToPlayer(beanList));
+        } catch (StreamReadException e) {
+            throw new RuntimeException(e);
+        } catch (DatabindException e) {
+            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -393,6 +382,8 @@ public class Model implements IModel {
             // we have now eliminated every possibility except a singular number.
         } else {
             try {
+                // initialize boolean to check if player is in database.
+                boolean found = false;
                 // split string by space to check if user passed in a full name.
                 range = nameOrRange.split(" ");
                 if (range.length == 2) { // meaning user passed in a full name.
@@ -403,8 +394,18 @@ public class Model implements IModel {
                         if (player.getFirstName().equalsIgnoreCase(firstName) &&
                                 player.getLastName().equalsIgnoreCase(lastName)) {
                             roster.add(player);
+                            found = true;
                             return; // end method here.
                         }
+                    }
+                    if (found == false) {
+                        // get the records from net utils.
+                        PlayerBackground bg = getAPlayer(firstName, lastName);
+                        String id = String.valueOf(bg.id());
+                        PlayerAverages avg = fetchSeasonAverages(id);
+                        Player newPlayer = createPlayer(bg, avg);
+                        roster.add(newPlayer);
+                        return;
                     }
                 } else { // meaning the string passed in must be a singular index.
                     int index = Integer.parseInt(nameOrRange) - 1;
@@ -418,8 +419,10 @@ public class Model implements IModel {
                 }
             } catch(NumberFormatException e){
                     throw new IllegalArgumentException("Invalid index input");
-                }
+                } catch (IOException e) {
+              throw new RuntimeException(e);
             }
+        }
         }
 
     /**
@@ -485,4 +488,33 @@ public class Model implements IModel {
             }
         }
     }
+
+    /**
+     * Creates a player object from 2 records, and saves it to the NBA Database.
+     * @param background - the player background record.
+     * @param seasonAverages - the player season averages record.
+     * @return Player object.
+     */
+    @Override
+    public Player createPlayer(PlayerBackground background,
+                               PlayerAverages seasonAverages) {
+        Player newPlayer = new Player(background.first_name(),
+            background.last_name(), background.position(),
+            background.height(), background.draft_year(),
+            background.draft_round(), background.draft_number(),
+            background.team().full_name(), background.team().conference(),
+            seasonAverages.pts(), seasonAverages.reb(), seasonAverages.ast(),
+            seasonAverages.blk(), seasonAverages.stl(), seasonAverages.min(),
+            seasonAverages.fg_pct(), seasonAverages.ft_pct(),
+            seasonAverages.fg3_pct());
+
+        NBAROSTER.add(newPlayer);
+        return newPlayer;
+    }
+
+
+
+
+
+
 }

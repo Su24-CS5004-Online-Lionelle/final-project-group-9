@@ -2,6 +2,8 @@ package Model.SortFilter;
 
 import Model.Player;
 
+import static java.lang.Double.parseDouble;
+
 /**
  * Filters class that filters board player data based on operations passed
  */
@@ -57,7 +59,7 @@ public final class Filters {
       case SPG:
         return convertDouble(player.getSpg(), op, val);
       case MPG:
-        return convertDouble(player.getMpg(), op, val);
+        return filterString(player.getMpg(), op, val);
       case FGP:
         return convertDouble(player.getFgp(), op, val);
       case FTP:
