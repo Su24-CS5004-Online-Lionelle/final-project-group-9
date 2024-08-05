@@ -3,6 +3,7 @@ package Model;
 import Model.SortFilter.ColumnData;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonRootName;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 import java.util.List;
@@ -199,16 +200,15 @@ public interface IModel {
      * @param weight
      * @param jersey_number
      * @param draft_year
-     * @param draft_round
      * @param draft_number
      */
     @JsonIgnoreProperties(ignoreUnknown = true)
-    @JacksonXmlRootElement(localName = "data")
+    @JsonRootName("data")
+//    @JacksonXmlRootElement(localName = "data")
     @JsonPropertyOrder({"id", "first_name", "last_name", "position", "height", "weight", "jersey_number",
             "draft_year", "draft_number", "team"})
     record PlayerBackground(int id, String first_name, String last_name, String position, String height,
-                            String weight, int jersey_number, int draft_year, int draft_round, int draft_number,
-                            Team team) {
+                            String weight, String jersey_number, int draft_year, int draft_number, Team team) {
 
     }
 }
