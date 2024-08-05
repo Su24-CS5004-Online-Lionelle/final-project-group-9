@@ -31,7 +31,7 @@ public class Controller extends Component implements ActionListener {
 
   /**
    * Constructor for the controller with the specified view and model.
-   * 
+   *
    * @param view  the view interface
    * @param model the model interface
    */
@@ -41,184 +41,184 @@ public class Controller extends Component implements ActionListener {
     view.setListeners(this); // Sets this controller as listener for the view
   }
 
-    // @Override
-    // public void actionPerformed(ActionEvent e) {
-    //   // get input string
-    //   String inputString = view.getInputString();
+//     @Override
+//     public void actionPerformed(ActionEvent e) {
+//       // get input string
+//       String inputString = view.getInputString();
+//
+//       // Get filter criteria
+//       ColumnData selectedFilter = view.getFilterChoice();
+//
+//       // get sort criteria
+//       boolean selectedSort = view.getSortChoice();
+//
+//       // Get filter/sorted list of players
+//       Set<Player> filteredPlayers = model.filterSortNBARoster(inputString, selectedFilter, selectedSort);
+//
+//       String players = "";
+//
+//       switch (e.getActionCommand()) {
+//         case "search":
+//           // Clear input field
+//           view.clearInputField();
+//
+//           // Clear display field
+//           view.clearDisplay();
+//
+//           for (Player player : filteredPlayers) {
+//             switch (selectedFilter) {
+//               case FIRST_NAME:
+//               case LAST_NAME:
+//                 players = players + player.getFirstName() + player.getLastName();
+//                 break;
+//               case POSITION:
+//                 players = players + player.getFirstName() + player.getLastName() + player.getPosition();
+//                 break;
+//               case HEIGHT:
+//                 players = players + player.getFirstName() + player.getLastName() + player.getHeight();
+//                 break;
+//               case DRAFTYEAR:
+//                 players = players + player.getFirstName() + player.getLastName() + player.getDraftYear();
+//                 break;
+//               case DRAFTROUND:
+//                 players = players + player.getFirstName() + player.getLastName() + player.getDraftRound();
+//                 break;
+//               case DRAFTPICK:
+//                 players = players + player.getFirstName() + player.getLastName() + player.getDraftPick();
+//                 break;
+//               case TEAM:
+//                 players = players + player.getFirstName() + player.getLastName() + player.getTeam();
+//                 break;
+//               case CONFERENCE:
+//                 players = players + player.getFirstName() + player.getLastName() + player.getConference();
+//                 break;
+//               case PPG:
+//                 players = players + player.getFirstName() + player.getLastName() + player.getPpg();
+//                 break;
+//               case RPG:
+//                 players = players + player.getFirstName() + player.getLastName() + player.getRpg();
+//                 break;
+//               case APG:
+//                 players = players + player.getFirstName() + player.getLastName() + player.getApg();
+//                 break;
+//               case BPG:
+//                 players = players + player.getFirstName() + player.getLastName() + player.getBpg();
+//                 break;
+//               case SPG:
+//                 players = players + player.getFirstName() + player.getLastName() + player.getSpg();
+//                 break;
+//               case MPG:
+//                 players = players + player.getFirstName() + player.getLastName() + player.getMpg();
+//                 break;
+//               case FGP:
+//                 players = players + player.getFirstName() + player.getLastName() + player.getFgp();
+//               case FTP:
+//                 players = players + player.getFirstName() + player.getLastName() + player.getFtp();
+//                 break;
+//               case FP3P:
+//                 players = players + player.getFirstName() + player.getLastName() + player.getFg3p();
+//                 break;
+//             }
+//         }
+//           view.display(players);
+//           break;
+//
+//         case "add":
+//           model.buildRoster(filteredPlayers, inputString);
+//           break;
+//
+//         case "remove":
+//           model.removeFromRoster(inputString);
+//           break;
+//
+//         case "showRoster":
+//           for (Player player : model.getRoster()) {
+//             players = players + player.getFirstName() + player.getLastName();
+//           }
+//           view.display(players);
+//           break;
+//
+//         case "export":
+//           JFileChooser fileChooser = new JFileChooser();
+//           fileChooser.setAcceptAllFileFilterUsed(false);
+//           fileChooser.setCurrentDirectory(new File(System.getProperty("user.dir")));
+//           fileChooser.setDialogTitle("Export List");
+//
+//           // Add file filters for the different formats
+//           fileChooser.setFileFilter(new FileNameExtensionFilter("XML (*.xml)", "xml"));
+//           fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("JSON (*.json)", "json"));
+//           fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("CSV (*.csv)", "csv"));
+//           fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Text (*.txt)", "txt"));
+//
+//           // Open save dialog. If user approves the save action, if block below will execute
+//           int userSelection = fileChooser.showSaveDialog(this);
+//
+//           if (userSelection == JFileChooser.APPROVE_OPTION) {
+//             File file = fileChooser.getSelectedFile();
+//             String filePath = file.getAbsolutePath();
+//             FileNameExtensionFilter selectedFileFilter = (FileNameExtensionFilter) fileChooser.getFileFilter();
+//             String extension = getFileExtension(filePath);
+//
+//             // Check if the file extension is missing or incorrect
+//             if (extension.isEmpty() || !selectedFileFilter.getExtensions()[0].equals(extension)) {
+//               // Append the file extension
+//               filePath += "." + selectedFileFilter.getExtensions()[0];
+//               file = new File(filePath);
+//             }
+//
+//             Format format = null;
+//             switch (selectedFileFilter.getExtensions()[0]) {
+//               case "xml":
+//                 format = Format.XML;
+//                 break;
+//               case "json":
+//                 format = Format.JSON;
+//                 break;
+//               case "csv":
+//                 format = Format.CSV;
+//                 break;
+//               case "txt":
+//                 format = Format.PRETTY;
+//                 break;
+//             }
+//
+//             try (OutputStream os = new FileOutputStream(file)) {
+//               if (format != null) {
+//                 DataFormatter.write(model.getRoster(), format, os);
+//                 view.clearDisplay();
+//                 view.display("Exported to " + file.getAbsolutePath());
+//               }
+//             } catch (IOException ex) {
+//               throw new RuntimeException(ex);
+//             }
+//           }
+//           break;
+//
+//         case "load":
+//           IModel newModel = new Model(inputString);
+//           setModel(newModel);
+//           break;
+//
+//         case "clear":
+//           view.display("Clear button clicked");
+//           view.clearDisplay();
+//           break;
+//
+////         case "help":
+////           view.display(getHelp());
+////           break;
+//
+//         case "exit":
+//           System.exit(0);
+//           break;
+//       }
+//     }
 
-    //   // Get filter criteria
-    //   ColumnData selectedFilter = view.getFilterChoice();
-
-    //   // get sort criteria
-    //   boolean selectedSort = view.getSortChoice();
-
-    //   // Get filter/sorted list of players
-    //   Set<Player> filteredPlayers = model.filterSortNBARoster(inputString, selectedFilter, selectedSort);
-
-    //   String players = "";
-
-    //   switch (e.getActionCommand()) {
-    //     case "search":
-    //       // Clear input field
-    //       view.clearInputField();
-
-    //       // Clear display field
-    //       view.clearDisplay();
-
-    //       for (Player player : filteredPlayers) {
-    //         switch (selectedFilter) {
-    //           case FIRST_NAME:
-    //           case LAST_NAME:
-    //             players = players + player.getFirstName() + player.getLastName();
-    //             break;
-    //           case POSITION:
-    //             players = players + player.getFirstName() + player.getLastName() + player.getPosition();
-    //             break;
-    //           case HEIGHT:
-    //             players = players + player.getFirstName() + player.getLastName() + player.getHeight();
-    //             break;
-    //           case DRAFTYEAR:
-    //             players = players + player.getFirstName() + player.getLastName() + player.getDraftYear();
-    //             break;
-    //           case DRAFTROUND:
-    //             players = players + player.getFirstName() + player.getLastName() + player.getDraftRound();
-    //             break;
-    //           case DRAFTPICK:
-    //             players = players + player.getFirstName() + player.getLastName() + player.getDraftPick();
-    //             break;
-    //           case TEAM:
-    //             players = players + player.getFirstName() + player.getLastName() + player.getTeam();
-    //             break;
-    //           case CONFERENCE:
-    //             players = players + player.getFirstName() + player.getLastName() + player.getConference();
-    //             break;
-    //           case PPG:
-    //             players = players + player.getFirstName() + player.getLastName() + player.getPpg();
-    //             break;
-    //           case RPG:
-    //             players = players + player.getFirstName() + player.getLastName() + player.getRpg();
-    //             break;
-    //           case APG:
-    //             players = players + player.getFirstName() + player.getLastName() + player.getApg();
-    //             break;
-    //           case BPG:
-    //             players = players + player.getFirstName() + player.getLastName() + player.getBpg();
-    //             break;
-    //           case SPG:
-    //             players = players + player.getFirstName() + player.getLastName() + player.getSpg();
-    //             break;
-    //           case MPG:
-    //             players = players + player.getFirstName() + player.getLastName() + player.getMpg();
-    //             break;
-    //           case FGP:
-    //             players = players + player.getFirstName() + player.getLastName() + player.getFgp();
-    //           case FTP:
-    //             players = players + player.getFirstName() + player.getLastName() + player.getFtp();
-    //             break;
-    //           case FP3P:
-    //             players = players + player.getFirstName() + player.getLastName() + player.getFg3p();
-    //             break;
-    //         }
-    //     }
-    //       view.display(players);
-    //       break;
-
-    //     case "add":
-    //       model.buildRoster(filteredPlayers, inputString);
-    //       break;
-
-    //     case "remove":
-    //       model.removeFromRoster(inputString);
-    //       break;
-
-    //     case "showRoster":
-    //       for (Player player : model.getRoster()) {
-    //         players = players + player.getFirstName() + player.getLastName();
-    //       }
-    //       view.display(players);
-    //       break;
-
-    //     case "export":
-    //       JFileChooser fileChooser = new JFileChooser();
-    //       fileChooser.setAcceptAllFileFilterUsed(false);
-    //       fileChooser.setCurrentDirectory(new File(System.getProperty("user.dir")));
-    //       fileChooser.setDialogTitle("Export List");
-
-    //       // Add file filters for the different formats
-    //       fileChooser.setFileFilter(new FileNameExtensionFilter("XML (*.xml)", "xml"));
-    //       fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("JSON (*.json)", "json"));
-    //       fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("CSV (*.csv)", "csv"));
-    //       fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Text (*.txt)", "txt"));
-
-    //       // Open save dialog. If user approves the save action, if block below will execute
-    //       int userSelection = fileChooser.showSaveDialog(this);
-
-    //       if (userSelection == JFileChooser.APPROVE_OPTION) {
-    //         File file = fileChooser.getSelectedFile();
-    //         String filePath = file.getAbsolutePath();
-    //         FileNameExtensionFilter selectedFileFilter = (FileNameExtensionFilter) fileChooser.getFileFilter();
-    //         String extension = getFileExtension(filePath);
-
-    //         // Check if the file extension is missing or incorrect
-    //         if (extension.isEmpty() || !selectedFileFilter.getExtensions()[0].equals(extension)) {
-    //           // Append the file extension
-    //           filePath += "." + selectedFileFilter.getExtensions()[0];
-    //           file = new File(filePath);
-    //         }
-
-    //         Format format = null;
-    //         switch (selectedFileFilter.getExtensions()[0]) {
-    //           case "xml":
-    //             format = Format.XML;
-    //             break;
-    //           case "json":
-    //             format = Format.JSON;
-    //             break;
-    //           case "csv":
-    //             format = Format.CSV;
-    //             break;
-    //           case "txt":
-    //             format = Format.PRETTY;
-    //             break;
-    //         }
-
-    //         try (OutputStream os = new FileOutputStream(file)) {
-    //           if (format != null) {
-    //             DataFormatter.write(model.getRoster(), format, os);
-    //             view.clearDisplay();
-    //             view.display("Exported to " + file.getAbsolutePath());
-    //           }
-    //         } catch (IOException ex) {
-    //           throw new RuntimeException(ex);
-    //         }
-    //       }
-    //       break;
-
-    //     case "load":
-    //       IModel newModel = new Model(inputString);
-    //       setModel(newModel);
-    //       break;
-
-    //     case "clear":
-    //       view.display("Clear button clicked");
-    //       view.clearDisplay();
-    //       break;
-
-    //     case "help":
-    //       view.display(getHelp());
-    //       break;
-        
-    //     case "exit":
-    //       System.exit(0);
-    //       break;
-    //   }
-    // }
-
-  /**
-   * Handles the action events from the view.
-   * 
-   * @param e the action event
-   */
+//  /**
+//   * Handles the action events from the view.
+//   *
+//   * @param e the action event
+//   */
   @Override
   public void actionPerformed(ActionEvent e) {
     // Gets the input string
@@ -267,7 +267,7 @@ public class Controller extends Component implements ActionListener {
 
   /**
    * Searches for players based on the provided input from the user, filter selected, and order to sort in.
-   * 
+   *
    * @param inputString the input string given by the user
    * @param selectedFilter  the filter chosen by the user
    * @param selectedSort  the sorting order chosen by the user
@@ -279,7 +279,7 @@ public class Controller extends Component implements ActionListener {
 
   /**
    * Adds players to the roster based on the provided input from the user, filter selected, and order to sort in.
-   * 
+   *
    * @param inputString the input string given by the user
    * @param selectedFilter  the filter chose by the user
    * @param selectedSort  the sorting order chosen by the user
@@ -291,7 +291,7 @@ public class Controller extends Component implements ActionListener {
 
   /**
    * Removes the players from the roster based on the provided input from the user.
-   * 
+   *
    * @param inputString the input string given by the user
    */
   private void removeMethod(String inputString) {
@@ -308,7 +308,7 @@ public class Controller extends Component implements ActionListener {
 
   /**
    * Exports the current roster to a file in the specified file format.
-   * 
+   *
    * @throws IOException if an I/O error occurs
    */
   private void exportMethod() throws IOException {
@@ -349,7 +349,7 @@ public class Controller extends Component implements ActionListener {
 
   /**
    * Loads a new roster based on the provided input from the user.
-   * 
+   *
    * @param inputString the input string given by the user
    */
   private void loadMethod(String inputString) {
@@ -367,7 +367,7 @@ public class Controller extends Component implements ActionListener {
 
   /**
    * Displays the specified set of players.
-   * 
+   *
    * @param players the set of players to display
    * @param filter  the filter used for displaying player information
    */
@@ -383,7 +383,7 @@ public class Controller extends Component implements ActionListener {
 
   /**
    * Formats the player's information based on the chosen filter.
-   * 
+   *
    * @param player  the player
    * @param filter  the chosen filter
    * @return  formatted player's information
@@ -452,7 +452,7 @@ public class Controller extends Component implements ActionListener {
 
   /**
    * Determines the file format based on the chosen file filter.
-   * 
+   *
    * @param fileFilter  the chosen file filter
    * @return  the format
    */
@@ -473,7 +473,7 @@ public class Controller extends Component implements ActionListener {
 
   /**
    * Gets the file extension from the specified file path.
-   * 
+   *
    * @param filePath the file path
    * @return the file
    */
@@ -494,7 +494,7 @@ public class Controller extends Component implements ActionListener {
   public String getHelp() {
     return "Instructions: \n"
             + "1. There is an empty text field you can type into to search for specific players.\n"
-            + "2. Next to it is a drop down menu that you can use to filter your search.\n" 
+            + "2. Next to it is a drop down menu that you can use to filter your search.\n"
             + "E.g. If you want to see all the players in the league with the first name 'Ray', you'd select 'First Name'"
             + " from the drop down menu and type 'Ray' into the text field.\n"
             + "There are many different filter options to pick from, most of which will be integers or doubles.\n"
@@ -515,7 +515,7 @@ public class Controller extends Component implements ActionListener {
 
   /**
    * Sets the model to the specified model.
-   * 
+   *
    * @param model the model to set
    */
   public void setModel(IModel model) {
