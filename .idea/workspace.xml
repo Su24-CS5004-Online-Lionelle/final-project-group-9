@@ -6,23 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="8638df7b-c104-4992-810d-6f3fbbcafc53" name="Changes" comment="feat()!: update netutils for michael to create branch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Model.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Net/NetUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Net/NetUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestNetUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestNetUtils.java" afterDir="false" />
     </list>
-    <list id="0cbb37ad-43a2-4028-8b2f-926401180cbb" name="Changes by brandanyong" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/IModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/IModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Model.java" afterDir="false" />
-    </list>
-    <list id="33d288d3-5f12-4da7-bbe2-31f3dd1d2767" name="Changes by csaiy" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/IModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/IModel.java" afterDir="false" />
-    </list>
-    <list id="d49dcf7a-3e2b-4afa-b095-e13334e5c086" name="Changes by michael" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Net/NetUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Net/NetUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Net/PlayerAverages.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Net/PlayerRecord.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Player.java" afterDir="false" />
-    </list>
+    <list id="0cbb37ad-43a2-4028-8b2f-926401180cbb" name="Changes by brandanyong" comment="" />
+    <list id="33d288d3-5f12-4da7-bbe2-31f3dd1d2767" name="Changes by csaiy" comment="add group changes from august 5 meeting" />
+    <list id="d49dcf7a-3e2b-4afa-b095-e13334e5c086" name="Changes by michael" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,52 +76,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SIGN_OFF_COMMIT" value="true" />
     <option name="UPDATE_TYPE" value="REBASE" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/Model/Model.java">
-      <ranges>
-        <range start1="180" end1="194" start2="180" end2="194" changelist="8638df7b-c104-4992-810d-6f3fbbcafc53" />
-        <range start1="487" end1="487" start2="487" end2="489" changelist="0cbb37ad-43a2-4028-8b2f-926401180cbb" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/Model/IModel.java">
-      <ranges>
-        <range start1="165" end1="165" start2="165" end2="173" changelist="0cbb37ad-43a2-4028-8b2f-926401180cbb" />
-        <range start1="199" end1="201" start2="207" end2="207" changelist="33d288d3-5f12-4da7-bbe2-31f3dd1d2767" />
-        <range start1="202" end1="202" start2="208" end2="209" changelist="33d288d3-5f12-4da7-bbe2-31f3dd1d2767" />
-        <range start1="207" end1="209" start2="214" end2="216" changelist="0cbb37ad-43a2-4028-8b2f-926401180cbb" />
-        <range start1="210" end1="211" start2="217" end2="218" changelist="0cbb37ad-43a2-4028-8b2f-926401180cbb" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/Model/Net/NetUtils.java">
-      <ranges>
-        <range start1="9" end1="13" start2="9" end2="9" changelist="d49dcf7a-3e2b-4afa-b095-e13334e5c086" />
-        <range start1="18" end1="19" start2="14" end2="14" changelist="d49dcf7a-3e2b-4afa-b095-e13334e5c086" />
-        <range start1="36" end1="37" start2="31" end2="33" changelist="d49dcf7a-3e2b-4afa-b095-e13334e5c086" />
-        <range start1="45" end1="46" start2="41" end2="43" changelist="d49dcf7a-3e2b-4afa-b095-e13334e5c086" />
-        <range start1="49" end1="50" start2="46" end2="48" changelist="d49dcf7a-3e2b-4afa-b095-e13334e5c086" />
-        <range start1="52" end1="53" start2="50" end2="52" changelist="d49dcf7a-3e2b-4afa-b095-e13334e5c086" />
-        <range start1="54" end1="55" start2="53" end2="55" changelist="d49dcf7a-3e2b-4afa-b095-e13334e5c086" />
-        <range start1="72" end1="73" start2="72" end2="74" changelist="d49dcf7a-3e2b-4afa-b095-e13334e5c086" />
-        <range start1="82" end1="87" start2="83" end2="113" changelist="d49dcf7a-3e2b-4afa-b095-e13334e5c086" />
-        <range start1="91" end1="91" start2="117" end2="118" changelist="d49dcf7a-3e2b-4afa-b095-e13334e5c086" />
-        <range start1="112" end1="113" start2="139" end2="141" changelist="d49dcf7a-3e2b-4afa-b095-e13334e5c086" />
-        <range start1="117" end1="118" start2="145" end2="146" changelist="8638df7b-c104-4992-810d-6f3fbbcafc53" />
-        <range start1="142" end1="143" start2="170" end2="172" changelist="d49dcf7a-3e2b-4afa-b095-e13334e5c086" />
-        <range start1="152" end1="153" start2="181" end2="183" changelist="d49dcf7a-3e2b-4afa-b095-e13334e5c086" />
-        <range start1="157" end1="159" start2="187" end2="193" changelist="8638df7b-c104-4992-810d-6f3fbbcafc53" />
-        <range start1="160" end1="161" start2="194" end2="195" changelist="8638df7b-c104-4992-810d-6f3fbbcafc53" />
-        <range start1="162" end1="164" start2="196" end2="198" changelist="8638df7b-c104-4992-810d-6f3fbbcafc53" />
-        <range start1="165" end1="168" start2="199" end2="202" changelist="8638df7b-c104-4992-810d-6f3fbbcafc53" />
-        <range start1="172" end1="173" start2="206" end2="206" changelist="8638df7b-c104-4992-810d-6f3fbbcafc53" />
-        <range start1="176" end1="180" start2="209" end2="211" changelist="8638df7b-c104-4992-810d-6f3fbbcafc53" />
-        <range start1="182" end1="184" start2="213" end2="214" changelist="8638df7b-c104-4992-810d-6f3fbbcafc53" />
-        <range start1="185" end1="194" start2="215" end2="229" changelist="8638df7b-c104-4992-810d-6f3fbbcafc53" />
-        <range start1="195" end1="211" start2="230" end2="234" changelist="8638df7b-c104-4992-810d-6f3fbbcafc53" />
-        <range start1="212" end1="217" start2="235" end2="236" changelist="8638df7b-c104-4992-810d-6f3fbbcafc53" />
-        <range start1="218" end1="221" start2="237" end2="238" changelist="8638df7b-c104-4992-810d-6f3fbbcafc53" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -301,14 +243,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-11.0.21-corretto-11.0.21-f644763e9732-e2c057a1" />
-        <option value="jdk-17.0.10-corretto-17.0.10-3183f394aec4-96c0d24d" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -320,6 +254,7 @@
       <workItem from="1721758825634" duration="5501000" />
       <workItem from="1721841972865" duration="2695000" />
       <workItem from="1721847161981" duration="1123000" />
+      <workItem from="1722888417192" duration="1253000" />
     </task>
     <task id="LOCAL-00001" summary="Push initial UML">
       <option name="closed" value="true" />
@@ -489,7 +424,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722803734803</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="add group changes from august 5 meeting">
+      <option name="closed" value="true" />
+      <created>1722888639345</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1722888639345</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -513,6 +456,7 @@
     <MESSAGE value="docs()!: PlayerBackground JSON file from NetUtils" />
     <MESSAGE value="feat()!: addedFormat JUnittests" />
     <MESSAGE value="feat()!: update netutils for michael to create branch" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat()!: update netutils for michael to create branch" />
+    <MESSAGE value="add group changes from august 5 meeting" />
+    <option name="LAST_COMMIT_MESSAGE" value="add group changes from august 5 meeting" />
   </component>
 </project>
