@@ -165,6 +165,15 @@ public interface IModel {
      void removeFromRoster(String nameOrRange);
 
     /**
+     * Creates a player object from 2 records.
+     * @param background - the player background record.
+     * @param seasonAverages - the player season averages record.
+     * @return Player object.
+     */
+     Player createPlayer(PlayerBackground background, PlayerAverages seasonAverages);
+
+
+    /**
      * Record to pass season averages to objects. Immutable, and uses Json annotations to serialize data.
      * @param pts
      * @param ast
@@ -197,18 +206,17 @@ public interface IModel {
      * @param last_name
      * @param position
      * @param height
-     * @param weight
-     * @param jersey_number
      * @param draft_year
+     * @param draft_round
      * @param draft_number
      */
     @JsonIgnoreProperties(ignoreUnknown = true)
     @JsonRootName("data")
 //    @JacksonXmlRootElement(localName = "data")
-    @JsonPropertyOrder({"id", "first_name", "last_name", "position", "height", "weight", "jersey_number",
-            "draft_year", "draft_number", "team"})
+    @JsonPropertyOrder({"id", "first_name", "last_name", "position",
+        "height", "draft_year", "draft_round", "draft_number", "team"})
     record PlayerBackground(int id, String first_name, String last_name, String position, String height,
-                            String weight, String jersey_number, int draft_year, int draft_number, Team team) {
+                            int draft_year, int draft_round, int draft_number, Team team) {
 
     }
 }
