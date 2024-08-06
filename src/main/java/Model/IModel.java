@@ -29,7 +29,7 @@ public interface IModel {
 
     /**
      * Gets file path in string.
-     * @return String
+     * @return String filepath.
      */
     String getFilePath();
 
@@ -41,20 +41,21 @@ public interface IModel {
 
     /**
      * Returns a string containing the player record passed in, in the format passed in.
-     * @param player
-     * @return
+     * @param player object.
+     * @return a player object represented in string.
      */
     String toString(Player player);
 
     /**
      * Creates the master dates for all filtering, sorting, adding, and removing.
+     * @return a set of player objects.
      */
     Set<Player> createNBARoster();
 
     /**
      * Takes a list of PlayerBean objects and converts it into a set of Player objects.
-     * @param beanList
-     * @return
+     * @param beanList a list of PlayerBeans
+     * @return a set of Player objects
      */
     Set<Player> beanToPlayer(List<PlayerBean> beanList);
 
@@ -152,7 +153,7 @@ public interface IModel {
      * NOTE: if string passed in is "all", all players will be added to the user's roster.
      *
      * @param filterSortedSet the filtered and sorted set that contains all players that fit the mold.
-     * @param nameOrRange the name of the player, or the index number/range.
+     * @param nameOrRange the name of player, index number/range, or keyword.
      */
     void buildRoster(Set<Player> filterSortedSet, String nameOrRange);
 
@@ -160,7 +161,7 @@ public interface IModel {
      * Removes players from user's roster. Built to handle names, indexes/index ranges, and keyword "all".
      *
      * NOTE: if keyword "all" is given, roster will be emptied.
-     * @param nameOrRange
+     * @param nameOrRange the name of player, index number/range, or keyword.
      */
      void removeFromRoster(String nameOrRange);
 
@@ -196,6 +197,17 @@ public interface IModel {
     record PlayerAverages(double pts, double ast, double turnover, double pf, double reb, double stl, double blk,
                   double fg_pct, double fg3_pct, double ft_pct, String min, double games_played, int player_id) {
     }
+
+    /**
+     * Record to pass team information to objects.
+     * @param id
+     * @param conference
+     * @param division
+     * @param city
+     * @param name
+     * @param full_name
+     * @param abbreviation
+     */
     record Team(int id, String conference, String division, String city, String name, String full_name,
                 String abbreviation) {}
 
