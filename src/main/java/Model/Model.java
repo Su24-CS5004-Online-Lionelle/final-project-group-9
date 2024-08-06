@@ -49,7 +49,6 @@ public class Model implements IModel {
         // intialize NBAROSTER with createNBARoster.
         NBAROSTER = createNBARoster();
         this.NBAROSTER = NBAROSTER;
-        // createNBARoster();
     }
 
     /**
@@ -61,10 +60,7 @@ public class Model implements IModel {
         NBAROSTER = createNBARoster();
         this.NBAROSTER = NBAROSTER;
 
-        // createNBARoster();
-
         // set roster to a set of players found in the data file passed in by user.
-        // start by creating xml mapper to serialize data into roster.
         ObjectMapper mapper = new ObjectMapper();
         try {
             List<PlayerBean>  beanList = mapper.readValue(new File(filePath), new TypeReference<List<PlayerBean>>() { });
@@ -101,7 +97,7 @@ public class Model implements IModel {
     /**
      * Gets file path in string.
      *
-     * @return String
+     * @return String filepath
      */
     @Override
     public String getFilePath() {
@@ -111,7 +107,7 @@ public class Model implements IModel {
     /**
      * Sets file path.
      *
-     * @param filePath
+     * @param filePath in string
      */
     @Override
     public void setFilePath(String filePath) {
@@ -121,8 +117,8 @@ public class Model implements IModel {
     /**
      * Returns a string containing the player record passed in.
      *
-     * @param player
-     * @return
+     * @param player object
+     * @return String representation of player object.
      */
     @Override
     public String toString(Player player) {
@@ -171,6 +167,8 @@ public class Model implements IModel {
 
     /**
      * Creates the master database for all filtering, sorting, adding, and removing.
+     *
+     * @Return a set of player objects.
      */
     @Override
     public Set<Player> createNBARoster() {
@@ -189,8 +187,8 @@ public class Model implements IModel {
 
     /**
      * Takes a list of PlayerBean objects and converts it into a set of Player objects.
-     * @param beanList
-     * @return
+     * @param beanList a list of PlayerBeans.
+     * @return a set of player objects.
      */
     @Override
     public Set<Player> beanToPlayer(List<PlayerBean> beanList) {
@@ -367,10 +365,7 @@ public class Model implements IModel {
         if (range.length == 2) {
             try {
                 int start = Integer.parseInt(range[0]) - 1; // -1 because index starts at 0.
-                System.out.println(start);
                 int end = Integer.parseInt(range[1]) - 1;
-                System.out.println(end);
-                System.out.println(filterSortedSet.size());
 
                 // check to make sure format is correct.
                 if (start < 0 || end > filterSortedSet.size() || start > end) {
@@ -514,10 +509,4 @@ public class Model implements IModel {
         NBAROSTER.add(newPlayer);
         return newPlayer;
     }
-
-
-
-
-
-
 }
