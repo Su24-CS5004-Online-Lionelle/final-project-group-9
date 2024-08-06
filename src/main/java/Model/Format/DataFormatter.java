@@ -92,7 +92,7 @@ public class DataFormatter {
 
     // Configure CsvSchema to define header structure for CSV file
     // .withHeader() includes header in file
-    CsvSchema schema = mapper.schemaFor(records.getClass()).withHeader();
+    CsvSchema schema = mapper.schemaFor(Player.class).withHeader();
 
     // Write data in try-catch
     try {
