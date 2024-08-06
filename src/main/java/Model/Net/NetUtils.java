@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 
 public class NetUtils {
   private static final String API_URL = "https://api.balldontlie.io/v1";
-  private static final String API_KEY = "b339f77f-8c45-4cb4-bfec-bc26b584c358";
+  private static final String API_KEY =  "d8754d2a-af6d-42ab-a674-d3ab4d504ad9";
 
   /**
    * Prevent instantiation.
@@ -195,7 +195,7 @@ public class NetUtils {
               cursorLimit == 0) {
         endpoint = null;
       } else {
-        endpoint = "/players?cursor=" + nextCursor.asText() + "&per_page=100";
+        endpoint = "/players/active?cursor=" + nextCursor.asText() + "&per_page=100";
         cursorLimit--;
       }
     }
