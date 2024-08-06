@@ -150,7 +150,6 @@ public class Controller extends Component implements ActionListener {
     fileChooser.setFileFilter(new FileNameExtensionFilter("XML (*.xml)", "xml"));
     fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("JSON (*.json)", "json"));
     fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("CSV (*.csv)", "csv"));
-    fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Text (*.txt)", "txt"));
 
     int userSelection = fileChooser.showSaveDialog(this);
 
