@@ -181,9 +181,28 @@ public class Controller extends Component implements ActionListener {
    * @param inputString the input string given by the user
    */
   private void loadMethod(String inputString) {
-    IModel newModel = new Model(inputString);
-    setModel(newModel);
-    view.clearInputField();
+    JFileChooser fileChooser = new JFileChooser();
+    fileChooser.setCurrentDirectory(new File(System.getProperty("user.dir")));
+    fileChooser.setDialogTitle("Load Roster");
+
+    // Add file filters for the different formats
+    fileChooser.setFileFilter(new FileNameExtensionFilter("JSON (*.json)", "json"));
+    fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("XML (*.xml)", "xml"));
+    fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("CSV (*.csv)", "csv"));
+
+    int result = fileChooser.showOpenDialog(this);
+
+    if (result == JFileChooser.APPROVE_OPTION) {
+      File selectedFile = fileChooser.getSelectedFile();
+      String filePath = selectedFile.getAbsolutePath();
+      String fileExtension = getFileExtension(filePath);
+
+      IModel newModel = new Model(filePath);
+
+      setModel(newModel);
+
+      view.display("Loaded roster from " + filePath);
+    }
   }
 
   /**
