@@ -3,10 +3,7 @@ package Controller;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.util.List;
 import java.util.Set;
 
@@ -75,7 +72,7 @@ public class Controller extends Component implements ActionListener {
           exportMethod();
           break;
         case "load":
-          loadMethod(inputString);
+          loadMethod();
           break;
         case "clear":
           clearMethod();
@@ -147,8 +144,8 @@ public class Controller extends Component implements ActionListener {
     fileChooser.setDialogTitle("Export List");
 
     // Add file filters for the different formats
-    fileChooser.setFileFilter(new FileNameExtensionFilter("XML (*.xml)", "xml"));
-    fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("JSON (*.json)", "json"));
+    fileChooser.setFileFilter(new FileNameExtensionFilter("JSON (*.json)", "json"));
+    fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("XML (*.xml)", "xml"));
     fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("CSV (*.csv)", "csv"));
     fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Text (*.txt)", "txt"));
 
@@ -179,13 +176,38 @@ public class Controller extends Component implements ActionListener {
   /**
    * Loads a new roster based on the provided input from the user.
    *
-   * @param inputString the input string given by the user
+   *
    */
-  private void loadMethod(String inputString) {
-    IModel newModel = new Model(inputString);
-    setModel(newModel);
-    view.clearInputField();
-  }
+  private void loadMethod() {
+    JFileChooser fileChooser = new JFileChooser();
+    fileChooser.setCurrentDirectory(new File(System.getProperty("user.dir")));
+    fileChooser.setDialogTitle("Load Roster");
+
+    // Add file filters for the different formats
+    fileChooser.setFileFilter(new FileNameExtensionFilter("JSON (*.json)", "json"));
+    fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("XML (*.xml)", "xml"));
+    fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("CSV (*.csv)", "csv"));
+    fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Text (*.txt)", "txt"));
+
+    int result = fileChooser.showOpenDialog(this);
+
+    if (result == JFileChooser.APPROVE_OPTION) {
+      File selectedFile = fileChooser.getSelectedFile();
+      String filePath = selectedFile.getAbsolutePath();
+      String fileExtension = getFileExtension(filePath);
+
+      IModel newModel = new Model(filePath);
+
+      setModel(newModel);
+
+      view.display("Loaded roster from " + filePath);
+      }
+    }
+
+
+//    IModel newModel = new Model(inputString);
+//    setModel(newModel);
+//    view.clearInputField();
 
   /**
    * Clears the display.

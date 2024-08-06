@@ -6,13 +6,15 @@ import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.csv.CsvMapper;
+import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import Model.SortFilter.*;
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvException;
+import org.checkerframework.checker.units.qual.C;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -21,6 +23,8 @@ import static Model.Net.NetUtils.fetchSeasonAverages;
 import static Model.Net.NetUtils.getAPlayer;
 import static Model.SortFilter.Filters.getFilter;
 import static Model.SortFilter.PlayerSort.sortPlayers;
+import static java.lang.Double.parseDouble;
+import static java.lang.Integer.parseInt;
 
 public class Model implements IModel {
     /**
@@ -65,10 +69,58 @@ public class Model implements IModel {
 
         // set roster to a set of players found in the data file passed in by user.
         // start by creating xml mapper to serialize data into roster.
-        ObjectMapper mapper = new ObjectMapper();
+
         try {
-            List<PlayerBean>  beanList = mapper.readValue(new File(filePath), new TypeReference<List<PlayerBean>>() { });
-            this.roster = new LinkedHashSet<Player>(beanToPlayer(beanList));
+            if (filePath.endsWith(".json")) {
+                ObjectMapper mapper = new ObjectMapper();
+                List<PlayerBean> beanList = mapper.readValue(new File(filePath), new TypeReference<List<PlayerBean>>() {
+                });
+                this.roster = new LinkedHashSet<Player>(beanToPlayer(beanList));
+            } else if (filePath.endsWith(".xml")) {
+                XmlMapper xmlMapper = new XmlMapper();
+                List<PlayerBean> beanList = xmlMapper.readValue(new File(filePath), new TypeReference<List<PlayerBean>>() {
+                });
+                this.roster = new LinkedHashSet<Player>(beanToPlayer(beanList));
+            } else if (filePath.endsWith(".csv")) {
+                List<PlayerBean> beanList = new ArrayList<>();
+
+                try (CSVReader csvReader = new CSVReader(new FileReader(filePath))) {
+                    Set<Player> playerSet = new LinkedHashSet<Player>();
+                    List<String[]> lines = csvReader.readAll();
+                    lines.remove(0);
+                    for (String[] line : lines) {
+                        String firstName = line[0];
+                        String lastName = line[1];
+                        String position = line[2];
+                        String height = line[3];
+                        int draftYear = parseInt(line[4]);
+                        int draftRound = parseInt(line[5]);
+                        int draftPick = parseInt(line[6]);
+                        String team = line[7];
+                        String conference = line[8];
+                        double ppg = parseDouble(line[9]);
+                        double rpg = parseDouble(line[10]);
+                        double apg = parseDouble(line[11]);
+                        double bpg = parseDouble(line[12]);
+                        double spg = parseDouble(line[13]);
+                        String mpg = line[14];
+                        double fgp = parseDouble(line[15]);
+                        double ftp = parseDouble(line[16]);
+                        double fg3p = parseDouble(line[17]);
+
+                        Player newPlayer = new Player(firstName, lastName, position, height, draftYear, draftRound, draftPick,
+                                team, conference, ppg, rpg, apg, bpg, spg, mpg, fgp, ftp, fg3p);
+
+                        playerSet.add(newPlayer);
+                    }
+                    this.roster = playerSet;
+
+                } catch (CsvException e) {
+                    throw new RuntimeException(e);
+                }
+            } else {
+                throw new RuntimeException();
+            }
         } catch (StreamReadException e) {
             throw new RuntimeException(e);
         } catch (DatabindException e) {
@@ -366,9 +418,9 @@ public class Model implements IModel {
         // if range's length is 2, then we know it's a range.
         if (range.length == 2) {
             try {
-                int start = Integer.parseInt(range[0]) - 1; // -1 because index starts at 0.
+                int start = parseInt(range[0]) - 1; // -1 because index starts at 0.
                 System.out.println(start);
-                int end = Integer.parseInt(range[1]) - 1;
+                int end = parseInt(range[1]) - 1;
                 System.out.println(end);
                 System.out.println(filterSortedSet.size());
 
@@ -411,7 +463,7 @@ public class Model implements IModel {
                         return;
                     }
                 } else { // meaning the string passed in must be a singular index.
-                    int index = Integer.parseInt(nameOrRange) - 1;
+                    int index = parseInt(nameOrRange) - 1;
 
                     // protect logic by ensuring index is within range.
                     if (index >= 0 && index < filterSortedSet.size()) {
@@ -447,8 +499,8 @@ public class Model implements IModel {
         // if range's length is 2, then we know it's a range.
         if (range.length == 2) {
             try {
-                int start = Integer.parseInt(range[0]) - 1; // -1 because index starts at 0.
-                int end = Integer.parseInt(range[1]);
+                int start = parseInt(range[0]) - 1; // -1 because index starts at 0.
+                int end = parseInt(range[1]);
 
                 // check to make sure format is correct.
                 if (start <= 0 || end > roster.size() || start > end) {
@@ -477,7 +529,7 @@ public class Model implements IModel {
                         }
                     }
                 } else { // meaning it must be a singular index.
-                    int index = Integer.parseInt(nameOrRange) - 1;
+                    int index = parseInt(nameOrRange) - 1;
 
                     // protect logic by ensuring index is within range.
                     if (index >= 0 && index < roster.size()) {
