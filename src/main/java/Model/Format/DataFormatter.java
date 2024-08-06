@@ -136,6 +136,7 @@ public class DataFormatter {
         break;
       default:
         prettyPrint(records, out);
+
     }
   }
 }
