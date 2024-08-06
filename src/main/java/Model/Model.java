@@ -57,7 +57,7 @@ public class Model implements IModel {
      * Means that the user passed in a file containing a roster of players they want to start with.
      */
     public Model(String filePath) {
-        this.filePath = filePath;
+        this.filePath = DATABASE;
         NBAROSTER = createNBARoster();
         this.NBAROSTER = NBAROSTER;
 
