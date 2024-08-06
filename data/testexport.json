@@ -1,0 +1,20 @@
+[ {
+  "position" : "G",
+  "height" : "6-4",
+  "draftYear" : 2018,
+  "draftRound" : 1,
+  "draftPick" : 21,
+  "team" : "Phoenix Suns",
+  "conference" : "West",
+  "ppg" : 13.52,
+  "rpg" : 3.92,
+  "apg" : 3.027,
+  "bpg" : 0.587,
+  "spg" : 0.92,
+  "mpg" : "33:27",
+  "fgp" : 0.499,
+  "ftp" : 0.878,
+  "fg3p" : 0.461,
+  "firstName" : "Grayson",
+  "lastName" : "Allen"
+} ]
