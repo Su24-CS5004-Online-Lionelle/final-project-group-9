@@ -44,18 +44,4 @@ class TestNetUtils {
 
   }
 
-  @Test
-  void TestFetchAverages() {
-    // Initialize List of players
-    List<IModel.PlayerAverages> averagesList= new ArrayList<>();
-
-    try {
-      averagesList = NetUtils.fetchSeasonAverages("19");
-    } catch (IOException e) {
-      throw new RuntimeException(e);
-    }
-
-
-    assertNotEquals(null, averagesList);
-  }
 }

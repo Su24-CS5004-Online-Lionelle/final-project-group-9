@@ -128,11 +128,6 @@ public class NetUtils {
     }
 
 
-    // Write to database file
-    File file = new File("data/getplayer.json");
-    DataFormatter.write(playerList, Format.JSON,
-            new FileOutputStream(file));
-
     return playerList.get(0);
   }
 
@@ -200,11 +195,6 @@ public class NetUtils {
       }
     }
 
-    // Write to database file
-    File file = new File("data/playerbackground2023.json");
-    DataFormatter.write(masterPlayerList, Format.JSON,
-            new FileOutputStream(file));
-
     return masterPlayerList;
   }
 
@@ -233,11 +223,6 @@ public class NetUtils {
                       new TypeReference<List<IModel.PlayerAverages>>() {
                       });
     }
-      // Write to database file
-      File file = new File("data/aplayeraverage.json");
-      DataFormatter.write(masterPlayerAverage, Format.JSON,
-              new FileOutputStream(file));
-
       return masterPlayerAverage.get(0);
     }
   }
