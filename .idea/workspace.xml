@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8638df7b-c104-4992-810d-6f3fbbcafc53" name="Changes" comment="feat()!: update netutils for michael to create branch">
+    <list default="true" id="8638df7b-c104-4992-810d-6f3fbbcafc53" name="Changes" comment="updated files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/getplayer.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/getplayer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/NBAStatDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NBAStatDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/IView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/IView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/JFrameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/JFrameView.java" afterDir="false" />
     </list>
     <list id="0cbb37ad-43a2-4028-8b2f-926401180cbb" name="Changes by brandanyong" comment="" />
     <list id="33d288d3-5f12-4da7-bbe2-31f3dd1d2767" name="Changes by csaiy" comment="" />
@@ -101,10 +102,10 @@
     "Gradle.TestNetUtils.fetchAPlayers.executor": "Run",
     "Gradle.TestNetUtils.fetchPlayers (1).executor": "Run",
     "Gradle.TestNetUtils.fetchPlayers.executor": "Run",
-    "Gradle.final-project-group-9 [:NBAStatDriver.main()].executor": "Debug",
+    "Gradle.final-project-group-9 [:NBAStatDriver.main()].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "22-creating-view",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -417,7 +418,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722803734803</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="updated files">
+      <option name="closed" value="true" />
+      <created>1722899286214</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1722899286214</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -441,17 +450,7 @@
     <MESSAGE value="docs()!: PlayerBackground JSON file from NetUtils" />
     <MESSAGE value="feat()!: addedFormat JUnittests" />
     <MESSAGE value="feat()!: update netutils for michael to create branch" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat()!: update netutils for michael to create branch" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Controller/Controller.java</url>
-          <line>235</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="updated files" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated files" />
   </component>
 </project>

@@ -22,5 +22,7 @@ public interface IView {
 
     void clearDisplay();
 
+    String getHelp();
+
     void start();
 }
