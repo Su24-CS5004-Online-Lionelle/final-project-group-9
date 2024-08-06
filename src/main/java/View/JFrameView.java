@@ -14,7 +14,7 @@ public class JFrameView extends JFrame implements IView {
     private JTextField input;
     private JComboBox<String> filterChoice, sortChoice;
     private List<String> items, sortOrder;
-    private JButton searchButton, showListButton, loadButton, exportButton, clearButton, exitButton, addButton, removeButton;
+    private JButton searchButton, showListButton, loadButton, exportButton, clearButton, exitButton, addButton, removeButton, helpButton;
     private JTextArea lowerTextArea;
 
 
@@ -117,6 +117,10 @@ public class JFrameView extends JFrame implements IView {
         clearButton.setActionCommand("clear");
         buttonPanel.add(clearButton);
 
+        helpButton = new JButton("Help");
+        helpButton.setActionCommand("help");
+        buttonPanel.add(helpButton);
+
         exitButton = new JButton("Exit Program");
         exitButton.setActionCommand("exit");
         buttonPanel.add(exitButton);
@@ -136,6 +140,8 @@ public class JFrameView extends JFrame implements IView {
 
         // Add scroll bar to lower panel
         lowerPanel.add(new JScrollPane(lowerTextArea), BorderLayout.CENTER);
+
+        display(getHelp());
 
         // Add lower panel to the frame
         this.add(lowerPanel);
@@ -157,6 +163,7 @@ public class JFrameView extends JFrame implements IView {
         this.exitButton.addActionListener(clicks);
         this.addButton.addActionListener(clicks);
         this.removeButton.addActionListener(clicks);
+        this.helpButton.addActionListener(clicks);
     }
 
     @Override
@@ -187,6 +194,34 @@ public class JFrameView extends JFrame implements IView {
     @Override
     public void clearDisplay() {
         lowerTextArea.setText("");
+    }
+
+    /**
+     * Provide a help menu to guide user on how to use the program.
+     *
+     * @return a string containing instructions on what the program does/how to use it
+     */
+    @Override
+    public String getHelp() {
+        return "Instructions: \n"
+                + "1. There is an empty text field you can type into to search for specific players.\n"
+                + "2. Next to it is a drop down menu that you can use to filter your search.\n"
+                + "E.g. If you want to see all the players in the league with the first name 'Ray', you'd select 'First Name'"
+                + " from the drop down menu and type 'Ray' into the text field.\n"
+                + "There are many different filter options to pick from, most of which will be integers or doubles.\n"
+                + "You can also use operators to help refine your search (==, !=, ~=, >=, <=, >, <) \n"
+                + "E.g. If you want to see players who were drafted in the year 2000, you'd select the 'Draft Year' option"
+                + " from the drop down menu and type 2000 into the text field.\n"
+                + "If you wanted to see the players who were drafted after the year 2000,"
+                + "you'd type '> 2000' (not including year 2000) or '>= 2000' (including year 2000) into the text field.\n"
+                + "3. You can adjust the order that your search results are displayed. Either ascending (first to last) or descending (last to first).\n"
+                + "4. The 'Add' button allows you to add a player or a range of players to your roster.\n"
+                + "5. The 'Remove' button allows you to remove a player or a range of players from your roster.\n"
+                + "6. The 'Show Current List' button shows you the list of players you have added to your roster.\n"
+                + "7. The 'Export Current List' button saves your current list of players to a specified file format.\n"
+                + "8. The 'Load List' button loads a roster of players based on the file name given.\n"
+                + "9. The 'Clear Display' button clears the display of any information.\n"
+                + "10. The 'Exit Program' button closes the GUI.\n";
     }
 
     @Override

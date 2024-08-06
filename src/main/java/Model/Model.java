@@ -65,7 +65,7 @@ public class Model implements IModel {
 
         // set roster to a set of players found in the data file passed in by user.
         // start by creating xml mapper to serialize data into roster.
-        ObjectMapper mapper = new XmlMapper();
+        ObjectMapper mapper = new ObjectMapper();
         try {
             List<PlayerBean>  beanList = mapper.readValue(new File(filePath), new TypeReference<List<PlayerBean>>() { });
             this.roster = new LinkedHashSet<Player>(beanToPlayer(beanList));
@@ -303,8 +303,8 @@ public class Model implements IModel {
         // initialize a set to hold the results.
         Set<Player> result = new LinkedHashSet<Player>();
 
-        // when user passes in empty string as filter.
-        if (filter == "") {
+        // when user passes in empty string or all as filter.
+        if (filter == "" || filter.equalsIgnoreCase("all")) {
             result = sortPlayers(NBAROSTER, sortOn.toString(), ascending);
             return result;
         }
@@ -367,15 +367,18 @@ public class Model implements IModel {
         if (range.length == 2) {
             try {
                 int start = Integer.parseInt(range[0]) - 1; // -1 because index starts at 0.
-                int end = Integer.parseInt(range[1]);
+                System.out.println(start);
+                int end = Integer.parseInt(range[1]) - 1;
+                System.out.println(end);
+                System.out.println(filterSortedSet.size());
 
                 // check to make sure format is correct.
-                if (start <= 0 || end > filterSortedSet.size() || start > end) {
+                if (start < 0 || end > filterSortedSet.size() || start > end) {
                     throw new IndexOutOfBoundsException("Index range out of bounds");
                 }
 
                 // add the desired range of players into the roster.
-                roster.addAll(filterSortedSet.stream().toList().subList(start, end));
+                roster.addAll(filterSortedSet.stream().toList().subList(start, end + 1));
             } catch (NumberFormatException e) {
                 throw new IllegalArgumentException("Invalid index range input");
             }
