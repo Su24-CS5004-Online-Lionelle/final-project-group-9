@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.Collection;
-import java.util.List;
 import Model.Player;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -71,7 +70,7 @@ public class DataFormatter {
     try {
       ObjectMapper mapper = new XmlMapper();
       mapper.enable(SerializationFeature.INDENT_OUTPUT);
-      PlayerJSONWrapper wrapper = new PlayerJSONWrapper(records);
+      PlayerXMLWrapper wrapper = new PlayerXMLWrapper(records);
       mapper.writeValue(out, wrapper);
     } catch (Exception e) {
       throw new RuntimeException("Writing to XML failed.");
