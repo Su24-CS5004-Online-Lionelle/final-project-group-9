@@ -1,5 +1,12 @@
 package Model;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonPropertyOrder({
+        "firstName", "lastName", "position", "height", "draftYear",
+        "draftRound", "draftPick", "team", "conference", "ppg",
+        "rpg", "apg", "bpg", "spg", "mpg", "fgp", "ftp", "fg3p"
+})
 public class Player {
 
   private String first_name;
