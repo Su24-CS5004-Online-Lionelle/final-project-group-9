@@ -1,11 +1,12 @@
 import static org.junit.jupiter.api.Assertions.*;
 import Model.Model;
 import Model.Player;
-import org.junit.jupiter.api.BeforeEach;
+import Model.PlayerBean;
+import Model.SortFilter.ColumnData;
+import Model.SortFilter.PlayerSortStrategy;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 class TestModel {
 
@@ -46,6 +47,31 @@ class TestModel {
   private String testPlayer2ToString = actualModel.toString(testPlayer2);
 
   private String testPlayer3ToString = actualModel.toString(testPlayer3);
+
+  private PlayerBean testPlayerBean1 = new PlayerBean("Seth", "Curry", "G", "6-1", 0, 0, 0,
+          "Charlotte Hornets", "East", 5.136, 1.545, 1.0, 0.136, 0.5,
+          "14:01", 0.392, 0.903, 0.352);
+
+  private PlayerBean testPlayerBean2 = new PlayerBean("Luka", "Doncic", "F-G", "6-7", 2018,
+          1, 3, "Dallas Mavericks", "West", 33.857, 9.243, 9.786,
+          0.543, 1.4, "37:26", 0.487, 0.786, 0.382);
+
+  private PlayerBean testPlayerBean3 = new PlayerBean("Shai", "Gilgeous-Alexander", "G", "6-6",
+          2018, 1, 11, "Oklahoma City Thunder", "West",
+          30.053, 5.52, 6.213, 0.893, 1.987, "34:08", 0.535, 0.874, 0.353);
+
+  private PlayerBean testPlayerBean4 = new PlayerBean("Giannis", "Antetokounmpo", "F", "6-11", 2013,
+          1, 15, "Milwaukee Bucks", "East",
+          30.438, 11.493, 6.521, 1.082, 1.164, "35:12", 0.611, 0.657, 0.274);
+
+  private PlayerBean testPlayerBean5 = new PlayerBean("Jalen", "Brunson", "G", "6-2", 2018,
+          2, 33, "New York Knicks", "East",
+          28.727, 3.597, 6.753, 0.169, 0.922, "35:25", 0.479, 0.847, 0.401);
+
+  private PlayerBean testPlayerBean6 = new PlayerBean("LeBron", "James", "F", "6-9", 2003,
+          1, 1, "Los Angeles Lakers", "West",
+          25.603, 7.37, 8.247, 0.548, 1.288, "35:21", 0.535, 0.757, 0.407);
+
 
 
   @Test
@@ -98,11 +124,27 @@ class TestModel {
 
   @Test
   void testCreateNBARoster() {
+    // Like getAllPlayers, NBAROSTER (the database) should always be the same in every situation.
+    assertEquals(expectedModel.createNBARoster().size(), actualModel.createNBARoster().size());
+    assertEquals(expectedModel.createNBARoster().size(), actualLoadedRosterModel.createNBARoster().size());
+    assertEquals(expectedLoadedRosterModel.getRoster().size(), actualLoadedRosterModel.getRoster().size());
+    assertEquals(expectedLoadedRosterModel.createNBARoster().size(), actualModel.createNBARoster().size());
 
   }
 
   @Test
-  void beanToPlayer() {
+  void testBeanToPlayer() {
+    Set<Player> actualSet = new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME));
+    List<PlayerBean> testList = new ArrayList<PlayerBean>();
+    testList.add(testPlayerBean1);
+    testList.add(testPlayerBean2);
+    testList.add(testPlayerBean3);
+    testList.add(testPlayerBean4);
+    testList.add(testPlayerBean5);
+    testList.add(testPlayerBean6);
+    actualSet = actualLoadedRosterModel.beanToPlayer(testList);
+    assertEquals(actualLoadedRosterModel.getRoster(), actualSet);
+
   }
 
   @Test

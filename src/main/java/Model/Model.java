@@ -67,7 +67,7 @@ public class Model implements IModel {
                 ObjectMapper mapper = new ObjectMapper();
                 List<PlayerBean> beanList = mapper.readValue(new File(filePath), new TypeReference<List<PlayerBean>>() {
                 });
-                this.roster = new LinkedHashSet<Player>(beanToPlayer(beanList));
+                this.roster = new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME));
             } else if (filePath.endsWith(".xml")) {
                 XmlMapper xmlMapper = new XmlMapper();
                 List<PlayerBean> beanList = xmlMapper.readValue(new File(filePath), new TypeReference<List<PlayerBean>>() {
