@@ -1,4 +1,6 @@
 import static org.junit.jupiter.api.Assertions.*;
+import Model.IModel;
+import Model.Model;
 import Model.Player;
 import Model.SortFilter.ColumnData;
 import Model.SortFilter.Filters;
@@ -30,6 +32,14 @@ class TestFilters {
     boolean expected2 = Filters.getFilter(testPlayer3, ColumnData.HEIGHT, Operations.EQUALS, "6-6");
     assertEquals(true, expected2);
 
+
+  }
+
+  @Test
+  void alphaHeight() {
+    IModel model1 = new Model("data/database.json");
+
+    model1.filterSortNBARoster(">6-0", ColumnData.HEIGHT, true);
 
   }
 }
