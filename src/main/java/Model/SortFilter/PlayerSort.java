@@ -1,10 +1,7 @@
 package Model.SortFilter;
 
-import java.util.ArrayList;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
-import java.util.TreeSet;
 import java.util.stream.Collectors;
 import Model.Player;
 
@@ -35,16 +32,10 @@ public static Set<Player> sortPlayers(Set<Player> players, String sortType) {
     // Convert lowercase and trimmed string sortType to GameData
     ColumnData type = ColumnData.fromString(sortType.toLowerCase().trim());
 
-    List<Player> toSort = new ArrayList<>();
-    for (Player player : players) {
-      toSort.add(player);
-    }
-    toSort.sort(PlayerSortStrategy.getSort(type, direction));
     Set<Player> sorted =
-        new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME));
-    for (Player player : toSort) {
-      sorted.add(player);
-    }
+        players.stream().sorted(PlayerSortStrategy.getSort(type, direction))
+            .collect(
+        Collectors.toCollection(LinkedHashSet::new));
 
     return sorted;
   }
