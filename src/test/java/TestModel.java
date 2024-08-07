@@ -155,7 +155,16 @@ class TestModel {
 
   @Test
   void testFilterSortNBARoster() {
-    Set<Player>
+    // expected set should only contain 1 player, as only 1 player in the NBA has the first name Grayson.
+    Set<Player> expectedSet = new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME));
+    expectedSet.add(testPlayer7);
+
+    assertEquals(expectedSet, actualModel.filterSortNBARoster("==Grayson", ColumnData.FIRST_NAME, true));
+
+    // testing for multiple player objects in a set.
+    Set<Player> expectedSet2 = new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME));
+
+
 
 
   }
