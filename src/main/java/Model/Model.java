@@ -48,8 +48,8 @@ public class Model implements IModel {
         this.roster = new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME));
 
         // intialize NBAROSTER with createNBARoster.
-        NBAROSTER = createNBARoster();
         this.NBAROSTER = new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME));
+        NBAROSTER = createNBARoster();
     }
 
     /**
