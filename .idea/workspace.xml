@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8638df7b-c104-4992-810d-6f3fbbcafc53" name="Changes" comment="updated dataformatter csv" />
+    <list default="true" id="8638df7b-c104-4992-810d-6f3fbbcafc53" name="Changes" comment="Added treeset to constructor">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <list id="0cbb37ad-43a2-4028-8b2f-926401180cbb" name="Changes by brandanyong" comment="" />
     <list id="33d288d3-5f12-4da7-bbe2-31f3dd1d2767" name="Changes by csaiy" comment="" />
     <list id="d49dcf7a-3e2b-4afa-b095-e13334e5c086" name="Changes by michael" comment="" />
@@ -65,6 +67,7 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SIGN_OFF_COMMIT" value="true" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -82,7 +85,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Gradle.TestFilters.getFilterHeight.executor": "Run",
     "Gradle.TestFormat.DoesNotContainsValues.executor": "Run",
+    "Gradle.TestModel.getRoster.executor": "Run",
     "Gradle.TestNetUtils.TestFetchAverages.executor": "Run",
     "Gradle.TestNetUtils.TestFetchMorePlayers.executor": "Run",
     "Gradle.TestNetUtils.fetchAPlayers.executor": "Run",
@@ -91,7 +96,7 @@
     "Gradle.final-project-group-9 [:NBAStatDriver.main()].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "sort-testing",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -102,6 +107,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/java" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.NBAStatDriver">
     <configuration name="NBAStatDriver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="NBAStatDriver" />
@@ -109,6 +119,54 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="TestFilters.getFilterHeight" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;TestFilters.getFilterHeight&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="TestModel.getRoster" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;TestModel.getRoster&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
     </configuration>
     <configuration name="TestNetUtils.TestFetchAverages" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -124,30 +182,6 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;TestNetUtils.TestFetchAverages&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="TestNetUtils.TestFetchMorePlayers" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;TestNetUtils.TestFetchMorePlayers&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -182,37 +216,13 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="TestNetUtils.fetchPlayers (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;TestNetUtils.fetchPlayers&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.NBAStatDriver" />
-        <item itemvalue="Gradle.TestNetUtils.fetchAPlayers" />
         <item itemvalue="Gradle.TestNetUtils.TestFetchAverages" />
-        <item itemvalue="Gradle.TestNetUtils.fetchPlayers (1)" />
-        <item itemvalue="Gradle.TestNetUtils.TestFetchMorePlayers" />
+        <item itemvalue="Gradle.TestNetUtils.fetchAPlayers" />
+        <item itemvalue="Gradle.TestModel.getRoster" />
+        <item itemvalue="Gradle.TestFilters.getFilterHeight" />
+        <item itemvalue="Application.NBAStatDriver" />
       </list>
     </recent_temporary>
   </component>
@@ -227,6 +237,7 @@
       <workItem from="1721758825634" duration="5501000" />
       <workItem from="1721841972865" duration="2695000" />
       <workItem from="1721847161981" duration="1123000" />
+      <workItem from="1723044206657" duration="5764000" />
     </task>
     <task id="LOCAL-00001" summary="Push initial UML">
       <option name="closed" value="true" />
@@ -412,7 +423,31 @@
       <option name="project" value="LOCAL" />
       <updated>1723044185307</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Refactored test files">
+      <option name="closed" value="true" />
+      <created>1723044424799</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1723044424799</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Refactored test files">
+      <option name="closed" value="true" />
+      <created>1723046654344</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1723046654344</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Added treeset to constructor">
+      <option name="closed" value="true" />
+      <created>1723047484793</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1723047484793</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -449,6 +484,8 @@
     <MESSAGE value="feat()!: update netutils for michael to create branch" />
     <MESSAGE value="updated files" />
     <MESSAGE value="updated dataformatter csv" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated dataformatter csv" />
+    <MESSAGE value="Refactored test files" />
+    <MESSAGE value="Added treeset to constructor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added treeset to constructor" />
   </component>
 </project>
