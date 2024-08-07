@@ -1,7 +1,5 @@
 package Model.Net;
 
-import Model.Format.DataFormatter;
-import Model.Format.Format;
 import Model.IModel;
 import Model.IModel.PlayerBackground;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -9,8 +7,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -19,6 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * The type Net utils.
+ */
 public class NetUtils {
   private static final String API_URL = "https://api.balldontlie.io/v1";
   private static final String API_KEY =  "d8754d2a-af6d-42ab-a674-d3ab4d504ad9";
@@ -30,6 +29,13 @@ public class NetUtils {
     // Prevent instantiation
   }
 
+  /**
+   * Sets the connection with the API.
+   *
+   * @param endpoint the specific API endpoint to connect to.
+   * @return connection to then send a get request to the specified endpoint.
+   * @throws IOException if error is seen with URL or during connection.
+   */
   private static HttpURLConnection UrlConnection(String endpoint)
           throws IOException {
     URL url = new URL(API_URL + endpoint);
@@ -40,6 +46,13 @@ public class NetUtils {
     return connection;
   }
 
+  /**
+   * Gets the contents in the URL.
+   *
+   * @param connection the HTTP object in URLConnection that sends a Get request to the specified endpoint.
+   * @return Gets the contents from the URL as a String.
+   * @throws IOException if HTTP is not ok.
+   */
   private static String getUrlContents(HttpURLConnection connection)
           throws IOException {
     int responseCode = connection.getResponseCode();
@@ -58,33 +71,12 @@ public class NetUtils {
     }
   }
 
-//  /**
-//   * Gets a player info data.
-//   */
-//  public static IModel.PlayerBackground getAPlayer(String endpoint) throws IOException {
-//    // endpoint searches for player using first and or last name
-//
-//    // returns background data for a player
-//    return null;
-//  }
-
   /**
-   * Gets a player averages info data.
-   */
-  public static IModel.PlayerAverages getAPlayerAverage(String endpoint)
-          throws IOException {
-    // endpoint searches for player using id
-
-    // returns background data for a player
-    return null;
-  }
-
-  /**
-   * Returns players with either first or last name.
+   * Retrieves player data based on First or Last name.
    *
-   * @param name first or last name
-   * @return Player background
-   * @throws IOException if file not found
+   * @param name The first or last name of a player.
+   * @return A player background object.
+   * @throws IOException Occurs if retrieving player data gives error.
    */
   public static PlayerBackground getAPlayer(String name)
           throws IOException {
@@ -93,10 +85,12 @@ public class NetUtils {
 
   /**
    * Gets a player info data using their first and last name.
+   * If a players last name is not given then it will search with only the first name.
    *
-   * @param name     first or last name
-   * @param lastName first or last name of player
-   * @return a player background object
+   * @param name The first name.
+   * @param lastName The last name. If this is empty only the first name will be used for search.
+   * @return A player background object.
+   * @throws IOException If error occurs while retrieving player data.
    */
   public static PlayerBackground getAPlayer(String name, String lastName)
           throws IOException {
@@ -132,13 +126,12 @@ public class NetUtils {
   }
 
   /**
-   * Get all player data string.
+   * Retrieves the Player Data as a Json String.
    *
-   * @param endpoint
-   * @return
-   * @throws IOException
+   * @param endpoint the endpoint
+   * @return player data retrieved as a Json formatted String.
+   * @throws IOException Occurs if error pop up in connection.
    */
-
   public static String getPlayerDataString(String endpoint) throws IOException {
     // Get URL connection using endpoint
     HttpURLConnection connection = UrlConnection(endpoint);
@@ -155,6 +148,12 @@ public class NetUtils {
   }
 
 
+  /**
+   * Fetches a list of Active players from the API.
+   *
+   * @return the list of player background object representing the active players.
+   * @throws IOException Occurs if JSON parsing or API interactions has an error.
+   */
   public static List<PlayerBackground> fetchPlayers()
           throws IOException {
     // Initialize mega player list
@@ -198,9 +197,13 @@ public class NetUtils {
     return masterPlayerList;
   }
 
+
   /**
-   * @return
-   * @throws IOException
+   * Fetch season averages by player ID.
+   *
+   * @param id The id of the player.
+   * @return The PlayerAverages model object with the players season averages.
+   * @throws IOException Thrown case of API, parsing, or request processing error.
    */
   public static IModel.PlayerAverages fetchSeasonAverages(String id)
           throws IOException {

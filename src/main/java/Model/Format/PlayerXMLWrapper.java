@@ -2,9 +2,7 @@ package Model.Format;
 
 import java.util.Collection;
 import Model.Player;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.Collection;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
