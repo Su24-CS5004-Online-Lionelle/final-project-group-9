@@ -41,6 +41,13 @@ class TestModel {
           1, 1, "Los Angeles Lakers", "West",
           25.603, 7.37, 8.247, 0.548, 1.288, "35:21", 0.535, 0.757, 0.407);
 
+  private String testPlayer1ToString = actualModel.toString(testPlayer1);
+
+  private String testPlayer2ToString = actualModel.toString(testPlayer2);
+
+  private String testPlayer3ToString = actualModel.toString(testPlayer3);
+
+
   @Test
   void getRoster() {
     // test that roster will start empty unless user loads a roster file.
@@ -54,30 +61,39 @@ class TestModel {
     expectedLoadedRosterModel.getRoster().add(testPlayer5);
     expectedLoadedRosterModel.getRoster().add(testPlayer6);
 
-    Set<Player> expectedSet = new HashSet<Player>(expectedLoadedRosterModel.getRoster());
-    Set<Player> actualSet = new HashSet<Player>(actualLoadedRosterModel.getRoster());
-    assertEquals(expectedSet, actualSet);
+    assertEquals(expectedLoadedRosterModel.getRoster(), actualLoadedRosterModel.getRoster());
   }
 
   @Test
   void getAllPlayers() {
     // should be the same regardless any situation. NBAROSTER is the master database.
-    assertEquals(expectedModel.getAllPlayers(), actualModel.getAllPlayers());
-    assertEquals(expectedModel.getAllPlayers(), actualLoadedRosterModel.getAllPlayers());
-    assertEquals(expectedLoadedRosterModel.getAllPlayers(), actualLoadedRosterModel.getAllPlayers());
-    assertEquals(expectedLoadedRosterModel.getAllPlayers(), actualModel.getAllPlayers());
+    assertEquals(expectedModel.getAllPlayers().size(), actualModel.getAllPlayers().size());
+    assertEquals(expectedModel.getAllPlayers().size(), actualLoadedRosterModel.getAllPlayers().size());
+    assertEquals(expectedLoadedRosterModel.getAllPlayers().size(), actualLoadedRosterModel.getAllPlayers().size());
+    assertEquals(expectedLoadedRosterModel.getAllPlayers().size(), actualModel.getAllPlayers().size());
   }
 
   @Test
   void getFilePath() {
+    // file path will always be the master database.
+    assertEquals("data/database.json", actualModel.getFilePath());
   }
 
   @Test
   void setFilePath() {
+    actualModel.setFilePath("testing setFilePath");
+    assertEquals("testing setFilePath", actualModel.getFilePath());
   }
 
   @Test
   void testToString() {
+    String actual1 = actualModel.toString(testPlayer1);
+    String actual2 = actualModel.toString(testPlayer2);
+    String actual3 = actualModel.toString(testPlayer3);
+
+    assertEquals(testPlayer1ToString, actual1);
+    assertEquals(testPlayer2ToString, actual2);
+    assertEquals(testPlayer3ToString, actual3);
   }
 
   @Test

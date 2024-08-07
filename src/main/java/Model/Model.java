@@ -200,7 +200,7 @@ public class Model implements IModel {
                          
                         Steals per game: %.3f
                          
-                        Minutes per game: %.3f
+                        Minutes per game: %s
                          
                         Field goal percentage per game: %.3f
                          
