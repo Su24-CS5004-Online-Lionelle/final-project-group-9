@@ -14,7 +14,7 @@ import java.util.Objects;
  */
 public class JFrameView extends JFrame implements IView {
     /** Label to display prompt for the input field. */
-    private JLabel prompt;
+    private JLabel prompt, title;
     /** Text field to enter search criteria or desired add or remove name, int or range. */
     private JTextField input;
     /** JComboBoxes to display filter and sort choices for user to select. */
@@ -40,14 +40,39 @@ public class JFrameView extends JFrame implements IView {
 
         this.setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 
+        // sub-panel to display logo and title of application
+        Background titlePanel = new Background("src/main/java/View/View_Images/hardwood.jpg");
+
+        // Add logo image
+        JLabel imageLabel = createImageLabel("src/main/java/View/View_Images/nba_logo2.jpg", 80, 80);
+        imageLabel.setAlignmentX(JComponent.LEFT_ALIGNMENT);
+        titlePanel.add(imageLabel);
+
+        // Add JLabel to display title of application
+        title = new JLabel("STAT TRACKER");
+        title.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+        title.setFont(new Font("Arial", Font.PLAIN, 45));
+        titlePanel.add(title);
+
+        // Add titlePanel to the main JFrame
+        titlePanel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        this.add(titlePanel);
+
         // adding text prompt to enter search criteria
+        ImageBackgroundLabel backgroundPanel = new ImageBackgroundLabel("src/main/java/View/View_Images/hardwood.jpg");
+        backgroundPanel.setLayout(new BoxLayout(backgroundPanel, BoxLayout.X_AXIS));
+
         prompt = new JLabel("Enter search criteria:");
         prompt.setAlignmentX((JComponent.CENTER_ALIGNMENT));
         prompt.setFont(new Font("Arial", Font.PLAIN, 18));
-        this.add(prompt);
+
+        // Add the JLabel to the backgroundPanel
+        backgroundPanel.add(prompt);
+        backgroundPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        this.add(backgroundPanel);
 
         // sub-panel to hold JTextField and JComboBox
-        JPanel searchPanel = new JPanel();
+        Background searchPanel = new Background("src/main/java/View/View_Images/hardwood.jpg");
 
         // adding input text field
         input = new JTextField(20);
@@ -109,7 +134,8 @@ public class JFrameView extends JFrame implements IView {
         this.add(searchPanel);
 
         // Create sub-panel for buttons
-        JPanel buttonPanel = new JPanel();
+        Background buttonPanel = new Background("src/main/java/View/View_Images/hardwood.jpg");
+//        JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 
         // Add the buttons
@@ -148,6 +174,7 @@ public class JFrameView extends JFrame implements IView {
 
         // Initialize JTextArea
         lowerTextArea = new JTextArea();
+        lowerTextArea.setOpaque(false);
         lowerTextArea.setEditable(false);
 
         // Add scroll bar to lower panel
@@ -157,7 +184,6 @@ public class JFrameView extends JFrame implements IView {
 
         // Add lower panel to the frame
         this.add(lowerPanel);
-
     }
 
     /**
@@ -260,6 +286,14 @@ public class JFrameView extends JFrame implements IView {
                 + "8. The 'Load List' button loads a roster of players based on the file name given.\n"
                 + "9. The 'Clear Display' button clears the display of any information.\n"
                 + "10. The 'Exit Program' button closes the GUI.\n";
+    }
+
+    private JLabel createImageLabel(String imagePath, int width, int height) {
+        ImageIcon imageIcon = new ImageIcon(imagePath);
+        Image image = imageIcon.getImage();
+        Image newImg = image.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        imageIcon = new ImageIcon(newImg);
+        return new JLabel(imageIcon);
     }
 
     /**
