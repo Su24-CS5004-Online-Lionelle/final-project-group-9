@@ -42,6 +42,10 @@ class TestModel {
           1, 1, "Los Angeles Lakers", "West",
           25.603, 7.37, 8.247, 0.548, 1.288, "35:21", 0.535, 0.757, 0.407);
 
+  private Player testPlayer7 = new Player("Grayson", "Allen", "G", "6-4",
+          2018, 1, 21, "Pheonix Suns", "West",
+          13.52, 3.92, 3.027, 0.587, 0.92, "33:27", 0.499, 0.878, 0.461);
+
   private String testPlayer1ToString = actualModel.toString(testPlayer1);
 
   private String testPlayer2ToString = actualModel.toString(testPlayer2);
@@ -151,6 +155,7 @@ class TestModel {
 
   @Test
   void testFilterSortNBARoster() {
+    Set<Player>
 
 
   }
