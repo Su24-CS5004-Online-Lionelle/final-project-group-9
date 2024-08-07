@@ -142,13 +142,16 @@ class TestModel {
     testList.add(testPlayerBean4);
     testList.add(testPlayerBean5);
     testList.add(testPlayerBean6);
+    System.out.println(actualLoadedRosterModel.getRoster().size());
     actualSet = actualLoadedRosterModel.beanToPlayer(testList);
+    System.out.println(actualLoadedRosterModel.getRoster().size());
     assertEquals(actualLoadedRosterModel.getRoster(), actualSet);
 
   }
 
   @Test
   void testFilterSortNBARoster() {
+
 
   }
 
