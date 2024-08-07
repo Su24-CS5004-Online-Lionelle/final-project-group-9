@@ -38,7 +38,7 @@ public final class Filters {
       case POSITION:
         return filterString(player.getPosition(), op, val);
       case HEIGHT:
-        return filterString(player.getHeight(), op, val);
+        return convertStringtoDouble(player.getHeight(), op, val);
       case DRAFTYEAR:
         return convertInt(player.getDraftYear(), op, val);
       case DRAFTROUND:

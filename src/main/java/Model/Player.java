@@ -249,6 +249,4 @@ public class Player {
                     "Field goal percentage: %.2f\nFree throw percentage: %.2f\nThree-point percentage: %.2f",
             first_name, last_name, position, height, draftYear, draftRound, draftPick, team, conference, ppg, rpg, apg, bpg, spg, mpg, fgp, ftp, fg3p);
   }
-
-
 }
