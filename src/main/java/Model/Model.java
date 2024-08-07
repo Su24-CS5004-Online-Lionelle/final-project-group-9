@@ -491,15 +491,15 @@ public class Model implements IModel {
         if (range.length == 2) {
             try {
                 int start = parseInt(range[0]) - 1; // -1 because index starts at 0.
-                int end = parseInt(range[1]);
+                int end = parseInt(range[1]) - 1;
 
                 // check to make sure format is correct.
-                if (start <= 0 || end > roster.size() || start > end) {
+                if (start < 0 || end > roster.size() || start > end) {
                     throw new IndexOutOfBoundsException("Index range out of bounds");
                 }
 
                 // remove the desired range of players into the roster.
-                roster.removeAll(roster.stream().toList().subList(start, end));
+                roster.removeAll(roster.stream().toList().subList(start, end + 1));
             } catch (NumberFormatException e) {
                 throw new IllegalArgumentException("Invalid index range input");
             }

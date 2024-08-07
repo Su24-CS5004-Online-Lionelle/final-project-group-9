@@ -1,5 +1,6 @@
 import static org.junit.jupiter.api.Assertions.*;
 import Model.Model;
+import Model.IModel;
 import Model.Player;
 import Model.PlayerBean;
 import Model.SortFilter.ColumnData;
@@ -54,7 +55,18 @@ class TestModel {
           1, 5, "Miami Heat", "East", 8.965, 6.105, 2.035,
           0.175, 0.333, "16:43", 0.441, 0.808, 0.351);
 
+  private Player testPlayer10 = new Player("Kevin", "Huerter", "G", "6-7",
+          2018, 1, 19, "Sacramento Kings", "West", 10.234,
+          3.484, 2.594, 0.375, 0.719, "24:26", 0.443, 0.766, 0.361);
 
+  private IModel.Team testTeam = new IModel.Team(0, "West", "Pacific", "San Fransisco",
+          "Warriors", "Golden State Warriors", "GSW");
+
+  private IModel.PlayerBackground testBGRecord = new IModel.PlayerBackground(19, "Stephen", "Curry", "G",
+          "6-2", 2009, 1, 7, testTeam);
+
+  private IModel.PlayerAverages testAVGRecord = new IModel.PlayerAverages(26.373, 5.093,3.47, 5.093,
+          4.44, 0.747, 0.387, 0.45, 0.400, 0.924, "32:41", 42, 19);
 
   private String testPlayer1ToString = actualModel.toString(testPlayer1);
 
@@ -214,20 +226,95 @@ class TestModel {
     actualModel.buildRoster(actualModel.filterSortNBARoster("==Curry", ColumnData.LAST_NAME), "all");
     assertEquals(expectedAllSet, actualModel.getRoster());
 
+    // resetting roster
+    actualModel.setRoster(new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME)));
+
     // testing build roster for adding range of players.
+    Set<Player> expectedRangeSet = new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME));
+    expectedRangeSet.add(testPlayer9);
+    expectedRangeSet.add(testPlayer10);
+
+    actualModel.buildRoster(actualModel.filterSortNBARoster("==kevin", ColumnData.FIRST_NAME, true), "2-3");
+    assertEquals(expectedRangeSet, actualModel.getRoster());
+
+    // resetting roster
+    actualModel.setRoster(new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME)));
+
+    // testing build roster for a specific string.
+    Set<Player> expectedStringSet = new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME));
+    expectedStringSet.add(testPlayer9);
+
+    actualModel.buildRoster(actualModel.filterSortNBARoster("== love", ColumnData.LAST_NAME), "kevin love");
+    assertEquals(expectedStringSet, actualModel.getRoster());
+
+    // reset roster
+    actualModel.setRoster(new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME)));
+
+    // testing build roster for a specific index.
+    Set<Player> expectedIndexSet = new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME));
+    expectedIndexSet.add(testPlayer1);
+    expectedIndexSet.add(testPlayer3);
+
+    actualModel.buildRoster(expectedIndexSet, "1");
+    expectedIndexSet.remove(testPlayer3);
+    assertEquals(expectedIndexSet, actualModel.getRoster());
 
   }
 
   @Test
   void testRemoveFromRoster() {
+    // testing removing all key word.
+    Set<Player> expectedEmptySet = new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME));
+    actualModel.removeFromRoster("all");
+    assertEquals(expectedEmptySet, actualModel.getRoster());
+
+    // testing removing with a range.
+    Set<Player> expectedRangeSet = new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME));
+    expectedRangeSet.add(testPlayer1);
+    expectedRangeSet.add(testPlayer2);
+    actualModel.getRoster().add(testPlayer1);
+    actualModel.getRoster().add(testPlayer2);
+    actualModel.getRoster().add(testPlayer3);
+    actualModel.getRoster().add(testPlayer4);
+
+    actualModel.removeFromRoster("3-4");
+    assertEquals(expectedRangeSet, actualModel.getRoster());
+
+    // clearing roster.
+    actualModel.removeFromRoster("all");
+
+    // testing removing with a name.
+    Set<Player> expectedNameSet = new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME));
+    expectedNameSet.add(testPlayer1);
+    expectedNameSet.add(testPlayer3);
+    actualModel.getRoster().add(testPlayer1);
+    actualModel.getRoster().add(testPlayer2); // name is luka doncic
+    actualModel.getRoster().add(testPlayer3);
+
+    actualModel.removeFromRoster("luka doncic");
+    assertEquals(expectedNameSet, actualModel.getRoster());
+
+    // clearing roster.
+    actualModel.removeFromRoster("all");
+
+    // testing removing with an index.
+    Set<Player> expectedIndexSet = new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME));
+    expectedIndexSet.add(testPlayer1);
+    expectedIndexSet.add(testPlayer3);
+    actualModel.getRoster().add(testPlayer1);
+    actualModel.getRoster().add(testPlayer2);
+    actualModel.getRoster().add(testPlayer3);
+
+    actualModel.removeFromRoster("2"); // user would put 2 for the 2nd element, which is actually index 1.
+    assertEquals(expectedIndexSet, actualModel.getRoster());
 
   }
 
   @Test
   void createPlayer() {
+    // testing the creation of players with dummy data records.
+    Player actualPlayer = actualModel.createPlayer(testBGRecord, testAVGRecord);
+    assertEquals(testPlayer8.toString(), actualPlayer.toString()); // using to string to avoid memory error.
+
   }
-
-
-
-
 }
