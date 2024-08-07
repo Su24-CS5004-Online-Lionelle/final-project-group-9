@@ -37,7 +37,7 @@ public class Model implements IModel {
     /**
      * Set containing ALL player objects in the 2023-2024 NBA season.
      */
-    private Set<Player> NBAROSTER = new LinkedHashSet<Player>();
+    private Set<Player> NBAROSTER = new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME));
 
     /**
      * Constructor with default filepath.
@@ -45,7 +45,7 @@ public class Model implements IModel {
      */
     public Model() {
         this.filePath = DATABASE;
-        this.roster = new LinkedHashSet<Player>();
+        this.roster = new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME));
 
         // intialize NBAROSTER with createNBARoster.
         NBAROSTER = createNBARoster();
