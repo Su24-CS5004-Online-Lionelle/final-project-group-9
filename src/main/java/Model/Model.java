@@ -41,15 +41,15 @@ public class Model implements IModel {
 
     /**
      * Constructor with default filepath.
-     * Means that user didn't have a previously built roster, so make a new TreeSet.
+     * Means that user didn't have a previously built roster, so make a new HashSet.
      */
     public Model() {
         this.filePath = DATABASE;
         this.roster = new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME));
 
         // intialize NBAROSTER with createNBARoster.
-        this.NBAROSTER = new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME));
         NBAROSTER = createNBARoster();
+        this.NBAROSTER = NBAROSTER;
     }
 
     /**
@@ -67,17 +67,17 @@ public class Model implements IModel {
                 ObjectMapper mapper = new ObjectMapper();
                 List<PlayerBean> beanList = mapper.readValue(new File(filePath), new TypeReference<List<PlayerBean>>() {
                 });
-                this.roster = beanToPlayer(beanList);
+                this.roster = new LinkedHashSet<Player>(beanToPlayer(beanList));
             } else if (filePath.endsWith(".xml")) {
                 XmlMapper xmlMapper = new XmlMapper();
                 List<PlayerBean> beanList = xmlMapper.readValue(new File(filePath), new TypeReference<List<PlayerBean>>() {
                 });
-                this.roster = beanToPlayer(beanList);
+                this.roster = new LinkedHashSet<Player>(beanToPlayer(beanList));
             } else if (filePath.endsWith(".csv")) {
                 List<PlayerBean> beanList = new ArrayList<>();
 
                 try (CSVReader csvReader = new CSVReader(new FileReader(filePath))) {
-                    Set<Player> playerSet = new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME));
+                    Set<Player> playerSet = new LinkedHashSet<Player>();
                     List<String[]> lines = csvReader.readAll();
                     lines.remove(0);
                     for (String[] line : lines) {
@@ -223,9 +223,7 @@ public class Model implements IModel {
         ObjectMapper mapper = new ObjectMapper();
         try {
             List<PlayerBean>  beanList = mapper.readValue(new File(filePath), new TypeReference<List<PlayerBean>>() { });
-            Set<Player> newTreeSet = new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME));
-            newTreeSet.addAll(beanToPlayer(beanList));
-            return newTreeSet;
+            return new LinkedHashSet<Player>(beanToPlayer(beanList));
         } catch (StreamReadException e) {
             throw new RuntimeException(e);
         } catch (DatabindException e) {
@@ -242,7 +240,7 @@ public class Model implements IModel {
      */
     @Override
     public Set<Player> beanToPlayer(List<PlayerBean> beanList) {
-        Set<Player> s = new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME));
+        Set<Player> s = new LinkedHashSet<Player>();
         for (PlayerBean bean : beanList) {
             Player player = new Player(bean.getFirstName(), bean.getLastName(), bean.getPosition(), bean.getHeight(),
                     bean.getDraftYear(), bean.getDraftRound(), bean.getDraftPick(), bean.getTeam(),
@@ -349,7 +347,7 @@ public class Model implements IModel {
         filter = filter.replace(" ", "");
 
         // initialize a set to hold the results.
-        Set<Player> result = new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME));
+        Set<Player> result = new LinkedHashSet<Player>();
 
         // when user passes in empty string or all as filter.
         if (filter == "" || filter.equalsIgnoreCase("all")) {
@@ -483,7 +481,7 @@ public class Model implements IModel {
     public void removeFromRoster(String nameOrRange) {
         // start by checking for keyword "all"
         if (nameOrRange.equalsIgnoreCase("all")) {
-            setRoster(new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME))); // emptying the roster
+            setRoster(new LinkedHashSet<Player>()); // emptying the roster
             return; // end method.
         }
         // checking if string is a range, name, or singular number by parsing.
