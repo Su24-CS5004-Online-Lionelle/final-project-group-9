@@ -37,7 +37,7 @@ public class Model implements IModel {
     /**
      * Set containing ALL player objects in the 2023-2024 NBA season.
      */
-    private Set<Player> NBAROSTER;
+    private Set<Player> NBAROSTER =  new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME));
 
     /**
      * Constructor with default filepath.
