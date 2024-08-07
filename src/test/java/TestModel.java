@@ -46,6 +46,16 @@ class TestModel {
           2018, 1, 21, "Pheonix Suns", "West",
           13.52, 3.92, 3.027, 0.587, 0.92, "33:27", 0.499, 0.878, 0.461);
 
+  private Player testPlayer8 = new Player("Stephen", "Curry", "G", "6-2", 2009,
+          1, 7, "Golden State Warriors", "West", 26.373, 4.44, 5.093,
+          0.387, 0.747, "32:41", 0.45, 0.924, 0.400);
+
+  private Player testPlayer9 = new Player("Kevin", "Love", "F-C", "6-8", 2008,
+          1, 5, "Miami Heat", "East", 8.965, 6.105, 2.035,
+          0.175, 0.333, "16:43", 0.441, 0.808, 0.351);
+
+
+
   private String testPlayer1ToString = actualModel.toString(testPlayer1);
 
   private String testPlayer2ToString = actualModel.toString(testPlayer2);
@@ -163,7 +173,15 @@ class TestModel {
 
     // testing for multiple player objects in a set.
     Set<Player> expectedSet2 = new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME));
+    expectedSet2.add(testPlayer1);
+    expectedSet2.add(testPlayer8);
 
+    assertEquals(expectedSet2, actualModel.filterSortNBARoster("==Curry", ColumnData.LAST_NAME, true));
+
+    // testing for empty set.
+    Set<Player> expectedSet3 = new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME));
+
+    assertEquals(expectedSet3, actualModel.filterSortNBARoster(">=100", ColumnData.PPG, true));
 
 
 
@@ -171,11 +189,32 @@ class TestModel {
 
   @Test
   void testSetRoster() {
+    // testing set roster for an empty set.
+    Set<Player> expectedEmptySet = new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME));
+    assertEquals(expectedEmptySet, actualModel.getRoster());
+
+    // testing set roster for a set with player objects
+    Set<Player> expectedNonEmptySet = new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME));
+    expectedNonEmptySet.add(testPlayer1);
+    expectedNonEmptySet.add(testPlayer2);
+    expectedNonEmptySet.add(testPlayer3);
+    actualModel.setRoster(expectedNonEmptySet);
+    assertEquals(expectedNonEmptySet, actualModel.getRoster());
 
   }
 
   @Test
   void testBuildRoster() {
+    // testing build roster for keyword "all"
+    Set<Player> expectedAllSet = new TreeSet<>(PlayerSortStrategy.getSort(ColumnData.FIRST_NAME));
+
+    expectedAllSet.add(testPlayer1);
+    expectedAllSet.add(testPlayer8);
+
+    actualModel.buildRoster(actualModel.filterSortNBARoster("==Curry", ColumnData.LAST_NAME), "all");
+    assertEquals(expectedAllSet, actualModel.getRoster());
+
+    // testing build roster for adding range of players.
 
   }
 
