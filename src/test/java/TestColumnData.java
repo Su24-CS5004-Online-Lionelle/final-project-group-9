@@ -1,20 +1,30 @@
-package Model.SortFilter;
-
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class TestPlayerSort {
+class TestColumnData {
 
   @BeforeEach
   void setUp() {
   }
 
   @Test
-  void sortPlayers() {
+  void getColumnName() {
   }
 
   @Test
-  void testSortPlayers() {
+  void fromColumnName() {
+  }
+
+  @Test
+  void fromString() {
+  }
+
+  @Test
+  void values() {
+  }
+
+  @Test
+  void valueOf() {
   }
 }

@@ -1,6 +1,6 @@
-package Model;
-
 import static org.junit.jupiter.api.Assertions.*;
+import Model.Model;
+import Model.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -40,7 +40,8 @@ class TestModel {
             2018, 1, 11, "Oklahoma City Thunder", "West",
             30.053, 5.52, 6.213, 0.893, 1.987, "34:08", 0.535, 0.874, 0.353);
 
-    Player testPlayer4 = new Player("Giannis", "Antetokounmpo", "F", "6-11", 2013,
+    Player
+        testPlayer4 = new Player("Giannis", "Antetokounmpo", "F", "6-11", 2013,
             1, 15, "Milwaukee Bucks", "East",
             30.438, 11.493, 6.521, 1.082, 1.164, "35:12", 0.611, 0.657, 0.274);
 
