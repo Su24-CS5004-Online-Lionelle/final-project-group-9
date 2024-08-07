@@ -171,7 +171,7 @@ public class JFrameView extends JFrame implements IView {
 
     /**
      * Sets up ActionListeners for JButtons.
-     * @param clicks Button clicks
+     * @param clicks Button clicks.
      */
     @Override
     public void setListeners(ActionListener clicks) {

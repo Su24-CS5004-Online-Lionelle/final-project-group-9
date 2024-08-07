@@ -23,7 +23,7 @@ public interface IView {
 
     /**
      * Gets the String input from the JTextField.
-     * @return String user input
+     * @return String user input.
      */
     String getInputString();
 
