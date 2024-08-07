@@ -307,8 +307,15 @@ public class PlayerSortStrategy {
      */
     @Override
     public int compare(Player o1, Player o2) {
-      return (int) (o1.getPpg() - (o2.getPpg()));
-    }
+
+      if (o1.getPpg() < o2.getPpg()) {
+        return -1;
+      }
+      if (o2.getPpg() > o2.getPpg()) {
+        return 1;
+      }
+      return 0;
+  }
   }
 
   public static class PpgDescending implements Comparator<Player> {
@@ -531,4 +538,5 @@ public class PlayerSortStrategy {
       return (int) (o2.getFg3p() - (o1.getFg3p()));
     }
   }
-}
+  }
+
