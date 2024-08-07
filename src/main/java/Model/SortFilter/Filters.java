@@ -20,6 +20,7 @@ public final class Filters {
 
   /**
    * Generates boolean determining whether value passed and current player satisfies operation.
+   *
    * @param player
    * @param val
    * @return
@@ -28,8 +29,8 @@ public final class Filters {
                                   String val) {
     // Trim extra white space in value
     val = val.trim();
-    
-    switch(type) {
+
+    switch (type) {
       case FIRST_NAME:
         return filterString(player.getFirstName(), op, val);
       case LAST_NAME:
@@ -42,8 +43,8 @@ public final class Filters {
         return convertInt(player.getDraftYear(), op, val);
       case DRAFTROUND:
         return convertInt(player.getDraftRound(), op, val);
-        case DRAFTPICK:
-          return convertInt(player.getDraftPick(), op, val);
+      case DRAFTPICK:
+        return convertInt(player.getDraftPick(), op, val);
       case TEAM:
         return filterString(player.getTeam(), op, val);
       case CONFERENCE:
@@ -74,9 +75,11 @@ public final class Filters {
 
   /**
    * Compares string values passed on operations passed.
+   *
    * @return
    */
-  private static boolean filterString(String name, Operations op, String value) {
+  private static boolean filterString(String name, Operations op,
+                                      String value) {
     name = name.toLowerCase();
     value = value.toLowerCase();
 
@@ -101,51 +104,15 @@ public final class Filters {
   }
 
   /**
-   * Compares int values passed on operations passed.
-   * @return
-   */
-  private static boolean convertInt(int number, Operations op, String value) {
-    // Convert String value to numeric
-    int intValue;
-
-    try {
-      intValue = Integer.valueOf(value);
-    } catch (IllegalArgumentException e) {
-      throw new IllegalArgumentException("Value being compared is not an integer.");
-    }
-
-    // Switch case for filter
-    return checkNumericalValues(number, op, intValue);
-  }
-
-  /**
-   * Compares double values.
-   * @param number
-   * @param op
-   * @param value
-   * @return
-   */
-  private static boolean convertDouble(double number, Operations op, String value) {
-    double doubleValue;
-    try {
-      doubleValue = Double.valueOf(value);
-    } catch (IllegalArgumentException e) {
-      throw new IllegalArgumentException(
-          "Value being compared is not a double.");
-    }
-    // Switch case for filter
-    return checkNumericalValues(number, op, doubleValue);
-  }
-
-  /**
-   *  Compares numbers.
+   * Compares numbers.
+   *
    * @param number
    * @param op
    * @param doubleValue
    * @return
    */
-  private static boolean checkNumericalValues(double number, Operations op,
-                                          double doubleValue) {
+  private static boolean filterNumericalValues(double number, Operations op,
+                                               double doubleValue) {
     switch (op) {
       case EQUALS, CONTAINS:
         return number == doubleValue;
@@ -164,4 +131,66 @@ public final class Filters {
     }
   }
 
-}
+  /**
+   * Height conversion.
+   * @return
+   */
+    private static boolean convertStringtoDouble (String playerOne, Operations op, String playerTwo){
+      String[] partsOne = playerOne.split("-");
+      String[] partsTwo = playerTwo.split("-");
+
+      double playerOneHeight;
+      double playerTwoHeight;
+
+      // Compare feet
+      try {
+        playerOneHeight = (Double.valueOf(partsOne[0]) * 12) + (Double.valueOf(partsOne[1]));
+        playerTwoHeight = (Double.valueOf(partsTwo[0]) * 12) + (Double.valueOf(partsTwo[1]));
+      } catch (IllegalArgumentException e){
+        throw new IllegalArgumentException("Height could not be converted to double.");
+      }
+
+      // Compare converted heights
+      return filterNumericalValues(playerOneHeight, op, playerTwoHeight);
+    }
+
+    /**
+     * Compares int values passed on operations passed.
+     * @return
+     */
+    private static boolean convertInt(int number, Operations op, String value)
+    {
+      // Convert String value to numeric
+      int intValue;
+
+      try {
+        intValue = Integer.valueOf(value);
+      } catch (IllegalArgumentException e) {
+        throw new IllegalArgumentException(
+            "Value being compared is not an integer.");
+      }
+
+      // Switch case for filter
+      return filterNumericalValues(number, op, intValue);
+    }
+
+    /**
+     * Compares double values.
+     * @param number
+     * @param op
+     * @param value
+     * @return
+     */
+    private static boolean convertDouble(double number, Operations op, String value) {
+      double doubleValue;
+
+      try {
+        doubleValue = Double.valueOf(value);
+      } catch (IllegalArgumentException e) {
+        throw new IllegalArgumentException(
+            "Value being compared is not a double.");
+      }
+      // Switch case for filter
+      return filterNumericalValues(number, op, doubleValue);
+    }
+  }
