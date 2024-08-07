@@ -9,15 +9,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * The view to handle the displaying of information.
+ */
 public class JFrameView extends JFrame implements IView {
+    /** Label to display prompt for the input field. */
     private JLabel prompt;
+    /** Text field to enter search criteria or desired add or remove name, int or range. */
     private JTextField input;
+    /** JComboBoxes to display filter and sort choices for user to select. */
     private JComboBox<String> filterChoice, sortChoice;
+    /** List of elements to filter and sort by.  */
     private List<String> items, sortOrder;
+    /** Buttons for searching players, showing list, loading roster, exporting roster, clearing display, adding & removing players and displaying help message. */
     private JButton searchButton, showListButton, loadButton, exportButton, clearButton, exitButton, addButton, removeButton, helpButton;
+    /** Lower text area to display information. */
     private JTextArea lowerTextArea;
 
-
+    /**
+     * Contructor for the JFrameView.
+     * @param caption String to display name of program.
+     */
     public JFrameView(String caption) {
         super(caption);
 
@@ -148,11 +160,19 @@ public class JFrameView extends JFrame implements IView {
 
     }
 
+    /**
+     * Displays information to the lower panel of the JFrame.
+     * @param text String that the user wants to display.
+     */
     @Override
     public void display(String text) {
         lowerTextArea.append(text + "\n");
     }
 
+    /**
+     * Sets up ActionListeners for JButtons.
+     * @param clicks Button clicks.
+     */
     @Override
     public void setListeners(ActionListener clicks) {
         this.searchButton.addActionListener(clicks);
@@ -166,17 +186,29 @@ public class JFrameView extends JFrame implements IView {
         this.helpButton.addActionListener(clicks);
     }
 
+    /**
+     * Gets the String input from the JTextField.
+     * @return String user input
+     */
     @Override
     public String getInputString() {
         return input.getText();
     }
 
+    /**
+     * Gets the user selected filter choice from JComboBox.
+     * @return ColumnData filter enum
+     */
     @Override
     public ColumnData getFilterChoice() {
         // casting Object to string to pass into method
         return ColumnData.fromColumnName((String) filterChoice.getSelectedItem());
     }
 
+    /**
+     * Gets the user selected sort choice from JComboBox.
+     * @return boolean true for Ascending, false for Descending
+     */
     @Override
     public boolean getSortChoice() {
         if (sortChoice.getSelectedItem() == "Ascending") {
@@ -186,11 +218,17 @@ public class JFrameView extends JFrame implements IView {
         }
     }
 
+    /**
+     * Clears the JTextField.
+     */
     @Override
     public void clearInputField() {
         input.setText("");
     }
 
+    /**
+     * Clears the lower panel display in the JFrame.
+     */
     @Override
     public void clearDisplay() {
         lowerTextArea.setText("");
@@ -224,6 +262,9 @@ public class JFrameView extends JFrame implements IView {
                 + "10. The 'Exit Program' button closes the GUI.\n";
     }
 
+    /**
+     * Sets JFrame to visible.
+     */
     @Override
     public void start() {
         setVisible(true);
