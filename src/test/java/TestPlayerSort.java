@@ -1,5 +1,5 @@
 import static Model.SortFilter.PlayerSort.sortPlayers;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -416,7 +416,7 @@ class TestPlayerSort {
    * Test sort players descending by numerical attribute.
    */
   @Test
-  void testSortDescendingDraftRound() {
+  void testSortDescendingPointsPerGame() {
     List<Player> playersList = new ArrayList<>();
     playersList.add(testPlayer1);
     playersList.add(testPlayer2);
@@ -427,58 +427,7 @@ class TestPlayerSort {
     Set<Player> playerSet = playersList.stream().collect(Collectors.toSet());
 
     String expected = """
-        [First_Name: Shai
-        Last_Name: Gilgeous-Alexander
-        Position: G
-        Height: 6-6
-        Draft Year: 2018
-        Draft Round: 1
-        Draft Pick: 11
-        Team: Oklahoma City Thunder
-        Conference: West
-        Points per game: 30.05
-        Rebounds per game: 5.52
-        Assists per game: 6.21
-        Blocks per game: 0.89
-        Steals per game: 1.99
-        Minutes per game: 34:08
-        Field goal percentage: 0.54
-        Free throw percentage: 0.87
-        Three-point percentage: 0.35, First_Name: Zach
-        Last_Name: Collins
-        Position: F-C
-        Height: 6-11
-        Draft Year: 2017
-        Draft Round: 1
-        Draft Pick: 10
-        Team: San Antonio Spurs
-        Conference: West
-        Points per game: 11.25
-        Rebounds per game: 5.35
-        Assists per game: 2.30
-        Blocks per game: 0.75
-        Steals per game: 0.49
-        Minutes per game: 22:13
-        Field goal percentage: 0.51
-        Free throw percentage: 0.81
-        Three-point percentage: 0.43, First_Name: Bradley
-        Last_Name: Beal
-        Position: G
-        Height: 6-4
-        Draft Year: 2012
-        Draft Round: 1
-        Draft Pick: 3
-        Team: Phoenix Suns
-        Conference: West
-        Points per game: 18.19
-        Rebounds per game: 4.38
-        Assists per game: 5.00
-        Blocks per game: 0.53
-        Steals per game: 1.02
-        Minutes per game: 33:19
-        Field goal percentage: 0.51
-        Free throw percentage: 0.81
-        Three-point percentage: 0.43, First_Name: Luka
+        [First_Name: Luka
         Last_Name: Doncic
         Position: F-G
         Height: 6-7
@@ -495,7 +444,24 @@ class TestPlayerSort {
         Minutes per game: 37:26
         Field goal percentage: 0.49
         Free throw percentage: 0.79
-        Three-point percentage: 0.38, First_Name: Jerami
+        Three-point percentage: 0.38, First_Name: Shai
+        Last_Name: Gilgeous-Alexander
+        Position: G
+        Height: 6-6
+        Draft Year: 2018
+        Draft Round: 1
+        Draft Pick: 11
+        Team: Oklahoma City Thunder
+        Conference: West
+        Points per game: 30.05
+        Rebounds per game: 5.52
+        Assists per game: 6.21
+        Blocks per game: 0.89
+        Steals per game: 1.99
+        Minutes per game: 34:08
+        Field goal percentage: 0.54
+        Free throw percentage: 0.87
+        Three-point percentage: 0.35, First_Name: Jerami
         Last_Name: Grant
         Position: F
         Height: 6-7
@@ -512,7 +478,41 @@ class TestPlayerSort {
         Minutes per game: 33:58
         Field goal percentage: 0.45
         Free throw percentage: 0.82
-        Three-point percentage: 0.40, First_Name: Seth
+        Three-point percentage: 0.40, First_Name: Bradley
+        Last_Name: Beal
+        Position: G
+        Height: 6-4
+        Draft Year: 2012
+        Draft Round: 1
+        Draft Pick: 3
+        Team: Phoenix Suns
+        Conference: West
+        Points per game: 18.19
+        Rebounds per game: 4.38
+        Assists per game: 5.00
+        Blocks per game: 0.53
+        Steals per game: 1.02
+        Minutes per game: 33:19
+        Field goal percentage: 0.51
+        Free throw percentage: 0.81
+        Three-point percentage: 0.43, First_Name: Zach
+        Last_Name: Collins
+        Position: F-C
+        Height: 6-11
+        Draft Year: 2017
+        Draft Round: 1
+        Draft Pick: 10
+        Team: San Antonio Spurs
+        Conference: West
+        Points per game: 11.25
+        Rebounds per game: 5.35
+        Assists per game: 2.30
+        Blocks per game: 0.75
+        Steals per game: 0.49
+        Minutes per game: 22:13
+        Field goal percentage: 0.51
+        Free throw percentage: 0.81
+        Three-point percentage: 0.43, First_Name: Seth
         Last_Name: Curry
         Position: G
         Height: 6-1
@@ -533,6 +533,6 @@ class TestPlayerSort {
         """.trim();
 
     assertEquals(expected,
-        sortPlayers(playerSet, "field goal percentage", false).toString().trim());
+        sortPlayers(playerSet, "points per game", false).toString().trim());
   }
 }

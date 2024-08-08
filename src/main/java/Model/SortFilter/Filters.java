@@ -2,8 +2,6 @@ package Model.SortFilter;
 
 import Model.Player;
 
-import static java.lang.Double.parseDouble;
-
 /**
  * Filters class that filters board player data based on operations passed
  */
