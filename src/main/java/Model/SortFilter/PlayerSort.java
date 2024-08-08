@@ -2,7 +2,6 @@ package Model.SortFilter;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
-import java.util.TreeSet;
 import java.util.stream.Collectors;
 import Model.Player;
 
@@ -40,11 +39,8 @@ public static Set<Player> sortPlayers(Set<Player> players, String sortType) {
     // Convert lowercase and trimmed string sortType to playersData
     ColumnData type = ColumnData.fromString(sortType.toLowerCase().trim());
 
-    Set<Player> sorted =
-        players.stream().sorted(PlayerSortStrategy.getSort(type, direction))
-            .collect(
-        Collectors.toCollection(LinkedHashSet::new));
+    return players.stream().sorted(PlayerSortStrategy.getSort(type, direction))
+        .collect(Collectors.toCollection(LinkedHashSet::new));
 
-    return sorted;
   }
 }

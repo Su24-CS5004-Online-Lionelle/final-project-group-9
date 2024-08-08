@@ -2,10 +2,7 @@ package Model.SortFilter;
 
 /**
  * Enum to represent the columns in the player data.
- *
- * Used to access and display player attribute data.
- *
- * Used ColumnData when parsing anything
+ * Used to access and display player attribute data and ColumnData when parsing anything
  * that is associated with column names (filter) and sorting.
  */
 public enum ColumnData {
@@ -56,7 +53,6 @@ public enum ColumnData {
 
   /**
    * Get the enum from case-insensitive string name.
-   *
    * Can use the enum name or the column name. Useful for filters and sorts
    * as they can use both.
    *
