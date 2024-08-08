@@ -12,17 +12,17 @@ public final class Filters {
   private static final int ZERO_INT = 0;
 
   /**
-   * Private constructor.
+   * Private constructor to prevent instantiation.
    */
   private Filters() {
-
+    // Empty constructor.
   }
 
   /**
    * Generates boolean determining whether value passed and current player satisfies operation.
    *
-   * @param player
-   * @param val
+   * @param player Player object being compared
+   * @param val String
    * @return
    */
   public static boolean getFilter(Player player, ColumnData type, Operations op,

@@ -1,12 +1,14 @@
 import static org.junit.jupiter.api.Assertions.*;
+import Model.SortFilter.ColumnData;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class TestColumnData {
 
-  @BeforeEach
-  void setUp() {
-  }
+  ColumnData first = ColumnData.FIRST_NAME;
+  ColumnData last = ColumnData.LAST_NAME;
+
+
 
   @Test
   void getColumnName() {
@@ -18,6 +20,8 @@ class TestColumnData {
 
   @Test
   void fromString() {
+
+
   }
 
   @Test
