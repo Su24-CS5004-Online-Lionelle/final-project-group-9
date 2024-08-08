@@ -12,17 +12,17 @@ public final class Filters {
   private static final int ZERO_INT = 0;
 
   /**
-   * Private constructor.
+   * Private constructor to prevent instantiation.
    */
   private Filters() {
-
+    // Empty constructor.
   }
 
   /**
    * Generates boolean determining whether value passed and current player satisfies operation.
    *
-   * @param player
-   * @param val
+   * @param player Player object being compared
+   * @param val String
    * @return
    */
   public static boolean getFilter(Player player, ColumnData type, Operations op,
@@ -38,7 +38,10 @@ public final class Filters {
       case POSITION:
         return filterString(player.getPosition(), op, val);
       case HEIGHT:
-        return convertStringtoDouble(player.getHeight(), op, val);
+        if (op == Operations.CONTAINS) {
+          return filterString(player.getHeight(), op, val);
+        }
+          return convertHeightToDouble(player.getHeight(), op, val);
       case DRAFTYEAR:
         return convertInt(player.getDraftYear(), op, val);
       case DRAFTROUND:
@@ -132,20 +135,43 @@ public final class Filters {
   }
 
   /**
-   * Height conversion.
-   * @return
+   * Convert height string to double.
+   * Handles empty string and null strings
+   * @return boolean value
    */
-    private static boolean convertStringtoDouble (String playerOne, Operations op, String playerTwo){
+    private static boolean convertHeightToDouble (String playerOne, Operations op, String playerTwo){
+      // Convert height string to decimal
       String[] partsOne = playerOne.split("-");
       String[] partsTwo = playerTwo.split("-");
 
       double playerOneHeight;
+      double playerOneFeet = ZERO_INT;
+      if (!partsOne[0].isEmpty()) {
+        playerOneFeet = Double.valueOf(partsOne[0]) * 12;
+      }
+      double playerOneInches = ZERO_INT;
+      if (!partsOne[1].isEmpty()) {
+        playerOneInches = (Double.valueOf(partsOne[1]));
+      }
+
       double playerTwoHeight;
+      double playerTwoFeet = ZERO_INT;
+      if (!partsTwo[0].isEmpty()) {
+        playerTwoFeet = Double.valueOf(partsTwo[0]) * 12;
+
+      } else {
+        return false; // return false if second string is empty to prevent index out of bounds
+      }
+
+      double playerTwoInches = ZERO_INT;
+      if (!partsTwo[1].isEmpty()) {
+        playerTwoInches = (Double.valueOf(partsTwo[1]));
+      }
 
       // Compare feet
       try {
-        playerOneHeight = (Double.valueOf(partsOne[0]) * 12) + (Double.valueOf(partsOne[1]));
-        playerTwoHeight = (Double.valueOf(partsTwo[0]) * 12) + (Double.valueOf(partsTwo[1]));
+        playerOneHeight = playerOneFeet + playerOneInches;
+        playerTwoHeight = playerTwoFeet + playerTwoInches;
       } catch (IllegalArgumentException e){
         throw new IllegalArgumentException("Height could not be converted to double.");
       }

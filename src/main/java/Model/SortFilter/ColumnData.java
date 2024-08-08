@@ -37,10 +37,9 @@ public enum ColumnData {
 
   /**
    * Getter for the column name.
-   *
    * @return the name of the column in the CSV file.
    */
-  public String getColumnName() {
+  private String getColumnName() {
     return columnName;
   }
 
