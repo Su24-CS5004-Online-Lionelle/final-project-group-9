@@ -254,25 +254,16 @@ public class JFrameView extends JFrame implements IView {
      */
     @Override
     public String getHelp() {
-        return "Instructions: \n"
-                + "1. There is an empty text field you can type into to search for specific players.\n"
-                + "2. Next to it is a drop down menu that you can use to filter your search.\n"
-                + "E.g. If you want to see all the players in the league with the first name 'Ray', you'd select 'First Name'"
-                + " from the drop down menu and type 'Ray' into the text field.\n"
-                + "There are many different filter options to pick from, most of which will be integers or doubles.\n"
-                + "You can also use operators to help refine your search (==, !=, ~=, >=, <=, >, <) \n"
-                + "E.g. If you want to see players who were drafted in the year 2000, you'd select the 'Draft Year' option"
-                + " from the drop down menu and type 2000 into the text field.\n"
-                + "If you wanted to see the players who were drafted after the year 2000,"
-                + "you'd type '> 2000' (not including year 2000) or '>= 2000' (including year 2000) into the text field.\n"
-                + "3. You can adjust the order that your search results are displayed. Either ascending (first to last) or descending (last to first).\n"
-                + "4. The 'Add' button allows you to add a player or a range of players to your roster.\n"
-                + "5. The 'Remove' button allows you to remove a player or a range of players from your roster.\n"
-                + "6. The 'Show Current List' button shows you the list of players you have added to your roster.\n"
-                + "7. The 'Export Current List' button saves your current list of players to a specified file format.\n"
-                + "8. The 'Load List' button loads a roster of players based on the file name given.\n"
-                + "9. The 'Clear Display' button clears the display of any information.\n"
-                + "10. The 'Exit Program' button closes the GUI.\n";
+        return "Welcome to NBA Stat Tracker! \n" +
+                "=======================================================================================================\n" +
+                "- View current NBA player roster for the current season and build your personalized roster. \n" +
+                "\n" +
+                "- To search, use an operator (==, ~=, !=, <, <=, >=, >) followed by the string or numerical of the player attribute you would like to filter by. \n" +
+                "\n" +
+                "- To save your personalized list, click 'Export' to save file into a .json, .csv, or .xml file \n" +
+                "\n" +
+                " - To import your own database of players, click 'Import' and select your own .json, .csv or .xml file.\n" +
+                "=======================================================================================================\n";
     }
 
     private JLabel createImageLabel(String imagePath, int width, int height) {
