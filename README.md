@@ -1,6 +1,7 @@
-# Final Project for CS 5004 - (APPLICATION NAME/Update)
+# Final Project for CS 5004 - (NBA Stat Tracker/Group 9)
 
-(remove this and add your sections/elements)
+Github Repo Link: https://github.com/Su24-CS5004-Online-Lionelle/final-project-group-9
+
 This readme should contain the following information: 
 
 * The group member's names and link to their personal githubs
