@@ -55,7 +55,7 @@ public class DataFormatter {
    * @param out the output stream to write to.
    */
   private static void prettySingle(@Nonnull Player record, @Nonnull PrintStream out) {
-    out.println(record.toString());
+    out.println(record);
   }
 
   /**
@@ -107,7 +107,8 @@ public class DataFormatter {
    * @param out OutputStream.
    * @param records Collection of DNRecords.
    */
-  private static <T> void mapperWrtier(ObjectMapper mapper, OutputStream out, Collection<T> records) {
+  private static <T> void mapperWriter(ObjectMapper mapper, OutputStream out,
+                                       Collection<T> records) {
     try {
       mapper.writeValue(out, records);
     } catch (IOException e) {

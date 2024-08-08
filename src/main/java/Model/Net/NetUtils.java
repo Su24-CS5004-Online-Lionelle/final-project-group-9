@@ -1,11 +1,5 @@
 package Model.Net;
 
-import Model.IModel;
-import Model.IModel.PlayerBackground;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -14,6 +8,11 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import Model.IModel;
+import Model.IModel.PlayerBackground;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * The type Net utils.
@@ -36,7 +35,7 @@ public class NetUtils {
    * @return connection to then send a get request to the specified endpoint.
    * @throws IOException if error is seen with URL or during connection.
    */
-  private static HttpURLConnection UrlConnection(String endpoint)
+  private static HttpURLConnection urlConnection(String endpoint)
           throws IOException {
     URL url = new URL(API_URL + endpoint);
     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -134,7 +133,7 @@ public class NetUtils {
    */
   public static String getPlayerDataString(String endpoint) throws IOException {
     // Get URL connection using endpoint
-    HttpURLConnection connection = UrlConnection(endpoint);
+    HttpURLConnection connection = urlConnection(endpoint);
 
     // Convert data to string
     System.out.println("Fetching URL in fetchPlayers" + API_URL + endpoint);
