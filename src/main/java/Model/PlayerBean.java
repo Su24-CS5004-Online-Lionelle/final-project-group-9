@@ -127,7 +127,7 @@ public class PlayerBean {
 
     /**
      * Gets player's draft pick.
-     * @return
+     * @return - player's draft pick
      */
     public int getDraftPick() {
         return draftPick;
@@ -135,7 +135,7 @@ public class PlayerBean {
 
     /**
      * Gets player's team.
-     * @return String
+     * @return String - player's team
      */
     public String getTeam() {
         return team;
@@ -143,7 +143,7 @@ public class PlayerBean {
 
     /**
      * Gets player's team's conference.
-     * @return
+     * @return - the conference that the player's team plays in
      */
     public String getConference() {
         return conference;
@@ -151,7 +151,7 @@ public class PlayerBean {
 
     /**
      * Gets player's points per game.
-     * @return double
+     * @return double - average points per game scored
      */
     public double getPpg() {
         return ppg;
@@ -159,7 +159,7 @@ public class PlayerBean {
 
     /**
      * Gets player's rebounds per game.
-     * @return double
+     * @return double - average rebounds per game
      */
     public double getRpg() {
         return rpg;
@@ -167,7 +167,7 @@ public class PlayerBean {
 
     /**
      * Gets player's assists per game.
-     * @return double
+     * @return double - average assists per game
      */
     public double getApg() {
         return apg;
@@ -175,7 +175,7 @@ public class PlayerBean {
 
     /**
      * Gets player's blocks per game.
-     * @return double
+     * @return double - average blocks per game
      */
     public double getBpg() {
         return bpg;
@@ -183,7 +183,7 @@ public class PlayerBean {
 
     /**
      * Gets player's steals per game.
-     * @return double
+     * @return double - average steals per game
      */
     public double getSpg() {
         return spg;
@@ -191,7 +191,7 @@ public class PlayerBean {
 
     /**
      * Gets player's minutes per game.
-     * @return double
+     * @return double - average minutes played per game
      */
     public String getMpg() {
         return mpg;
@@ -199,7 +199,7 @@ public class PlayerBean {
 
     /**
      * Gets player's field goal percentage.
-     * @return double
+     * @return double - average made field goal percentage per game
      */
     public double getFgp() {
         return fgp;
@@ -207,7 +207,7 @@ public class PlayerBean {
 
     /**
      * Gets player's free throw percentage.
-     * @return double
+     * @return double - average made free throw percentage per game
      */
     public double getFtp() {
         return ftp;
@@ -215,7 +215,7 @@ public class PlayerBean {
 
     /**
      * Gets player's three point shooting percentage.
-     * @return double
+     * @return double - average made three point shooting percentage per game
      */
     public double getFg3p() {
         return fg3p;
@@ -223,7 +223,7 @@ public class PlayerBean {
 
     /**
      * Returns a string containing all the PlayerBean attributes.
-     * @return String.
+     * @return String - PlayerBean's instance variables presented in pretty format
      */
     public String toString() {
         return String.format(
@@ -253,7 +253,7 @@ public class PlayerBean {
 
     /**
      * Gets player's last name.
-     * @return String player's last name.
+     * @return String - player's last name.
      */
     public String getLastName() {
         return lastName;
