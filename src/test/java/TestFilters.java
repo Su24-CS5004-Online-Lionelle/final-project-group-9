@@ -5,9 +5,11 @@ import Model.SortFilter.Filters;
 import Model.SortFilter.Operations;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Test Filter class returns correct boolean in relation to ColumnData and Operator passed.
+ */
 class TestFilters {
-
-  // test player objects.
+  // test player objects
   Player testPlayer1 = new Player("Seth", "Curry", "G", "6-1", 0, 0, 0,
       "Charlotte Hornets", "East", 5.136, 1.545, 1.0, 0.136, 0.5,
       "14:01", 0.392, 0.903, 0.352);
@@ -62,7 +64,7 @@ class TestFilters {
   }
 
   /**
-   * Happy getFilter() test cases for first name.
+   * Edge getFilter() test cases for first name.
    */
   @Test
   void getFilterFirstNameEdgeCase() {
@@ -123,7 +125,7 @@ class TestFilters {
   }
 
   /**
-   * Happy getFilter() test cases for last name.
+   * Edge getFilter() test cases for last name.
    */
   @Test
   void getFilterLastNameEdgeCase() {
@@ -157,7 +159,7 @@ class TestFilters {
   }
 
   /**
-   * Happy getFilter() test cases for height.
+   * Happy getFilter() test cases for string (height).
    */
   @Test
   void getFilterHeightHappyCase() {
@@ -184,7 +186,7 @@ class TestFilters {
   }
 
   /**
-   * Happy getFilter() test cases for height.
+   * Edge getFilter() test cases for string (height).
    */
   @Test
   void getFilterHeightEdgeCase() {
@@ -214,4 +216,53 @@ class TestFilters {
     assertEquals(true, actualSeven);
   }
 
+  /**
+   * Happy getFilter() test cases for doubles and ints.
+   */
+  @Test
+  void getFilterNumberHappyCase() {
+    // Equal double with extra zeros
+    boolean actualOne = Filters.getFilter(testPlayer1, ColumnData.APG, Operations.EQUALS, "01.000");
+    assertEquals(true, actualOne);
+
+    // Double decimal
+    boolean actualTwo = Filters.getFilter(testPlayer3, ColumnData.PPG, Operations.NOT_EQUALS, "0.231");
+    assertEquals(true, actualTwo);
+
+    // Int
+    boolean actualThree = Filters.getFilter(testPlayer1, ColumnData.DRAFTPICK, Operations.CONTAINS, "50");
+    assertEquals(false, actualThree);
+  }
+
+  /**
+   * Edge getFilter() test cases for ints and doubles.
+   */
+  @Test
+  void getFilterNumberEdgeCase() {
+    // Test trailing spaces
+    boolean actualOne = Filters.getFilter(testPlayer1, ColumnData.FTP, Operations.EQUALS, "0");
+    assertEquals(false, actualOne);
+
+    // Test single letter
+    boolean actualThree = Filters.getFilter(testPlayer1, ColumnData.BPG, Operations.CONTAINS, "6.432");
+    assertEquals(false, actualThree);
+
+    // Test equals in greater than equals
+    boolean actualFour = Filters.getFilter(testPlayer5, ColumnData.APG, Operations.GREATER_THAN_EQUALS, ".043");
+    assertEquals(true, actualFour);
+
+    // Test null
+    assertThrows(NullPointerException.class, () -> {
+      Filters.getFilter(testPlayer6, ColumnData.FTP, Operations.GREATER_THAN, null);
+    });
+
+    // Empty string
+    assertThrows(IllegalArgumentException.class, () -> {
+      Filters.getFilter(testPlayer1, ColumnData.FP3P, Operations.LESS_THAN, "");
+    });
+
+    // White space
+    boolean actualSeven = Filters.getFilter(testPlayer5, ColumnData.DRAFTYEAR, Operations.EQUALS, "   2012   ");
+    assertEquals(false, actualSeven);
+  }
 }
