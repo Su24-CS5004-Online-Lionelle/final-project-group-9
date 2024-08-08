@@ -263,6 +263,8 @@ public class JFrameView extends JFrame implements IView {
                 "- To save your personalized list, click 'Export' to save file into a .json, .csv, or .xml file \n" +
                 "\n" +
                 " - To import your own database of players, click 'Import' and select your own .json, .csv or .xml file.\n" +
+                "\n" +
+                "- Click the Help button to show this message again at any time.\n" +
                 "=======================================================================================================\n";
     }
 
