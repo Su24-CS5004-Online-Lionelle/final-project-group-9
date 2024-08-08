@@ -268,6 +268,13 @@ public class JFrameView extends JFrame implements IView {
                 "=======================================================================================================\n";
     }
 
+    /**
+     * Helper method to create a JLabel with an image loaded from a specified file path, also scaled to desired height + width.
+     * @param imagePath String file path for image to be used.
+     * @param width int desired width
+     * @param height int desired height
+     * @return JLabel with image
+     */
     private JLabel createImageLabel(String imagePath, int width, int height) {
         ImageIcon imageIcon = new ImageIcon(imagePath);
         Image image = imageIcon.getImage();
