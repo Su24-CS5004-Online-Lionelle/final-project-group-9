@@ -263,7 +263,7 @@ classDiagram
         - JComboBox~String~ filterChoice
         - JComboBox sortChoice
         - List~String~ items
-        - List~String~ ~ sortOrder
+        - List~String~ sortOrder
         - JButton searchButton
         - JButton showListButton
         - JButton loadButton
@@ -290,11 +290,9 @@ classDiagram
         PlayerAverages(double pts, double ast, double turnover, double pf, double reb, double stl, double blk, double fg_pct, double fg3_pct, double ft_pct, String min, double games_players, int player_id)
     }
 
-%% Player background record class
     class PlayerBackground {
         <<record>>
-        PlayerBackground(int id, String first_name, String last_name, String position, String height,
-        int draft_year, int draft_round, int draft_number, Team team)
+        PlayerBackground(int id, String first_name, String last_name, String position, String height, int draft_year, int draft_round, int draft_number, Team team)
     }
 
 %% Model interface
@@ -327,7 +325,7 @@ classDiagram
     }
 
 %% Player data class
-    class Player {
+    class PlayerBean {
         - String first_name
         - String last_name
         - String position
@@ -346,8 +344,8 @@ classDiagram
         - double fgp
         - double ftp
         - double fg3p
-        + Player()
-        + Player(String first_name, String last_name, String position, String height, int draftYear, int draftRound, int draftPick, String team, String conference, double ppg, double rpg, double apg, double bpg, double spg, String mpg, double fgp, double ftp, double fg3p)
+        + PlayerBean()
+        + PlayerBean(String first_name, String last_name, String position, String height, int draftYear, int draftRound, int draftPick, String team, String conference, double ppg, double rpg, double apg, double bpg, double spg, String mpg, double fgp, double ftp, double fg3p)
         + getFirstName() String
         + getLastName() String
         + getPosition() String
@@ -369,19 +367,45 @@ classDiagram
         + toString() String
     }
 
-%% Record class
     class Player {
-        - name: String
-        - age: Integer
-        - team: String
-        - conference: String
-        - pointsPerGame: Double
-        - reboundsPerGame: Double
-        - assistsPerGame: Double
-        - blocksPerGame: Double
-        - stealsPerGame: Double
-        - fieldGoalPercentage: Double
-        - threePointPercentage: Double
+        - String first_name
+        - String last_name
+        - String position
+        - String height
+        - int draftYear
+        - int draftRound
+        - int draftPick
+        - String team
+        - String conference
+        - double ppg
+        - double rpg
+        - double apg
+        - double bpg
+        - double spg
+        - String mpg
+        - double fgp
+        - double ftp
+        - double fg3p
+        + Player(String first_name, String last_name, String position, String height, int draftYear, int draftRound, int draftPick, String team, String conference, double ppg, double rpg, double apg, double bpg, double spg, String mpg, double fgp, double ftp, double fg3p)
+        + getFirstName() String
+        + getLastName() String
+        + getPosition() String
+        + getHeight() String
+        + getDraftYear() int
+        + getDraftRound() int
+        + getDraftPick() int
+        + getTeam() String
+        + getConference() String
+        + getPpg() double
+        + getRpg() double
+        + getApg() double
+        + getBpg() double
+        + getSpg() double
+        + getMpg() String
+        + getFgp() double
+        + getFtp() double
+        + getFg3p() double
+        + toString() String
     }
 
 %% Sort/Filter logic
@@ -636,9 +660,6 @@ classDiagram
     class Fg3pDescending {
         + compare(Player o1, Player o2) int
     }
-
-
-
 
 
 
