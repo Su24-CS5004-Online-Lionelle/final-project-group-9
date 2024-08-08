@@ -2,7 +2,6 @@ package Model.SortFilter;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
-import java.util.TreeSet;
 import java.util.stream.Collectors;
 import Model.Player;
 
