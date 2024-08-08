@@ -173,42 +173,42 @@ classDiagram
     PlayerSort --> ColumnData: Uses
     Filters --> Operations: Uses
     JFrameView --> Background: Uses
-    PlayerSortStrategy --> FirstNameAscending: uses
-    PlayerSortStrategy --> FirstNameDescending: uses
-    PlayerSortStrategy --> LastNameAscending: uses
-    PlayerSortStrategy --> LastNameDescending: uses
-    PlayerSortStrategy --> PositionAscending: uses
-    PlayerSortStrategy --> PositionDescending: uses
-    PlayerSortStrategy --> HeightAscending: uses
-    PlayerSortStrategy --> HeightDescending: uses
-    PlayerSortStrategy --> DraftYearAscending: uses
-    PlayerSortStrategy --> DraftYearDescending: uses
-    PlayerSortStrategy --> DraftRoundAscending: uses
-    PlayerSortStrategy --> DraftRoundDescending: uses
-    PlayerSortStrategy --> DraftPickAscending: uses
-    PlayerSortStrategy --> DraftPickDescending: uses
-    PlayerSortStrategy --> TeamAscending: uses
-    PlayerSortStrategy --> TeamDescending: uses
-    PlayerSortStrategy --> ConferenceAscending: uses
-    PlayerSortStrategy --> ConferenceDescending: uses
-    PlayerSortStrategy --> PpgAscending: uses
-    PlayerSortStrategy --> PpgDescending: uses
-    PlayerSortStrategy --> RpgAscending: uses
-    PlayerSortStrategy --> RpgDescending: uses
-    PlayerSortStrategy --> ApgAscending: uses
-    PlayerSortStrategy --> ApgDescending: uses
-    PlayerSortStrategy --> BpgAscending: uses
-    PlayerSortStrategy --> BpgDescending: uses
-    PlayerSortStrategy --> SpgAscending: uses
-    PlayerSortStrategy --> SpgDescending: uses
-    PlayerSortStrategy --> MpgAscending: uses
-    PlayerSortStrategy --> MpgDescending: uses
-    PlayerSortStrategy --> FgpAscending: uses
-    PlayerSortStrategy --> FgpDescending: uses
-    PlayerSortStrategy --> FtpAscending: uses
-    PlayerSortStrategy --> FtpDescending: uses
-    PlayerSortStrategy --> Fg3pAscending: uses
-    PlayerSortStrategy --> Fg3pDescending: uses
+    PlayerSortStrategy --> FirstNameAscending: Has a
+    PlayerSortStrategy --> FirstNameDescending: Has a
+    PlayerSortStrategy --> LastNameAscending: Has a
+    PlayerSortStrategy --> LastNameDescending: Has a
+    PlayerSortStrategy --> PositionAscending: Has a
+    PlayerSortStrategy --> PositionDescending: Has a
+    PlayerSortStrategy --> HeightAscending: Has a
+    PlayerSortStrategy --> HeightDescending: Has a
+    PlayerSortStrategy --> DraftYearAscending: Has a
+    PlayerSortStrategy --> DraftYearDescending: Has a
+    PlayerSortStrategy --> DraftRoundAscending: Has a
+    PlayerSortStrategy --> DraftRoundDescending: Has a
+    PlayerSortStrategy --> DraftPickAscending: Has a
+    PlayerSortStrategy --> DraftPickDescending: Has a
+    PlayerSortStrategy --> TeamAscending: Has a
+    PlayerSortStrategy --> TeamDescending: Has a
+    PlayerSortStrategy --> ConferenceAscending: Has a
+    PlayerSortStrategy --> ConferenceDescending: Has a
+    PlayerSortStrategy --> PpgAscending: Has a
+    PlayerSortStrategy --> PpgDescending: Has a
+    PlayerSortStrategy --> RpgAscending: Has a
+    PlayerSortStrategy --> RpgDescending: Has a
+    PlayerSortStrategy --> ApgAscending: Has a
+    PlayerSortStrategy --> ApgDescending: Has a
+    PlayerSortStrategy --> BpgAscending: Has a
+    PlayerSortStrategy --> BpgDescending: Has a
+    PlayerSortStrategy --> SpgAscending: Has a
+    PlayerSortStrategy --> SpgDescending: Has a
+    PlayerSortStrategy --> MpgAscending: Has a
+    PlayerSortStrategy --> MpgDescending: Has a
+    PlayerSortStrategy --> FgpAscending: Has a
+    PlayerSortStrategy --> FgpDescending: Has a
+    PlayerSortStrategy --> FtpAscending: Has a
+    PlayerSortStrategy --> FtpDescending: Has a
+    PlayerSortStrategy --> Fg3pAscending: Has a
+    PlayerSortStrategy --> Fg3pDescending: Has a
 %% Driver for application
     class NBAStatDriver {
         - NBAStatDriver()
@@ -285,12 +285,9 @@ classDiagram
         # paintComponent(Graphics g)
     }
 
-%% Model Package
-%% Player Average record class
     class PlayerAverages {
         <<record>>
-        PlayerAverages(double pts, double ast, double turnover, double pf, double reb, double stl, double blk,
-        double fg_pct, double fg3_pct, double ft_pct, String min, double games_played, int player_id)
+        PlayerAverages(double pts, double ast, double turnover, double pf, double reb, double stl, double blk, double fg_pct, double fg3_pct, double ft_pct, String min, double games_players, int player_id)
     }
 
 %% Player background record class
@@ -387,7 +384,7 @@ classDiagram
         - threePointPercentage: Double
     }
 
-%%Sort/Filter logic
+%% Sort/Filter logic
 %% Enum for player attributes/categories
     class ColumnData {
         <<enumeration>>
@@ -450,6 +447,7 @@ classDiagram
         + sortPlayers(Set~Player~ players, String sortType) Set~Player~
         + sortPlayers(Set~Player~ players, String sortType, boolean direction) Set~Player~
     }
+
 
 %% Responsible for sorting and comparators
     class PlayerSortStrategy {
@@ -638,4 +636,11 @@ classDiagram
     class Fg3pDescending {
         + compare(Player o1, Player o2) int
     }
+
+
+
+
+
+
+
 ```
