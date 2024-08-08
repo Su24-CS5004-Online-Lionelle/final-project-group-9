@@ -1,82 +1,167 @@
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import Model.Player;
 
+/**
+ * The type Test player.
+ */
 class TestPlayer {
 
+  private Player player;
+
+  /**
+   * Sets up player object makes sure that all values have correct string, double or int.
+   */
   @BeforeEach
   void setUp() {
+    // Initialize the Player object for Stephen Curry
+    player = new Player("Stephen", "Curry", "G", "6-2", 2009, 1, 7,
+            "Golden State Warriors", "West", 26.373, 4.44, 5.093, 0.387, 0.747, "35.5", 45.0, 92.4, 40.8);
   }
 
+  /**
+   * Test first name.
+   */
   @Test
-  void getName() {
+  void testFirstName() {
+    assertEquals("Stephen", player.getFirstName());
   }
 
+  /**
+   * Test last name.
+   */
   @Test
-  void getAge() {
+  void testLastName() {
+    assertEquals("Curry", player.getLastName());
   }
 
+  /**
+   * Test position.
+   */
   @Test
-  void getPosition() {
+  void testPosition() {
+    assertEquals("G", player.getPosition());
   }
 
+  /**
+   * Test height.
+   */
   @Test
-  void getHeight() {
+  void testHeight() {
+    assertEquals("6-2", player.getHeight());
   }
 
+  /**
+   * Test draft year.
+   */
   @Test
-  void getDraftYear() {
+  void testDraftYear() {
+    assertEquals(2009, player.getDraftYear());
   }
 
+  /**
+   * Test draft round.
+   */
   @Test
-  void getDraftRound() {
+  void testDraftRound() {
+    assertEquals(1, player.getDraftRound());
   }
 
+  /**
+   * Test draft pick.
+   */
   @Test
-  void getDraftPick() {
+  void testDraftPick() {
+    assertEquals(7, player.getDraftPick());
   }
 
+  /**
+   * Test team.
+   */
   @Test
-  void getTeam() {
+  void testTeam() {
+    assertEquals("Golden State Warriors", player.getTeam());
   }
 
+  /**
+   * Test conference.
+   */
   @Test
-  void getConference() {
+  void testConference() {
+    assertEquals("West", player.getConference());
   }
 
+  /**
+   * Test ppg.
+   */
   @Test
-  void getPpg() {
+  void testPpg() {
+    assertEquals(26.373, player.getPpg());
   }
 
+  /**
+   * Test rpg.
+   */
   @Test
-  void getApg() {
+  void testRpg() {
+    assertEquals(4.44, player.getRpg());
   }
 
+  /**
+   * Test apg.
+   */
   @Test
-  void getBpg() {
+  void testApg() {
+    assertEquals(5.093, player.getApg());
   }
 
+  /**
+   * Test bpg.
+   */
   @Test
-  void getSpg() {
+  void testBpg() {
+    assertEquals(0.387, player.getBpg());
   }
 
+  /**
+   * Test spg.
+   */
   @Test
-  void getMpg() {
+  void testSpg() {
+    assertEquals(0.747, player.getSpg());
   }
 
+  /**
+   * Test mpg.
+   */
   @Test
-  void getFgp() {
+  void testMpg() {
+      assertEquals("35.5", player.getMpg());
+    }
+
+
+  /**
+   * Test fgp.
+   */
+  @Test
+  void testFgp() {
+    assertEquals(45.0, player.getFgp());
   }
 
+  /**
+   * Test ftp.
+   */
   @Test
-  void getFtp() {
+  void testFtp() {
+    assertEquals(92.4, player.getFtp());
   }
 
+  /**
+   * Test fg 3 p.
+   */
   @Test
-  void getFg3p() {
-  }
-
-  @Test
-  void testToString() {
+  void testFg3p() {
+    assertEquals(40.8, player.getFg3p());
   }
 }
