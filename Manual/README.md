@@ -37,10 +37,10 @@ The NBA Stat Tracker shows you all current active NBA Players in the league and 
 <img src="Manual_Screenshots/img7.png" alt="GitHub Logo" width="375">
 
 ## Operators
-- You can also use operators to help refine your search. Operators that you can choose from include: <br>
+- An operator MUST precede your desired search criteria. 
+- Operators that you can choose from include: <br>
   == (Equals) <br> ~= (Contains) <br> != (Not equals) <br> < (Less than) <br> <= (Less than or equals to) <br> >= (more than or equals to) <br> > (more than)
 
-- An important thing to note, if you wanted to search for players by their names, you would also have to use the operators.
 - For example, if I wanted to look for players who have the first name 'John', I would enter '==John' into the text field and select 'First name' in the filter drop down menu. The search should produce something like this.
 
 <img src="Manual_Screenshots/img10.png" alt="GitHub Logo" width="375">
@@ -62,6 +62,11 @@ The NBA Stat Tracker shows you all current active NBA Players in the league and 
 - These buttons allow you to start making your very own roster by adding or removing players.
 
 <img src="Manual_Screenshots/img12.png" alt="GitHub Logo" width="375">
+
+- There are 3 ways that you can add/remove players from a roster.
+- 1. A single digit indicating the index of the player (E.g. '1').
+- 2. A range indicating multiple players. If I want to add the first five players to my roster, the range would be '1-5'.
+- 3. Player's full name (E.g. 'LeBron James').
 
 ## Show Current Roster
 - This button displays the current roster of players you have added thus far.
