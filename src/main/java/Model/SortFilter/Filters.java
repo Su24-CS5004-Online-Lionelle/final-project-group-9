@@ -9,6 +9,9 @@ import static java.lang.Double.parseDouble;
  */
 public final class Filters {
 
+  /**
+   * Constant value for zero.
+   */
   private static final int ZERO_INT = 0;
 
   /**
@@ -22,8 +25,10 @@ public final class Filters {
    * Generates boolean determining whether value passed and current player satisfies operation.
    *
    * @param player Player object being compared
-   * @param val String
-   * @return
+   * @param type ColumnData enum type representing player attribute
+   * @param op Operation enum for filter instruction
+   * @param val String being compared
+   * @return boolean asserting wheter comparison is true or false
    */
   public static boolean getFilter(Player player, ColumnData type, Operations op,
                                   String val) {
@@ -78,8 +83,10 @@ public final class Filters {
 
   /**
    * Compares string values passed on operations passed.
-   *
-   * @return
+   * @param name String value of attribute
+   * @param op Operation enum
+   * @param value String being compared
+   * @return boolean assertion of comparison
    */
   private static boolean filterString(String name, Operations op,
                                       String value) {
@@ -107,12 +114,11 @@ public final class Filters {
   }
 
   /**
-   * Compares numbers.
-   *
-   * @param number
-   * @param op
-   * @param doubleValue
-   * @return
+   * Filters numerical values passed based on operations passed.
+   * @param number Double value of attribute
+   * @param op Operation enum
+   * @param doubleValue Double being compared
+   * @return boolean assertion of comparison
    */
   private static boolean filterNumericalValues(double number, Operations op,
                                                double doubleValue) {
@@ -135,9 +141,12 @@ public final class Filters {
   }
 
   /**
-   * Convert height string to double.
-   * Handles empty string and null strings
-   * @return boolean value
+   * Convert height string to inches as a double representaiton.
+   * Handles empty and null strings
+   * @param playerOne String height of player one
+   * @param playerTwo String height of player two
+   * @param op Operation enum for filter
+   * @return boolean value asserting comparison result
    */
     private static boolean convertHeightToDouble (String playerOne, Operations op, String playerTwo){
       // Convert height string to decimal
@@ -181,11 +190,12 @@ public final class Filters {
     }
 
     /**
-     * Compares int values passed on operations passed.
-     * @return
-     */
-    private static boolean convertInt(int number, Operations op, String value)
-    {
+     * Compares int values passed on operations passed by converting string to int.
+     * @param number int value of attribute
+     * @param op Operation enum
+     * @param value int being compared
+     * @return boolean assertion of comparison     */
+    private static boolean convertInt(int number, Operations op, String value) {
       // Convert String value to numeric
       int intValue;
 
@@ -201,11 +211,11 @@ public final class Filters {
     }
 
     /**
-     * Compares double values.
-     * @param number
-     * @param op
-     * @param value
-     * @return
+     * Compares double values passed on operations passed by converting string to doubles.
+     * @param number double value of attribute
+     * @param op Operation enum
+     * @param value double being compared
+     * @return boolean assertion of comparison
      */
     private static boolean convertDouble(double number, Operations op, String value) {
       double doubleValue;

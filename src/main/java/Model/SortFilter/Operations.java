@@ -1,7 +1,7 @@
 package Model.SortFilter;
 
 /**
- * Enum class for Operations used to filter board games.
+ * Enum class for Operations used to filter players.
  */
 public enum Operations {
   /** Equals Operation enum. */

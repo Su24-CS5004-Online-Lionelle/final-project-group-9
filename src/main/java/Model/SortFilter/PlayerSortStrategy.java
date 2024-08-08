@@ -5,9 +5,10 @@ import java.util.Comparator;
 import Model.Player;
 
 /**
- * PlayerSortStrategy holds comparator that storts each attribute in ascending or descending order.
+ * PlayerSortStrategy holds customized comparator that sorts each attribute in ascending or descending order.
  */
 public class PlayerSortStrategy {
+  private static final int ZERO_INT = 0;
 
   /**
    * Private constructor.
@@ -16,10 +17,22 @@ public class PlayerSortStrategy {
 
   }
 
+
+  /**
+   * Sorting comparator method for each attribute.
+   * @param sortType column data enum of player attribute
+   * @return player comparator
+   */
   public static Comparator<Player> getSort(ColumnData sortType) {
     return getSort(sortType, true);
   }
 
+  /**
+   * Sorting comparator method for each attribute.
+   * @param sortType column data enum of player attribute
+   * @param direction boolean direction of ascending or descending order
+   * @return player comparator
+   */
   public static Comparator<Player> getSort(ColumnData sortType,
                                            boolean direction) {
     switch (sortType) {
@@ -28,7 +41,7 @@ public class PlayerSortStrategy {
       case LAST_NAME:
         return direction ? new LastNameAscending() : new LastNameDescending();
         case POSITION:
-          return new PositionAscending();
+          return direction? new PositionAscending() : new PositionDescending();
         case HEIGHT:
           return direction ? new HeightAscending() : new HeightDescending();
         case DRAFTYEAR:
@@ -151,12 +164,11 @@ public class PlayerSortStrategy {
      */
     @Override
     public int compare(Player o1, Player o2) {
-      return o1.getHeight().compareToIgnoreCase(o2.getHeight());
+      return getHeightInInches(o1) - getHeightInInches(o2);
     }
   }
 
   public static class HeightDescending implements Comparator<Player> {
-
     /**
      * Compares its two arguments for order.  Returns a negative integer,
      * zero, or a positive integer as the first argument is less than, equal
@@ -164,9 +176,36 @@ public class PlayerSortStrategy {
      */
     @Override
     public int compare(Player o1, Player o2) {
-      return o2.getHeight().compareToIgnoreCase(o1.getHeight());
+      return getHeightInInches(o2) - getHeightInInches(o1);
     }
   }
+
+  /**
+   * Converts height string from player.getHeight() to inches as an int
+   * @param player object
+   * @return integer of height as inches
+   */
+  private static int getHeightInInches(Player player) {
+    // Convert height string to decimal
+    String[] partsOne = player.getHeight().split("-");
+
+    int playerOneFeet = ZERO_INT;
+    if (!partsOne[0].isEmpty()) {
+      playerOneFeet = Integer.valueOf(partsOne[0]) * 12;
+    }
+    int playerOneInches = ZERO_INT;
+    if (!partsOne[1].isEmpty()) {
+      playerOneInches = (Integer.valueOf(partsOne[1]));
+    }
+
+    // Compare feet
+    try {
+      return playerOneFeet + playerOneInches;
+    } catch (IllegalArgumentException e){
+      throw new IllegalArgumentException("Height could not be converted to double.");
+    }
+  }
+
 
   public static class DraftYearAscending implements Comparator<Player> {
 
@@ -307,14 +346,7 @@ public class PlayerSortStrategy {
      */
     @Override
     public int compare(Player o1, Player o2) {
-
-      if (o1.getPpg() < o2.getPpg()) {
-        return -1;
-      }
-      if (o2.getPpg() > o2.getPpg()) {
-        return 1;
-      }
-      return 0;
+      return  Double.compare(o1.getPpg(), o2.getPpg());
   }
   }
 
@@ -327,7 +359,7 @@ public class PlayerSortStrategy {
      */
     @Override
     public int compare(Player o1, Player o2) {
-      return (int) (o2.getPpg() - (o1.getPpg()));
+      return Double.compare(o2.getPpg(), o1.getPpg());
     }
   }
 
@@ -340,7 +372,7 @@ public class PlayerSortStrategy {
      */
     @Override
     public int compare(Player o1, Player o2) {
-      return (int) (o1.getRpg() - (o2.getRpg()));
+      return Double.compare(o1.getRpg(), o2.getRpg());
     }
   }
 
@@ -353,7 +385,7 @@ public class PlayerSortStrategy {
      */
     @Override
     public int compare(Player o1, Player o2) {
-      return (int) (o2.getRpg() - (o1.getRpg()));
+      return Double.compare(o2.getRpg(), o1.getRpg());
     }
   }
 
@@ -366,7 +398,7 @@ public class PlayerSortStrategy {
      */
     @Override
     public int compare(Player o1, Player o2) {
-      return (int) (o1.getApg() - (o2.getApg()));
+      return Double.compare(o1.getApg(), o2.getApg());
     }
   }
 
@@ -379,7 +411,7 @@ public class PlayerSortStrategy {
      */
     @Override
     public int compare(Player o1, Player o2) {
-      return (int) (o2.getApg() - (o1.getApg()));
+      return Double.compare(o2.getApg(), o1.getApg());
     }
   }
 
@@ -392,7 +424,7 @@ public class PlayerSortStrategy {
      */
     @Override
     public int compare(Player o1, Player o2) {
-      return (int) (o1.getBpg() - (o2.getBpg()));
+      return  Double.compare(o1.getBpg(), o2.getBpg());
     }
   }
 
@@ -405,7 +437,7 @@ public class PlayerSortStrategy {
      */
     @Override
     public int compare(Player o1, Player o2) {
-      return (int) (o2.getBpg() - (o1.getBpg()));
+      return  Double.compare(o2.getBpg(), o1.getBpg());
     }
   }
 
@@ -418,7 +450,7 @@ public class PlayerSortStrategy {
      */
     @Override
     public int compare(Player o1, Player o2) {
-      return (int) (o1.getSpg() - (o2.getSpg()));
+      return  Double.compare(o1.getSpg(), o2.getSpg());
     }
   }
 
@@ -431,7 +463,7 @@ public class PlayerSortStrategy {
      */
     @Override
     public int compare(Player o1, Player o2) {
-      return (int) (o2.getSpg() - (o1.getSpg()));
+      return  Double.compare(o2.getSpg(), o1.getSpg());
     }
   }
 
@@ -470,7 +502,7 @@ public class PlayerSortStrategy {
      */
     @Override
     public int compare(Player o1, Player o2) {
-      return (int) (o1.getFgp() - (o2.getFgp()));
+      return Double.compare(o1.getFgp(), o2.getFgp());
     }
   }
 
@@ -483,7 +515,7 @@ public class PlayerSortStrategy {
      */
     @Override
     public int compare(Player o1, Player o2) {
-      return (int) (o2.getFgp() - (o1.getFgp()));
+      return Double.compare(o2.getFgp(), o1.getFgp());
     }
   }
 
@@ -496,7 +528,7 @@ public class PlayerSortStrategy {
      */
     @Override
     public int compare(Player o1, Player o2) {
-      return (int) (o1.getFtp() - (o2.getFtp()));
+      return Double.compare(o1.getFtp(), o2.getFtp());
     }
   }
 
@@ -509,7 +541,7 @@ public class PlayerSortStrategy {
      */
     @Override
     public int compare(Player o1, Player o2) {
-      return (int) (o2.getFtp() - (o1.getFtp()));
+      return Double.compare(o2.getFtp(), o1.getFtp());
     }
   }
 
@@ -522,7 +554,7 @@ public class PlayerSortStrategy {
      */
     @Override
     public int compare(Player o1, Player o2) {
-      return (int) (o1.getFg3p() - (o2.getFg3p()));
+      return Double.compare(o1.getFg3p(), o2.getFg3p());
     }
   }
 
@@ -535,7 +567,7 @@ public class PlayerSortStrategy {
      */
     @Override
     public int compare(Player o1, Player o2) {
-      return (int) (o2.getFg3p() - (o1.getFg3p()));
+      return Double.compare(o2.getFg3p(), o1.getFg3p());
     }
   }
   }

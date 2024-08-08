@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8638df7b-c104-4992-810d-6f3fbbcafc53" name="Changes" comment="Added treeset to constructor">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="8638df7b-c104-4992-810d-6f3fbbcafc53" name="Changes" comment="fix(Filter): updated contains logic for height (in filter)">
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/SortFilter/Filters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/SortFilter/Filters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/SortFilter/PlayerSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/SortFilter/PlayerSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/SortFilter/PlayerSortStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/SortFilter/PlayerSortStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestFilters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestFilters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestPlayerSortStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestPlayerSortStrategy.java" afterDir="false" />
     </list>
     <list id="0cbb37ad-43a2-4028-8b2f-926401180cbb" name="Changes by brandanyong" comment="" />
     <list id="33d288d3-5f12-4da7-bbe2-31f3dd1d2767" name="Changes by csaiy" comment="" />
@@ -85,7 +89,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Gradle.TestFilters.executor": "Run",
+    "Gradle.TestFilters.getFilterFirstNameEdgeCase.executor": "Run",
+    "Gradle.TestFilters.getFilterFirstNameHappyCase.executor": "Run",
     "Gradle.TestFilters.getFilterHeight.executor": "Run",
+    "Gradle.TestFilters.getFilterHeightEdgeCase.executor": "Run",
+    "Gradle.TestFilters.getFilterHeightHappyCase.executor": "Run",
+    "Gradle.TestFilters.getFilterLastNameEdgeCase.executor": "Run",
+    "Gradle.TestFilters.getFilterLastNameHappyCase.executor": "Run",
     "Gradle.TestFormat.DoesNotContainsValues.executor": "Run",
     "Gradle.TestModel.getRoster.executor": "Run",
     "Gradle.TestNetUtils.TestFetchAverages.executor": "Run",
@@ -93,6 +104,7 @@
     "Gradle.TestNetUtils.fetchAPlayers.executor": "Run",
     "Gradle.TestNetUtils.fetchPlayers (1).executor": "Run",
     "Gradle.TestNetUtils.fetchPlayers.executor": "Run",
+    "Gradle.TestPlayerSortStrategy.getSort.executor": "Run",
     "Gradle.final-project-group-9 [:NBAStatDriver.main()].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -112,7 +124,7 @@
       <recent name="$PROJECT_DIR$/src/test/java" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.NBAStatDriver">
+  <component name="RunManager" selected="Gradle.TestPlayerSortStrategy.getSort">
     <configuration name="NBAStatDriver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="NBAStatDriver" />
       <module name="final-project-group-9.main" />
@@ -120,7 +132,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestFilters.getFilterHeight" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TestFilters" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -133,7 +145,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;TestFilters.getFilterHeight&quot;" />
+            <option value="&quot;TestFilters&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -144,7 +156,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="TestModel.getRoster" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TestFilters.getFilterHeightEdgeCase" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -157,7 +169,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;TestModel.getRoster&quot;" />
+            <option value="&quot;TestFilters.getFilterHeightEdgeCase&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -168,7 +180,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="TestNetUtils.TestFetchAverages" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TestFilters.getFilterHeightHappyCase" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -181,7 +193,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;TestNetUtils.TestFetchAverages&quot;" />
+            <option value="&quot;TestFilters.getFilterHeightHappyCase&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -192,7 +204,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="TestNetUtils.fetchAPlayers" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TestPlayerSortStrategy.getSort" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -205,7 +217,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;TestNetUtils.fetchAPlayers&quot;" />
+            <option value="&quot;TestPlayerSortStrategy.getSort&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -218,11 +230,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.TestNetUtils.TestFetchAverages" />
-        <item itemvalue="Gradle.TestNetUtils.fetchAPlayers" />
-        <item itemvalue="Gradle.TestModel.getRoster" />
-        <item itemvalue="Gradle.TestFilters.getFilterHeight" />
+        <item itemvalue="Gradle.TestPlayerSortStrategy.getSort" />
         <item itemvalue="Application.NBAStatDriver" />
+        <item itemvalue="Gradle.TestFilters" />
+        <item itemvalue="Gradle.TestFilters.getFilterHeightEdgeCase" />
+        <item itemvalue="Gradle.TestFilters.getFilterHeightHappyCase" />
       </list>
     </recent_temporary>
   </component>
@@ -447,7 +459,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723047484793</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="fix(sortfilter): add test for filter">
+      <option name="closed" value="true" />
+      <created>1723079069004</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1723079069004</updated>
+    </task>
+    <task id="LOCAL-00028" summary="fix(Filter): updated contains logic for height (in filter)">
+      <option name="closed" value="true" />
+      <created>1723082514875</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1723082514875</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -486,6 +514,19 @@
     <MESSAGE value="updated dataformatter csv" />
     <MESSAGE value="Refactored test files" />
     <MESSAGE value="Added treeset to constructor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added treeset to constructor" />
+    <MESSAGE value="fix(sortfilter): add test for filter" />
+    <MESSAGE value="fix(Filter): updated contains logic for height (in filter)" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(Filter): updated contains logic for height (in filter)" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Model/SortFilter/Filters.java</url>
+          <line>97</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

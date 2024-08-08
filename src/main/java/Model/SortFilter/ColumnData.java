@@ -1,19 +1,16 @@
 package Model.SortFilter;
 
 /**
- * Enum to represent the columns in the game data.
+ * Enum to represent the columns in the player data.
  *
- * This is to make it easier to access the column names
- * from the JSON file, without knowing
- * the names of the specific columns anywhere else in the program.
+ * Used to access and display player attribute data.
  *
- * Throughout your program, use ColumnData when parsing anything
+ * Used ColumnData when parsing anything
  * that is associated with column names (filter) and sorting.
  */
 public enum ColumnData {
   /**
    * Enums matching CODE(jsonname) pattern.
-   *
    * names are used for game uniqueness.
    */
   FIRST_NAME("First name"), LAST_NAME("Last name"),
@@ -23,13 +20,12 @@ public enum ColumnData {
   BPG("Blocks per game"), SPG("Steals per game"), MPG("Minutes per game"), FGP("Field goal percentage"),
   FTP("Free throw percentage"), FP3P("3 point percentage");
 
-  /** stores the original csv name in the enum. */
+  /** Stores the string representation of column data enums. */
   private final String columnName;
 
   /**
    * Constructor for the enum.
-   *
-   * @param columnName the name of the column in the CSV file.
+   * @param columnName name of player attributes.
    */
   ColumnData(String columnName) {
     this.columnName = columnName;
@@ -37,21 +33,21 @@ public enum ColumnData {
 
   /**
    * Getter for the column name.
-   * @return the name of the column in the CSV file.
+   * @return string representation of column data.
    */
   private String getColumnName() {
     return columnName;
   }
 
   /**
-   * Get the enum from the column name.
+   * Get the enum from the case-sensitive column name.
    *
-   * @param columnName the name of the column in the CSV file.
-   * @return the enum that matches the column name.
+   * @param columnName the name of the column
+   * @return enum that matches the column name.
    */
   public static ColumnData fromColumnName(String columnName) {
     for (ColumnData col : ColumnData.values()) {
-      if (col.getColumnName().equals(columnName)) {
+      if (col.getColumnName().trim().equals(columnName.trim())) {
         return col;
       }
     }
@@ -59,7 +55,7 @@ public enum ColumnData {
   }
 
   /**
-   * Get the enum from the enum name.
+   * Get the enum from case-insensitive string name.
    *
    * Can use the enum name or the column name. Useful for filters and sorts
    * as they can use both.
