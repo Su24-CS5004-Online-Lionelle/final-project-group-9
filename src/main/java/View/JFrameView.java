@@ -58,19 +58,6 @@ public class JFrameView extends JFrame implements IView {
         titlePanel.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.add(titlePanel);
 
-        // adding text prompt to enter search criteria
-        ImageBackgroundLabel backgroundPanel = new ImageBackgroundLabel("src/main/java/View/View_Images/hardwood.jpg");
-        backgroundPanel.setLayout(new BoxLayout(backgroundPanel, BoxLayout.X_AXIS));
-
-        prompt = new JLabel("Enter search criteria:");
-        prompt.setAlignmentX((JComponent.CENTER_ALIGNMENT));
-        prompt.setFont(new Font("Arial", Font.PLAIN, 18));
-
-        // Add the JLabel to the backgroundPanel
-        backgroundPanel.add(prompt);
-        backgroundPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        this.add(backgroundPanel);
-
         // sub-panel to hold JTextField and JComboBox
         Background searchPanel = new Background("src/main/java/View/View_Images/hardwood.jpg");
 
