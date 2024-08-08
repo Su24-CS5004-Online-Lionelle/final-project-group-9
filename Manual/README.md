@@ -63,10 +63,11 @@ The NBA Stat Tracker shows you all current active NBA Players in the league and 
 
 <img src="Manual_Screenshots/img12.png" alt="GitHub Logo" width="375">
 
-- There are 3 ways that you can add/remove players from a roster.
+- There are 4 ways that you can add/remove players from a roster.
 - 1. A single digit indicating the index of the player (E.g. '1').
 - 2. A range indicating multiple players. If I want to add the first five players to my roster, the range would be '1-5'.
 - 3. Player's full name (E.g. 'LeBron James').
+- 4. 'all' to add all players in the list.
 
 ## Show Current Roster
 - This button displays the current roster of players you have added thus far.
