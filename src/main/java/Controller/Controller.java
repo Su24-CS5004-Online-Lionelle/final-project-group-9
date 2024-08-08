@@ -31,6 +31,8 @@ public class Controller extends Component implements ActionListener {
   private IView view;
   private IModel model;
   private Set<Player> filterSortedSet;
+  private String testFilePath; // Added for testing
+  private JFileChooser fileChooser; // Added for testing
 
   /**
    * Constructor for the controller with the specified view and model.
@@ -42,6 +44,7 @@ public class Controller extends Component implements ActionListener {
     this.view = view;
     this.model = model;
     this.filterSortedSet = filterSortedSet;
+    this.fileChooser = new JFileChooser();
     view.setListeners(this); // Sets this controller as listener for the view
   }
 
@@ -333,6 +336,24 @@ public class Controller extends Component implements ActionListener {
   }
 
   /**
+   * Method to set file path for testing.
+   * 
+   * @param testFilePath  the test file path to set to
+   */
+  public void setTestFilePath(String testFilePath) {
+    this.testFilePath = testFilePath;
+  }
+
+  /**
+   * Method to set custom file chooser for testing.
+   * 
+   * @param fileChooser the file chooser to set to
+   */
+  public void setFileChooser(JFileChooser fileChooser) {
+    this.fileChooser = fileChooser;
+  }
+
+  /**
    * Gets the file extension from the specified file path.
    *
    * @param filePath the file path
@@ -362,6 +383,15 @@ public class Controller extends Component implements ActionListener {
   }
 
   /**
+   * Getter method for the model.
+   * 
+   * @return  the model
+   */
+  public IModel getModel() {
+    return this.model;
+  }
+
+  /**
    * Sets the model to the specified model.
    *
    * @param model the model to set
@@ -370,10 +400,20 @@ public class Controller extends Component implements ActionListener {
     this.model = model;
   }
 
+  /**
+   * Getter method for the filter sorted set.
+   * 
+   * @return the filter sorted set
+   */
   public Set<Player> getFilterSortedSet() {
     return this.filterSortedSet;
   }
 
+  /**
+   * Sets the filter sorted set to the specified filtered set
+   * 
+   * @param filteredSet the filtered set to set to
+   */
   public void setFilterSortedSet(Set<Player> filteredSet) {
     this.filterSortedSet = filteredSet;
   }
