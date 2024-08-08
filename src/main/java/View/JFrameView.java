@@ -260,6 +260,8 @@ public class JFrameView extends JFrame implements IView {
                 "\n" +
                 "- To search, use an operator (==, ~=, !=, <, <=, >=, >) followed by the string or numerical of the player attribute you would like to filter by. \n" +
                 "\n" +
+                "- For field goal, free throw and 3 point percentage, enter the numerical value as a decimal (e.g. 0.23 for 23%)\n" +
+                "\n" +
                 "- To save your personalized list, click 'Export Current Roster' to save file into a .json, .csv, or .xml file \n" +
                 "\n" +
                 " - To import your own database of players, click 'Load Roster' and select your own .json, .csv or .xml file.\n" +
