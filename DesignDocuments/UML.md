@@ -66,7 +66,6 @@ classDiagram
         + clearDisplay() : void
         + start() : void
         + getHelp() : String
-        
  }
  
     %% Model Package
@@ -150,12 +149,66 @@ classDiagram
     NBAStatDriver --> Controller: Uses
     NBAStatDriver --> IView: Uses
     NBAStatDriver --> IModel: Uses
-    View ..|> IView: Implements
+    JFrameView ..|> IView: Implements
+    Controller --> IModel: Uses
+    Controller --> IView: Uses
+    Controller --> ColumnData: Uses
+    Controller --> Format: Uses
     Model ..|> IModel: Implements
     Model --> Player: Uses
+    Model --> PlayerBean: Uses
     Model --> NetUtils: Uses
     Model --> DataFormatter: Uses
+    Model --> ColumnData: Uses
+    Model --> Operations: Uses
+    Model --> Filters: Uses
     DataFormatter --> Formats: Uses
+    DataFormatter --> PlayerXMLWrapper: Uses
+    PlayerBackground --> IModel: Is a internal record of
+    PlayerAverages --> IModel: Is a internal record of
+    Team --> IModel: Is a internal record of
+    Model --> PlayerSort: Uses
+    PlayerSort --> PlayerSortStrategy: Uses
+    PlayerSort --> Player: Uses
+    PlayerSort --> ColumnData: Uses
+    Filters --> Operations: Uses
+    JFrameView --> Background: Uses
+    PlayerSortStrategy --> FirstNameAscending: uses
+    PlayerSortStrategy --> FirstNameDescending: uses
+    PlayerSortStrategy --> LastNameAscending: uses
+    PlayerSortStrategy --> LastNameDescending: uses
+    PlayerSortStrategy --> PositionAscending: uses
+    PlayerSortStrategy --> PositionDescending: uses
+    PlayerSortStrategy --> HeightAscending: uses
+    PlayerSortStrategy --> HeightDescending: uses
+    PlayerSortStrategy --> DraftYearAscending: uses
+    PlayerSortStrategy --> DraftYearDescending: uses
+    PlayerSortStrategy --> DraftRoundAscending: uses
+    PlayerSortStrategy --> DraftRoundDescending: uses
+    PlayerSortStrategy --> DraftPickAscending: uses
+    PlayerSortStrategy --> DraftPickDescending: uses
+    PlayerSortStrategy --> TeamAscending: uses
+    PlayerSortStrategy --> TeamDescending: uses
+    PlayerSortStrategy --> ConferenceAscending: uses
+    PlayerSortStrategy --> ConferenceDescending: uses
+    PlayerSortStrategy --> PpgAscending: uses
+    PlayerSortStrategy --> PpgDescending: uses
+    PlayerSortStrategy --> RpgAscending: uses
+    PlayerSortStrategy --> RpgDescending: uses
+    PlayerSortStrategy --> ApgAscending: uses
+    PlayerSortStrategy --> ApgDescending: uses
+    PlayerSortStrategy --> BpgAscending: uses
+    PlayerSortStrategy --> BpgDescending: uses
+    PlayerSortStrategy --> SpgAscending: uses
+    PlayerSortStrategy --> SpgDescending: uses
+    PlayerSortStrategy --> MpgAscending: uses
+    PlayerSortStrategy --> MpgDescending: uses
+    PlayerSortStrategy --> FgpAscending: uses
+    PlayerSortStrategy --> FgpDescending: uses
+    PlayerSortStrategy --> FtpAscending: uses
+    PlayerSortStrategy --> FtpDescending: uses
+    PlayerSortStrategy --> Fg3pAscending: uses
+    PlayerSortStrategy --> Fg3pDescending: uses
 %% Driver for application
     class NBAStatDriver {
         - NBAStatDriver()
@@ -192,33 +245,44 @@ classDiagram
 
     class IView {
         <<interface>>
-        display(String text): void
-        setListeners(ActionListener clicks): void
-        getInputString(): String
-        clearInputField(): void
-        clearDisplay(): void
-        start(): void
+        display(String text) void
+        setListeners(ActionListener clicks) void
+        getInputString() String
+        getFilterChoice() ColumnData
+        getSortChoice() boolean
+        clearInputField() void
+        clearDisplay() void
+        getHelp() String
+        start() void
     }
 
-    class View {
-        - display: JLabel
-        - statDropDown: JComboBox~String~
-        - lookupButton: JButton
-        - listAllButton: JButton
-        - removeButton: JButton
-        - exportButton: JButton
-        - clearButton: JButton
-        - exitButton: JButton
-        - userInput: JTextField
-        - lowerTextArea: JTextArea
-        + View(String caption)
-        + setListeners(ActionListener clicks): void
+    class JFrameView {
+        - JLabel prompt
+        - JLabel title
+        - JTextField input
+        - JComboBox~String~ filterChoice
+        - JComboBox sortChoice
+        - List~String~ items
+        - List~String~ ~ sortOrder
+        - JButton searchButton
+        - JButton showListButton
+        - JButton loadButton
+        - JButton exportButton
+        - JButton clearButton
+        - JButton exitButton
+        - JButton addButton
+        - JButton removeButton
+        - JButton helpButton
+        - JTextArea lowerTextArea
+        + JFrameView(String caption)
+        - createImageLabel(String imagePath, int width, int height)
         + display(String text): void
-        + getInputString(): String
-        + clearInputField(): void
-        + clearDisplay(): void
-        + start(): void
-        + getHelp(): String
+    }
+
+    class Background {
+        - Image backgroundImage
+        + Background(String imagePath)
+        # paintComponent(Graphics g)
     }
 
 %% Model Package
@@ -393,6 +457,7 @@ classDiagram
         - PlayerSortStrategy()
         + getSort(ColumnData sortType) Comparator~Player~
         + getSort(ColumnData sortType, boolean direction) Comparator~Player~
+        - getHeightInInches(Player player) int
     }
 
 %% Pulls API data
@@ -430,5 +495,147 @@ classDiagram
         - CSV
         - PRETTY
         + containsValues(String value) Format
+    }
+
+    class FirstNameAscending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class FirstNameDescending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class LastNameAscending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class LastNameDescending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class PositionAscending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class PositionDescending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class HeightAscending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class HeightDescending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class DraftYearAscending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class DraftYearDescending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class DraftRoundAscending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class DraftRoundDescending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class DraftPickAscending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class DraftPickDescending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class TeamAscending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class TeamDescending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class ConferenceAscending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class ConferenceDescending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class PpgAscending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class PpgDescending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class RpgAscending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class RpgDescending {
+        + compare(Player o1, Player o2) int
+    }
+    class ApgAscending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class ApgDescending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class BpgAscending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class BpgDescending {
+        + compare(Player o1, Player o2) int
+    }
+    class SpgAscending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class SpgDescending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class MpgAscending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class MpgDescending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class FgpAscending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class FgpDescending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class FtpAscending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class FtpDescending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class Fg3pAscending {
+        + compare(Player o1, Player o2) int
+    }
+
+    class Fg3pDescending {
+        + compare(Player o1, Player o2) int
     }
 ```
