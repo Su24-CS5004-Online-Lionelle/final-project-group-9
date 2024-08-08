@@ -51,24 +51,24 @@ public class Player {
 
   /**
    * Overloaded constructor that takes in the player background and season averages information.
-   * @param first_name
-   * @param last_name
-   * @param position
-   * @param height
-   * @param draftYear
-   * @param draftRound
-   * @param draftPick
-   * @param team
-   * @param conference
-   * @param ppg
-   * @param rpg
-   * @param apg
-   * @param bpg
-   * @param spg
-   * @param mpg
-   * @param fgp
-   * @param ftp
-   * @param fg3p
+   * @param first_name - String: first name of Player object
+   * @param last_name - String: last name of Player object
+   * @param position - String: position that Player plays
+   * @param height - String: height of Player object
+   * @param draftYear - int: year that player was drafted
+   * @param draftRound - int: round that player was drafted
+   * @param draftPick - int: overall pick that player was selected in draft
+   * @param team - String: the team the player is currently on
+   * @param conference - String: the conference that the team of the player
+   * @param ppg - double: the average points per game of the player
+   * @param rpg - double: the average rebounds per game of the player
+   * @param apg - double: the average assists per game of the player
+   * @param bpg - double: the average blocks per game of the player
+   * @param spg - double: the average steals per game of the player
+   * @param mpg - String: the average minutes per game of the player
+   * @param fgp - double: the average field goal percentage per game of the player
+   * @param ftp - double: the average free throw percentage per game of the player
+   * @param fg3p - double: the average three point percentage per game of player
    */
   public Player(String first_name, String last_name, String position, String height, int draftYear, int draftRound, int draftPick,
                 String team, String conference, double ppg, double rpg, double apg, double bpg, double spg, String mpg, double fgp, double ftp, double fg3p) {

@@ -6,24 +6,24 @@ public class PlayerBean {
 
     /**
      * Overloaded PlayerBean constructor containing all data for the Player objects.
-     * @param firstName
-     * @param lastName
-     * @param position
-     * @param height
-     * @param draftYear
-     * @param draftRound
-     * @param draftPick
-     * @param team
-     * @param conference
-     * @param ppg
-     * @param rpg
-     * @param apg
-     * @param bpg
-     * @param spg
-     * @param mpg
-     * @param fgp
-     * @param ftp
-     * @param fg3p
+     * @param firstName - String: first name of Player object
+     * @param lastName - String: last name of Player object
+     * @param position - String: position that Player plays
+     * @param height - String: height of Player object
+     * @param draftYear - int: year that player was drafted
+     * @param draftRound - int: round that player was drafted
+     * @param draftPick - int: overall pick that player was selected in draft
+     * @param team - String: the team the player is currently on
+     * @param conference - String: the conference that the team of the player
+     * @param ppg - double: the average points per game of the player
+     * @param rpg - double: the average rebounds per game of the player
+     * @param apg - double: the average assists per game of the player
+     * @param bpg - double: the average blocks per game of the player
+     * @param spg - double: the average steals per game of the player
+     * @param mpg - String: the average minutes per game of the player
+     * @param fgp - double: the average field goal percentage per game of the player
+     * @param ftp - double: the average free throw percentage per game of the player
+     * @param fg3p - double: the average three point percentage per game of player
      */
     public PlayerBean(String firstName, String lastName, String position, String height, int draftYear, int draftRound,
                       int draftPick, String team, String conference, double ppg, double rpg, double apg, double
@@ -87,7 +87,7 @@ public class PlayerBean {
 
     /**
      * Gets player's first name.
-     * @return String
+     * @return String - player's first name
      */
     public String getFirstName() {
         return firstName;
@@ -95,7 +95,7 @@ public class PlayerBean {
 
     /**
      * Gets player's position.
-     * @return String
+     * @return String - player's position
      */
     public String getPosition() {
         return position;
@@ -103,7 +103,7 @@ public class PlayerBean {
 
     /**
      * Gets player's height.
-     * @return String
+     * @return String - player's height
      */
     public String getHeight() {
         return height;
@@ -111,7 +111,7 @@ public class PlayerBean {
 
     /**
      * Gets player's draft year.
-     * @return int
+     * @return int - player's draft year
      */
     public int getDraftYear() {
         return draftYear;
@@ -119,7 +119,7 @@ public class PlayerBean {
 
     /**
      * Gets player's draft round.
-     * @return int
+     * @return int - player's draft round
      */
     public int getDraftRound() {
         return draftRound;
