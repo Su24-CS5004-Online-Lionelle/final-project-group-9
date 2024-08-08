@@ -119,7 +119,6 @@ public class Controller extends Component implements ActionListener {
    * @param selectedSort  the sorting order chosen by the user
    */
   private void addMethod(String inputString, ColumnData selectedFilter, boolean selectedSort) {
-//    Set<Player> filteredPlayers = model.filterSortNBARoster(inputString, selectedFilter, selectedSort);
     model.buildRoster(getFilterSortedSet(), inputString);
     view.clearInputField();
     view.display("Players successfully added!");

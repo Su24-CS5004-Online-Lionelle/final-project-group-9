@@ -125,7 +125,7 @@ public class Model implements IModel {
     /**
      * Gets a set of Player objects.
      *
-     * @return the list of players.
+     * @return - the set of player objects constructed by user
      */
     @Override
     public Set<Player> getRoster() {
@@ -135,7 +135,7 @@ public class Model implements IModel {
     /**
      * Gets the set containing all current NBA players.
      *
-     * @return Set containing Player objects.
+     * @return - the master database of all current NBA players.
      */
     @Override
     public Set<Player> getAllPlayers() {
@@ -216,7 +216,7 @@ public class Model implements IModel {
     /**
      * Creates the master database for all filtering, sorting, adding, and removing.
      *
-     * @Return a set of player objects.
+     * @Return The master database of all current NBA players.
      */
     @Override
     public Set<Player> createNBARoster() {
@@ -303,13 +303,6 @@ public class Model implements IModel {
      * >16.9
      *
      * would filter the Players to only players that average greater than 16.9 on the selected ColumnData in GUI.
-     *
-     *
-     * it is possible to filter on the same data multiple times. For example:
-     *
-     * >2.1,<=11.6
-     *
-     * This would filter the players to those only who average greater than 2.1, and less than or equal to 11.6.
      *
      * Spaces are ignored, can be added for readability. For example:
      *
@@ -475,7 +468,7 @@ public class Model implements IModel {
      * Removes players from user's roster. Built to handle names, indexes/index ranges, and keyword "all".
      *
      * NOTE: if keyword "all" is given, roster will be emptied.
-     * @param nameOrRange
+     * @param nameOrRange - a string that contains either a name, index, or index range
      */
     @Override
     public void removeFromRoster(String nameOrRange) {
@@ -539,7 +532,7 @@ public class Model implements IModel {
      * Creates a player object from 2 records, and saves it to the NBA Database.
      * @param background - the player background record.
      * @param seasonAverages - the player season averages record.
-     * @return Player object.
+     * @return Player - the player object created with the records passed in
      */
     @Override
     public Player createPlayer(PlayerBackground background,
