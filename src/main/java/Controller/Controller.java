@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
 import java.util.Set;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import Model.Format.DataFormatter;
 import Model.Format.Format;
@@ -116,6 +118,10 @@ public class Controller extends Component implements ActionListener {
   private void addMethod(String inputString, ColumnData selectedFilter, boolean selectedSort) {
 //    Set<Player> filteredPlayers = model.filterSortNBARoster(inputString, selectedFilter, selectedSort);
     model.buildRoster(getFilterSortedSet(), inputString);
+    view.clearInputField();
+    view.display("Players successfully added!");
+
+    timer();
   }
 
   /**
@@ -125,6 +131,10 @@ public class Controller extends Component implements ActionListener {
    */
   private void removeMethod(String inputString) {
     model.removeFromRoster(inputString);
+    view.clearInputField();
+    view.display("Players successfully removed!");
+
+    timer();
   }
 
   /**
@@ -147,8 +157,8 @@ public class Controller extends Component implements ActionListener {
     fileChooser.setDialogTitle("Export List");
 
     // Add file filters for the different formats
-    fileChooser.setFileFilter(new FileNameExtensionFilter("XML (*.xml)", "xml"));
-    fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("JSON (*.json)", "json"));
+    fileChooser.setFileFilter(new FileNameExtensionFilter("JSON (*.json)", "json"));
+    fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("XML (*.xml)", "xml"));
     fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("CSV (*.csv)", "csv"));
 
     int userSelection = fileChooser.showSaveDialog(this);
@@ -170,6 +180,7 @@ public class Controller extends Component implements ActionListener {
           DataFormatter.write(model.getRoster(), format, os);
           view.clearDisplay();
           view.display("Exported to " + file.getAbsolutePath());
+          timer();
         }
       }
     }
@@ -202,6 +213,7 @@ public class Controller extends Component implements ActionListener {
       setModel(newModel);
 
       view.display("Loaded roster from " + filePath);
+      timer();
     }
   }
 
@@ -333,6 +345,20 @@ public class Controller extends Component implements ActionListener {
       return "";
     }
     return filePath.substring(lastIndexOfDot + 1).toLowerCase();
+  }
+
+  /**
+   * Helper method to help clear display after 2 seconds.
+   */
+  private void timer() {
+    Timer timer = new Timer();
+
+    timer.schedule(new TimerTask() {
+      @Override
+      public void run() {
+        view.clearDisplay();
+      }
+    }, 2000);
   }
 
   /**
