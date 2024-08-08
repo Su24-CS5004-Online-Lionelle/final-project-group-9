@@ -39,11 +39,8 @@ public static Set<Player> sortPlayers(Set<Player> players, String sortType) {
     // Convert lowercase and trimmed string sortType to playersData
     ColumnData type = ColumnData.fromString(sortType.toLowerCase().trim());
 
-    Set<Player> sorted =
-        players.stream().sorted(PlayerSortStrategy.getSort(type, direction))
-            .collect(
-        Collectors.toCollection(LinkedHashSet::new));
+    return players.stream().sorted(PlayerSortStrategy.getSort(type, direction))
+        .collect(Collectors.toCollection(LinkedHashSet::new));
 
-    return sorted;
   }
 }
