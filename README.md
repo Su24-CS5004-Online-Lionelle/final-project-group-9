@@ -1,6 +1,7 @@
 # Final Project for CS 5004 - (NBA Stat Tracker/Group 9)
 
 Github Repo Link: https://github.com/Su24-CS5004-Online-Lionelle/final-project-group-9
+Demonstration Slideshow: https://docs.google.com/presentation/d/1ZZ5RmoUXEBkCwbdfO8Aw48QoWixYxnyMJQ0_WnqSO4Q/edit?usp=sharing
 
 This readme should contain the following information: 
 
